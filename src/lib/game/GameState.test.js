@@ -7,6 +7,10 @@ import {
   canInvest,
   recordSprintRolls,
   advanceSprint,
+  progressInvestment,
+  applyMeasureBenefits,
+  applyTDModifiers,
+  canRerollTD,
 } from "./GameState.js";
 
 describe("GameState", () => {
@@ -152,6 +156,103 @@ describe("GameState", () => {
 
       const newState = advanceSprint(state);
       expect(newState.currentSprint).toBe(10);
+    });
+  });
+
+  describe("investment lifecycle", () => {
+    it("should progress investment each sprint", () => {
+      let state = createInitialState();
+      state = startInvestment(state, "reducedComplexity"); // cost 2, duration 3
+
+      expect(state.investmentProgress).toBe(0);
+
+      state = progressInvestment(state);
+      expect(state.investmentProgress).toBe(1);
+
+      state = progressInvestment(state);
+      expect(state.investmentProgress).toBe(2);
+    });
+
+    it("should complete investment after duration", () => {
+      let state = createInitialState();
+      state = startInvestment(state, "continuousIntegration"); // cost 1, duration 2
+
+      state = progressInvestment(state);
+      expect(state.currentInvestment).toBe("continuousIntegration");
+
+      state = progressInvestment(state);
+      expect(state.currentInvestment).toBeNull();
+      expect(state.completedMeasures).toContain("continuousIntegration");
+      expect(state.activeMeasures).toContain("continuousIntegration");
+    });
+
+    it("should return invested dice after completion", () => {
+      let state = createInitialState();
+      expect(state.nvDice).toBe(8);
+
+      state = startInvestment(state, "reducedComplexity"); // cost 2
+      expect(state.nvDice).toBe(6);
+
+      // Complete investment
+      state = progressInvestment(state);
+      state = progressInvestment(state);
+      state = progressInvestment(state);
+
+      expect(state.nvDice).toBe(8); // Dice returned
+    });
+
+    it("should apply moveDice benefit correctly", () => {
+      let state = createInitialState();
+      expect(state.nvDice).toBe(8);
+      expect(state.tdDice).toBe(4);
+
+      state = startInvestment(state, "reducedComplexity"); // moves 2 dice
+      state = progressInvestment(state);
+      state = progressInvestment(state);
+      state = progressInvestment(state);
+
+      state = applyMeasureBenefits(state);
+
+      expect(state.nvDice).toBe(10); // 8 + 2
+      expect(state.tdDice).toBe(2); // 4 - 2
+    });
+  });
+
+  describe("TD modifiers from measures", () => {
+    it("should allow TD reroll when continuous integration active", () => {
+      let state = createInitialState();
+      state.activeMeasures = ["continuousIntegration"];
+
+      expect(canRerollTD(state)).toBe(true);
+    });
+
+    it("should not allow reroll without continuous integration", () => {
+      const state = createInitialState();
+      expect(canRerollTD(state)).toBe(false);
+    });
+
+    it("should subtract from TD total with increased test coverage", () => {
+      let state = createInitialState();
+      state.activeMeasures = ["increasedTestCoverage"];
+
+      const tdTotal = 20;
+      const modified = applyTDModifiers(state, tdTotal);
+
+      expect(modified).toBe(17); // 20 - 3
+    });
+
+    it("should not go below 0 when subtracting", () => {
+      let state = createInitialState();
+      state.activeMeasures = ["increasedTestCoverage"];
+
+      const modified = applyTDModifiers(state, 2);
+      expect(modified).toBe(0); // max(0, 2 - 3)
+    });
+
+    it("should not modify TD total without measures", () => {
+      const state = createInitialState();
+      const modified = applyTDModifiers(state, 20);
+      expect(modified).toBe(20);
     });
   });
 });
