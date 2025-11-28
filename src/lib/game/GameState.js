@@ -3,6 +3,8 @@ const INITIAL_NV_DICE = 8;
 const INITIAL_TD_DICE = 4;
 const TOTAL_DICE = 12;
 
+import { getMeasure } from "./TDMeasures.js";
+
 /**
  * Create a sprint data object
  * @param {number} sprintNumber
@@ -68,8 +70,6 @@ export function getSprint(state, sprintNumber) {
   return state.sprints[sprintNumber - 1];
 }
 
-import { getMeasure } from "./TDMeasures.js";
-
 /**
  * Check if can invest in a measure
  * @param {object} state
@@ -102,6 +102,10 @@ export function startInvestment(state, measureId) {
   }
 
   const measure = getMeasure(measureId);
+  if (!measure) {
+    console.warn(`Invalid measure ID: ${measureId}`);
+    return state;
+  }
 
   return {
     ...state,

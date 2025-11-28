@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   createInitialState,
   getCurrentSprint,
+  getSprint,
   startInvestment,
   canInvest,
   recordSprintRolls,
@@ -48,6 +49,12 @@ describe("GameState", () => {
 
       expect(sprint.number).toBe(1);
       expect(sprint.nvDiceCount).toBe(8);
+    });
+
+    it('should get specific sprint by number', () => {
+      const state = createInitialState();
+      const sprint5 = getSprint(state, 5);
+      expect(sprint5.number).toBe(5);
     });
   });
 
