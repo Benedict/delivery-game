@@ -3,7 +3,10 @@ import { describe, it, expect } from 'vitest';
 import {
   calculateFeatureDelivery,
   calculateBugProbability,
-  applyFeatureOutcome
+  applyFeatureOutcome,
+  calculateImprovementOutcome,
+  applyImprovementOutcome,
+  IMPROVEMENTS
 } from './BusinessRules.js';
 
 describe('BusinessRules - Feature Delivery', () => {
@@ -76,5 +79,54 @@ describe('BusinessRules - Feature Delivery', () => {
 
     expect(newMetrics.satisfaction).toBeLessThan(70); // Bugs reduce satisfaction
     expect(newMetrics.businessValue).toBe(140); // Still get value but...
+  });
+});
+
+describe('BusinessRules - Improvements', () => {
+  it('should define improvement options', () => {
+    expect(IMPROVEMENTS.fixBugs).toBeDefined();
+    expect(IMPROVEMENTS.fixBugs.name).toBe('Fix Critical Bugs');
+    expect(IMPROVEMENTS.fixBugs.weeks).toBe(1);
+    expect(IMPROVEMENTS.fixBugs.codeHealthDelta).toBe(10);
+  });
+
+  it('should calculate improvement outcome', () => {
+    const improvement = IMPROVEMENTS.refactorPayment;
+    const result = calculateImprovementOutcome(improvement, 100);
+
+    expect(result.weeksRequired).toBe(3);
+    expect(result.codeHealthDelta).toBe(30);
+    expect(result.capacityDelta).toBe(0); // No permanent capacity change
+    expect(result.capacityPenalty).toBe(-15); // But reduced during work
+  });
+
+  it('should apply improvement outcome to metrics', () => {
+    const metrics = {
+      capacity: 100,
+      codeHealth: 40,
+      satisfaction: 60,
+      marketPosition: 50,
+      businessValue: 200
+    };
+
+    const outcome = {
+      weeksRequired: 1,
+      codeHealthDelta: 10,
+      capacityDelta: 0,
+      satisfactionDelta: 5
+    };
+
+    const newMetrics = applyImprovementOutcome(metrics, outcome);
+
+    expect(newMetrics.codeHealth).toBe(50);
+    expect(newMetrics.satisfaction).toBe(65);
+  });
+
+  it('should handle hiring which increases permanent capacity', () => {
+    const improvement = IMPROVEMENTS.hireSenior;
+    const result = calculateImprovementOutcome(improvement, 100);
+
+    expect(result.capacityDelta).toBe(20); // Permanent +20 capacity
+    expect(result.businessValueCost).toBeGreaterThan(0); // Costs business value
   });
 });

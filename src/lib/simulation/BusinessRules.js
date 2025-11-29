@@ -67,3 +67,87 @@ export function applyFeatureOutcome(metrics, outcome) {
     ))
   };
 }
+
+/**
+ * Available improvements
+ */
+export const IMPROVEMENTS = {
+  fixBugs: {
+    id: 'fixBugs',
+    name: 'Fix Critical Bugs',
+    description: 'Stabilize the codebase by fixing high-priority bugs',
+    weeks: 1,
+    codeHealthDelta: 10,
+    satisfactionDelta: 5,
+    capacityDelta: 0,
+    capacityPenalty: 0
+  },
+  codeReviews: {
+    id: 'codeReviews',
+    name: 'Implement Code Reviews',
+    description: 'Establish code review process to improve quality',
+    weeks: 2,
+    codeHealthDelta: 15,
+    satisfactionDelta: 0,
+    capacityDelta: 0,
+    capacityPenalty: -10,
+    ongoingBonus: 'reduceFeatureImpact' // Features degrade health less
+  },
+  refactorPayment: {
+    id: 'refactorPayment',
+    name: 'Refactor Payment Module',
+    description: 'Major refactoring of critical payment system',
+    weeks: 3,
+    codeHealthDelta: 30,
+    satisfactionDelta: 0,
+    capacityDelta: 0,
+    capacityPenalty: -15
+  },
+  hireSenior: {
+    id: 'hireSenior',
+    name: 'Hire Senior Engineer',
+    description: 'Bring on experienced engineer to boost capacity',
+    weeks: 2,
+    codeHealthDelta: 5,
+    satisfactionDelta: 0,
+    capacityDelta: 20, // Permanent capacity increase
+    capacityPenalty: -10, // Onboarding time
+    businessValueCost: 50 // Hiring costs
+  }
+};
+
+/**
+ * Calculate the outcome of an improvement investment
+ * @param {object} improvement - Improvement to invest in
+ * @param {number} currentCapacity - Current team capacity
+ * @returns {object} Improvement outcome
+ */
+export function calculateImprovementOutcome(improvement, currentCapacity) {
+  return {
+    weeksRequired: improvement.weeks,
+    codeHealthDelta: improvement.codeHealthDelta,
+    capacityDelta: improvement.capacityDelta || 0,
+    capacityPenalty: improvement.capacityPenalty || 0,
+    satisfactionDelta: improvement.satisfactionDelta || 0,
+    businessValueCost: improvement.businessValueCost || 0,
+    ongoingBonus: improvement.ongoingBonus || null
+  };
+}
+
+/**
+ * Apply improvement outcome to current metrics
+ * @param {object} metrics - Current metrics
+ * @param {object} outcome - Improvement outcome
+ * @returns {object} Updated metrics
+ */
+export function applyImprovementOutcome(metrics, outcome) {
+  return {
+    ...metrics,
+    codeHealth: Math.min(100, metrics.codeHealth + outcome.codeHealthDelta),
+    capacity: metrics.capacity + outcome.capacityDelta,
+    satisfaction: Math.max(-100, Math.min(100,
+      metrics.satisfaction + outcome.satisfactionDelta
+    )),
+    businessValue: metrics.businessValue - (outcome.businessValueCost || 0)
+  };
+}
