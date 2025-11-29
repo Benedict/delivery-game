@@ -7,6 +7,7 @@ import {
   rerollTDDice,
   completeSprint,
 } from "../game/GameController.js";
+import { createUncertainGame } from "../game/UncertainOutcomes.js";
 
 function createGameStore() {
   const { subscribe, set, update } = writable(createGame());
@@ -14,7 +15,16 @@ function createGameStore() {
   return {
     subscribe,
 
-    startNew: () => set(createGame()),
+    startNew: (useUncertainMode = false) => {
+      const game = createGame();
+      if (useUncertainMode) {
+        const uncertainData = createUncertainGame();
+        game.uncertainMode = true;
+        game.selectedCards = uncertainData.selectedCards;
+        game.revealedCards = [];
+      }
+      set(game);
+    },
 
     investInMeasure: (measureId) =>
       update((game) => investInMeasure(game, measureId)),
@@ -27,14 +37,24 @@ function createGameStore() {
 
     completeSprint: () => update((game) => completeSprint(game)),
 
-    reset: () => set(createGame()),
+    reset: (useUncertainMode = false) => {
+      const game = createGame();
+      if (useUncertainMode) {
+        const uncertainData = createUncertainGame();
+        game.uncertainMode = true;
+        game.selectedCards = uncertainData.selectedCards;
+        game.revealedCards = [];
+      }
+      set(game);
+    },
   };
 }
 
 export const gameStore = createGameStore();
 
-// Action helpers for easier imports
-export const startNewGame = () => gameStore.startNew();
+// Action helpers
+export const startNewGame = (useUncertainMode = false) =>
+  gameStore.startNew(useUncertainMode);
 export const investInMeasureAction = (measureId) =>
   gameStore.investInMeasure(measureId);
 export const rollNVDiceAction = () => gameStore.rollNVDice();

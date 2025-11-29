@@ -3,7 +3,11 @@
   import DiceDisplay from '../lib/components/DiceDisplay.svelte';
   import InvestmentPanel from '../lib/components/InvestmentPanel.svelte';
   import ScoreSheet from '../lib/components/ScoreSheet.svelte';
+  import GameSetup from '../lib/components/GameSetup.svelte';
   import { getCurrentSprint } from '../lib/game/GameState.js';
+
+  let showSetup = true;
+  let uncertainMode = false;
 
   $: game = $gameStore;
   $: state = game.state;
@@ -12,6 +16,12 @@
   $: hasRolledTD = currentSprint.tdRoll !== null;
   $: canComplete = hasRolledNV && hasRolledTD;
   $: isGameOver = state.currentSprint === 10 && state.sprints[9].netNewValue !== null;
+
+  function handleGameStart(event) {
+    uncertainMode = event.detail.uncertainMode;
+    gameStore.startNew(uncertainMode);
+    showSetup = false;
+  }
 
   function handleInvest(event) {
     gameStore.investInMeasure(event.detail);
@@ -32,7 +42,7 @@
   }
 
   function restartGame() {
-    gameStore.reset();
+    showSetup = true;
   }
 </script>
 
@@ -50,7 +60,9 @@
       </p>
     </header>
 
-    {#if isGameOver}
+    {#if showSetup}
+      <GameSetup on:start={handleGameStart} />
+    {:else if isGameOver}
       <div class="mb-6 p-6 bg-green-50 border-2 border-green-500 rounded-lg text-center">
         <h2 class="text-3xl font-bold text-green-800 mb-2">Game Complete!</h2>
         <p class="text-2xl mb-4">Final Score: <span class="font-bold">{state.sprints[9].cumulativeValue}</span></p>
@@ -134,10 +146,10 @@
           on:invest={handleInvest}
         />
       </div>
-    {/if}
 
-    <div class="mb-6">
-      <ScoreSheet sprints={state.sprints} currentSprint={state.currentSprint} />
-    </div>
+      <div class="mb-6">
+        <ScoreSheet sprints={state.sprints} currentSprint={state.currentSprint} />
+      </div>
+    {/if}
   </div>
 </div>
