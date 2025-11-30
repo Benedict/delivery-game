@@ -68,7 +68,14 @@
       {#each workInProgress as item}
         <div class="bg-white border-2 border-black p-4">
           <div class="flex justify-between items-center mb-3">
-            <h4 class="font-black text-black text-sm uppercase">{item.name}</h4>
+            <div class="flex items-center gap-2">
+              <h4 class="font-black text-black text-sm uppercase">{item.name}</h4>
+              {#if item.type === 'feature'}
+                <span class="text-xs font-black text-black bg-yellow-300 border-2 border-black px-2 py-1">
+                  £{item.value}K
+                </span>
+              {/if}
+            </div>
             <span class="text-xs font-black bg-violet-300 border-2 border-black px-2 py-1">
               {Math.round(getProgressPercent(item))}% EFFORT
             </span>
