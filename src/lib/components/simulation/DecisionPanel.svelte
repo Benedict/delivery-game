@@ -51,7 +51,7 @@
 
 <!-- WIP Section -->
 {#if workInProgress.length > 0}
-  <div class="bg-gradient-to-br from-violet-200 to-purple-200 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
+  <div class="bg-gradient-to-br from-violet-300 to-purple-400 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
     <h3 class="text-2xl font-black text-black mb-5 uppercase">⚙️ Work in Progress</h3>
     <div class="space-y-4">
       {#each workInProgress as item}
@@ -120,7 +120,7 @@
           <p class="text-black text-center py-6 text-xs font-black bg-gray-200 border-2 border-black uppercase">No features available</p>
         {:else}
           {#each opportunities as opportunity}
-            <div class="border-2 border-black p-4 bg-gradient-to-br from-sky-100 to-cyan-100 hover:from-sky-200 hover:to-cyan-200 transition-colors">
+            <div class="border-2 border-black p-4 bg-gradient-to-br from-sky-300 to-cyan-400 hover:from-sky-400 hover:to-cyan-500 transition-colors">
               <div class="flex justify-between items-start mb-3">
                 <div class="flex-1">
                   <h5 class="font-black text-black mb-1 text-sm leading-tight">{opportunity.name}</h5>
@@ -154,7 +154,7 @@
 
       <div class="space-y-3">
         {#each Object.values(IMPROVEMENTS) as improvement}
-          <div class="border-2 border-black p-4 bg-gradient-to-br from-emerald-100 to-teal-100 hover:from-emerald-200 hover:to-teal-200 transition-colors">
+          <div class="border-2 border-black p-4 bg-gradient-to-br from-emerald-300 to-teal-400 hover:from-emerald-400 hover:to-teal-500 transition-colors">
             <div class="mb-3">
               <h5 class="font-black text-black mb-1 text-sm leading-tight">{improvement.name}</h5>
               <p class="text-xs text-black font-black leading-tight">{improvement.description}</p>
