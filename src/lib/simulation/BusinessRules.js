@@ -20,7 +20,11 @@ export function calculateFeatureDelivery(feature, capacity, codeHealth) {
   const healthPenalty = codeHealth < 50 ? (50 - codeHealth) * 0.01 : 0;
   const deliveryEfficiency = Math.max(0.5, 1 - healthPenalty);
 
-  const valueDelivered = Math.round(baseValue * effectiveCapacity * deliveryEfficiency);
+  // Market variability: features might not hit their target value
+  // Random factor between 0.8 and 1.2 (±20% variability)
+  const marketVariability = 0.8 + (Math.random() * 0.4);
+
+  const valueDelivered = Math.round(baseValue * effectiveCapacity * deliveryEfficiency * marketVariability);
   const hasBugs = Math.random() < calculateBugProbability(codeHealth);
   const weeksRequired = 1; // Simplified: all features take 1 week
 
