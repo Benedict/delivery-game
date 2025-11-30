@@ -107,12 +107,11 @@
   <div class="max-w-5xl mx-auto">
     <header class="mb-8 text-center">
       <h1 class="text-6xl font-black text-black mb-4 uppercase tracking-tighter leading-none">Business Simulation</h1>
-      <p class="text-xl font-black text-black bg-amber-200 border-2 border-black inline-block px-6 py-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
+      <p class="text-xl font-black text-black bg-amber-200 border-2 border-black inline-block px-6 py-3 uppercase leading-tight">Learn how technical debt affects business outcomes</p>
     </header>
 
     {#if gameState === 'intro'}
       <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto text-center">
-        <div class="text-7xl mb-6">🎮</div>
         <h2 class="text-4xl font-black text-black mb-6 leading-tight">Welcome to the Business Simulation</h2>
         <p class="text-lg font-bold text-gray-700 mb-4 leading-relaxed">
           You're about to take on the role of a technical leader. Your decisions will shape the future of your team and business.
@@ -121,7 +120,7 @@
           Balance feature delivery with code quality. Every choice has consequences. Can you succeed without letting technical debt sink you?
         </p>
         <button
-          class="px-10 py-4 mt-2 bg-violet-600 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
+          class="px-10 py-4 mt-2 bg-gradient-to-r from-violet-500 to-purple-500 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:from-violet-600 hover:to-purple-600 transition-colors font-black text-xl uppercase"
           on:click={startGame}
         >
           Begin Your Journey
@@ -135,7 +134,7 @@
         <div class="space-y-5">
           {#each Object.values(SCENARIOS) as scenario}
             <div
-              class="p-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow cursor-pointer"
+              class="p-6 bg-gradient-to-br from-amber-100 to-yellow-100 border-2 border-black hover:from-amber-200 hover:to-yellow-200 transition-colors cursor-pointer"
               on:click={() => selectScenario(scenario.id)}
               on:keydown={(e) => e.key === 'Enter' && selectScenario(scenario.id)}
               role="button"
@@ -186,13 +185,13 @@
 
         <div class="flex justify-center gap-4">
           <button
-            class="px-6 py-3 bg-gray-200 text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow font-black"
+            class="px-6 py-3 bg-gray-300 text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-400 transition-colors font-black"
             on:click={() => gameState = 'scenarioSelect'}
           >
             ← Back
           </button>
           <button
-            class="px-8 py-3 bg-violet-600 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow font-black text-lg"
+            class="px-8 py-3 bg-gradient-to-r from-violet-500 to-purple-500 text-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:from-violet-600 hover:to-purple-600 transition-colors font-black text-lg"
             on:click={beginGame}
           >
             Start Game →
@@ -229,7 +228,7 @@
         {/if}
 
         <button
-          class="px-8 py-4 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-2xl uppercase"
+          class="px-8 py-4 bg-gradient-to-r from-violet-500 to-purple-500 text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:from-violet-600 hover:to-purple-600 transition-colors font-black text-2xl uppercase"
           on:click={restartGame}
         >
           Play Again
@@ -237,6 +236,15 @@
       </div>
 
     {:else if gameState === 'playing' && game}
+      <div class="flex justify-end mb-4 max-w-5xl mx-auto">
+        <button
+          class="text-sm font-black text-black bg-red-300 border-2 border-black px-4 py-2 hover:bg-red-400 transition-colors uppercase"
+          on:click={restartGame}
+        >
+          Restart Game
+        </button>
+      </div>
+
       <GameHeader
         week={game.week}
         metrics={game.metrics}
@@ -244,7 +252,7 @@
       />
 
       {#if recentStory}
-        <div class="bg-violet-100 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-8 max-w-5xl mx-auto">
+        <div class="bg-gradient-to-br from-violet-200 to-purple-200 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-8 max-w-5xl mx-auto">
           <h3 class="text-2xl font-black text-black mb-5 uppercase">📖 Story</h3>
           <div class="prose max-w-none text-black font-bold whitespace-pre-line bg-white border-2 border-black p-4">
             {recentStory}
@@ -264,15 +272,6 @@
         on:allocateCapacity={handleAllocateCapacity}
         on:endWeek={handleEndWeek}
       />
-
-      <div class="mt-6 text-center">
-        <button
-          class="text-sm font-black text-black bg-red-300 border-2 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all uppercase"
-          on:click={restartGame}
-        >
-          Restart Game
-        </button>
-      </div>
     {/if}
   </div>
 </div>

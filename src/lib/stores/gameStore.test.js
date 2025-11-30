@@ -4,9 +4,10 @@ import { get } from 'svelte/store';
 import {
   gameStore,
   startNewGame,
-  deliverFeature,
-  investInImprovement,
-  advanceWeek
+  startFeature,
+  startImprovement,
+  allocateCapacity,
+  endWeek
 } from './gameStore.js';
 
 describe('GameStore', () => {
@@ -47,7 +48,17 @@ describe('GameStore', () => {
     const initialState = get(gameStore);
     const feature = initialState.opportunities[0];
 
-    deliverFeature(feature);
+    // Start the feature (adds to WIP)
+    startFeature(feature);
+
+    let state = get(gameStore);
+    expect(state.workInProgress.length).toBe(1);
+    expect(state.workInProgress[0].type).toBe('feature');
+
+    // Allocate capacity and complete it
+    const pointsNeeded = state.workInProgress[0].pointsNeeded;
+    allocateCapacity({ [state.workInProgress[0].id]: pointsNeeded });
+    endWeek();
 
     const newState = get(gameStore);
     expect(newState.metrics.businessValue).toBeGreaterThan(0);
@@ -58,7 +69,17 @@ describe('GameStore', () => {
   it('should invest in improvements', () => {
     const initialHealth = get(gameStore).metrics.codeHealth;
 
-    investInImprovement('fixBugs');
+    // Start the improvement (adds to WIP)
+    startImprovement('fixBugs');
+
+    let state = get(gameStore);
+    expect(state.workInProgress.length).toBe(1);
+    expect(state.workInProgress[0].type).toBe('improvement');
+
+    // Allocate capacity and complete it
+    const pointsNeeded = state.workInProgress[0].pointsNeeded;
+    allocateCapacity({ [state.workInProgress[0].id]: pointsNeeded });
+    endWeek();
 
     const newState = get(gameStore);
     expect(newState.metrics.codeHealth).toBeGreaterThan(initialHealth);
@@ -67,7 +88,7 @@ describe('GameStore', () => {
   });
 
   it('should advance week and generate new opportunities', () => {
-    advanceWeek();
+    endWeek();
 
     const state = get(gameStore);
     expect(state.week).toBe(2);
@@ -85,25 +106,29 @@ describe('GameStore', () => {
   it('should detect game over when victory achieved', () => {
     startNewGame('startup');
 
-    // Get current state and manually advance to near victory
+    // Get current state
     let state = get(gameStore);
 
-    // Simulate delivering enough value
-    state.metrics.businessValue = 499;
-    state.week = 14;
+    // Start and complete multiple features to build up business value
+    for (let i = 0; i < 10; i++) {
+      state = get(gameStore);
+      if (state.opportunities.length > 0 && state.metrics.businessValue < 500) {
+        const feature = state.opportunities[0];
+        startFeature(feature);
 
-    // Deliver one more feature to push over victory threshold
-    const feature = { ...state.opportunities[0], value: 50 };
-    deliverFeature(feature);
-
-    advanceWeek();
+        state = get(gameStore);
+        const pointsNeeded = state.workInProgress[0].pointsNeeded;
+        allocateCapacity({ [state.workInProgress[0].id]: pointsNeeded });
+        endWeek();
+      }
+    }
 
     const finalState = get(gameStore);
-    expect(finalState.week).toBeLessThanOrEqual(15);
 
-    // Check if we achieved victory (might not if we ran out of time)
-    if (finalState.metrics.businessValue >= 500) {
+    // Check if we achieved victory
+    if (finalState.metrics.businessValue >= 500 && finalState.week <= 15) {
       expect(finalState.victory).toBe(true);
+      expect(finalState.gameOver).toBe(true);
     }
   });
 });
