@@ -95,25 +95,25 @@
   <title>Business Simulation - Technical Debt Game</title>
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+<div class="min-h-screen bg-cyan-200 p-4">
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 text-center">
-      <h1 class="text-5xl font-bold text-gray-900 mb-2">Business Simulation</h1>
-      <p class="text-xl text-gray-700">Learn how technical debt affects business outcomes</p>
+      <h1 class="text-6xl font-black text-black mb-4 uppercase tracking-tight">Business Simulation</h1>
+      <p class="text-2xl font-black text-black bg-yellow-300 border-3 border-black inline-block px-6 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Learn how technical debt affects business outcomes</p>
     </header>
 
     {#if gameState === 'intro'}
-      <div class="bg-white rounded-lg shadow-xl p-12 max-w-3xl mx-auto text-center">
-        <div class="text-6xl mb-6">🎮</div>
-        <h2 class="text-4xl font-bold text-gray-800 mb-6">Welcome to the Business Simulation</h2>
-        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+      <div class="bg-pink-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto text-center">
+        <div class="text-8xl mb-6">🎮</div>
+        <h2 class="text-5xl font-black text-black mb-6 uppercase">Welcome to the Business Simulation</h2>
+        <p class="text-xl font-bold text-black mb-6 leading-relaxed">
           You're about to take on the role of a technical leader. Your decisions will shape the future of your team and business.
         </p>
-        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p class="text-xl font-bold text-black mb-8 leading-relaxed">
           Balance feature delivery with code quality. Every choice has consequences. Can you succeed without letting technical debt sink you?
         </p>
         <button
-          class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-xl shadow-lg"
+          class="px-8 py-4 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-2xl uppercase"
           on:click={startGame}
         >
           Begin Your Journey
@@ -121,35 +121,35 @@
       </div>
 
     {:else if gameState === 'scenarioSelect'}
-      <div class="bg-white rounded-lg shadow-xl p-8 max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Choose Your Scenario</h2>
+      <div class="bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-black text-black mb-8 text-center uppercase">Choose Your Scenario</h2>
 
-        <div class="space-y-4">
+        <div class="space-y-6">
           {#each Object.values(SCENARIOS) as scenario}
             <div
-              class="border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition cursor-pointer"
+              class="border-4 border-black p-6 bg-gradient-to-r from-purple-300 to-blue-300 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
               on:click={() => selectScenario(scenario.id)}
               on:keydown={(e) => e.key === 'Enter' && selectScenario(scenario.id)}
               role="button"
               tabindex="0"
             >
-              <h3 class="text-2xl font-bold text-gray-800 mb-2">{scenario.name}</h3>
-              <p class="text-gray-700 mb-3">{scenario.description}</p>
+              <h3 class="text-3xl font-black text-black mb-3 uppercase">{scenario.name}</h3>
+              <p class="text-lg font-bold text-black mb-4">{scenario.description}</p>
 
-              <div class="grid grid-cols-3 gap-3 text-sm text-gray-600 mb-3">
-                <div>
-                  <span class="font-semibold">Capacity:</span> {scenario.initialMetrics.capacity}
+              <div class="grid grid-cols-3 gap-3 text-sm mb-4">
+                <div class="bg-white border-2 border-black p-2">
+                  <span class="font-black text-black">Capacity:</span> <span class="font-bold">{scenario.initialMetrics.capacity}</span>
                 </div>
-                <div>
-                  <span class="font-semibold">Code Health:</span> {scenario.initialMetrics.codeHealth}
+                <div class="bg-white border-2 border-black p-2">
+                  <span class="font-black text-black">Code Health:</span> <span class="font-bold">{scenario.initialMetrics.codeHealth}</span>
                 </div>
-                <div>
-                  <span class="font-semibold">Satisfaction:</span> {scenario.initialMetrics.satisfaction}
+                <div class="bg-white border-2 border-black p-2">
+                  <span class="font-black text-black">Satisfaction:</span> <span class="font-bold">{scenario.initialMetrics.satisfaction}</span>
                 </div>
               </div>
 
-              <div class="bg-blue-50 rounded p-3">
-                <p class="text-sm font-semibold text-blue-900">🎯 {scenario.victoryConditions.description}</p>
+              <div class="bg-yellow-300 border-3 border-black p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                <p class="text-sm font-black text-black">🎯 {scenario.victoryConditions.description}</p>
               </div>
             </div>
           {/each}
@@ -158,33 +158,33 @@
 
     {:else if gameState === 'scenarioStory'}
       {@const scenario = getScenario(selectedScenario)}
-      <div class="bg-white rounded-lg shadow-xl p-12 max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">{scenario.name}</h2>
+      <div class="bg-orange-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-black text-black mb-8 uppercase">{scenario.name}</h2>
 
         <div class="mb-8">
-          <h3 class="text-xl font-semibold text-gray-700 mb-3">Your Situation</h3>
-          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+          <h3 class="text-2xl font-black text-black mb-4 uppercase">Your Situation</h3>
+          <p class="text-xl font-bold text-black leading-relaxed mb-6 bg-white border-3 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             {scenario.story.opening}
           </p>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
-            <p class="font-semibold text-yellow-900">⚡ Challenge: {scenario.story.challenge}</p>
+          <div class="bg-yellow-300 border-4 border-black p-4 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="font-black text-black">⚡ CHALLENGE: {scenario.story.challenge}</p>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <p class="font-semibold text-blue-900">🎯 Victory: {scenario.victoryConditions.description}</p>
+          <div class="bg-green-300 border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="font-black text-black">🎯 VICTORY: {scenario.victoryConditions.description}</p>
           </div>
         </div>
 
         <div class="flex justify-center gap-4">
           <button
-            class="px-6 py-3 bg-gray-400 text-white rounded-lg hover:bg-gray-500 font-semibold"
+            class="px-6 py-3 bg-gray-400 text-black border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase"
             on:click={() => gameState = 'scenarioSelect'}
           >
             ← Back to Scenarios
           </button>
           <button
-            class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-lg shadow-lg"
+            class="px-8 py-4 bg-black text-white border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
             on:click={beginGame}
           >
             Start Game →
@@ -193,27 +193,35 @@
       </div>
 
     {:else if gameState === 'gameOver' && game}
-      <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto text-center">
+      <div class="bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-12 max-w-2xl mx-auto text-center">
         {#if game.victory}
-          <div class="mb-6">
-            <div class="text-6xl mb-4">🎉</div>
-            <h2 class="text-4xl font-bold text-green-700 mb-4">Victory!</h2>
-            <p class="text-xl text-gray-700 mb-2">You achieved your goals!</p>
-            <p class="text-lg text-gray-600">Final Business Value: £{game.metrics.businessValue}K</p>
-            <p class="text-lg text-gray-600">Code Health: {game.metrics.codeHealth}</p>
+          <div class="mb-8">
+            <div class="text-8xl mb-6">🎉</div>
+            <h2 class="text-6xl font-black text-black mb-6 uppercase bg-green-300 border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">Victory!</h2>
+            <p class="text-2xl font-black text-black mb-4">You achieved your goals!</p>
+            <div class="bg-yellow-300 border-3 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <p class="text-xl font-black text-black">Final Business Value: £{game.metrics.businessValue}K</p>
+            </div>
+            <div class="bg-blue-300 border-3 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
+            </div>
           </div>
         {:else}
-          <div class="mb-6">
-            <div class="text-6xl mb-4">⏰</div>
-            <h2 class="text-4xl font-bold text-red-700 mb-4">Time's Up!</h2>
-            <p class="text-xl text-gray-700 mb-2">You didn't meet the victory conditions in time.</p>
-            <p class="text-lg text-gray-600">Final Business Value: £{game.metrics.businessValue}K (needed £{game.victoryConditions.businessValue}K)</p>
-            <p class="text-lg text-gray-600">Code Health: {game.metrics.codeHealth}</p>
+          <div class="mb-8">
+            <div class="text-8xl mb-6">⏰</div>
+            <h2 class="text-6xl font-black text-black mb-6 uppercase bg-red-300 border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">Time's Up!</h2>
+            <p class="text-2xl font-black text-black mb-4">You didn't meet the victory conditions in time.</p>
+            <div class="bg-yellow-300 border-3 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <p class="text-lg font-black text-black">Final Business Value: £{game.metrics.businessValue}K (needed £{game.victoryConditions.businessValue}K)</p>
+            </div>
+            <div class="bg-blue-300 border-3 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <p class="text-lg font-black text-black">Code Health: {game.metrics.codeHealth}</p>
+            </div>
           </div>
         {/if}
 
         <button
-          class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-lg"
+          class="px-8 py-4 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-2xl uppercase"
           on:click={restartGame}
         >
           Play Again
@@ -228,9 +236,9 @@
       />
 
       {#if recentStory}
-        <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-3">📖 Story</h3>
-          <div class="prose max-w-none text-gray-700 whitespace-pre-line">
+        <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 mb-6">
+          <h3 class="text-2xl font-black text-black mb-4 uppercase">📖 Story</h3>
+          <div class="prose max-w-none text-black font-bold whitespace-pre-line bg-white border-2 border-black p-4">
             {recentStory}
           </div>
         </div>
@@ -246,7 +254,7 @@
 
       <div class="mt-6 text-center">
         <button
-          class="text-sm text-gray-600 hover:text-gray-800 underline"
+          class="text-sm font-black text-black bg-red-300 border-2 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all uppercase"
           on:click={restartGame}
         >
           Restart Game
