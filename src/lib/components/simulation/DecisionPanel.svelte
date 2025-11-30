@@ -108,7 +108,7 @@
     <!-- Capacity Summary -->
     <div class="mt-4 bg-amber-300 border-2 border-black p-3 flex justify-between items-center">
       <span class="font-black text-sm uppercase">Weekly Capacity:</span>
-      <span class="font-black">{Math.round((allocatedPoints / weeklyCapacity) * 100)}% allocated ({allocatedPoints} / {weeklyCapacity})</span>
+      <span class="font-black">{Math.round((allocatedPoints / weeklyCapacity) * 100)}% allocated</span>
     </div>
   </div>
 {/if}
