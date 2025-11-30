@@ -77,7 +77,7 @@
               {/if}
             </div>
             <span class="text-xs font-black bg-violet-300 border-2 border-black px-2 py-1">
-              {Math.round(getProgressPercent(item))}% EFFORT
+              {Math.round(getProgressPercent(item))}% COMPLETE
             </span>
           </div>
 
@@ -88,7 +88,7 @@
 
           <!-- Capacity Slider -->
           <div class="flex items-center gap-2">
-            <label class="text-xs font-black uppercase">Allocate:</label>
+            <label class="text-xs font-black uppercase">Team Effort:</label>
             <input
               type="range"
               min="0"
@@ -97,8 +97,8 @@
               on:input={(e) => updateAllocation(item.id, parseInt(e.target.value))}
               class="flex-1"
             />
-            <span class="text-xs font-black bg-amber-300 border-2 border-black px-2 py-1 w-16 text-center">
-              {allocation[item.id] || 0}
+            <span class="text-xs font-black bg-amber-300 border-2 border-black px-2 py-1 w-20 text-center">
+              {Math.round(((allocation[item.id] || 0) / weeklyCapacity) * 100)}%
             </span>
           </div>
         </div>
