@@ -17,6 +17,11 @@
   $: allocatedPoints = Object.values(allocation).reduce((sum, points) => sum + points, 0);
   $: availablePoints = weeklyCapacity - allocatedPoints;
 
+  // Filter out improvements that are already in progress
+  $: availableImprovements = Object.values(IMPROVEMENTS).filter(improvement =>
+    !workInProgress.some(wip => wip.id === improvement.id)
+  );
+
   function startFeature(feature) {
     dispatch('startFeature', feature);
   }
@@ -153,7 +158,7 @@
       </h4>
 
       <div class="space-y-3">
-        {#each Object.values(IMPROVEMENTS) as improvement}
+        {#each availableImprovements as improvement}
           <div class="border-2 border-black p-4 bg-gradient-to-br from-emerald-300 to-teal-400 hover:from-emerald-400 hover:to-teal-500 transition-colors">
             <div class="mb-3">
               <h5 class="font-black text-black mb-1 text-sm leading-tight">{improvement.name}</h5>
