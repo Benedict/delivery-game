@@ -100,19 +100,19 @@
 </script>
 
 <svelte:head>
-  <title>Business Simulation - Technical Debt Game</title>
+  <title>The Delivery Game - Technical Debt Simulator</title>
 </svelte:head>
 
 <div class="min-h-screen bg-gradient-to-br from-sky-200 to-violet-300 p-6">
   <div class="max-w-5xl mx-auto">
     <header class="mb-8 text-center">
-      <h1 class="text-6xl font-black text-black mb-4 uppercase tracking-tighter leading-none">Business Simulation</h1>
+      <h1 class="text-6xl font-black text-black mb-4 uppercase tracking-tighter leading-none">The Delivery Game</h1>
       <p class="text-xl font-black text-black bg-amber-300 border-2 border-black inline-block px-6 py-3 uppercase leading-tight">Learn how technical debt affects business outcomes</p>
     </header>
 
     {#if gameState === 'intro'}
       <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl font-black text-black mb-6 leading-tight">Welcome to the Business Simulation</h2>
+        <h2 class="text-4xl font-black text-black mb-6 leading-tight">Welcome to The Delivery Game</h2>
         <p class="text-lg font-bold text-gray-700 mb-4 leading-relaxed">
           You're about to take on the role of a technical leader. Your decisions will shape the future of your team and business.
         </p>
