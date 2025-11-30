@@ -13,6 +13,10 @@
   const dispatch = createEventDispatcher();
 
   let allocation = { ...capacityAllocation };
+
+  // Update allocation when capacityAllocation prop changes (e.g., after endWeek)
+  $: allocation = { ...capacityAllocation };
+
   $: weeklyCapacity = calculateWeeklyCapacity(capacity, flowEfficiency);
   $: allocatedPoints = Object.values(allocation).reduce((sum, points) => sum + points, 0);
   $: availablePoints = weeklyCapacity - allocatedPoints;
@@ -37,7 +41,9 @@
   function handleEndWeek() {
     dispatch('allocateCapacity', allocation);
     dispatch('endWeek');
-    allocation = {};
+
+    // Scroll to top to see the new story
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function getComplexityColor(complexity) {

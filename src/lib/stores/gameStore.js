@@ -179,12 +179,20 @@ function createGameStore() {
           state.victoryConditions
         );
 
+        // Preserve allocations for items still in WIP
+        const preservedAllocations = {};
+        newWIP.forEach(item => {
+          if (state.capacityAllocation[item.id]) {
+            preservedAllocations[item.id] = state.capacityAllocation[item.id];
+          }
+        });
+
         return {
           ...state,
           week: newWeek,
           metrics: newMetrics,
           workInProgress: newWIP,
-          capacityAllocation: {}, // Reset allocation for next week
+          capacityAllocation: preservedAllocations,
           opportunities: newOpportunities,
           history: {
             events: [...state.history.events, ...triggeredEvents],
