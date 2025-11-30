@@ -51,7 +51,7 @@ export const EVENTS = {
     name: 'Security Incident',
     type: 'crisis',
     description: 'Critical security vulnerability discovered in production',
-    trigger: (metrics, history) => metrics.codeHealth < 0,
+    trigger: (metrics, history) => metrics.codeHealth < -50,
     outcome: {
       businessValueDelta: -100,
       satisfactionDelta: -40,

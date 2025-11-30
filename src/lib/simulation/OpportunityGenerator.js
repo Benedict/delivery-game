@@ -1,16 +1,16 @@
 // src/lib/simulation/OpportunityGenerator.js
 
 const FEATURE_TEMPLATES = [
-  { name: 'User Dashboard', value: 40, complexity: 'medium' },
-  { name: 'Payment Integration', value: 60, complexity: 'high' },
-  { name: 'Email Notifications', value: 30, complexity: 'low' },
-  { name: 'Search Functionality', value: 50, complexity: 'medium' },
-  { name: 'Mobile App', value: 80, complexity: 'high' },
-  { name: 'Analytics Dashboard', value: 45, complexity: 'medium' },
-  { name: 'Social Login', value: 35, complexity: 'low' },
-  { name: 'Export Features', value: 25, complexity: 'low' },
-  { name: 'API Integration', value: 55, complexity: 'medium' },
-  { name: 'Admin Panel', value: 50, complexity: 'medium' }
+  { name: 'User Dashboard', value: 60, complexity: 'medium' },
+  { name: 'Payment Integration', value: 90, complexity: 'high' },
+  { name: 'Email Notifications', value: 45, complexity: 'low' },
+  { name: 'Search Functionality', value: 70, complexity: 'medium' },
+  { name: 'Mobile App', value: 120, complexity: 'high' },
+  { name: 'Analytics Dashboard', value: 65, complexity: 'medium' },
+  { name: 'Social Login', value: 50, complexity: 'low' },
+  { name: 'Export Features', value: 40, complexity: 'low' },
+  { name: 'API Integration', value: 75, complexity: 'medium' },
+  { name: 'Admin Panel', value: 70, complexity: 'medium' }
 ];
 
 const STRATEGIC_OPPORTUNITIES = [
@@ -46,9 +46,11 @@ const STRATEGIC_OPPORTUNITIES = [
  * @param {string} scenario - Current scenario
  * @param {number} week - Current week
  * @param {object} metrics - Current metrics
+ * @param {array} completedFeatureNames - Names of features already delivered
+ * @param {array} wipFeatureNames - Names of features currently in progress
  * @returns {array} Generated opportunities
  */
-export function generateOpportunities(scenario, week, metrics) {
+export function generateOpportunities(scenario, week, metrics, completedFeatureNames = [], wipFeatureNames = []) {
   const scenarioConfig = {
     startup: { min: 3, max: 5, valueMultiplier: 1.2 },
     enterprise: { min: 1, max: 3, valueMultiplier: 0.8 },
@@ -56,6 +58,17 @@ export function generateOpportunities(scenario, week, metrics) {
   };
 
   const config = scenarioConfig[scenario] || scenarioConfig.greenfield;
+
+  // Filter out features that have already been completed or are in progress
+  const unavailableNames = [...completedFeatureNames, ...wipFeatureNames];
+  const availableTemplates = FEATURE_TEMPLATES.filter(
+    template => !unavailableNames.includes(template.name)
+  );
+
+  // If all features completed, return empty array
+  if (availableTemplates.length === 0) {
+    return [];
+  }
 
   // Market position affects opportunity quantity
   const marketBonus = metrics.marketPosition > 70 ? 1 : 0;
@@ -65,11 +78,11 @@ export function generateOpportunities(scenario, week, metrics) {
   const usedTemplates = new Set();
 
   for (let i = 0; i < count; i++) {
-    // Pick random template we haven't used
+    // Pick random template we haven't used this week
     let template;
     let attempts = 0;
     do {
-      template = FEATURE_TEMPLATES[Math.floor(Math.random() * FEATURE_TEMPLATES.length)];
+      template = availableTemplates[Math.floor(Math.random() * availableTemplates.length)];
       attempts++;
     } while (usedTemplates.has(template.name) && attempts < 20);
 

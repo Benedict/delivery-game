@@ -4,11 +4,13 @@
   import { generateFeatureStory, generateImprovementStory, generateEventStory } from '../../lib/simulation/StoryEngine.js';
   import GameHeader from '../../lib/components/simulation/GameHeader.svelte';
   import DecisionPanel from '../../lib/components/simulation/DecisionPanel.svelte';
+  import HelpModal from '../../lib/components/simulation/HelpModal.svelte';
 
   let gameState = 'intro'; // intro, scenarioSelect, scenarioStory, playing, gameOver
   let selectedScenario = null;
   let recentStory = '';
   let recentEvents = [];
+  let showHelp = false;
 
   $: game = $gameStore;
 
@@ -236,7 +238,13 @@
       </div>
 
     {:else if gameState === 'playing' && game}
-      <div class="flex justify-end mb-4 max-w-5xl mx-auto">
+      <div class="flex justify-between mb-4 max-w-5xl mx-auto">
+        <button
+          class="text-sm font-black text-black bg-blue-300 border-2 border-black px-4 py-2 hover:bg-blue-400 transition-colors uppercase"
+          on:click={() => showHelp = true}
+        >
+          ❓ Help
+        </button>
         <button
           class="text-sm font-black text-black bg-red-300 border-2 border-black px-4 py-2 hover:bg-red-400 transition-colors uppercase"
           on:click={restartGame}
@@ -275,3 +283,5 @@
     {/if}
   </div>
 </div>
+
+<HelpModal show={showHelp} on:close={() => showHelp = false} />

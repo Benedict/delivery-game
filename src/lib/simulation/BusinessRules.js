@@ -88,8 +88,8 @@ export const IMPROVEMENTS = {
   },
   codeReviews: {
     id: 'codeReviews',
-    name: 'Implement Code Reviews',
-    description: 'Establish code review process to improve quality',
+    name: 'Implement Pair Programming',
+    description: 'Establish pair programming practice to improve quality',
     weeks: 2,
     codeHealthDelta: 15,
     satisfactionDelta: 0,
@@ -117,6 +117,18 @@ export const IMPROVEMENTS = {
     capacityDelta: 20, // Permanent capacity increase
     capacityPenalty: -10, // Onboarding time
     businessValueCost: 50 // Hiring costs
+  },
+  securityFix: {
+    id: 'securityFix',
+    name: 'Emergency Security Fix',
+    description: 'All hands on deck to fix critical security vulnerability',
+    weeks: 2,
+    codeHealthDelta: 30,
+    satisfactionDelta: 10, // Restores some trust
+    capacityDelta: 0,
+    capacityPenalty: 0,
+    forced: true, // This is a forced improvement
+    minAllocation: 1.0 // Must allocate 100% of capacity
   }
 };
 

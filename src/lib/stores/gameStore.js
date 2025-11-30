@@ -21,7 +21,7 @@ function createGameStore() {
         scenario: scenarioId,
         week: 1,
         metrics,
-        opportunities: generateOpportunities(scenarioId, 1, metrics),
+        opportunities: generateOpportunities(scenarioId, 1, metrics, [], []),
         workInProgress: [], // Features/improvements being worked on
         capacityAllocation: {}, // { featureId: points }
         history: {
@@ -41,6 +41,10 @@ function createGameStore() {
     startFeature: (feature) => {
       update(state => {
         if (!state || state.gameOver) return state;
+
+        // Prevent starting new work if there's a forced fix
+        const hasForcedFix = state.workInProgress.some(item => item.forced);
+        if (hasForcedFix) return state;
 
         const pointsNeeded = getComplexityPoints(feature.complexity);
 
@@ -62,6 +66,10 @@ function createGameStore() {
     startImprovement: (improvementId) => {
       update(state => {
         if (!state || state.gameOver) return state;
+
+        // Prevent starting new work if there's a forced fix
+        const hasForcedFix = state.workInProgress.some(item => item.forced);
+        if (hasForcedFix) return state;
 
         const improvement = IMPROVEMENTS[improvementId];
         const pointsNeeded = improvement.weeks * 40; // Improvements take weeks * 40 points
@@ -155,15 +163,42 @@ function createGameStore() {
         const triggeredEvents = checkForEvents(newMetrics, state.history, newWeek);
         triggeredEvents.forEach(event => {
           newMetrics = applyEventOutcome(newMetrics, event);
+
+          // Handle forced fix events (like security incidents)
+          if (event.outcome.forcedFix) {
+            const securityFix = IMPROVEMENTS.securityFix;
+            const pointsNeeded = securityFix.weeks * 40;
+
+            // Add security fix to WIP
+            newWIP.push({
+              ...securityFix,
+              type: 'improvement',
+              pointsCompleted: 0,
+              pointsNeeded,
+              startedWeek: newWeek,
+              forced: true
+            });
+          }
         });
 
         newMetrics.flowEfficiency = calculateFlowEfficiency(newMetrics.codeHealth);
 
         // Check deadlines and generate new opportunities
         const { active, expired } = checkDeadlines(state.opportunities, newWeek);
+
+        // Extract completed feature names from history
+        const completedFeatureNames = [...state.history.decisions, ...newDecisions]
+          .filter(d => d.type === 'feature')
+          .map(d => d.feature.name);
+
+        // Extract WIP feature names
+        const wipFeatureNames = newWIP
+          .filter(item => item.type === 'feature')
+          .map(item => item.name);
+
         const newOpportunities = [
           ...active,
-          ...generateOpportunities(state.scenario, newWeek, newMetrics)
+          ...generateOpportunities(state.scenario, newWeek, newMetrics, completedFeatureNames, wipFeatureNames)
         ];
 
         // Record weekly metrics
@@ -181,8 +216,15 @@ function createGameStore() {
 
         // Preserve allocations for items still in WIP
         const preservedAllocations = {};
+        const hasForcedFix = newWIP.some(item => item.forced);
+
         newWIP.forEach(item => {
-          if (state.capacityAllocation[item.id]) {
+          if (item.forced) {
+            // Force 100% allocation to forced fixes
+            const weeklyCapacity = calculateWeeklyCapacity(newMetrics.capacity, newMetrics.flowEfficiency);
+            preservedAllocations[item.id] = weeklyCapacity;
+          } else if (!hasForcedFix && state.capacityAllocation[item.id]) {
+            // Only preserve other allocations if there's no forced fix
             preservedAllocations[item.id] = state.capacityAllocation[item.id];
           }
         });

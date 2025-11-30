@@ -13,17 +13,42 @@
   const dispatch = createEventDispatcher();
 
   let allocation = { ...capacityAllocation };
+  let prevCapacityAllocation = capacityAllocation;
 
-  // Update allocation when capacityAllocation prop changes (e.g., after endWeek)
-  $: allocation = { ...capacityAllocation };
+  // Update allocation when capacityAllocation prop actually changes (e.g., after endWeek)
+  // But preserve user's current slider values when just adding new WIP items
+  $: {
+    if (capacityAllocation !== prevCapacityAllocation) {
+      // Merge the new allocations with existing ones
+      allocation = { ...allocation, ...capacityAllocation };
+      prevCapacityAllocation = capacityAllocation;
+    }
+  }
+
+  // Clean up allocations for items no longer in WIP
+  $: {
+    const wipIds = new Set(workInProgress.map(item => item.id));
+    const cleanedAllocation = {};
+    Object.keys(allocation).forEach(id => {
+      if (wipIds.has(id)) {
+        cleanedAllocation[id] = allocation[id];
+      }
+    });
+    allocation = cleanedAllocation;
+  }
 
   $: weeklyCapacity = calculateWeeklyCapacity(capacity, flowEfficiency);
   $: allocatedPoints = Object.values(allocation).reduce((sum, points) => sum + points, 0);
   $: availablePoints = weeklyCapacity - allocatedPoints;
 
-  // Filter out improvements that are already in progress
+  // Check if there's a forced fix (like security incident)
+  $: hasForcedFix = workInProgress.some(item => item.forced);
+  $: forcedFixItem = workInProgress.find(item => item.forced);
+
+  // Filter out improvements that are already in progress or are forced-only (like security fix)
   $: availableImprovements = Object.values(IMPROVEMENTS).filter(improvement =>
-    !workInProgress.some(wip => wip.id === improvement.id)
+    !workInProgress.some(wip => wip.id === improvement.id) &&
+    !improvement.forced // Don't show forced improvements as selectable
   );
 
   function startFeature(feature) {
@@ -60,6 +85,19 @@
   }
 </script>
 
+<!-- Emergency Fix Warning -->
+{#if hasForcedFix}
+  <div class="bg-gradient-to-r from-red-400 to-orange-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="text-4xl">🚨</div>
+      <div>
+        <h3 class="text-2xl font-black text-black uppercase leading-tight">Emergency Mode</h3>
+        <p class="text-sm font-black text-black">All team capacity is dedicated to fixing the critical issue. No new work can be started.</p>
+      </div>
+    </div>
+  </div>
+{/if}
+
 <!-- WIP Section -->
 {#if workInProgress.length > 0}
   <div class="bg-gradient-to-br from-violet-300 to-purple-400 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
@@ -89,17 +127,27 @@
           <!-- Capacity Slider -->
           <div class="flex items-center gap-2">
             <label class="text-xs font-black uppercase">Team Effort:</label>
-            <input
-              type="range"
-              min="0"
-              max={availablePoints + (allocation[item.id] || 0)}
-              value={allocation[item.id] || 0}
-              on:input={(e) => updateAllocation(item.id, parseInt(e.target.value))}
-              class="flex-1"
-            />
-            <span class="text-xs font-black bg-amber-300 border-2 border-black px-2 py-1 w-20 text-center">
-              {Math.round(((allocation[item.id] || 0) / weeklyCapacity) * 100)}%
-            </span>
+            {#if item.forced}
+              <div class="flex-1 bg-red-300 border-2 border-black px-3 py-2 text-xs font-black uppercase text-center">
+                🔒 Locked at 100%
+              </div>
+              <span class="text-xs font-black bg-red-400 border-2 border-black px-2 py-1 w-20 text-center">
+                100%
+              </span>
+            {:else}
+              <input
+                type="range"
+                min="0"
+                max={availablePoints + (allocation[item.id] || 0)}
+                value={allocation[item.id] || 0}
+                on:input={(e) => updateAllocation(item.id, parseInt(e.target.value))}
+                class="flex-1"
+                disabled={hasForcedFix}
+              />
+              <span class="text-xs font-black bg-amber-300 border-2 border-black px-2 py-1 w-20 text-center">
+                {Math.round(((allocation[item.id] || 0) / weeklyCapacity) * 100)}%
+              </span>
+            {/if}
           </div>
         </div>
       {/each}
@@ -154,9 +202,10 @@
               </div>
               <button
                 on:click={() => startFeature(opportunity)}
-                class="w-full mt-2 px-3 py-2 bg-sky-400 text-white border-2 border-black hover:bg-sky-500 transition-colors text-xs font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                disabled={hasForcedFix}
+                class="w-full mt-2 px-3 py-2 bg-sky-400 text-white border-2 border-black hover:bg-sky-500 transition-colors text-xs font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                Start Feature
+                {hasForcedFix ? '🔒 Locked' : 'Start Feature'}
               </button>
             </div>
           {/each}
@@ -194,9 +243,10 @@
 
             <button
               on:click={() => startImprovement(improvement.id)}
-              class="w-full px-3 py-2 bg-emerald-400 text-white border-2 border-black hover:bg-emerald-500 transition-colors text-xs font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              disabled={hasForcedFix}
+              class="w-full px-3 py-2 bg-emerald-400 text-white border-2 border-black hover:bg-emerald-500 transition-colors text-xs font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Start Improvement
+              {hasForcedFix ? '🔒 Locked' : 'Start Improvement'}
             </button>
           </div>
         {/each}
