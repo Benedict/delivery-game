@@ -25,7 +25,7 @@
                           metrics.satisfaction > 30 ? 'text-yellow-600' : 'text-red-600';
 </script>
 
-<div class="bg-yellow-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 mb-5">
+<div class="bg-yellow-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 mb-5 max-w-5xl mx-auto">
   <div class="flex justify-between items-start mb-4">
     <div>
       <h2 class="text-3xl font-black text-black uppercase leading-none">Week {week}</h2>

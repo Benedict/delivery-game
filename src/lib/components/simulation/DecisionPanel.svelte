@@ -51,7 +51,7 @@
 
 <!-- WIP Section -->
 {#if workInProgress.length > 0}
-  <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 mb-5">
+  <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 mb-5 max-w-5xl mx-auto">
     <h3 class="text-2xl font-black text-black mb-3 uppercase">⚙️ Work in Progress</h3>
     <div class="space-y-3">
       {#each workInProgress as item}
@@ -96,7 +96,7 @@
 {/if}
 
 <!-- Decision Panel -->
-<div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5">
+<div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 max-w-5xl mx-auto">
   <div class="flex justify-between items-center mb-5">
     <h3 class="text-3xl font-black text-black uppercase">Make Your Decision</h3>
     <button

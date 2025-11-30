@@ -104,7 +104,7 @@
 </svelte:head>
 
 <div class="min-h-screen bg-cyan-200 p-6">
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <header class="mb-6 text-center">
       <h1 class="text-6xl font-black text-black mb-3 uppercase tracking-tighter leading-none">Business Simulation</h1>
       <p class="text-xl font-black text-black bg-yellow-300 border-2 border-black inline-block px-5 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
@@ -244,7 +244,7 @@
       />
 
       {#if recentStory}
-        <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 mb-6">
+        <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
           <h3 class="text-2xl font-black text-black mb-4 uppercase">📖 Story</h3>
           <div class="prose max-w-none text-black font-bold whitespace-pre-line bg-white border-2 border-black p-4">
             {recentStory}
