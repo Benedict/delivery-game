@@ -106,22 +106,22 @@
 <div class="min-h-screen bg-gradient-to-br from-sky-50 to-violet-50 p-6">
   <div class="max-w-5xl mx-auto">
     <header class="mb-8 text-center">
-      <h1 class="text-6xl font-black text-black mb-3 uppercase tracking-tighter leading-none">Business Simulation</h1>
-      <p class="text-xl font-black text-black bg-amber-200 border-2 border-black inline-block px-5 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
+      <h1 class="text-6xl font-black text-black mb-4 uppercase tracking-tighter leading-none">Business Simulation</h1>
+      <p class="text-xl font-black text-black bg-amber-200 border-2 border-black inline-block px-6 py-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
     </header>
 
     {#if gameState === 'intro'}
-      <div class="bg-gradient-to-br from-rose-100 to-pink-100 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto text-center">
-        <div class="text-7xl mb-5">🎮</div>
-        <h2 class="text-5xl font-black text-black mb-5 uppercase leading-tight">Welcome to the Business Simulation</h2>
-        <p class="text-lg font-black text-black mb-4 leading-tight">
+      <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto text-center">
+        <div class="text-7xl mb-6">🎮</div>
+        <h2 class="text-4xl font-black text-black mb-6 leading-tight">Welcome to the Business Simulation</h2>
+        <p class="text-lg font-bold text-gray-700 mb-4 leading-relaxed">
           You're about to take on the role of a technical leader. Your decisions will shape the future of your team and business.
         </p>
-        <p class="text-lg font-black text-black mb-6 leading-tight">
+        <p class="text-lg font-bold text-gray-700 mb-8 leading-relaxed">
           Balance feature delivery with code quality. Every choice has consequences. Can you succeed without letting technical debt sink you?
         </p>
         <button
-          class="px-8 py-3 bg-violet-600 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
+          class="px-10 py-4 mt-2 bg-violet-600 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
           on:click={startGame}
         >
           Begin Your Journey
@@ -129,35 +129,35 @@
       </div>
 
     {:else if gameState === 'scenarioSelect'}
-      <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-8 max-w-4xl mx-auto">
-        <h2 class="text-4xl font-black text-black mb-6 text-center uppercase leading-tight">Choose Your Scenario</h2>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-black text-black mb-8 text-center uppercase leading-tight">Choose Your Scenario</h2>
 
         <div class="space-y-5">
           {#each Object.values(SCENARIOS) as scenario}
             <div
-              class="border-2 border-black p-5 bg-gradient-to-r from-violet-100 to-sky-100 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
+              class="p-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow cursor-pointer"
               on:click={() => selectScenario(scenario.id)}
               on:keydown={(e) => e.key === 'Enter' && selectScenario(scenario.id)}
               role="button"
               tabindex="0"
             >
-              <h3 class="text-3xl font-black text-black mb-2 uppercase leading-tight">{scenario.name}</h3>
-              <p class="text-base font-black text-black mb-3 leading-tight">{scenario.description}</p>
+              <h3 class="text-2xl font-black text-black mb-3">{scenario.name}</h3>
+              <p class="text-base font-bold text-gray-700 mb-4 leading-relaxed">{scenario.description}</p>
 
-              <div class="grid grid-cols-3 gap-2 text-sm mb-3">
-                <div class="bg-white border-2 border-black p-2">
-                  <span class="font-black text-black uppercase text-xs">Capacity:</span> <span class="font-black">{scenario.initialMetrics.capacity}</span>
+              <div class="flex gap-4 text-sm mb-4">
+                <div>
+                  <span class="font-black text-gray-600 uppercase text-xs">Capacity:</span> <span class="font-black">{scenario.initialMetrics.capacity}</span>
                 </div>
-                <div class="bg-white border-2 border-black p-2">
-                  <span class="font-black text-black uppercase text-xs">Health:</span> <span class="font-black">{scenario.initialMetrics.codeHealth}</span>
+                <div>
+                  <span class="font-black text-gray-600 uppercase text-xs">Health:</span> <span class="font-black">{scenario.initialMetrics.codeHealth}</span>
                 </div>
-                <div class="bg-white border-2 border-black p-2">
-                  <span class="font-black text-black uppercase text-xs">Satisfaction:</span> <span class="font-black">{scenario.initialMetrics.satisfaction}</span>
+                <div>
+                  <span class="font-black text-gray-600 uppercase text-xs">Satisfaction:</span> <span class="font-black">{scenario.initialMetrics.satisfaction}</span>
                 </div>
               </div>
 
-              <div class="bg-yellow-300 border-2 border-black p-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <p class="text-sm font-black text-black uppercase leading-tight">🎯 {scenario.victoryConditions.description}</p>
+              <div class="bg-amber-100 border-l-4 border-black p-3">
+                <p class="text-sm font-black text-black">🎯 {scenario.victoryConditions.description}</p>
               </div>
             </div>
           {/each}
@@ -166,33 +166,33 @@
 
     {:else if gameState === 'scenarioStory'}
       {@const scenario = getScenario(selectedScenario)}
-      <div class="bg-gradient-to-br from-amber-100 to-orange-100 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto">
-        <h2 class="text-4xl font-black text-black mb-6 uppercase leading-tight">{scenario.name}</h2>
+      <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-black text-black mb-6 leading-tight">{scenario.name}</h2>
 
-        <div class="mb-6">
-          <h3 class="text-xl font-black text-black mb-3 uppercase">Your Situation</h3>
-          <p class="text-base font-black text-black leading-tight mb-4 bg-white border-2 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div class="mb-8">
+          <h3 class="text-xl font-black text-black mb-4">Your Situation</h3>
+          <p class="text-base font-bold text-gray-700 leading-relaxed mb-6">
             {scenario.story.opening}
           </p>
 
-          <div class="bg-yellow-300 border-4 border-black p-3 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p class="font-black text-black leading-tight uppercase text-sm">⚡ CHALLENGE: {scenario.story.challenge}</p>
+          <div class="bg-amber-100 border-l-4 border-black p-4 mb-4">
+            <p class="font-bold text-black leading-relaxed"><span class="font-black">⚡ Challenge:</span> {scenario.story.challenge}</p>
           </div>
 
-          <div class="bg-green-300 border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p class="font-black text-black leading-tight uppercase text-sm">🎯 VICTORY: {scenario.victoryConditions.description}</p>
+          <div class="bg-emerald-100 border-l-4 border-black p-4">
+            <p class="font-bold text-black leading-relaxed"><span class="font-black">🎯 Victory:</span> {scenario.victoryConditions.description}</p>
           </div>
         </div>
 
-        <div class="flex justify-center gap-3">
+        <div class="flex justify-center gap-4">
           <button
-            class="px-5 py-2 bg-gray-400 text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase text-sm"
+            class="px-6 py-3 bg-gray-200 text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow font-black"
             on:click={() => gameState = 'scenarioSelect'}
           >
             ← Back
           </button>
           <button
-            class="px-6 py-2 bg-black text-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-lg uppercase"
+            class="px-8 py-3 bg-violet-600 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow font-black text-lg"
             on:click={beginGame}
           >
             Start Game →
