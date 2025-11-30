@@ -119,7 +119,7 @@
             <div class="text-6xl mb-4">🎉</div>
             <h2 class="text-4xl font-bold text-green-700 mb-4">Victory!</h2>
             <p class="text-xl text-gray-700 mb-2">You achieved your goals!</p>
-            <p class="text-lg text-gray-600">Final Business Value: ${game.metrics.businessValue}K</p>
+            <p class="text-lg text-gray-600">Final Business Value: £{game.metrics.businessValue}K</p>
             <p class="text-lg text-gray-600">Code Health: {game.metrics.codeHealth}</p>
           </div>
         {:else}
@@ -127,7 +127,7 @@
             <div class="text-6xl mb-4">⏰</div>
             <h2 class="text-4xl font-bold text-red-700 mb-4">Time's Up!</h2>
             <p class="text-xl text-gray-700 mb-2">You didn't meet the victory conditions in time.</p>
-            <p class="text-lg text-gray-600">Final Business Value: ${game.metrics.businessValue}K (needed ${game.victoryConditions.businessValue}K)</p>
+            <p class="text-lg text-gray-600">Final Business Value: £{game.metrics.businessValue}K (needed £{game.victoryConditions.businessValue}K)</p>
             <p class="text-lg text-gray-600">Code Health: {game.metrics.codeHealth}</p>
           </div>
         {/if}

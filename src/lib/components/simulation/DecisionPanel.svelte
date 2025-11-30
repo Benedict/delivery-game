@@ -86,7 +86,7 @@
                     {opportunity.complexity}
                   </span>
                   <span class="text-xs text-gray-600">
-                    Value: ${opportunity.value}K
+                    Value: £{opportunity.value}K
                   </span>
                 </div>
               </div>
@@ -121,7 +121,7 @@
                   <span>💪 +{improvement.capacityDelta} capacity</span>
                 {/if}
                 {#if improvement.businessValueCost}
-                  <span class="text-red-600">💰 -${improvement.businessValueCost}K</span>
+                  <span class="text-red-600">💰 -£{improvement.businessValueCost}K</span>
                 {/if}
               </div>
             </div>

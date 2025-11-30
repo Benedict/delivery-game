@@ -31,7 +31,7 @@ describe('StoryEngine', () => {
   });
 
   it('should generate story for improvement investments', () => {
-    const improvement = { name: 'Fix Critical Bugs', description: 'Stabilize the codebase' };
+    const improvement = { name: 'Fix Critical Bugs', description: 'Stabilise the codebase' };
     const outcome = { codeHealthDelta: 10, satisfactionDelta: 5 };
 
     const story = generateImprovementStory(improvement, outcome);

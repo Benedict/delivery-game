@@ -39,7 +39,7 @@
           style="width: {progressPercent}%"
         ></div>
       </div>
-      <p class="text-xs text-gray-500 mt-1">${metrics.businessValue}K / ${victoryConditions.businessValue}K</p>
+      <p class="text-xs text-gray-500 mt-1">£{metrics.businessValue}K / £{victoryConditions.businessValue}K</p>
     </div>
   </div>
 
@@ -66,7 +66,7 @@
 
     <div class="bg-gray-50 rounded p-3">
       <div class="text-xs text-gray-600 mb-1">💰 Business Value</div>
-      <div class="text-2xl font-bold text-blue-600">${metrics.businessValue}K</div>
+      <div class="text-2xl font-bold text-blue-600">£{metrics.businessValue}K</div>
     </div>
 
     <div class="bg-gray-50 rounded p-3">

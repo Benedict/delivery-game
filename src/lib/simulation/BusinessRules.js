@@ -75,7 +75,7 @@ export const IMPROVEMENTS = {
   fixBugs: {
     id: 'fixBugs',
     name: 'Fix Critical Bugs',
-    description: 'Stabilize the codebase by fixing high-priority bugs',
+    description: 'Stabilise the codebase by fixing high-priority bugs',
     weeks: 1,
     codeHealthDelta: 10,
     satisfactionDelta: 5,
