@@ -1,5 +1,5 @@
 <script>
-  import { gameStore, startNewGame, deliverFeature, investInImprovement, advanceWeek } from '../../lib/stores/gameStore.js';
+  import { gameStore, startNewGame, startFeature, startImprovement, allocateCapacity, endWeek } from '../../lib/stores/gameStore.js';
   import { getScenario, SCENARIOS } from '../../lib/simulation/ScenarioDefinitions.js';
   import { generateFeatureStory, generateImprovementStory, generateEventStory } from '../../lib/simulation/StoryEngine.js';
   import GameHeader from '../../lib/components/simulation/GameHeader.svelte';
@@ -29,37 +29,45 @@
     gameState = 'playing';
   }
 
-  function handleDeliverFeature(event) {
+  function handleStartFeature(event) {
     const feature = event.detail;
-
-    deliverFeature(feature);
-
-    // Generate story for the delivery
-    const decision = $gameStore.history.decisions[$gameStore.history.decisions.length - 1];
-    recentStory = generateFeatureStory(feature, decision.outcome);
-
-    // Check if any events were triggered
-    checkForNewEvents();
-    checkGameOver();
+    startFeature(feature);
+    recentStory = `You've started work on ${feature.name}. Allocate capacity to make progress.`;
   }
 
-  function handleInvestInImprovement(event) {
+  function handleStartImprovement(event) {
     const improvementId = event.detail;
-
-    investInImprovement(improvementId);
-
-    // Generate story for the improvement
-    const decision = $gameStore.history.decisions[$gameStore.history.decisions.length - 1];
-    recentStory = generateImprovementStory(decision.improvement, decision.outcome);
-
-    checkForNewEvents();
-    checkGameOver();
+    startImprovement(improvementId);
+    const improvement = $gameStore.workInProgress.find(item => item.id === improvementId);
+    recentStory = `You've started work on ${improvement.name}. Allocate capacity to make progress.`;
   }
 
-  function handleAdvanceWeek() {
-    advanceWeek();
+  function handleAllocateCapacity(event) {
+    const allocation = event.detail;
+    allocateCapacity(allocation);
+  }
 
-    recentStory = 'The week passes. Your team continues working...';
+  function handleEndWeek() {
+    endWeek();
+
+    // Generate stories for completed items
+    if ($gameStore.lastWeekCompleted && $gameStore.lastWeekCompleted.length > 0) {
+      const stories = $gameStore.lastWeekCompleted.map(item => {
+        const decision = $gameStore.history.decisions.find(d =>
+          (d.type === 'feature' && d.feature.id === item.id) ||
+          (d.type === 'improvement' && d.improvement.id === item.id)
+        );
+
+        if (item.type === 'feature') {
+          return generateFeatureStory(item, decision.outcome);
+        } else {
+          return generateImprovementStory(item, decision.outcome);
+        }
+      });
+      recentStory = stories.join('\n\n');
+    } else {
+      recentStory = `Week ${$gameStore.week - 1} complete. Your team made progress on their work.`;
+    }
 
     checkForNewEvents();
     checkGameOver();
@@ -246,10 +254,15 @@
 
       <DecisionPanel
         opportunities={game.opportunities}
+        workInProgress={game.workInProgress}
+        capacityAllocation={game.capacityAllocation}
+        capacity={game.metrics.capacity}
+        flowEfficiency={game.metrics.flowEfficiency}
         week={game.week}
-        on:deliverFeature={handleDeliverFeature}
-        on:investInImprovement={handleInvestInImprovement}
-        on:advanceWeek={handleAdvanceWeek}
+        on:startFeature={handleStartFeature}
+        on:startImprovement={handleStartImprovement}
+        on:allocateCapacity={handleAllocateCapacity}
+        on:endWeek={handleEndWeek}
       />
 
       <div class="mt-6 text-center">
