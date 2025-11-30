@@ -25,7 +25,7 @@
                           metrics.satisfaction > 30 ? 'text-yellow-600' : 'text-red-600';
 </script>
 
-<div class="bg-yellow-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 mb-5 max-w-5xl mx-auto">
+<div class="bg-amber-100 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-5 mb-5 max-w-5xl mx-auto">
   <div class="flex justify-between items-start mb-4">
     <div>
       <h2 class="text-3xl font-black text-black uppercase leading-none">Week {week}</h2>
@@ -44,33 +44,33 @@
   </div>
 
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-    <div class="bg-blue-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3">
-      <div class="text-xs font-bold text-black mb-1">💪 CAPACITY</div>
+    <div class="bg-sky-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-3">
+      <div class="text-xs font-bold text-sky-900 mb-1">💪 CAPACITY</div>
       <div class="text-2xl font-black text-black">{metrics.capacity}</div>
     </div>
 
-    <div class="bg-green-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3">
-      <div class="text-xs font-bold text-black mb-1">🏥 CODE HEALTH</div>
+    <div class="bg-emerald-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-3">
+      <div class="text-xs font-bold text-emerald-900 mb-1">🏥 CODE HEALTH</div>
       <div class="text-2xl font-black text-black">{metrics.codeHealth}</div>
     </div>
 
-    <div class="bg-pink-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3">
-      <div class="text-xs font-bold text-black mb-1">😊 SATISFACTION</div>
+    <div class="bg-rose-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-3">
+      <div class="text-xs font-bold text-rose-900 mb-1">😊 SATISFACTION</div>
       <div class="text-2xl font-black text-black">{metrics.satisfaction}</div>
     </div>
 
-    <div class="bg-purple-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3">
-      <div class="text-xs font-bold text-black mb-1">📈 MARKET POSITION</div>
+    <div class="bg-violet-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-3">
+      <div class="text-xs font-bold text-violet-900 mb-1">📈 MARKET POSITION</div>
       <div class="text-2xl font-black text-black">{metrics.marketPosition}</div>
     </div>
 
-    <div class="bg-orange-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3">
-      <div class="text-xs font-bold text-black mb-1">💰 BUSINESS VALUE</div>
+    <div class="bg-amber-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-3">
+      <div class="text-xs font-bold text-amber-900 mb-1">💰 BUSINESS VALUE</div>
       <div class="text-2xl font-black text-black">£{metrics.businessValue}K</div>
     </div>
 
-    <div class="bg-cyan-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3">
-      <div class="text-xs font-bold text-black mb-1">⚡ FLOW EFFICIENCY</div>
+    <div class="bg-teal-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-3">
+      <div class="text-xs font-bold text-teal-900 mb-1">⚡ FLOW EFFICIENCY</div>
       <div class="text-2xl font-black text-black">{Math.round(metrics.flowEfficiency * 100)}%</div>
     </div>
   </div>

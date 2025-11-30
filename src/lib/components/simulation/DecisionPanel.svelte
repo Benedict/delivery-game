@@ -37,10 +37,10 @@
 
   function getComplexityColor(complexity) {
     switch(complexity) {
-      case 'low': return 'bg-green-300 text-black';
-      case 'medium': return 'bg-yellow-300 text-black';
-      case 'high': return 'bg-red-300 text-black';
-      default: return 'bg-gray-300 text-black';
+      case 'low': return 'bg-emerald-200 text-emerald-900';
+      case 'medium': return 'bg-amber-200 text-amber-900';
+      case 'high': return 'bg-rose-200 text-rose-900';
+      default: return 'bg-gray-200 text-gray-900';
     }
   }
 
@@ -51,7 +51,7 @@
 
 <!-- WIP Section -->
 {#if workInProgress.length > 0}
-  <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 mb-5 max-w-5xl mx-auto">
+  <div class="bg-violet-100 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-5 mb-5 max-w-5xl mx-auto">
     <h3 class="text-2xl font-black text-black mb-3 uppercase">⚙️ Work in Progress</h3>
     <div class="space-y-3">
       {#each workInProgress as item}
@@ -96,12 +96,12 @@
 {/if}
 
 <!-- Decision Panel -->
-<div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-5 max-w-5xl mx-auto">
+<div class="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-5 max-w-5xl mx-auto">
   <div class="flex justify-between items-center mb-5">
     <h3 class="text-3xl font-black text-black uppercase">Make Your Decision</h3>
     <button
       on:click={handleEndWeek}
-      class="px-6 py-2 bg-black text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase text-sm"
+      class="px-6 py-2 bg-black text-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase text-sm"
     >
       End Week →
     </button>
@@ -120,7 +120,7 @@
           <p class="text-black text-center py-6 text-xs font-black bg-gray-200 border-2 border-black uppercase">No features available</p>
         {:else}
           {#each opportunities as opportunity}
-            <div class="border-2 border-black p-3 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <div class="border-2 border-black p-3 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
               <div class="flex justify-between items-start mb-2">
                 <div class="flex-1">
                   <h5 class="font-black text-black mb-1 text-sm leading-tight">{opportunity.name}</h5>
@@ -136,7 +136,7 @@
               </div>
               <button
                 on:click={() => startFeature(opportunity)}
-                class="w-full mt-2 px-3 py-1 bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-xs font-black uppercase"
+                class="w-full mt-2 px-3 py-1 bg-sky-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-xs font-black uppercase"
               >
                 Start Feature
               </button>
@@ -154,7 +154,7 @@
 
       <div class="space-y-2 max-h-[400px] overflow-y-auto">
         {#each Object.values(IMPROVEMENTS) as improvement}
-          <div class="border-2 border-black p-3 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+          <div class="border-2 border-black p-3 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
             <div class="mb-2">
               <h5 class="font-black text-black mb-1 text-sm leading-tight">{improvement.name}</h5>
               <p class="text-xs text-black font-black leading-tight">{improvement.description}</p>
@@ -176,7 +176,7 @@
 
             <button
               on:click={() => startImprovement(improvement.id)}
-              class="w-full px-3 py-1 bg-green-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-xs font-black uppercase"
+              class="w-full px-3 py-1 bg-emerald-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-xs font-black uppercase"
             >
               Start Improvement
             </button>

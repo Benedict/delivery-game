@@ -103,15 +103,15 @@
   <title>Business Simulation - Technical Debt Game</title>
 </svelte:head>
 
-<div class="min-h-screen bg-cyan-200 p-6">
+<div class="min-h-screen bg-gradient-to-br from-sky-50 to-violet-50 p-6">
   <div class="max-w-5xl mx-auto">
     <header class="mb-6 text-center">
       <h1 class="text-6xl font-black text-black mb-3 uppercase tracking-tighter leading-none">Business Simulation</h1>
-      <p class="text-xl font-black text-black bg-yellow-300 border-2 border-black inline-block px-5 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
+      <p class="text-xl font-black text-black bg-amber-200 border-2 border-black inline-block px-5 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
     </header>
 
     {#if gameState === 'intro'}
-      <div class="bg-pink-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto text-center">
+      <div class="bg-gradient-to-br from-rose-100 to-pink-100 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto text-center">
         <div class="text-7xl mb-5">🎮</div>
         <h2 class="text-5xl font-black text-black mb-5 uppercase leading-tight">Welcome to the Business Simulation</h2>
         <p class="text-lg font-black text-black mb-4 leading-tight">
@@ -121,7 +121,7 @@
           Balance feature delivery with code quality. Every choice has consequences. Can you succeed without letting technical debt sink you?
         </p>
         <button
-          class="px-8 py-3 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
+          class="px-8 py-3 bg-violet-600 text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
           on:click={startGame}
         >
           Begin Your Journey
@@ -129,13 +129,13 @@
       </div>
 
     {:else if gameState === 'scenarioSelect'}
-      <div class="bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8 max-w-4xl mx-auto">
+      <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-8 max-w-4xl mx-auto">
         <h2 class="text-4xl font-black text-black mb-6 text-center uppercase leading-tight">Choose Your Scenario</h2>
 
         <div class="space-y-4">
           {#each Object.values(SCENARIOS) as scenario}
             <div
-              class="border-4 border-black p-5 bg-gradient-to-r from-purple-300 to-blue-300 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
+              class="border-2 border-black p-5 bg-gradient-to-r from-violet-100 to-sky-100 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
               on:click={() => selectScenario(scenario.id)}
               on:keydown={(e) => e.key === 'Enter' && selectScenario(scenario.id)}
               role="button"
@@ -166,7 +166,7 @@
 
     {:else if gameState === 'scenarioStory'}
       {@const scenario = getScenario(selectedScenario)}
-      <div class="bg-orange-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto">
+      <div class="bg-gradient-to-br from-amber-100 to-orange-100 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto">
         <h2 class="text-4xl font-black text-black mb-6 uppercase leading-tight">{scenario.name}</h2>
 
         <div class="mb-6">
@@ -201,7 +201,7 @@
       </div>
 
     {:else if gameState === 'gameOver' && game}
-      <div class="bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-12 max-w-2xl mx-auto text-center">
+      <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-12 max-w-2xl mx-auto text-center">
         {#if game.victory}
           <div class="mb-8">
             <div class="text-8xl mb-6">🎉</div>
@@ -244,7 +244,7 @@
       />
 
       {#if recentStory}
-        <div class="bg-purple-300 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
+        <div class="bg-violet-100 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
           <h3 class="text-2xl font-black text-black mb-4 uppercase">📖 Story</h3>
           <div class="prose max-w-none text-black font-bold whitespace-pre-line bg-white border-2 border-black p-4">
             {recentStory}
