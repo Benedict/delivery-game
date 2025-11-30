@@ -59,7 +59,7 @@
           <div class="flex justify-between items-center mb-3">
             <h4 class="font-black text-black text-sm uppercase">{item.name}</h4>
             <span class="text-xs font-black bg-violet-300 border-2 border-black px-2 py-1">
-              {item.pointsCompleted}/{item.pointsNeeded} PTS
+              {item.pointsCompleted}/{item.pointsNeeded} EFFORT
             </span>
           </div>
 
@@ -80,7 +80,7 @@
               class="flex-1"
             />
             <span class="text-xs font-black bg-amber-300 border-2 border-black px-2 py-1 w-16 text-center">
-              {allocation[item.id] || 0}pts
+              {allocation[item.id] || 0}
             </span>
           </div>
         </div>
@@ -90,7 +90,7 @@
     <!-- Capacity Summary -->
     <div class="mt-4 bg-amber-300 border-2 border-black p-3 flex justify-between items-center">
       <span class="font-black text-sm uppercase">Weekly Capacity:</span>
-      <span class="font-black">{allocatedPoints} / {weeklyCapacity} pts</span>
+      <span class="font-black">{allocatedPoints} / {weeklyCapacity} effort</span>
     </div>
   </div>
 {/if}
