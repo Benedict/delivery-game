@@ -5,23 +5,32 @@
   import GameHeader from '../../lib/components/simulation/GameHeader.svelte';
   import DecisionPanel from '../../lib/components/simulation/DecisionPanel.svelte';
 
-  let showSetup = true;
+  let gameState = 'intro'; // intro, scenarioSelect, scenarioStory, playing, gameOver
+  let selectedScenario = null;
   let recentStory = '';
   let recentEvents = [];
 
   $: game = $gameStore;
 
-  function handleStart(scenarioId) {
-    startNewGame(scenarioId);
-    const scenario = getScenario(scenarioId);
-    recentStory = scenario.story.opening;
+  function startGame() {
+    gameState = 'scenarioSelect';
+  }
+
+  function selectScenario(scenarioId) {
+    selectedScenario = scenarioId;
+    gameState = 'scenarioStory';
+  }
+
+  function beginGame() {
+    startNewGame(selectedScenario);
+    const scenario = getScenario(selectedScenario);
+    recentStory = `Week 1 begins. ${scenario.story.challenge}`;
     recentEvents = [];
-    showSetup = false;
+    gameState = 'playing';
   }
 
   function handleDeliverFeature(event) {
     const feature = event.detail;
-    const initialMetrics = { ...$gameStore.metrics };
 
     deliverFeature(feature);
 
@@ -31,6 +40,7 @@
 
     // Check if any events were triggered
     checkForNewEvents();
+    checkGameOver();
   }
 
   function handleInvestInImprovement(event) {
@@ -43,6 +53,7 @@
     recentStory = generateImprovementStory(decision.improvement, decision.outcome);
 
     checkForNewEvents();
+    checkGameOver();
   }
 
   function handleAdvanceWeek() {
@@ -51,6 +62,7 @@
     recentStory = 'The week passes. Your team continues working...';
 
     checkForNewEvents();
+    checkGameOver();
   }
 
   function checkForNewEvents() {
@@ -65,8 +77,15 @@
     }
   }
 
+  function checkGameOver() {
+    if ($gameStore && $gameStore.gameOver) {
+      gameState = 'gameOver';
+    }
+  }
+
   function restartGame() {
-    showSetup = true;
+    gameState = 'intro';
+    selectedScenario = null;
     recentStory = '';
     recentEvents = [];
   }
@@ -83,13 +102,37 @@
       <p class="text-xl text-gray-700">Learn how technical debt affects business outcomes</p>
     </header>
 
-    {#if showSetup}
-      <div class="bg-white rounded-lg shadow-xl p-8 max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Choose Your Scenario</h2>
+    {#if gameState === 'intro'}
+      <div class="bg-white rounded-lg shadow-xl p-12 max-w-3xl mx-auto text-center">
+        <div class="text-6xl mb-6">🎮</div>
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">Welcome to the Business Simulation</h2>
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+          You're about to take on the role of a technical leader. Your decisions will shape the future of your team and business.
+        </p>
+        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+          Balance feature delivery with code quality. Every choice has consequences. Can you succeed without letting technical debt sink you?
+        </p>
+        <button
+          class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-xl shadow-lg"
+          on:click={startGame}
+        >
+          Begin Your Journey
+        </button>
+      </div>
+
+    {:else if gameState === 'scenarioSelect'}
+      <div class="bg-white rounded-lg shadow-xl p-8 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Choose Your Scenario</h2>
 
         <div class="space-y-4">
           {#each Object.values(SCENARIOS) as scenario}
-            <div class="border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition cursor-pointer" on:click={() => handleStart(scenario.id)}>
+            <div
+              class="border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition cursor-pointer"
+              on:click={() => selectScenario(scenario.id)}
+              on:keydown={(e) => e.key === 'Enter' && selectScenario(scenario.id)}
+              role="button"
+              tabindex="0"
+            >
               <h3 class="text-2xl font-bold text-gray-800 mb-2">{scenario.name}</h3>
               <p class="text-gray-700 mb-3">{scenario.description}</p>
 
@@ -106,13 +149,50 @@
               </div>
 
               <div class="bg-blue-50 rounded p-3">
-                <p class="text-sm font-semibold text-blue-900">Victory: {scenario.victoryConditions.description}</p>
+                <p class="text-sm font-semibold text-blue-900">🎯 {scenario.victoryConditions.description}</p>
               </div>
             </div>
           {/each}
         </div>
       </div>
-    {:else if game && game.gameOver}
+
+    {:else if gameState === 'scenarioStory'}
+      {@const scenario = getScenario(selectedScenario)}
+      <div class="bg-white rounded-lg shadow-xl p-12 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">{scenario.name}</h2>
+
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-gray-700 mb-3">Your Situation</h3>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            {scenario.story.opening}
+          </p>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
+            <p class="font-semibold text-yellow-900">⚡ Challenge: {scenario.story.challenge}</p>
+          </div>
+
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <p class="font-semibold text-blue-900">🎯 Victory: {scenario.victoryConditions.description}</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-4">
+          <button
+            class="px-6 py-3 bg-gray-400 text-white rounded-lg hover:bg-gray-500 font-semibold"
+            on:click={() => gameState = 'scenarioSelect'}
+          >
+            ← Back to Scenarios
+          </button>
+          <button
+            class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-lg shadow-lg"
+            on:click={beginGame}
+          >
+            Start Game →
+          </button>
+        </div>
+      </div>
+
+    {:else if gameState === 'gameOver' && game}
       <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto text-center">
         {#if game.victory}
           <div class="mb-6">
@@ -139,7 +219,8 @@
           Play Again
         </button>
       </div>
-    {:else if game}
+
+    {:else if gameState === 'playing' && game}
       <GameHeader
         week={game.week}
         metrics={game.metrics}
