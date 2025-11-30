@@ -48,7 +48,7 @@
     <h3 class="text-3xl font-black text-black">MAKE YOUR DECISION</h3>
     <button
       on:click={advanceWeek}
-      class="px-6 py-3 bg-black text-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase"
+      class="px-6 py-3 bg-black text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase"
     >
       End Week →
     </button>
@@ -64,10 +64,10 @@
 
       <div class="space-y-3 max-h-[600px] overflow-y-auto">
         {#if sortedOpportunities.length === 0}
-          <p class="text-black text-center py-8 text-sm font-bold bg-gray-200 border-3 border-black">No feature opportunities available. End the week to generate new ones.</p>
+          <p class="text-black text-center py-8 text-sm font-bold bg-gray-200 border-2 border-black">No feature opportunities available. End the week to generate new ones.</p>
         {:else}
           {#each sortedOpportunities as opportunity}
-            <div class="border-3 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <div class="border-2 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
               <div class="flex justify-between items-start mb-2">
                 <div class="flex-1">
                   <h5 class="font-black text-black mb-2">{opportunity.name}</h5>
@@ -88,7 +88,7 @@
               </div>
               <button
                 on:click={() => deliverFeature(opportunity)}
-                class="w-full mt-3 px-4 py-2 bg-blue-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-sm font-black uppercase"
+                class="w-full mt-3 px-4 py-2 bg-blue-500 text-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-sm font-black uppercase"
               >
                 Deliver this Feature
               </button>
@@ -106,7 +106,7 @@
 
       <div class="space-y-3 max-h-[600px] overflow-y-auto">
         {#each Object.values(IMPROVEMENTS) as improvement}
-          <div class="border-3 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+          <div class="border-2 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
             <div class="mb-3">
               <h5 class="font-black text-black mb-2">{improvement.name}</h5>
               <p class="text-sm text-black font-bold">{improvement.description}</p>
@@ -133,7 +133,7 @@
 
             <button
               on:click={() => investInImprovement(improvement.id)}
-              class="w-full px-4 py-2 bg-green-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-sm font-black uppercase"
+              class="w-full px-4 py-2 bg-green-500 text-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all text-sm font-black uppercase"
             >
               Invest in {improvement.name}
             </button>

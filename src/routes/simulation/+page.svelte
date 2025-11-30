@@ -95,25 +95,25 @@
   <title>Business Simulation - Technical Debt Game</title>
 </svelte:head>
 
-<div class="min-h-screen bg-cyan-200 p-4">
+<div class="min-h-screen bg-cyan-200 p-6">
   <div class="max-w-6xl mx-auto">
-    <header class="mb-8 text-center">
-      <h1 class="text-6xl font-black text-black mb-4 uppercase tracking-tight">Business Simulation</h1>
-      <p class="text-2xl font-black text-black bg-yellow-300 border-3 border-black inline-block px-6 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Learn how technical debt affects business outcomes</p>
+    <header class="mb-6 text-center">
+      <h1 class="text-6xl font-black text-black mb-3 uppercase tracking-tighter leading-none">Business Simulation</h1>
+      <p class="text-xl font-black text-black bg-yellow-300 border-2 border-black inline-block px-5 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] uppercase leading-tight">Learn how technical debt affects business outcomes</p>
     </header>
 
     {#if gameState === 'intro'}
-      <div class="bg-pink-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto text-center">
-        <div class="text-8xl mb-6">🎮</div>
-        <h2 class="text-5xl font-black text-black mb-6 uppercase">Welcome to the Business Simulation</h2>
-        <p class="text-xl font-bold text-black mb-6 leading-relaxed">
+      <div class="bg-pink-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto text-center">
+        <div class="text-7xl mb-5">🎮</div>
+        <h2 class="text-5xl font-black text-black mb-5 uppercase leading-tight">Welcome to the Business Simulation</h2>
+        <p class="text-lg font-black text-black mb-4 leading-tight">
           You're about to take on the role of a technical leader. Your decisions will shape the future of your team and business.
         </p>
-        <p class="text-xl font-bold text-black mb-8 leading-relaxed">
+        <p class="text-lg font-black text-black mb-6 leading-tight">
           Balance feature delivery with code quality. Every choice has consequences. Can you succeed without letting technical debt sink you?
         </p>
         <button
-          class="px-8 py-4 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-2xl uppercase"
+          class="px-8 py-3 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
           on:click={startGame}
         >
           Begin Your Journey
@@ -122,34 +122,34 @@
 
     {:else if gameState === 'scenarioSelect'}
       <div class="bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8 max-w-4xl mx-auto">
-        <h2 class="text-4xl font-black text-black mb-8 text-center uppercase">Choose Your Scenario</h2>
+        <h2 class="text-4xl font-black text-black mb-6 text-center uppercase leading-tight">Choose Your Scenario</h2>
 
-        <div class="space-y-6">
+        <div class="space-y-4">
           {#each Object.values(SCENARIOS) as scenario}
             <div
-              class="border-4 border-black p-6 bg-gradient-to-r from-purple-300 to-blue-300 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
+              class="border-4 border-black p-5 bg-gradient-to-r from-purple-300 to-blue-300 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
               on:click={() => selectScenario(scenario.id)}
               on:keydown={(e) => e.key === 'Enter' && selectScenario(scenario.id)}
               role="button"
               tabindex="0"
             >
-              <h3 class="text-3xl font-black text-black mb-3 uppercase">{scenario.name}</h3>
-              <p class="text-lg font-bold text-black mb-4">{scenario.description}</p>
+              <h3 class="text-3xl font-black text-black mb-2 uppercase leading-tight">{scenario.name}</h3>
+              <p class="text-base font-black text-black mb-3 leading-tight">{scenario.description}</p>
 
-              <div class="grid grid-cols-3 gap-3 text-sm mb-4">
+              <div class="grid grid-cols-3 gap-2 text-sm mb-3">
                 <div class="bg-white border-2 border-black p-2">
-                  <span class="font-black text-black">Capacity:</span> <span class="font-bold">{scenario.initialMetrics.capacity}</span>
+                  <span class="font-black text-black uppercase text-xs">Capacity:</span> <span class="font-black">{scenario.initialMetrics.capacity}</span>
                 </div>
                 <div class="bg-white border-2 border-black p-2">
-                  <span class="font-black text-black">Code Health:</span> <span class="font-bold">{scenario.initialMetrics.codeHealth}</span>
+                  <span class="font-black text-black uppercase text-xs">Health:</span> <span class="font-black">{scenario.initialMetrics.codeHealth}</span>
                 </div>
                 <div class="bg-white border-2 border-black p-2">
-                  <span class="font-black text-black">Satisfaction:</span> <span class="font-bold">{scenario.initialMetrics.satisfaction}</span>
+                  <span class="font-black text-black uppercase text-xs">Satisfaction:</span> <span class="font-black">{scenario.initialMetrics.satisfaction}</span>
                 </div>
               </div>
 
-              <div class="bg-yellow-300 border-3 border-black p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <p class="text-sm font-black text-black">🎯 {scenario.victoryConditions.description}</p>
+              <div class="bg-yellow-300 border-2 border-black p-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                <p class="text-sm font-black text-black uppercase leading-tight">🎯 {scenario.victoryConditions.description}</p>
               </div>
             </div>
           {/each}
@@ -158,33 +158,33 @@
 
     {:else if gameState === 'scenarioStory'}
       {@const scenario = getScenario(selectedScenario)}
-      <div class="bg-orange-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-12 max-w-3xl mx-auto">
-        <h2 class="text-4xl font-black text-black mb-8 uppercase">{scenario.name}</h2>
+      <div class="bg-orange-300 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-10 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-black text-black mb-6 uppercase leading-tight">{scenario.name}</h2>
 
-        <div class="mb-8">
-          <h3 class="text-2xl font-black text-black mb-4 uppercase">Your Situation</h3>
-          <p class="text-xl font-bold text-black leading-relaxed mb-6 bg-white border-3 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div class="mb-6">
+          <h3 class="text-xl font-black text-black mb-3 uppercase">Your Situation</h3>
+          <p class="text-base font-black text-black leading-tight mb-4 bg-white border-2 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             {scenario.story.opening}
           </p>
 
-          <div class="bg-yellow-300 border-4 border-black p-4 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p class="font-black text-black">⚡ CHALLENGE: {scenario.story.challenge}</p>
+          <div class="bg-yellow-300 border-4 border-black p-3 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="font-black text-black leading-tight uppercase text-sm">⚡ CHALLENGE: {scenario.story.challenge}</p>
           </div>
 
-          <div class="bg-green-300 border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p class="font-black text-black">🎯 VICTORY: {scenario.victoryConditions.description}</p>
+          <div class="bg-green-300 border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="font-black text-black leading-tight uppercase text-sm">🎯 VICTORY: {scenario.victoryConditions.description}</p>
           </div>
         </div>
 
-        <div class="flex justify-center gap-4">
+        <div class="flex justify-center gap-3">
           <button
-            class="px-6 py-3 bg-gray-400 text-black border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase"
+            class="px-5 py-2 bg-gray-400 text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-black uppercase text-sm"
             on:click={() => gameState = 'scenarioSelect'}
           >
-            ← Back to Scenarios
+            ← Back
           </button>
           <button
-            class="px-8 py-4 bg-black text-white border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-xl uppercase"
+            class="px-6 py-2 bg-black text-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all font-black text-lg uppercase"
             on:click={beginGame}
           >
             Start Game →
@@ -199,10 +199,10 @@
             <div class="text-8xl mb-6">🎉</div>
             <h2 class="text-6xl font-black text-black mb-6 uppercase bg-green-300 border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">Victory!</h2>
             <p class="text-2xl font-black text-black mb-4">You achieved your goals!</p>
-            <div class="bg-yellow-300 border-3 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="bg-yellow-300 border-2 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <p class="text-xl font-black text-black">Final Business Value: £{game.metrics.businessValue}K</p>
             </div>
-            <div class="bg-blue-300 border-3 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="bg-blue-300 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
             </div>
           </div>
@@ -211,10 +211,10 @@
             <div class="text-8xl mb-6">⏰</div>
             <h2 class="text-6xl font-black text-black mb-6 uppercase bg-red-300 border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">Time's Up!</h2>
             <p class="text-2xl font-black text-black mb-4">You didn't meet the victory conditions in time.</p>
-            <div class="bg-yellow-300 border-3 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="bg-yellow-300 border-2 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <p class="text-lg font-black text-black">Final Business Value: £{game.metrics.businessValue}K (needed £{game.victoryConditions.businessValue}K)</p>
             </div>
-            <div class="bg-blue-300 border-3 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="bg-blue-300 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <p class="text-lg font-black text-black">Code Health: {game.metrics.codeHealth}</p>
             </div>
           </div>
