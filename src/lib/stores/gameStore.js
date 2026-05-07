@@ -109,6 +109,7 @@ function createGameStore() {
         let newMetrics = { ...state.metrics };
         const completedItems = [];
         let newWIP = [...state.workInProgress];
+        let newActiveBonuses = [...state.activeBonuses];
 
         // Calculate weekly capacity
         const weeklyCapacity = calculateWeeklyCapacity(newMetrics.capacity, newMetrics.flowEfficiency);
@@ -155,6 +156,14 @@ function createGameStore() {
               improvement: item,
               outcome
             });
+            if (item.ongoingBonus) {
+              newActiveBonuses.push({
+                type: item.ongoingBonus,
+                sourceImprovement: item.id,
+                maturity: 0.3,
+                completedWeek: newWeek
+              });
+            }
           }
         });
 
@@ -237,6 +246,7 @@ function createGameStore() {
           workInProgress: newWIP,
           capacityAllocation: preservedAllocations,
           opportunities: newOpportunities,
+          activeBonuses: newActiveBonuses,
           history: {
             events: [...state.history.events, ...triggeredEvents],
             decisions: [...state.history.decisions, ...newDecisions],

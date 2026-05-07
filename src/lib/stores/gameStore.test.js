@@ -139,4 +139,29 @@ describe('gameStore - activeBonuses lifecycle', () => {
     const state = get(gameStore);
     expect(state.activeBonuses).toEqual([]);
   });
+
+  it('adds an active bonus when an improvement with ongoingBonus completes', () => {
+    // codeReviews has weeks: 2, so pointsNeeded = 80. Allocating 100 with no other WIP
+    // completes it in a single endWeek (effectivePoints = 100 * 1.0 efficiency = 100 >= 80).
+    startNewGame('startup');
+    startImprovement('codeReviews');
+    allocateCapacity({ codeReviews: 100 });
+    endWeek();
+
+    const state = get(gameStore);
+    const bonus = state.activeBonuses.find(b => b.type === 'reduceFeatureImpact');
+    expect(bonus).toBeDefined();
+    expect(bonus.sourceImprovement).toBe('codeReviews');
+    expect(bonus.maturity).toBe(0.3); // Will be updated to 0.475 in Task 7 once maturity update is wired
+  });
+
+  it('does not add a bonus when an improvement without ongoingBonus completes', () => {
+    startNewGame('startup');
+    startImprovement('fixBugs'); // 1-week, no ongoingBonus
+    allocateCapacity({ fixBugs: 100 });
+    endWeek();
+
+    const state = get(gameStore);
+    expect(state.activeBonuses).toEqual([]);
+  });
 });
