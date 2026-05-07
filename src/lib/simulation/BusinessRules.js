@@ -54,6 +54,32 @@ export function calculateBugProbability(codeHealth) {
 }
 
 /**
+ * Look up the strength of an active ongoing bonus, scaled by its current maturity.
+ * @param {Array<object>} activeBonuses - Active bonuses from game state
+ * @param {string} type - Bonus type (e.g., 'reduceBugProbability')
+ * @param {object} context - Context for magnitude lookup. For 'reduceBugProbability',
+ *   include `codeHealth`. For 'reduceFeatureImpact', include `complexity`.
+ * @returns {number} Reduction strength from 0.0 to 1.0
+ */
+export function getBonusStrength(activeBonuses, type, context) {
+  const bonus = activeBonuses.find(b => b.type === type);
+  if (!bonus) return 0;
+
+  let baseReduction = 0;
+  if (type === 'reduceBugProbability') {
+    if (context.codeHealth >= 50) baseReduction = 0.20;
+    else if (context.codeHealth >= 0) baseReduction = 0.50;
+    else baseReduction = 0.70;
+  } else if (type === 'reduceFeatureImpact') {
+    if (context.complexity === 'low') baseReduction = 0.10;
+    else if (context.complexity === 'medium') baseReduction = 0.30;
+    else if (context.complexity === 'high') baseReduction = 0.50;
+  }
+
+  return baseReduction * bonus.maturity;
+}
+
+/**
  * Apply feature delivery outcome to current metrics
  * @param {object} metrics - Current metrics
  * @param {object} outcome - Delivery outcome

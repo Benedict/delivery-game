@@ -6,6 +6,7 @@ import {
   applyFeatureOutcome,
   calculateImprovementOutcome,
   applyImprovementOutcome,
+  getBonusStrength,
   IMPROVEMENTS
 } from './BusinessRules.js';
 
@@ -128,5 +129,42 @@ describe('BusinessRules - Improvements', () => {
 
     expect(result.capacityDelta).toBe(20); // Permanent +20 capacity
     expect(result.businessValueCost).toBeGreaterThan(0); // Costs business value
+  });
+});
+
+describe('BusinessRules - getBonusStrength', () => {
+  it('returns 0 when no bonus of the given type is active', () => {
+    expect(getBonusStrength([], 'reduceBugProbability', { codeHealth: 50 })).toBe(0);
+    expect(getBonusStrength(
+      [{ type: 'reduceFeatureImpact', maturity: 1.0 }],
+      'reduceBugProbability',
+      { codeHealth: 50 }
+    )).toBe(0);
+  });
+
+  it('returns context-appropriate reduction for reduceBugProbability at full maturity', () => {
+    const bonus = [{ type: 'reduceBugProbability', maturity: 1.0 }];
+    expect(getBonusStrength(bonus, 'reduceBugProbability', { codeHealth: 80 })).toBe(0.20);
+    expect(getBonusStrength(bonus, 'reduceBugProbability', { codeHealth: 50 })).toBe(0.20);
+    expect(getBonusStrength(bonus, 'reduceBugProbability', { codeHealth: 49 })).toBe(0.50);
+    expect(getBonusStrength(bonus, 'reduceBugProbability', { codeHealth: 0 })).toBe(0.50);
+    expect(getBonusStrength(bonus, 'reduceBugProbability', { codeHealth: -1 })).toBe(0.70);
+    expect(getBonusStrength(bonus, 'reduceBugProbability', { codeHealth: -50 })).toBe(0.70);
+  });
+
+  it('returns context-appropriate reduction for reduceFeatureImpact at full maturity', () => {
+    const bonus = [{ type: 'reduceFeatureImpact', maturity: 1.0 }];
+    expect(getBonusStrength(bonus, 'reduceFeatureImpact', { complexity: 'low' })).toBe(0.10);
+    expect(getBonusStrength(bonus, 'reduceFeatureImpact', { complexity: 'medium' })).toBe(0.30);
+    expect(getBonusStrength(bonus, 'reduceFeatureImpact', { complexity: 'high' })).toBe(0.50);
+  });
+
+  it('scales reduction by maturity', () => {
+    const halfBonus = [{ type: 'reduceBugProbability', maturity: 0.5 }];
+    expect(getBonusStrength(halfBonus, 'reduceBugProbability', { codeHealth: 0 })).toBe(0.25);
+
+    const partialBonus = [{ type: 'reduceFeatureImpact', maturity: 0.3 }];
+    expect(getBonusStrength(partialBonus, 'reduceFeatureImpact', { complexity: 'high' }))
+      .toBeCloseTo(0.15, 5);
   });
 });
