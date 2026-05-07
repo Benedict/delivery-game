@@ -41,16 +41,21 @@ export function calculateFeatureDelivery(feature, capacity, codeHealth) {
 }
 
 /**
- * Calculate probability of bugs based on code health
+ * Calculate probability of bugs based on code health, with optional bonus reduction.
  * @param {number} codeHealth - Current code health (-100 to 100)
+ * @param {Array<object>} [activeBonuses] - Active bonuses; reduceBugProbability lowers the result
  * @returns {number} Bug probability (0.0 to 1.0)
  */
-export function calculateBugProbability(codeHealth) {
-  if (codeHealth >= 100) return 0;
-  if (codeHealth >= 80) return 0.1;
-  if (codeHealth >= 50) return Math.round((0.1 + (80 - codeHealth) * 0.0067) * 100) / 100;
-  if (codeHealth >= 0) return Math.round((0.3 + (50 - codeHealth) * 0.008) * 100) / 100;
-  return Math.min(1.0, Math.round((0.7 + Math.abs(codeHealth) * 0.006) * 100) / 100);
+export function calculateBugProbability(codeHealth, activeBonuses = []) {
+  let baseProbability;
+  if (codeHealth >= 100) baseProbability = 0;
+  else if (codeHealth >= 80) baseProbability = 0.1;
+  else if (codeHealth >= 50) baseProbability = Math.round((0.1 + (80 - codeHealth) * 0.0067) * 100) / 100;
+  else if (codeHealth >= 0) baseProbability = Math.round((0.3 + (50 - codeHealth) * 0.008) * 100) / 100;
+  else baseProbability = Math.min(1.0, Math.round((0.7 + Math.abs(codeHealth) * 0.006) * 100) / 100);
+
+  const reduction = getBonusStrength(activeBonuses, 'reduceBugProbability', { codeHealth });
+  return baseProbability * (1 - reduction);
 }
 
 /**

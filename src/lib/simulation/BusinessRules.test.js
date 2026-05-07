@@ -235,3 +235,28 @@ describe('BusinessRules - updateBonusMaturity', () => {
     expect(result[1].maturity).toBeCloseTo(0.975, 5);
   });
 });
+
+describe('BusinessRules - calculateBugProbability with TDD bonus', () => {
+  it('returns the same probability when no bonus is active', () => {
+    expect(calculateBugProbability(0)).toBe(0.7);
+    expect(calculateBugProbability(0, [])).toBe(0.7);
+  });
+
+  it('reduces bug probability when reduceBugProbability is at full maturity', () => {
+    // codeHealth 0 -> base 0.7, 50% reduction -> 0.35
+    const bonus = [{ type: 'reduceBugProbability', maturity: 1.0 }];
+    expect(calculateBugProbability(0, bonus)).toBeCloseTo(0.35, 5);
+  });
+
+  it('applies the largest reduction in crisis code', () => {
+    // codeHealth -20 -> base 0.82, 70% reduction -> 0.246
+    const bonus = [{ type: 'reduceBugProbability', maturity: 1.0 }];
+    expect(calculateBugProbability(-20, bonus)).toBeCloseTo(0.246, 3);
+  });
+
+  it('scales the reduction by maturity', () => {
+    // codeHealth 0 -> base 0.7, 50% reduction at half maturity = 25% reduction -> 0.525
+    const bonus = [{ type: 'reduceBugProbability', maturity: 0.5 }];
+    expect(calculateBugProbability(0, bonus)).toBeCloseTo(0.525, 5);
+  });
+});
