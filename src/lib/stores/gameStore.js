@@ -29,6 +29,7 @@ function createGameStore() {
           decisions: [],
           weeklyMetrics: []
         },
+        activeBonuses: [],
         victoryConditions: scenario.victoryConditions,
         gameOver: false,
         victory: false

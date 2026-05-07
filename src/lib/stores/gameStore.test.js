@@ -132,3 +132,11 @@ describe('GameStore', () => {
     }
   });
 });
+
+describe('gameStore - activeBonuses lifecycle', () => {
+  it('initialises activeBonuses to an empty array on new game', () => {
+    startNewGame('startup');
+    const state = get(gameStore);
+    expect(state.activeBonuses).toEqual([]);
+  });
+});
