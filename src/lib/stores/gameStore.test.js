@@ -205,4 +205,26 @@ describe('gameStore - activeBonuses lifecycle', () => {
     const state = get(gameStore);
     expect(state.activeBonuses[0].maturity).toBeCloseTo(0.60, 5);
   });
+
+  it('uses start-of-week activeBonuses when delivering features', () => {
+    startNewGame('startup');
+
+    // Manually inject a fully-mature reduceFeatureImpact bonus
+    gameStore.update(s => ({
+      ...s,
+      activeBonuses: [{ type: 'reduceFeatureImpact', sourceImprovement: 'codeReviews', maturity: 1.0, completedWeek: 1 }]
+    }));
+
+    // Start a high-complexity feature and complete it in one week
+    const feature = { id: 'feat1', name: 'Big Feature', value: 50, complexity: 'high' };
+    startFeature(feature);
+    allocateCapacity({ feat1: 100 });
+    endWeek();
+
+    // After endWeek, the feature is complete and the codeHealth delta should reflect the PP reduction.
+    // Without bonus: -7 (Math.round(-7.5) in JS rounds to -7). With 50% reduction at full maturity: -4.
+    const state = get(gameStore);
+    const decision = state.history.decisions.find(d => d.type === 'feature' && d.feature.id === 'feat1');
+    expect(decision.outcome.codeHealthDelta).toBe(-4);
+  });
 });

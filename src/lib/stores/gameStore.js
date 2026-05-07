@@ -140,7 +140,7 @@ function createGameStore() {
         const newDecisions = [];
         completedItems.forEach(item => {
           if (item.type === 'feature') {
-            const outcome = calculateFeatureDelivery(item, newMetrics.capacity, newMetrics.codeHealth);
+            const outcome = calculateFeatureDelivery(item, newMetrics.capacity, newMetrics.codeHealth, state.activeBonuses);
             newMetrics = applyFeatureOutcome(newMetrics, outcome);
             newDecisions.push({
               type: 'feature',
