@@ -152,7 +152,7 @@ describe('gameStore - activeBonuses lifecycle', () => {
     const bonus = state.activeBonuses.find(b => b.type === 'reduceFeatureImpact');
     expect(bonus).toBeDefined();
     expect(bonus.sourceImprovement).toBe('codeReviews');
-    expect(bonus.maturity).toBe(0.3); // Will be updated to 0.475 in Task 7 once maturity update is wired
+    expect(bonus.maturity).toBeCloseTo(0.475, 5);
   });
 
   it('does not add a bonus when an improvement without ongoingBonus completes', () => {
@@ -163,5 +163,46 @@ describe('gameStore - activeBonuses lifecycle', () => {
 
     const state = get(gameStore);
     expect(state.activeBonuses).toEqual([]);
+  });
+
+  it('ramps bonus maturity each stable week after completion', () => {
+    // codeReviews completes in one endWeek with allocation 100 (see Task 6 test).
+    // After completion, the bonus is added at 0.3 and then immediately ramped by
+    // updateBonusMaturity to 0.475 in the same endWeek.
+    startNewGame('startup');
+    startImprovement('codeReviews');
+    allocateCapacity({ codeReviews: 100 });
+    endWeek();
+
+    let state = get(gameStore);
+    expect(state.activeBonuses[0].maturity).toBeCloseTo(0.475, 5);
+
+    // Two more stable weeks: ramp to 0.65, then 0.825
+    allocateCapacity({});
+    endWeek();
+    endWeek();
+
+    state = get(gameStore);
+    expect(state.activeBonuses[0].maturity).toBeCloseTo(0.825, 5);
+  });
+
+  it('decays maturity when WIP allocation count is 4 or more', () => {
+    startNewGame('startup');
+    // Fast-track an active bonus by manually setting state
+    gameStore.update(s => ({
+      ...s,
+      activeBonuses: [{ type: 'reduceFeatureImpact', sourceImprovement: 'codeReviews', maturity: 0.8, completedWeek: 1 }]
+    }));
+
+    // Add 4 dummy items to capacityAllocation so allocatedItemCount === 4
+    gameStore.update(s => ({
+      ...s,
+      capacityAllocation: { a: 25, b: 25, c: 25, d: 25 }
+    }));
+
+    endWeek();
+
+    const state = get(gameStore);
+    expect(state.activeBonuses[0].maturity).toBeCloseTo(0.60, 5);
   });
 });
