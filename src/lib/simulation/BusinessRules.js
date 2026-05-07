@@ -80,6 +80,28 @@ export function getBonusStrength(activeBonuses, type, context) {
 }
 
 /**
+ * Advance every active bonus by one week's ramp or decay, based on stress signals.
+ * @param {Array<object>} activeBonuses - Active bonuses from game state
+ * @param {object} metrics - Current metrics, must include codeHealth
+ * @param {number} allocatedItemCount - Number of items in capacityAllocation
+ * @returns {Array<object>} New array of bonuses with updated maturity
+ */
+export function updateBonusMaturity(activeBonuses, metrics, allocatedItemCount) {
+  const wipStress = allocatedItemCount >= 4;
+  const crisisStress = metrics.codeHealth < 0;
+
+  let delta;
+  if (wipStress && crisisStress) delta = -0.30;
+  else if (wipStress || crisisStress) delta = -0.20;
+  else delta = 0.175;
+
+  return activeBonuses.map(bonus => ({
+    ...bonus,
+    maturity: Math.max(0, Math.min(1.0, bonus.maturity + delta))
+  }));
+}
+
+/**
  * Apply feature delivery outcome to current metrics
  * @param {object} metrics - Current metrics
  * @param {object} outcome - Delivery outcome

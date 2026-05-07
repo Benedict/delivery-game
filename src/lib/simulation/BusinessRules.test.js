@@ -7,6 +7,7 @@ import {
   calculateImprovementOutcome,
   applyImprovementOutcome,
   getBonusStrength,
+  updateBonusMaturity,
   IMPROVEMENTS
 } from './BusinessRules.js';
 
@@ -166,5 +167,71 @@ describe('BusinessRules - getBonusStrength', () => {
     const partialBonus = [{ type: 'reduceFeatureImpact', maturity: 0.3 }];
     expect(getBonusStrength(partialBonus, 'reduceFeatureImpact', { complexity: 'high' }))
       .toBeCloseTo(0.15, 5);
+  });
+});
+
+describe('BusinessRules - updateBonusMaturity', () => {
+  const stableMetrics = { codeHealth: 50 };
+  const crisisMetrics = { codeHealth: -10 };
+
+  it('ramps maturity by 0.175 under stable conditions', () => {
+    const bonuses = [{ type: 'reduceBugProbability', sourceImprovement: 'adoptTDD', maturity: 0.3, completedWeek: 5 }];
+    const result = updateBonusMaturity(bonuses, stableMetrics, 2);
+    expect(result[0].maturity).toBeCloseTo(0.475, 5);
+  });
+
+  it('caps maturity at 1.0', () => {
+    const bonuses = [{ type: 'reduceBugProbability', maturity: 0.95, completedWeek: 1 }];
+    const result = updateBonusMaturity(bonuses, stableMetrics, 2);
+    expect(result[0].maturity).toBe(1.0);
+  });
+
+  it('decays by 0.20 under WIP stress only', () => {
+    const bonuses = [{ type: 'reduceBugProbability', maturity: 0.8, completedWeek: 1 }];
+    const result = updateBonusMaturity(bonuses, stableMetrics, 4);
+    expect(result[0].maturity).toBeCloseTo(0.60, 5);
+  });
+
+  it('decays by 0.20 under crisis code only', () => {
+    const bonuses = [{ type: 'reduceBugProbability', maturity: 0.8, completedWeek: 1 }];
+    const result = updateBonusMaturity(bonuses, crisisMetrics, 2);
+    expect(result[0].maturity).toBeCloseTo(0.60, 5);
+  });
+
+  it('decays by 0.30 under both stress signals', () => {
+    const bonuses = [{ type: 'reduceBugProbability', maturity: 0.8, completedWeek: 1 }];
+    const result = updateBonusMaturity(bonuses, crisisMetrics, 4);
+    expect(result[0].maturity).toBeCloseTo(0.50, 5);
+  });
+
+  it('floors maturity at 0', () => {
+    const bonuses = [{ type: 'reduceBugProbability', maturity: 0.1, completedWeek: 1 }];
+    const result = updateBonusMaturity(bonuses, crisisMetrics, 4);
+    expect(result[0].maturity).toBe(0);
+  });
+
+  it('preserves all other bonus fields', () => {
+    const bonuses = [{ type: 'reduceBugProbability', sourceImprovement: 'adoptTDD', maturity: 0.5, completedWeek: 3 }];
+    const result = updateBonusMaturity(bonuses, stableMetrics, 2);
+    expect(result[0].type).toBe('reduceBugProbability');
+    expect(result[0].sourceImprovement).toBe('adoptTDD');
+    expect(result[0].completedWeek).toBe(3);
+  });
+
+  it('returns a new array without mutating the input', () => {
+    const bonuses = [{ type: 'reduceBugProbability', maturity: 0.5, completedWeek: 3 }];
+    const result = updateBonusMaturity(bonuses, stableMetrics, 2);
+    expect(result).not.toBe(bonuses);
+    expect(bonuses[0].maturity).toBe(0.5);
+  });
+
+  it('updates multiple bonuses independently', () => {
+    const bonuses = [
+      { type: 'reduceBugProbability', maturity: 0.5, completedWeek: 3 },
+      { type: 'reduceFeatureImpact', maturity: 0.8, completedWeek: 1 }
+    ];
+    const result = updateBonusMaturity(bonuses, stableMetrics, 2);
+    expect(result[0].maturity).toBeCloseTo(0.675, 5);
+    expect(result[1].maturity).toBeCloseTo(0.975, 5);
   });
 });
