@@ -11,7 +11,7 @@ function createGameStore() {
 
   return {
     subscribe,
-    update,
+    update, // Exposed for test fixtures; not part of the public store API
 
     startNew: (scenarioId = 'startup') => {
       const scenario = getScenario(scenarioId);
