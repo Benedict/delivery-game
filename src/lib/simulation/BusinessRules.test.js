@@ -236,6 +236,38 @@ describe('BusinessRules - updateBonusMaturity', () => {
   });
 });
 
+describe('BusinessRules - calculateFeatureDelivery with PP bonus', () => {
+  it('reduces codeHealthDelta when reduceFeatureImpact is active on a high-complexity feature', () => {
+    const feature = { value: 50, complexity: 'high', deadline: 3 };
+    const bonus = [{ type: 'reduceFeatureImpact', maturity: 1.0 }];
+
+    // Without bonus: -5 * 1.5 * (1 + 0) = -7.5 -> -7 (JS Math.round rounds toward +Infinity)
+    // With 50% reduction at full maturity: -7.5 * 0.5 = -3.75 -> -4 (rounded)
+    const withoutBonus = calculateFeatureDelivery(feature, 100, 50);
+    expect(withoutBonus.codeHealthDelta).toBe(-7);
+
+    const withBonus = calculateFeatureDelivery(feature, 100, 50, bonus);
+    expect(withBonus.codeHealthDelta).toBe(-4);
+  });
+
+  it('barely reduces codeHealthDelta on a low-complexity feature', () => {
+    const feature = { value: 50, complexity: 'low', deadline: 3 };
+    const bonus = [{ type: 'reduceFeatureImpact', maturity: 1.0 }];
+
+    // Without bonus: -5 * 0.5 * (1 + 0) = -2.5 -> -3 (rounded)
+    // With 10% reduction: -2.5 * 0.9 = -2.25 -> -2 (rounded)
+    const withBonus = calculateFeatureDelivery(feature, 100, 50, bonus);
+    expect(withBonus.codeHealthDelta).toBe(-2);
+  });
+
+  it('preserves existing behaviour when no bonus is provided', () => {
+    const feature = { value: 50, complexity: 'medium', deadline: 3 };
+    const result = calculateFeatureDelivery(feature, 100, 50);
+    // Without bonus: -5 * 1.0 * (1 + 0) = -5
+    expect(result.codeHealthDelta).toBe(-5);
+  });
+});
+
 describe('BusinessRules - calculateBugProbability with TDD bonus', () => {
   it('returns the same probability when no bonus is active', () => {
     expect(calculateBugProbability(0)).toBe(0.7);

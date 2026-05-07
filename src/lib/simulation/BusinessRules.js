@@ -1,42 +1,42 @@
 // src/lib/simulation/BusinessRules.js
 
 /**
- * Calculate the outcome of delivering a feature
+ * Calculate the outcome of delivering a feature.
  * @param {object} feature - Feature to deliver
  * @param {number} capacity - Team capacity
  * @param {number} codeHealth - Current code health
+ * @param {Array<object>} [activeBonuses] - Active bonuses from game state
  * @returns {object} Delivery outcome
  */
-export function calculateFeatureDelivery(feature, capacity, codeHealth) {
+export function calculateFeatureDelivery(feature, capacity, codeHealth, activeBonuses = []) {
   const baseValue = feature.value;
   const complexityFactors = { low: 0.5, medium: 1.0, high: 1.5 };
   const complexityFactor = complexityFactors[feature.complexity] || 1.0;
 
-  // Capacity affects delivery
   const capacityRatio = capacity / 100;
-  const effectiveCapacity = Math.max(0.3, capacityRatio); // Min 30% delivery
+  const effectiveCapacity = Math.max(0.3, capacityRatio);
 
-  // Code health affects quality and speed
   const healthPenalty = codeHealth < 50 ? (50 - codeHealth) * 0.01 : 0;
   const deliveryEfficiency = Math.max(0.5, 1 - healthPenalty);
 
-  // Market variability: features might not hit their target value
-  // Random factor between 0.8 and 1.2 (±20% variability)
   const marketVariability = 0.8 + (Math.random() * 0.4);
 
   const valueDelivered = Math.round(baseValue * effectiveCapacity * deliveryEfficiency * marketVariability);
-  const hasBugs = Math.random() < calculateBugProbability(codeHealth);
-  const weeksRequired = 1; // Simplified: all features take 1 week
+  const hasBugs = Math.random() < calculateBugProbability(codeHealth, activeBonuses);
+  const weeksRequired = 1;
 
-  // Calculate satisfaction change
   const satisfactionDelta = hasBugs ? 0 : Math.min(5, Math.round(baseValue / 10));
+
+  const ppReduction = getBonusStrength(activeBonuses, 'reduceFeatureImpact', { complexity: feature.complexity });
+  const baseCodeHealthDelta = -5 * complexityFactor * (1 + healthPenalty);
+  const codeHealthDelta = Math.round(baseCodeHealthDelta * (1 - ppReduction));
 
   return {
     valueDelivered,
     hasBugs,
     weeksRequired,
     satisfactionDelta,
-    codeHealthDelta: Math.round(-5 * complexityFactor * (1 + healthPenalty))
+    codeHealthDelta
   };
 }
 
