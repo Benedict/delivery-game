@@ -257,6 +257,7 @@
         week={game.week}
         metrics={game.metrics}
         victoryConditions={game.victoryConditions}
+        activeBonuses={game.activeBonuses}
       />
 
       {#if recentStory}

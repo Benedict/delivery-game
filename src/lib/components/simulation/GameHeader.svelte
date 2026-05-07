@@ -1,4 +1,6 @@
 <script>
+  import { IMPROVEMENTS } from '$lib/simulation/BusinessRules.js';
+
   export let week = 1;
   export let metrics = {
     capacity: 100,
@@ -13,6 +15,7 @@
     weeks: 15,
     description: 'Reach $500K in 15 weeks'
   };
+  export let activeBonuses = [];
 
   $: progressPercent = Math.min(100, (metrics.businessValue / victoryConditions.businessValue) * 100);
   $: weeksRemaining = victoryConditions.weeks - week;
@@ -23,6 +26,17 @@
 
   $: satisfactionColor = metrics.satisfaction > 60 ? 'text-green-600' :
                           metrics.satisfaction > 30 ? 'text-yellow-600' : 'text-red-600';
+
+  function statusFor(maturity) {
+    if (maturity >= 1.0) return 'mature';
+    if (maturity > 0) return 'building';
+    return 'dormant';
+  }
+
+  function effectLabelFor(bonus) {
+    const improvement = IMPROVEMENTS[bonus.sourceImprovement];
+    return improvement ? improvement.name : bonus.sourceImprovement;
+  }
 </script>
 
 <div class="bg-amber-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
@@ -74,4 +88,26 @@
       <div class="text-2xl font-black text-black">{Math.round(metrics.flowEfficiency * 100)}%</div>
     </div>
   </div>
+
+  {#if activeBonuses.length > 0}
+    <div class="mt-4 border-t-2 border-black pt-4">
+      <h3 class="text-xs font-black text-black uppercase mb-2">Active Practices</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {#each activeBonuses as bonus}
+          <div class="bg-white border-2 border-black p-3">
+            <div class="flex justify-between items-baseline mb-2">
+              <span class="text-sm font-black uppercase">{effectLabelFor(bonus)}</span>
+              <span class="text-xs font-bold text-gray-700">{Math.round(bonus.maturity * 100)}% — {statusFor(bonus.maturity)}</span>
+            </div>
+            <div class="w-full bg-gray-200 border border-black h-3">
+              <div
+                class="bg-gradient-to-r from-emerald-400 to-teal-500 h-full transition-all duration-500"
+                style="width: {bonus.maturity * 100}%"
+              ></div>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </div>
