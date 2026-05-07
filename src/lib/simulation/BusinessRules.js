@@ -118,6 +118,17 @@ export const IMPROVEMENTS = {
     capacityPenalty: -10, // Onboarding time
     businessValueCost: 50 // Hiring costs
   },
+  adoptTDD: {
+    id: 'adoptTDD',
+    name: 'Adopt Test-Driven Development',
+    description: 'Write tests first to improve design and catch bugs early',
+    weeks: 3,
+    codeHealthDelta: 20,
+    satisfactionDelta: -5, // Initial resistance to change
+    capacityDelta: 0,
+    capacityPenalty: -15, // Slower initially while learning
+    ongoingBonus: 'reduceBugProbability' // Fewer bugs in features
+  },
   securityFix: {
     id: 'securityFix',
     name: 'Emergency Security Fix',
