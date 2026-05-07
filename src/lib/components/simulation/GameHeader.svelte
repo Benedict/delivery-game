@@ -37,6 +37,18 @@
     const improvement = IMPROVEMENTS[bonus.sourceImprovement];
     return improvement ? improvement.name : bonus.sourceImprovement;
   }
+
+  function effectSummaryFor(bonus) {
+    const pct = Math.round(bonus.maturity * 100);
+    if (bonus.maturity === 0) return 'No effect — discipline has eroded';
+    if (bonus.type === 'reduceBugProbability') {
+      return `Currently reducing bug rate (up to 70% in crisis code at full maturity, ${pct}% of full strength)`;
+    }
+    if (bonus.type === 'reduceFeatureImpact') {
+      return `Currently reducing feature impact on code health (up to 50% on complex features at full maturity, ${pct}% of full strength)`;
+    }
+    return '';
+  }
 </script>
 
 <div class="bg-amber-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-6 max-w-5xl mx-auto">
@@ -105,6 +117,7 @@
                 style="width: {bonus.maturity * 100}%"
               ></div>
             </div>
+            <p class="text-xs font-bold text-gray-700 mt-2">{effectSummaryFor(bonus)}</p>
           </div>
         {/each}
       </div>

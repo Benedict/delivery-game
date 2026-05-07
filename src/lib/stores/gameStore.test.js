@@ -206,6 +206,61 @@ describe('gameStore - activeBonuses lifecycle', () => {
     expect(state.activeBonuses[0].maturity).toBeCloseTo(0.60, 5);
   });
 
+  it('erodes maturity to 0 under sustained stress and recovers when stress clears', () => {
+    startNewGame('startup');
+    // Inject a fully-mature bonus and stress signals (4 allocated items + crisis code health)
+    gameStore.update(s => ({
+      ...s,
+      activeBonuses: [{ type: 'reduceFeatureImpact', sourceImprovement: 'codeReviews', maturity: 1.0, completedWeek: 1 }],
+      capacityAllocation: { a: 25, b: 25, c: 25, d: 25 },
+      metrics: { ...s.metrics, codeHealth: -10 } // crisis stress
+    }));
+
+    // Four endWeeks under combined stress: -0.30 each → 0.70, 0.40, 0.10, 0.
+    // Re-inject stress signals each week because capacityAllocation is only preserved for WIP items.
+    endWeek();
+    gameStore.update(s => ({ ...s, capacityAllocation: { a: 25, b: 25, c: 25, d: 25 }, metrics: { ...s.metrics, codeHealth: -10 } }));
+    endWeek();
+    gameStore.update(s => ({ ...s, capacityAllocation: { a: 25, b: 25, c: 25, d: 25 }, metrics: { ...s.metrics, codeHealth: -10 } }));
+    endWeek();
+    gameStore.update(s => ({ ...s, capacityAllocation: { a: 25, b: 25, c: 25, d: 25 }, metrics: { ...s.metrics, codeHealth: -10 } }));
+    endWeek();
+
+    let state = get(gameStore);
+    expect(state.activeBonuses[0].maturity).toBe(0);
+
+    // Clear the stress: empty allocation, restore code health
+    gameStore.update(s => ({
+      ...s,
+      capacityAllocation: {},
+      metrics: { ...s.metrics, codeHealth: 70 }
+    }));
+
+    // Three stable endWeeks: +0.175 each → 0.175, 0.35, 0.525
+    endWeek(); endWeek(); endWeek();
+
+    state = get(gameStore);
+    expect(state.activeBonuses[0].maturity).toBeCloseTo(0.525, 5);
+  });
+
+  it('creates a reduceBugProbability bonus when adoptTDD completes', () => {
+    // adoptTDD has weeks: 3, so pointsNeeded = 120. Allocating 100 needs 2 endWeeks
+    // (1 active item → 100% efficiency → 100 points/week, accumulating to 200 ≥ 120).
+    startNewGame('startup');
+    startImprovement('adoptTDD');
+    allocateCapacity({ adoptTDD: 100 });
+    endWeek();
+    allocateCapacity({ adoptTDD: 100 });
+    endWeek();
+
+    const state = get(gameStore);
+    const bonus = state.activeBonuses.find(b => b.type === 'reduceBugProbability');
+    expect(bonus).toBeDefined();
+    expect(bonus.sourceImprovement).toBe('adoptTDD');
+    // After completion in the second endWeek, maturity is 0.3 + 0.175 ramp = 0.475
+    expect(bonus.maturity).toBeCloseTo(0.475, 5);
+  });
+
   it('uses start-of-week activeBonuses when delivering features', () => {
     startNewGame('startup');
 
