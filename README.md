@@ -1,182 +1,97 @@
-# Dice of Debt - Web Version
+# The Delivery Game
 
-A web-based implementation of the Dice of Debt game by Tom Grant (GameChange LLC) for the Agile Alliance.
+A business simulation that teaches systems thinking about software delivery.
 
-## About the Game
+## What it is
 
-Dice of Debt is an educational game about technical debt in software development. Players work as a software development team over 10 sprints, balancing creating new value against managing technical debt.
+You manage a software team for fifteen to twenty weeks, depending on the scenario. Each week you choose what work to start, allocate your team's capacity, and balance shipping features against improving the codebase. The game scores you against the scenario's victory conditions.
 
-The game demonstrates how technical debt accumulates, how it impacts productivity, and how investing in quality practices can help teams deliver more value over time.
+Three scenarios — startup, legacy, and greenfield — set distinct starting conditions and victory criteria.
 
-## Features
+## The point
 
-- **Standard Game Mode**: Classic rules with fixed costs and benefits
-- **Uncertain Outcomes Variant**: Randomized measure effectiveness for added realism
-- **Interactive Score Sheet**: Track progress across all 10 sprints
-- **Visual Dice Rolling**: See your NV and TD dice results
-- **Investment Management**: Decide when to invest in TD-reducing measures
-- **Responsive Design**: Play on desktop or mobile devices
+Most games about technical debt teach a single insight: debt steals capacity. The Delivery Game teaches a different one: flow, code quality, capacity, work-in-progress, customer satisfaction, market position, and opportunity timing all interact, and no single strategy wins across scenarios.
 
-## Getting Started
+The model is tuned so that:
 
-### Installation
+- Pure feature delivery erodes code health, which cuts flow efficiency, which triggers crisis events.
+- Pure improvement starves the business of value and lets opportunities expire.
+- Too much concurrent work triggers context-switching penalties.
+- Crisis events — security incidents, customer churn, engineering exodus — shift the game state in ways the player must absorb, not avoid.
+
+The complexity is the lesson. Players learn to read a system, not to find an optimal recipe.
+
+## Mechanics in tension
+
+The simulation models seven interacting factors:
+
+- **Code health** drives flow efficiency. At healthy code the team runs at 90% efficiency. At crisis quality it drops to 40% — a 2.25× capacity gap.
+- **Capacity** is base team output, scaled by flow efficiency.
+- **Customer satisfaction** moves with feature quality and bug rates. Low satisfaction triggers churn.
+- **Market position** moves with consistent delivery and high satisfaction. Strong position unlocks enterprise opportunities.
+- **Business value** accumulates in pounds and forms the score.
+- **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 95%, 3: 85%, 4+: 70%).
+- **Opportunity deadlines** force urgency. Late features lose their value entirely.
+
+Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces a two-week emergency fix that blocks all other work.
+
+## Scenarios
+
+- **The Startup** — Capacity 120, code health 70. Fifteen weeks to deliver £500K in business value. High delivery pressure throughout.
+- **The Legacy System** — Capacity 80, code health -20. Twenty weeks to deliver £400K and recover code health to 50. Modernisation under load.
+- **The Greenfield Project** — Capacity 100, code health 80. Fifteen weeks to deliver £600K while keeping code health above 70. Sustainable growth from day one.
+
+## Getting started
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Open http://localhost:5173
+The game has an in-product help modal that explains the rules in detail. This README focuses on what the game is and why.
 
-### Build
+### Build and preview
 
 ```bash
 npm run build
 npm run preview
 ```
 
-### Testing
+### Tests
 
 ```bash
-npm test          # Run tests once
-npm run test:watch # Watch mode
+npm test           # run once
+npm run test:watch # watch mode
 ```
 
-## How to Play
+## How it is built
 
-1. **Choose your game mode** (Standard or Uncertain Outcomes)
-2. **Each sprint:**
-   - Optionally invest in a TD-reducing measure
-   - Roll New Value (NV) dice
-   - Roll Technical Debt (TD) dice
-   - Complete the sprint to calculate Net New Value
-3. **Continue for 10 sprints**
-4. **Your final score** is the cumulative value created
-
-### Game Mechanics
-
-- **New Value (NV) Dice**: Blue dice representing productive work
-- **Technical Debt (TD) Dice**: Red dice representing accumulated debt
-- **Net New Value**: NV Total - TD Total (minimum 0)
-- **Cumulative Value**: Running total of Net New Value across all sprints
-
-### Starting Configuration
-
-- 8 NV dice
-- 4 TD dice
-- 12 total dice (dice can move between pools with certain measures)
-
-## TD-Reducing Measures
-
-### Reduced Complexity
-- **Cost**: 2 NV dice for 3 turns
-- **Benefit**: Move 2 dice from TD to NV pool permanently
-- **Commitment**: High
-
-### Code Review
-- **Cost**: 3 NV dice for 2 turns
-- **Benefit**: Move 1 die from TD to NV pool permanently
-- **Commitment**: Low
-
-### Continuous Integration
-- **Cost**: 1 NV die for 2 turns
-- **Benefit**: Re-roll any TD dice once per turn
-- **Commitment**: Medium
-
-### Increased Test Coverage
-- **Cost**: 1 NV die for 3 turns
-- **Benefit**: Subtract 3 from TD total each turn
-- **Commitment**: Low
-
-## Game Modes
-
-### Standard Mode
-
-Fixed costs and benefits as described above. Predictable outcomes allow players to strategize investments.
-
-### Uncertain Outcomes Variant
-
-Each measure has 4 possible cost/benefit cards. At the start of the game, one card is randomly selected for each measure. Players discover the actual costs and benefits only when they invest in a measure, simulating real-world uncertainty in improvement initiatives.
-
-## Tech Stack
-
-- **Framework**: SvelteKit
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Testing**: Vitest + @testing-library/svelte
+- **Framework**: SvelteKit, static adapter, deploys to GitHub Pages
+- **Styling**: Tailwind CSS v4, neobrutalist palette
+- **Tests**: Vitest with @testing-library/svelte
 - **Language**: JavaScript with JSDoc
-
-## Project Structure
 
 ```
 src/
 ├── lib/
-│   ├── game/                    # Core game logic (pure JS)
-│   │   ├── DiceRoller.js        # Dice rolling mechanics
-│   │   ├── TDMeasures.js        # Measure definitions
-│   │   ├── GameState.js         # State management
-│   │   ├── GameController.js    # Game flow control
-│   │   └── UncertainOutcomes.js # Variant implementation
-│   ├── stores/                  # Svelte stores
-│   │   └── gameStore.js         # Reactive game state
-│   └── components/              # UI components
-│       ├── DiceDisplay.svelte
-│       ├── InvestmentPanel.svelte
-│       ├── ScoreSheet.svelte
-│       └── GameSetup.svelte
+│   ├── simulation/              # Core game model, pure JS
+│   │   ├── GameEngine.js        # Capacity, flow efficiency, complexity
+│   │   ├── BusinessRules.js     # Feature delivery and improvements
+│   │   ├── EventSystem.js       # Crisis and opportunity events
+│   │   ├── OpportunityGenerator.js
+│   │   ├── ScenarioDefinitions.js
+│   │   └── StoryEngine.js       # Narrative text generation
+│   ├── stores/
+│   │   └── gameStore.js         # Svelte store, single source of truth
+│   └── components/simulation/   # UI components
 └── routes/
     └── +page.svelte             # Main game page
 ```
 
-## Development
-
-The project follows Test-Driven Development (TDD) principles:
-
-- All game logic has comprehensive unit tests
-- Components have integration tests
-- 82+ tests ensure correctness
-
-### Running Tests
-
-```bash
-# Run all tests
-npm test
-
-# Watch mode for development
-npm run test:watch
-```
-
-### Building for Production
-
-```bash
-# Create optimized production build
-npm run build
-
-# Preview production build locally
-npm run preview
-```
+The simulation layer has no UI dependencies. You can drive it from tests or scripts to validate balance changes without rendering anything.
 
 ## Credits
 
-- **Original Game**: Tom Grant, GameChange LLC
-- **Publisher**: Agile Alliance
-- **Original Game Materials**: © 2015 GameChange LLC
-- **Web Implementation**: Built with Claude Code
+Inspired in part by Tom Grant's *Dice of Debt* (GameChange LLC, 2015), published by the Agile Alliance.
 
-## Links
-
-- [Original Dice of Debt](https://www.agilealliance.org/resources/experience-reports/dice-of-debt-a-hands-on-activity-to-introduce-technical-debt/)
-- [Agile Alliance](https://www.agilealliance.org/)
-
-## License
-
-This is an educational implementation of the Dice of Debt game. Original game materials © 2015 GameChange LLC.
-
-## Contributing
-
-This project was created as an educational implementation. If you find issues or have suggestions, please feel free to open an issue or submit a pull request.
+Built with SvelteKit, Tailwind, and Vitest.
