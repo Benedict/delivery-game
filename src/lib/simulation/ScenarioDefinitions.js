@@ -13,16 +13,21 @@ export const SCENARIOS = {
       codeHealth: 70,
       satisfaction: 50,
       marketPosition: 50,
-      businessValue: 0
+      businessValue: 0,
+      investorConfidence: 50
     },
     victoryConditions: {
       businessValue: 500,
-      weeks: 15,
-      description: 'Reach £500K in business value within 15 weeks'
+      weeks: 12,
+      description: 'Reach £500K in business value within 12 weeks'
     },
     story: {
       opening: 'You\'ve just raised a seed round for your startup. Investors are excited, but they want to see rapid growth. Your small team is talented but the codebase was built quickly. Can you balance speed with sustainability?',
       challenge: 'High pressure to ship features fast while maintaining code quality'
+    },
+    mechanics: {
+      burnRate: true,
+      investorConfidence: true
     }
   },
 

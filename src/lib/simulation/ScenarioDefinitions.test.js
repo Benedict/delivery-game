@@ -64,3 +64,39 @@ describe('ScenarioDefinitions', () => {
     expect(SCENARIOS.startup.victoryConditions.weeks).toBeDefined();
   });
 });
+
+describe('ScenarioDefinitions - startup updates', () => {
+  it('startup includes investorConfidence: 50 in initialMetrics', () => {
+    const scenario = getScenario('startup');
+    expect(scenario.initialMetrics.investorConfidence).toBe(50);
+  });
+
+  it('startup time limit is 12 weeks', () => {
+    const scenario = getScenario('startup');
+    expect(scenario.victoryConditions.weeks).toBe(12);
+  });
+
+  it('startup has mechanics block with burnRate and investorConfidence flags', () => {
+    const scenario = getScenario('startup');
+    expect(scenario.mechanics).toEqual({
+      burnRate: true,
+      investorConfidence: true
+    });
+  });
+
+  it('legacy and greenfield do not have mechanics flags set', () => {
+    const legacy = getScenario('enterprise');
+    const greenfield = getScenario('greenfield');
+    expect(legacy.mechanics?.burnRate).toBeFalsy();
+    expect(legacy.mechanics?.investorConfidence).toBeFalsy();
+    expect(greenfield.mechanics?.burnRate).toBeFalsy();
+    expect(greenfield.mechanics?.investorConfidence).toBeFalsy();
+  });
+
+  it('legacy and greenfield do not include investorConfidence in initialMetrics', () => {
+    const legacy = getScenario('enterprise');
+    const greenfield = getScenario('greenfield');
+    expect(legacy.initialMetrics.investorConfidence).toBeUndefined();
+    expect(greenfield.initialMetrics.investorConfidence).toBeUndefined();
+  });
+});
