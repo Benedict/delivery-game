@@ -214,10 +214,25 @@ function createGameStore() {
         }
 
         // Apply investor confidence delta for scenarios that track it (e.g. startup)
+        let newLowCounter = state.consecutiveWeeksLowConfidence;
+        let newHighCounter = state.consecutiveWeeksHighConfidence;
+
         if (scenario.mechanics?.investorConfidence) {
           const confidenceDelta = calculateConfidenceDelta(newMetrics, completionEvents, triggeredEvents);
           const newConfidence = Math.max(-100, Math.min(100, newMetrics.investorConfidence + confidenceDelta));
           newMetrics = { ...newMetrics, investorConfidence: newConfidence };
+
+          if (newMetrics.investorConfidence <= -50) {
+            newLowCounter = newLowCounter + 1;
+          } else {
+            newLowCounter = 0;
+          }
+
+          if (newMetrics.investorConfidence >= 70) {
+            newHighCounter = newHighCounter + 1;
+          } else {
+            newHighCounter = 0;
+          }
         }
 
         // Check deadlines and generate new opportunities
@@ -243,6 +258,12 @@ function createGameStore() {
           ...state.history.weeklyMetrics,
           { week: state.week, ...state.metrics }
         ];
+
+        // Check lose condition: funding pulled after two consecutive low-confidence weeks
+        let fundingPulled = false;
+        if (scenario.mechanics?.investorConfidence && newLowCounter >= 2) {
+          fundingPulled = true;
+        }
 
         // Check victory conditions
         const { victory, gameOver } = checkVictoryConditions(
@@ -274,13 +295,15 @@ function createGameStore() {
           capacityAllocation: preservedAllocations,
           opportunities: newOpportunities,
           activeBonuses: newActiveBonuses,
+          consecutiveWeeksLowConfidence: newLowCounter,
+          consecutiveWeeksHighConfidence: newHighCounter,
           history: {
             events: [...state.history.events, ...triggeredEvents],
             decisions: [...state.history.decisions, ...newDecisions],
             weeklyMetrics
           },
-          gameOver,
-          victory,
+          gameOver: fundingPulled ? true : gameOver,
+          victory: fundingPulled ? false : victory,
           lastWeekCompleted: completedItems,
           lastWeekEfficiency: efficiencyPenalty
         };

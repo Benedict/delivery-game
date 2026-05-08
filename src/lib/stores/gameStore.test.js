@@ -374,3 +374,42 @@ describe('gameStore - confidence updates', () => {
     expect(last).toHaveProperty('investorConfidence');
   });
 });
+
+describe('gameStore - confidence counters and lose condition', () => {
+  it('increments consecutiveWeeksLowConfidence when confidence is at or below -50', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({ ...s, metrics: { ...s.metrics, investorConfidence: -60 } }));
+    endWeek();
+    expect(get(gameStore).consecutiveWeeksLowConfidence).toBe(1);
+  });
+
+  it('resets consecutiveWeeksLowConfidence when confidence rises above -50', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({ ...s, consecutiveWeeksLowConfidence: 1, metrics: { ...s.metrics, investorConfidence: -40 } }));
+    endWeek();
+    expect(get(gameStore).consecutiveWeeksLowConfidence).toBe(0);
+  });
+
+  it('triggers game over when consecutiveWeeksLowConfidence reaches 2', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({ ...s, consecutiveWeeksLowConfidence: 1, metrics: { ...s.metrics, investorConfidence: -60 } }));
+    endWeek();
+    const state = get(gameStore);
+    expect(state.gameOver).toBe(true);
+    expect(state.victory).toBe(false);
+  });
+
+  it('increments consecutiveWeeksHighConfidence when confidence is at or above 70', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({ ...s, metrics: { ...s.metrics, investorConfidence: 75 } }));
+    endWeek();
+    expect(get(gameStore).consecutiveWeeksHighConfidence).toBe(1);
+  });
+
+  it('resets consecutiveWeeksHighConfidence when confidence drops below 70', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({ ...s, consecutiveWeeksHighConfidence: 1, metrics: { ...s.metrics, investorConfidence: 60 } }));
+    endWeek();
+    expect(get(gameStore).consecutiveWeeksHighConfidence).toBe(0);
+  });
+});
