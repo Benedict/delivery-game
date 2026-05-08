@@ -258,6 +258,7 @@
         metrics={game.metrics}
         victoryConditions={game.victoryConditions}
         activeBonuses={game.activeBonuses}
+        mechanics={getScenario(game.scenario).mechanics ?? {}}
       />
 
       {#if recentStory}

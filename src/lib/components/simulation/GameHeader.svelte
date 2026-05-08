@@ -16,6 +16,7 @@
     description: 'Reach $500K in 15 weeks'
   };
   export let activeBonuses = [];
+  export let mechanics = {};
 
   $: progressPercent = Math.min(100, (metrics.businessValue / victoryConditions.businessValue) * 100);
   $: weeksRemaining = victoryConditions.weeks - week;
@@ -107,6 +108,13 @@
       <div class="text-xs font-bold text-teal-950 mb-1">⚡ FLOW EFFICIENCY</div>
       <div class="text-2xl font-black text-black">{Math.round(metrics.flowEfficiency * 100)}%</div>
     </div>
+
+    {#if mechanics.investorConfidence}
+      <div class="bg-gradient-to-br from-fuchsia-300 to-purple-400 border-2 border-black p-4">
+        <div class="text-xs font-bold text-fuchsia-950 mb-1">📊 INVESTOR CONFIDENCE</div>
+        <div class="text-2xl font-black text-black">{metrics.investorConfidence}</div>
+      </div>
+    {/if}
   </div>
 
   {#if activeBonuses.length > 0}
