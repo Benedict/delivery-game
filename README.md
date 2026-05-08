@@ -35,6 +35,17 @@ The simulation models seven interacting factors:
 
 Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces a two-week emergency fix that blocks all other work.
 
+## Ongoing practices
+
+Two improvements — **Pair Programming** and **Adopt TDD** — produce ongoing effects after they complete, not just one-shot deltas. The strength of those effects depends on game state and erodes under stress.
+
+- **Pair Programming** reduces the code-health cost of features. The reduction scales with feature complexity — small effect on simple features, larger on complex ones.
+- **Adopt TDD** reduces bug probability on shipped features. The reduction scales with code health — small effect on healthy code, larger on crisis code.
+
+Both practices ramp from 30% to 100% maturity over four stable weeks. Both decay under stress: high WIP allocation or crisis-level code health drains maturity by 20% per week (30% if both signals are active). Once stress clears, maturity recovers at the same rate.
+
+The lesson: practices have contextual fit, and the team must hold them to keep their benefit. The active bonuses and their current strength surface in the game header so players can read what their investment is doing for them right now.
+
 ## Scenarios
 
 - **The Startup** — Capacity 120, code health 70. Fifteen weeks to deliver £500K in business value. High delivery pressure throughout.
