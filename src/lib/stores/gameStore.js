@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store';
 import { getScenario } from '../simulation/ScenarioDefinitions.js';
 import { calculateFlowEfficiency, getComplexityPoints, calculateContextSwitchingPenalty, calculateWeeklyCapacity } from '../simulation/GameEngine.js';
-import { calculateFeatureDelivery, applyFeatureOutcome, IMPROVEMENTS, calculateImprovementOutcome, applyImprovementOutcome, updateBonusMaturity } from '../simulation/BusinessRules.js';
+import { calculateFeatureDelivery, applyFeatureOutcome, IMPROVEMENTS, calculateImprovementOutcome, applyImprovementOutcome, updateBonusMaturity, calculateWeeklyBurn } from '../simulation/BusinessRules.js';
 import { checkForEvents, applyEventOutcome } from '../simulation/EventSystem.js';
 import { generateOpportunities, checkDeadlines } from '../simulation/OpportunityGenerator.js';
 
@@ -202,6 +202,13 @@ function createGameStore() {
         // Advance bonus maturity based on end-of-week stress signals
         const allocatedItemCount = Object.keys(state.capacityAllocation).length;
         newActiveBonuses = updateBonusMaturity(newActiveBonuses, newMetrics, allocatedItemCount);
+
+        // Apply burn rate for scenarios that have it (e.g. startup)
+        const scenario = getScenario(state.scenario);
+        if (scenario.mechanics?.burnRate) {
+          const burn = calculateWeeklyBurn(newMetrics.capacity);
+          newMetrics = { ...newMetrics, businessValue: newMetrics.businessValue - burn };
+        }
 
         // Check deadlines and generate new opportunities
         const { active, expired } = checkDeadlines(state.opportunities, newWeek);

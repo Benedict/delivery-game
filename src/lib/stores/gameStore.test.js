@@ -307,3 +307,33 @@ describe('gameStore - startup mechanics state', () => {
     expect(state.metrics.investorConfidence).toBeUndefined();
   });
 });
+
+describe('gameStore - burn rate', () => {
+  it('subtracts capacity * 0.20 from BV at end of week in startup scenario', () => {
+    startNewGame('startup');
+    const before = get(gameStore).metrics.businessValue;
+    endWeek();
+    const after = get(gameStore).metrics.businessValue;
+    // Capacity 120 -> burn -24
+    expect(after - before).toBeCloseTo(-24, 1);
+  });
+
+  it('does not apply burn in non-startup scenarios', () => {
+    startNewGame('greenfield');
+    const before = get(gameStore).metrics.businessValue;
+    endWeek();
+    const after = get(gameStore).metrics.businessValue;
+    expect(after).toBe(before);
+  });
+
+  it('burn scales with capacity changes mid-game', () => {
+    startNewGame('startup');
+    // Manually bump capacity for this test
+    gameStore.update(s => ({ ...s, metrics: { ...s.metrics, capacity: 200 } }));
+    const before = get(gameStore).metrics.businessValue;
+    endWeek();
+    const after = get(gameStore).metrics.businessValue;
+    // Capacity 200 -> burn -40
+    expect(after - before).toBeCloseTo(-40, 1);
+  });
+});
