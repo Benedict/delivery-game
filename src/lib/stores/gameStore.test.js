@@ -7,7 +7,9 @@ import {
   startFeature,
   startImprovement,
   allocateCapacity,
-  endWeek
+  endWeek,
+  acceptAcquisition,
+  declineAcquisition
 } from './gameStore.js';
 
 describe('GameStore', () => {
@@ -464,5 +466,44 @@ describe('gameStore - acquisition offer flow', () => {
     const state = get(gameStore);
     const checkIns = state.history.events.filter(e => e.id === 'investorCheckIn');
     expect(checkIns.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('gameStore - acquisition accept/decline actions', () => {
+  function setupOffer() {
+    startNewGame('startup');
+    gameStore.update(s => ({
+      ...s,
+      pendingDecision: { type: 'acquisition', week: s.week },
+      metrics: { ...s.metrics, investorConfidence: 75 }
+    }));
+  }
+
+  it('acceptAcquisition ends the game in alternate victory', () => {
+    setupOffer();
+    acceptAcquisition();
+    const state = get(gameStore);
+    expect(state.gameOver).toBe(true);
+    expect(state.victory).toBe(true);
+    expect(state.victoryType).toBe('acquisition');
+    expect(state.pendingDecision).toBeNull();
+  });
+
+  it('declineAcquisition resets confidence to 60 and sets the decline flag', () => {
+    setupOffer();
+    declineAcquisition();
+    const state = get(gameStore);
+    expect(state.metrics.investorConfidence).toBe(60);
+    expect(state.consecutiveWeeksHighConfidence).toBe(0);
+    expect(state.acquisitionOfferDeclined).toBe(true);
+    expect(state.pendingDecision).toBeNull();
+    expect(state.gameOver).toBe(false);
+  });
+
+  it('acceptAcquisition does nothing if pendingDecision is not an acquisition', () => {
+    startNewGame('startup');
+    acceptAcquisition();
+    const state = get(gameStore);
+    expect(state.gameOver).toBe(false);
   });
 });

@@ -106,6 +106,32 @@ function createGameStore() {
       });
     },
 
+    acceptAcquisition: () => {
+      update(state => {
+        if (!state || state.pendingDecision?.type !== 'acquisition') return state;
+        return {
+          ...state,
+          gameOver: true,
+          victory: true,
+          victoryType: 'acquisition',
+          pendingDecision: null
+        };
+      });
+    },
+
+    declineAcquisition: () => {
+      update(state => {
+        if (!state || state.pendingDecision?.type !== 'acquisition') return state;
+        return {
+          ...state,
+          metrics: { ...state.metrics, investorConfidence: 60 },
+          consecutiveWeeksHighConfidence: 0,
+          acquisitionOfferDeclined: true,
+          pendingDecision: null
+        };
+      });
+    },
+
     // End the week and progress all WIP
     endWeek: () => {
       update(state => {
@@ -366,3 +392,5 @@ export const startFeature = (feature) => gameStore.startFeature(feature);
 export const startImprovement = (improvementId) => gameStore.startImprovement(improvementId);
 export const allocateCapacity = (allocation) => gameStore.allocateCapacity(allocation);
 export const endWeek = () => gameStore.endWeek();
+export const acceptAcquisition = () => gameStore.acceptAcquisition();
+export const declineAcquisition = () => gameStore.declineAcquisition();
