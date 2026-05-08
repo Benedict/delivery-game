@@ -241,3 +241,41 @@ export function applyImprovementOutcome(metrics, outcome) {
 export function calculateWeeklyBurn(capacity) {
   return Math.max(0, capacity * 0.20);
 }
+
+/**
+ * Calculate the total investor confidence delta for a single end-of-week tick.
+ * Sums per-completion contributions, per-event contributions, and per-week sustained signals.
+ *
+ * @param {object} metrics - End-of-week metrics, must include satisfaction, codeHealth, marketPosition
+ * @param {Array<object>} completionEvents - Completed WIP items as { type: 'feature'|'improvement', hasBugs?: boolean }
+ * @param {Array<object>} triggeredEvents - Triggered events with { id: string }
+ * @returns {number} Total confidence delta for this week
+ */
+export function calculateConfidenceDelta(metrics, completionEvents, triggeredEvents) {
+  let delta = 0;
+
+  // Per-completion deltas
+  for (const event of completionEvents) {
+    if (event.type === 'feature') {
+      delta += event.hasBugs ? -10 : 5;
+    } else if (event.type === 'improvement') {
+      delta += -5;
+    }
+  }
+
+  // Per-event deltas
+  for (const event of triggeredEvents) {
+    if (event.id === 'securityIncident') delta += -25;
+    else if (event.id === 'customerChurn') delta += -15;
+    else if (event.id === 'engineeringExodus') delta += -20;
+    else if (event.id === 'bigClient') delta += 15;
+  }
+
+  // Per-week sustained signals
+  if (metrics.satisfaction > 60) delta += 2;
+  if (metrics.satisfaction < 20) delta += -3;
+  if (metrics.codeHealth < 0) delta += -3;
+  if (metrics.marketPosition > 60) delta += 2;
+
+  return delta;
+}

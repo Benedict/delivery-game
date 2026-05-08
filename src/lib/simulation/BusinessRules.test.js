@@ -9,6 +9,7 @@ import {
   getBonusStrength,
   updateBonusMaturity,
   calculateWeeklyBurn,
+  calculateConfidenceDelta,
   IMPROVEMENTS
 } from './BusinessRules.js';
 
@@ -313,5 +314,99 @@ describe('BusinessRules - calculateWeeklyBurn', () => {
 
   it('handles negative capacity by returning 0 (no negative burn)', () => {
     expect(calculateWeeklyBurn(-50)).toBe(0);
+  });
+});
+
+describe('BusinessRules - calculateConfidenceDelta', () => {
+  const baseMetrics = {
+    capacity: 120,
+    codeHealth: 70,
+    satisfaction: 50,
+    marketPosition: 50,
+    businessValue: 0,
+    investorConfidence: 50
+  };
+
+  it('returns 0 with no completions, no events, neutral metrics', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [], []);
+    expect(delta).toBe(0);
+  });
+
+  it('rewards a feature ship without bugs', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [{ type: 'feature', hasBugs: false }], []);
+    expect(delta).toBe(5);
+  });
+
+  it('penalises a feature ship with bugs', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [{ type: 'feature', hasBugs: true }], []);
+    expect(delta).toBe(-10);
+  });
+
+  it('penalises an improvement completion', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [{ type: 'improvement' }], []);
+    expect(delta).toBe(-5);
+  });
+
+  it('sums multiple completions correctly', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [
+      { type: 'feature', hasBugs: false },
+      { type: 'feature', hasBugs: false },
+      { type: 'improvement' }
+    ], []);
+    expect(delta).toBe(5);
+  });
+
+  it('applies penalty for security incident event', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [], [{ id: 'securityIncident' }]);
+    expect(delta).toBe(-25);
+  });
+
+  it('applies penalty for customer churn event', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [], [{ id: 'customerChurn' }]);
+    expect(delta).toBe(-15);
+  });
+
+  it('applies penalty for engineering exodus event', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [], [{ id: 'engineeringExodus' }]);
+    expect(delta).toBe(-20);
+  });
+
+  it('applies bonus for big client event', () => {
+    const delta = calculateConfidenceDelta(baseMetrics, [], [{ id: 'bigClient' }]);
+    expect(delta).toBe(15);
+  });
+
+  it('rewards sustained high satisfaction', () => {
+    const metrics = { ...baseMetrics, satisfaction: 65 };
+    const delta = calculateConfidenceDelta(metrics, [], []);
+    expect(delta).toBe(2);
+  });
+
+  it('penalises sustained low satisfaction', () => {
+    const metrics = { ...baseMetrics, satisfaction: 15 };
+    const delta = calculateConfidenceDelta(metrics, [], []);
+    expect(delta).toBe(-3);
+  });
+
+  it('penalises sustained negative code health', () => {
+    const metrics = { ...baseMetrics, codeHealth: -5 };
+    const delta = calculateConfidenceDelta(metrics, [], []);
+    expect(delta).toBe(-3);
+  });
+
+  it('rewards sustained high market position', () => {
+    const metrics = { ...baseMetrics, marketPosition: 65 };
+    const delta = calculateConfidenceDelta(metrics, [], []);
+    expect(delta).toBe(2);
+  });
+
+  it('combines completions, events, and sustained signals', () => {
+    const metrics = { ...baseMetrics, satisfaction: 65, marketPosition: 65 };
+    const delta = calculateConfidenceDelta(
+      metrics,
+      [{ type: 'feature', hasBugs: false }],
+      [{ id: 'bigClient' }]
+    );
+    expect(delta).toBe(24); // 5 + 15 + 2 + 2
   });
 });
