@@ -1,5 +1,5 @@
 <script>
-  import { IMPROVEMENTS } from '$lib/simulation/BusinessRules.js';
+  import { IMPROVEMENTS, getBonusStrength } from '$lib/simulation/BusinessRules.js';
 
   export let week = 1;
   export let metrics = {
@@ -39,14 +39,22 @@
   }
 
   function effectSummaryFor(bonus) {
-    const pct = Math.round(bonus.maturity * 100);
     if (bonus.maturity === 0) return 'No effect — discipline has eroded';
+
+    const strengthPct = Math.round(bonus.maturity * 100);
+
     if (bonus.type === 'reduceBugProbability') {
-      return `Currently reducing bug rate (up to 70% in crisis code at full maturity, ${pct}% of full strength)`;
+      const reduction = getBonusStrength([bonus], 'reduceBugProbability', { codeHealth: metrics.codeHealth });
+      return `Reducing bug rate by ~${Math.round(reduction * 100)}% right now (${strengthPct}% strength)`;
     }
+
     if (bonus.type === 'reduceFeatureImpact') {
-      return `Currently reducing feature impact on code health (up to 50% on complex features at full maturity, ${pct}% of full strength)`;
+      const low = Math.round(getBonusStrength([bonus], 'reduceFeatureImpact', { complexity: 'low' }) * 100);
+      const med = Math.round(getBonusStrength([bonus], 'reduceFeatureImpact', { complexity: 'medium' }) * 100);
+      const high = Math.round(getBonusStrength([bonus], 'reduceFeatureImpact', { complexity: 'high' }) * 100);
+      return `Reducing feature impact: ${low}% / ${med}% / ${high}% on simple / medium / complex features (${strengthPct}% strength)`;
     }
+
     return '';
   }
 </script>
