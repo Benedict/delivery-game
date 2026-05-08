@@ -31,6 +31,11 @@ function createGameStore() {
           weeklyMetrics: []
         },
         activeBonuses: [],
+        consecutiveWeeksLowConfidence: 0,
+        consecutiveWeeksHighConfidence: 0,
+        acquisitionOfferDeclined: false,
+        pendingDecision: null,
+        victoryType: null,
         victoryConditions: scenario.victoryConditions,
         gameOver: false,
         victory: false

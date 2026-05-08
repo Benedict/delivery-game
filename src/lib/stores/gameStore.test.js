@@ -283,3 +283,27 @@ describe('gameStore - activeBonuses lifecycle', () => {
     expect(decision.outcome.codeHealthDelta).toBe(-4);
   });
 });
+
+describe('gameStore - startup mechanics state', () => {
+  it('initialises consecutive-week counters and decline flag for any new game', () => {
+    startNewGame('startup');
+    const state = get(gameStore);
+    expect(state.consecutiveWeeksLowConfidence).toBe(0);
+    expect(state.consecutiveWeeksHighConfidence).toBe(0);
+    expect(state.acquisitionOfferDeclined).toBe(false);
+    expect(state.pendingDecision).toBeNull();
+    expect(state.victoryType).toBeNull();
+  });
+
+  it('initialises investorConfidence to 50 for startup scenario', () => {
+    startNewGame('startup');
+    const state = get(gameStore);
+    expect(state.metrics.investorConfidence).toBe(50);
+  });
+
+  it('does not include investorConfidence in metrics for non-startup scenarios', () => {
+    startNewGame('greenfield');
+    const state = get(gameStore);
+    expect(state.metrics.investorConfidence).toBeUndefined();
+  });
+});
