@@ -267,23 +267,6 @@ function createGameStore() {
           }
         }
 
-        // Check for post-phase events (using JUST-UPDATED counter values)
-        const postEventState = {
-          scenario: state.scenario,
-          consecutiveWeeksHighConfidence: newHighCounter,
-          acquisitionOfferDeclined: state.acquisitionOfferDeclined
-        };
-
-        const postEvents = checkForEvents(newMetrics, state.history, newWeek, postEventState, 'post');
-
-        let newPendingDecision = state.pendingDecision;
-        postEvents.forEach(event => {
-          // Acquisition offer routes to pendingDecision; other narrative events have empty outcome
-          if (event.outcome?.pendingDecision === 'acquisition') {
-            newPendingDecision = { type: 'acquisition', week: newWeek };
-          }
-        });
-
         // Check deadlines and generate new opportunities
         const { active, expired } = checkDeadlines(state.opportunities, newWeek);
 
@@ -321,6 +304,29 @@ function createGameStore() {
           state.victoryConditions
         );
 
+        const willEndGame = fundingPulled || gameOver;
+
+        // Check for post-phase events (using JUST-UPDATED counter values)
+        // Evaluated after lose/win checks so post-events cannot overlay the game-over screen
+        const postEventState = {
+          scenario: state.scenario,
+          consecutiveWeeksHighConfidence: newHighCounter,
+          acquisitionOfferDeclined: state.acquisitionOfferDeclined
+        };
+
+        const postEvents = checkForEvents(newMetrics, state.history, newWeek, postEventState, 'post');
+
+        // Only route pendingDecision when the game is NOT ending this week
+        let newPendingDecision = state.pendingDecision;
+        if (!willEndGame) {
+          postEvents.forEach(event => {
+            // Acquisition offer routes to pendingDecision; other narrative events have empty outcome
+            if (event.outcome?.pendingDecision === 'acquisition') {
+              newPendingDecision = { type: 'acquisition', week: newWeek };
+            }
+          });
+        }
+
         // Preserve allocations for items still in WIP
         const preservedAllocations = {};
         const hasForcedFix = newWIP.some(item => item.forced);
@@ -350,8 +356,8 @@ function createGameStore() {
           history: {
             events: [
               ...state.history.events,
-              ...triggeredEvents.map(e => ({ id: e.id, week: newWeek })),
-              ...postEvents.map(e => ({ id: e.id, week: newWeek }))
+              ...triggeredEvents,
+              ...postEvents
             ],
             decisions: [...state.history.decisions, ...newDecisions],
             weeklyMetrics

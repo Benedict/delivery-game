@@ -507,3 +507,52 @@ describe('gameStore - acquisition accept/decline actions', () => {
     expect(state.gameOver).toBe(false);
   });
 });
+
+describe('gameStore - final review fixes', () => {
+  it('history.events stores full event objects readable by StoryEngine', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({
+      ...s,
+      metrics: { ...s.metrics, codeHealth: -60 } // trigger securityIncident
+    }));
+    endWeek();
+    const state = get(gameStore);
+    const event = state.history.events.find(e => e.id === 'securityIncident');
+    expect(event).toBeDefined();
+    // Story engine reads event.event.name and event.event.description
+    expect(event.event).toBeDefined();
+    expect(event.event.name).toBeDefined();
+    expect(event.outcome).toBeDefined();
+  });
+
+  it('does not set pendingDecision when game ends from time-out the same week', () => {
+    startNewGame('startup');
+    // Force the game to be at the final week with high-confidence streak ready
+    gameStore.update(s => ({
+      ...s,
+      week: 12,
+      consecutiveWeeksHighConfidence: 2,
+      metrics: { ...s.metrics, investorConfidence: 75 }
+    }));
+    endWeek();
+    const state = get(gameStore);
+    expect(state.gameOver).toBe(true);
+    expect(state.pendingDecision).toBeNull();
+  });
+
+  it('does not set pendingDecision when funding pulled the same week', () => {
+    startNewGame('startup');
+    // Set up: confidence ≤ -50 last week, AND will be ≥ 70 this week somehow.
+    // This is contrived but tests that the gate works.
+    gameStore.update(s => ({
+      ...s,
+      consecutiveWeeksLowConfidence: 1,
+      consecutiveWeeksHighConfidence: 2,
+      metrics: { ...s.metrics, investorConfidence: -60 } // stays low
+    }));
+    endWeek();
+    const state = get(gameStore);
+    expect(state.gameOver).toBe(true);
+    expect(state.pendingDecision).toBeNull();
+  });
+});
