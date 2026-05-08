@@ -88,6 +88,47 @@ export const EVENTS = {
     outcome: {
       hiringCostReduction: 0.5 // Hiring costs 50% less
     }
+  },
+  investorCheckIn: {
+    id: 'investorCheckIn',
+    name: 'Investor Check-in',
+    type: 'narrative',
+    phase: 'post',
+    description: 'Investors are reviewing your progress',
+    trigger: (metrics, history, week, state) => {
+      return state?.scenario === 'startup' && week > 0 && week % 4 === 0;
+    },
+    outcome: {}
+  },
+  downRoundThreat: {
+    id: 'downRoundThreat',
+    name: 'Down Round Threat',
+    type: 'narrative',
+    phase: 'post',
+    description: 'Investors hint at a down round if confidence does not recover',
+    trigger: (metrics, history, week, state) => {
+      if (state?.scenario !== 'startup') return false;
+      if (metrics.investorConfidence === undefined) return false;
+      if (metrics.investorConfidence >= 0) return false;
+      const alreadyFired = history.events.some(e => e.id === 'downRoundThreat');
+      return !alreadyFired;
+    },
+    outcome: {}
+  },
+  acquisitionOffer: {
+    id: 'acquisitionOffer',
+    name: 'Acquisition Offer',
+    type: 'choice',
+    phase: 'post',
+    description: 'A larger company has offered to acquire you',
+    trigger: (metrics, history, week, state) => {
+      if (state?.scenario !== 'startup') return false;
+      if (state?.acquisitionOfferDeclined) return false;
+      return state?.consecutiveWeeksHighConfidence >= 3;
+    },
+    outcome: {
+      pendingDecision: 'acquisition'
+    }
   }
 };
 
@@ -96,9 +137,11 @@ export const EVENTS = {
  * @param {object} metrics - Current metrics
  * @param {object} history - Game history
  * @param {number} week - Current week
+ * @param {object} state - Game state (scenario, counters, flags)
+ * @param {string} phase - 'pre' or 'post' (default 'pre')
  * @returns {array} Triggered events
  */
-export function checkForEvents(metrics, history, week) {
+export function checkForEvents(metrics, history, week, state = {}, phase = 'pre') {
   const triggeredEvents = [];
 
   // Track low health streak
@@ -106,10 +149,15 @@ export function checkForEvents(metrics, history, week) {
     ? (history.weeksLowHealth || 0) + 1
     : 0;
 
+  const enrichedHistory = { ...history, weeksLowHealth };
+
   // Check each event's trigger condition
   for (const event of Object.values(EVENTS)) {
-    if (event.trigger(metrics, { ...history, weeksLowHealth }, week)) {
+    const eventPhase = event.phase ?? 'pre';
+    if (eventPhase !== phase) continue;
+    if (event.trigger(metrics, enrichedHistory, week, state)) {
       triggeredEvents.push({
+        ...event,
         event,
         outcome: event.outcome,
         week

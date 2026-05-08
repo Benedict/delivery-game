@@ -81,3 +81,92 @@ describe('EventSystem', () => {
     expect(newMetrics.satisfaction).toBe(50);
   });
 });
+
+describe('EventSystem - startup events', () => {
+  const startupHistory = { events: [], decisions: [], weeklyMetrics: [] };
+  const startupMetrics = {
+    capacity: 120,
+    codeHealth: 70,
+    satisfaction: 50,
+    marketPosition: 50,
+    businessValue: 0,
+    investorConfidence: 50
+  };
+  const startupState = {
+    scenario: 'startup',
+    consecutiveWeeksHighConfidence: 0,
+    acquisitionOfferDeclined: false
+  };
+
+  it('investorCheckIn fires every 4 weeks in startup, post-phase', () => {
+    const events = checkForEvents(startupMetrics, startupHistory, 4, startupState, 'post');
+    expect(events.find(e => e.id === 'investorCheckIn')).toBeDefined();
+
+    const events8 = checkForEvents(startupMetrics, startupHistory, 8, startupState, 'post');
+    expect(events8.find(e => e.id === 'investorCheckIn')).toBeDefined();
+  });
+
+  it('investorCheckIn does not fire in non-startup scenarios', () => {
+    const greenfieldState = { scenario: 'greenfield' };
+    const events = checkForEvents(startupMetrics, startupHistory, 4, greenfieldState, 'post');
+    expect(events.find(e => e.id === 'investorCheckIn')).toBeUndefined();
+  });
+
+  it('investorCheckIn does not fire on non-multiple-of-4 weeks', () => {
+    const events = checkForEvents(startupMetrics, startupHistory, 3, startupState, 'post');
+    expect(events.find(e => e.id === 'investorCheckIn')).toBeUndefined();
+  });
+
+  it('investorCheckIn does not fire in pre-phase', () => {
+    const events = checkForEvents(startupMetrics, startupHistory, 4, startupState, 'pre');
+    expect(events.find(e => e.id === 'investorCheckIn')).toBeUndefined();
+  });
+
+  it('downRoundThreat fires the first time confidence drops below 0, post-phase only', () => {
+    const lowConfidenceMetrics = { ...startupMetrics, investorConfidence: -5 };
+    const events = checkForEvents(lowConfidenceMetrics, startupHistory, 5, startupState, 'post');
+    expect(events.find(e => e.id === 'downRoundThreat')).toBeDefined();
+
+    const preEvents = checkForEvents(lowConfidenceMetrics, startupHistory, 5, startupState, 'pre');
+    expect(preEvents.find(e => e.id === 'downRoundThreat')).toBeUndefined();
+  });
+
+  it('downRoundThreat does not refire after the first time', () => {
+    const lowConfidenceMetrics = { ...startupMetrics, investorConfidence: -5 };
+    const historyWithDownRound = {
+      ...startupHistory,
+      events: [{ id: 'downRoundThreat', week: 3 }]
+    };
+    const events = checkForEvents(lowConfidenceMetrics, historyWithDownRound, 5, startupState, 'post');
+    expect(events.find(e => e.id === 'downRoundThreat')).toBeUndefined();
+  });
+
+  it('acquisitionOffer fires when consecutiveWeeksHighConfidence reaches 3, post-phase', () => {
+    const stateWithThree = { ...startupState, consecutiveWeeksHighConfidence: 3 };
+    const events = checkForEvents(startupMetrics, startupHistory, 5, stateWithThree, 'post');
+    expect(events.find(e => e.id === 'acquisitionOffer')).toBeDefined();
+  });
+
+  it('acquisitionOffer does not fire if previously declined', () => {
+    const stateDeclined = {
+      ...startupState,
+      consecutiveWeeksHighConfidence: 3,
+      acquisitionOfferDeclined: true
+    };
+    const events = checkForEvents(startupMetrics, startupHistory, 5, stateDeclined, 'post');
+    expect(events.find(e => e.id === 'acquisitionOffer')).toBeUndefined();
+  });
+
+  it('acquisitionOffer does not fire below 3 consecutive high-confidence weeks', () => {
+    const stateWithTwo = { ...startupState, consecutiveWeeksHighConfidence: 2 };
+    const events = checkForEvents(startupMetrics, startupHistory, 5, stateWithTwo, 'post');
+    expect(events.find(e => e.id === 'acquisitionOffer')).toBeUndefined();
+  });
+
+  it('existing events default to pre-phase (regression check)', () => {
+    // securityIncident from the existing event set should fire in pre-phase
+    const crisisMetrics = { ...startupMetrics, codeHealth: -60 };
+    const events = checkForEvents(crisisMetrics, startupHistory, 5, startupState, 'pre');
+    expect(events.find(e => e.id === 'securityIncident')).toBeDefined();
+  });
+});
