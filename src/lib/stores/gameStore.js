@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store';
 import { getScenario } from '../simulation/ScenarioDefinitions.js';
 import { calculateFlowEfficiency, getComplexityPoints, calculateContextSwitchingPenalty, calculateWeeklyCapacity } from '../simulation/GameEngine.js';
-import { calculateFeatureDelivery, applyFeatureOutcome, IMPROVEMENTS, calculateImprovementOutcome, applyImprovementOutcome, updateBonusMaturity, calculateWeeklyBurn } from '../simulation/BusinessRules.js';
+import { calculateFeatureDelivery, applyFeatureOutcome, IMPROVEMENTS, calculateImprovementOutcome, applyImprovementOutcome, updateBonusMaturity, calculateWeeklyBurn, calculateConfidenceDelta } from '../simulation/BusinessRules.js';
 import { checkForEvents, applyEventOutcome } from '../simulation/EventSystem.js';
 import { generateOpportunities, checkDeadlines } from '../simulation/OpportunityGenerator.js';
 
@@ -142,6 +142,7 @@ function createGameStore() {
         }).filter(item => item !== null);
 
         // Process completed items
+        const completionEvents = [];
         const newDecisions = [];
         completedItems.forEach(item => {
           if (item.type === 'feature') {
@@ -153,6 +154,7 @@ function createGameStore() {
               feature: item,
               outcome
             });
+            completionEvents.push({ type: 'feature', hasBugs: outcome.hasBugs });
           } else if (item.type === 'improvement') {
             const outcome = calculateImprovementOutcome(item, newMetrics.capacity);
             newMetrics = applyImprovementOutcome(newMetrics, outcome);
@@ -170,6 +172,7 @@ function createGameStore() {
                 completedWeek: newWeek
               });
             }
+            completionEvents.push({ type: 'improvement' });
           }
         });
 
@@ -208,6 +211,13 @@ function createGameStore() {
         if (scenario.mechanics?.burnRate) {
           const burn = calculateWeeklyBurn(newMetrics.capacity);
           newMetrics = { ...newMetrics, businessValue: newMetrics.businessValue - burn };
+        }
+
+        // Apply investor confidence delta for scenarios that track it (e.g. startup)
+        if (scenario.mechanics?.investorConfidence) {
+          const confidenceDelta = calculateConfidenceDelta(newMetrics, completionEvents, triggeredEvents);
+          const newConfidence = Math.max(-100, Math.min(100, newMetrics.investorConfidence + confidenceDelta));
+          newMetrics = { ...newMetrics, investorConfidence: newConfidence };
         }
 
         // Check deadlines and generate new opportunities

@@ -337,3 +337,40 @@ describe('gameStore - burn rate', () => {
     expect(after - before).toBeCloseTo(-40, 1);
   });
 });
+
+describe('gameStore - confidence updates', () => {
+  it('does not change confidence in non-startup scenarios', () => {
+    startNewGame('greenfield');
+    endWeek();
+    const state = get(gameStore);
+    expect(state.metrics.investorConfidence).toBeUndefined();
+  });
+
+  it('confidence drops by 5 when an improvement completes (no other changes)', () => {
+    startNewGame('startup');
+    startImprovement('fixBugs');
+    allocateCapacity({ fixBugs: 100 });
+    const before = get(gameStore).metrics.investorConfidence;
+    endWeek();
+    const after = get(gameStore).metrics.investorConfidence;
+    // Improvement -5; no other deltas if metrics stay neutral
+    expect(after - before).toBeLessThanOrEqual(-5);
+  });
+
+  it('clamps confidence to range -100 to 100', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({ ...s, metrics: { ...s.metrics, investorConfidence: 99 } }));
+    endWeek();
+    const after = get(gameStore).metrics.investorConfidence;
+    expect(after).toBeLessThanOrEqual(100);
+    expect(after).toBeGreaterThanOrEqual(-100);
+  });
+
+  it('records confidence change in history alongside other metrics', () => {
+    startNewGame('startup');
+    endWeek();
+    const state = get(gameStore);
+    const last = state.history.weeklyMetrics[state.history.weeklyMetrics.length - 1];
+    expect(last).toHaveProperty('investorConfidence');
+  });
+});
