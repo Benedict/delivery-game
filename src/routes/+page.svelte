@@ -1,5 +1,5 @@
 <script>
-  import { gameStore, startNewGame, startFeature, startImprovement, allocateCapacity, endWeek } from '../lib/stores/gameStore.js';
+  import { gameStore, startNewGame, startFeature, startImprovement, allocateCapacity, endWeek, acceptAcquisition, declineAcquisition } from '../lib/stores/gameStore.js';
   import { getScenario, SCENARIOS } from '../lib/simulation/ScenarioDefinitions.js';
   import { generateFeatureStory, generateImprovementStory, generateEventStory } from '../lib/simulation/StoryEngine.js';
   import GameHeader from '../lib/components/simulation/GameHeader.svelte';
@@ -98,6 +98,14 @@
     selectedScenario = null;
     recentStory = '';
     recentEvents = [];
+  }
+
+  function handleAcceptAcquisition() {
+    acceptAcquisition();
+  }
+
+  function handleDeclineAcquisition() {
+    declineAcquisition();
   }
 </script>
 
@@ -285,5 +293,37 @@
     {/if}
   </div>
 </div>
+
+{#if game?.pendingDecision?.type === 'acquisition'}
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-2xl">
+      <div class="bg-gradient-to-r from-fuchsia-500 to-purple-500 border-b-4 border-black p-6">
+        <h2 class="text-3xl font-black text-white uppercase">Acquisition Offer</h2>
+      </div>
+      <div class="p-6 space-y-4">
+        <p class="text-base font-bold text-gray-800 leading-relaxed">
+          A larger company has been watching your trajectory. They want to acquire you. Investors love the offer.
+        </p>
+        <p class="text-sm font-bold text-gray-700 leading-relaxed">
+          Accept and the game ends in alternate victory regardless of your business value target. Decline and you continue toward the £500K primary victory, but investor confidence drops to 60 and you cannot receive another offer this game.
+        </p>
+        <div class="flex gap-3 pt-4">
+          <button
+            on:click={handleAcceptAcquisition}
+            class="flex-1 px-6 py-3 bg-gradient-to-r from-emerald-400 to-teal-500 text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:from-emerald-500 hover:to-teal-600 font-black uppercase"
+          >
+            Accept Offer
+          </button>
+          <button
+            on:click={handleDeclineAcquisition}
+            class="flex-1 px-6 py-3 bg-gradient-to-r from-amber-300 to-yellow-400 text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:from-amber-400 hover:to-yellow-500 font-black uppercase"
+          >
+            Decline, Keep Building
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
 
 <HelpModal show={showHelp} on:close={() => showHelp = false} />
