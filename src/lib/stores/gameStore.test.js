@@ -413,3 +413,56 @@ describe('gameStore - confidence counters and lose condition', () => {
     expect(get(gameStore).consecutiveWeeksHighConfidence).toBe(0);
   });
 });
+
+describe('gameStore - acquisition offer flow', () => {
+  it('sets pendingDecision when acquisitionOffer event triggers', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({
+      ...s,
+      consecutiveWeeksHighConfidence: 2, // will become 3 after this week's increment
+      metrics: { ...s.metrics, investorConfidence: 75 }
+    }));
+    endWeek();
+    const state = get(gameStore);
+    expect(state.pendingDecision).toEqual({ type: 'acquisition', week: state.week });
+  });
+
+  it('does not set pendingDecision in non-startup scenarios', () => {
+    startNewGame('greenfield');
+    endWeek();
+    expect(get(gameStore).pendingDecision).toBeNull();
+  });
+
+  it('does not set pendingDecision when offer was previously declined', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({
+      ...s,
+      consecutiveWeeksHighConfidence: 2,
+      acquisitionOfferDeclined: true,
+      metrics: { ...s.metrics, investorConfidence: 75 }
+    }));
+    endWeek();
+    expect(get(gameStore).pendingDecision).toBeNull();
+  });
+
+  it('does not put pendingDecision into metrics', () => {
+    startNewGame('startup');
+    gameStore.update(s => ({
+      ...s,
+      consecutiveWeeksHighConfidence: 2,
+      metrics: { ...s.metrics, investorConfidence: 75 }
+    }));
+    endWeek();
+    const state = get(gameStore);
+    expect(state.metrics.pendingDecision).toBeUndefined();
+  });
+
+  it('records investor check-in event in history every 4 weeks for startup', () => {
+    startNewGame('startup');
+    // Advance to end of week 4
+    endWeek(); endWeek(); endWeek(); endWeek();
+    const state = get(gameStore);
+    const checkIns = state.history.events.filter(e => e.id === 'investorCheckIn');
+    expect(checkIns.length).toBeGreaterThanOrEqual(1);
+  });
+});

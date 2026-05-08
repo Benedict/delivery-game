@@ -178,8 +178,14 @@ function createGameStore() {
 
         newMetrics.flowEfficiency = calculateFlowEfficiency(newMetrics.codeHealth);
 
-        // Check for events
-        const triggeredEvents = checkForEvents(newMetrics, state.history, newWeek);
+        // Check for events (pre-phase: existing events without explicit phase)
+        const eventState = {
+          scenario: state.scenario,
+          consecutiveWeeksHighConfidence: state.consecutiveWeeksHighConfidence,
+          acquisitionOfferDeclined: state.acquisitionOfferDeclined
+        };
+
+        const triggeredEvents = checkForEvents(newMetrics, state.history, newWeek, eventState, 'pre');
         triggeredEvents.forEach(event => {
           newMetrics = applyEventOutcome(newMetrics, event);
 
@@ -234,6 +240,23 @@ function createGameStore() {
             newHighCounter = 0;
           }
         }
+
+        // Check for post-phase events (using JUST-UPDATED counter values)
+        const postEventState = {
+          scenario: state.scenario,
+          consecutiveWeeksHighConfidence: newHighCounter,
+          acquisitionOfferDeclined: state.acquisitionOfferDeclined
+        };
+
+        const postEvents = checkForEvents(newMetrics, state.history, newWeek, postEventState, 'post');
+
+        let newPendingDecision = state.pendingDecision;
+        postEvents.forEach(event => {
+          // Acquisition offer routes to pendingDecision; other narrative events have empty outcome
+          if (event.outcome?.pendingDecision === 'acquisition') {
+            newPendingDecision = { type: 'acquisition', week: newWeek };
+          }
+        });
 
         // Check deadlines and generate new opportunities
         const { active, expired } = checkDeadlines(state.opportunities, newWeek);
@@ -297,8 +320,13 @@ function createGameStore() {
           activeBonuses: newActiveBonuses,
           consecutiveWeeksLowConfidence: newLowCounter,
           consecutiveWeeksHighConfidence: newHighCounter,
+          pendingDecision: newPendingDecision,
           history: {
-            events: [...state.history.events, ...triggeredEvents],
+            events: [
+              ...state.history.events,
+              ...triggeredEvents.map(e => ({ id: e.id, week: newWeek })),
+              ...postEvents.map(e => ({ id: e.id, week: newWeek }))
+            ],
             decisions: [...state.history.decisions, ...newDecisions],
             weeklyMetrics
           },
