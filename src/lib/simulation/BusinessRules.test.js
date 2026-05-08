@@ -8,6 +8,7 @@ import {
   applyImprovementOutcome,
   getBonusStrength,
   updateBonusMaturity,
+  calculateWeeklyBurn,
   IMPROVEMENTS
 } from './BusinessRules.js';
 
@@ -292,5 +293,25 @@ describe('BusinessRules - calculateBugProbability with TDD bonus', () => {
     // codeHealth 0 -> base 0.7, 50% reduction at half maturity = 25% reduction -> 0.525
     const bonus = [{ type: 'reduceBugProbability', maturity: 0.5 }];
     expect(calculateBugProbability(0, bonus)).toBeCloseTo(0.525, 5);
+  });
+});
+
+describe('BusinessRules - calculateWeeklyBurn', () => {
+  it('returns 24 for capacity 120', () => {
+    expect(calculateWeeklyBurn(120)).toBe(24);
+  });
+
+  it('scales linearly with capacity', () => {
+    expect(calculateWeeklyBurn(80)).toBe(16);
+    expect(calculateWeeklyBurn(140)).toBe(28);
+    expect(calculateWeeklyBurn(200)).toBe(40);
+  });
+
+  it('returns 0 for capacity 0', () => {
+    expect(calculateWeeklyBurn(0)).toBe(0);
+  });
+
+  it('handles negative capacity by returning 0 (no negative burn)', () => {
+    expect(calculateWeeklyBurn(-50)).toBe(0);
   });
 });

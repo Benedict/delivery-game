@@ -231,3 +231,13 @@ export function applyImprovementOutcome(metrics, outcome) {
     businessValue: metrics.businessValue - (outcome.businessValueCost || 0)
   };
 }
+
+/**
+ * Calculate weekly burn rate in pounds based on team capacity.
+ * Burn scales at £0.20K per capacity point, so a team of 120 burns £24K per week.
+ * @param {number} capacity - Current team capacity
+ * @returns {number} Weekly burn in pounds (always non-negative)
+ */
+export function calculateWeeklyBurn(capacity) {
+  return Math.max(0, capacity * 0.20);
+}
