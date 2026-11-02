@@ -72,8 +72,14 @@ describe('journey: features only, full capacity, until time runs out', () => {
       await endWeek();
     }
 
-    expect(get(gameStore).gameOver).toBe(true);
+    const final = get(gameStore);
+    expect(final.gameOver).toBe(true);
     expect(await screen.findByText(/Weekly capacity/i)).toBeInTheDocument();
-    expect(screen.getByText(/week-1 efficiency/i)).toBeInTheDocument();
+    expect(screen.getByText(/lost about \d+ points of capacity/i)).toBeInTheDocument();
+    // Shipping features only lets code health collapse: that goal is shown as missed.
+    expect(screen.getByText(/Code health: -?\d+ of 70/)).toHaveTextContent('❌');
+    // The money what-if only appears when money was the goal that was missed.
+    const moneyMissed = final.metrics.businessValue < final.victoryConditions.businessValue;
+    expect(Boolean(screen.queryByText(/week-1 efficiency/i))).toBe(moneyMissed);
   });
 });

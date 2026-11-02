@@ -67,3 +67,36 @@ describe('game page: story', () => {
     expect(document.body.textContent).not.toContain('**');
   });
 });
+
+describe('game page: end screen explains which goal was missed', () => {
+  beforeEach(() => {
+    window.scrollTo = () => {};
+  });
+
+  async function finishGreenfield({ businessValue, codeHealth }) {
+    render(Page);
+    await fireEvent.click(screen.getByText('Begin Your Journey'));
+    await fireEvent.click(screen.getByText('The Greenfield Project'));
+    await fireEvent.click(screen.getByText('Start Game →'));
+    gameStore.update(state => ({
+      ...state,
+      metrics: { ...state.metrics, businessValue, codeHealth },
+      gameOver: true, victory: false, endReason: 'timeUp'
+    }));
+    await tick();
+  }
+
+  it('shows each goal as met or missed', async () => {
+    await finishGreenfield({ businessValue: 929, codeHealth: 18 });
+
+    expect(await screen.findByText(/Business value: £929K of £750K/)).toHaveTextContent('✅');
+    expect(screen.getByText(/Code health: 18 of 70/)).toHaveTextContent('❌');
+  });
+
+  it('does not suggest more money would have helped when money was not the problem', async () => {
+    await finishGreenfield({ businessValue: 929, codeHealth: 18 });
+
+    expect(screen.queryByText(/needed £/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/week-1 efficiency/)).not.toBeInTheDocument();
+  });
+});

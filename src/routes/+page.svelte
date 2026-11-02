@@ -25,6 +25,8 @@
     fundingPulled: { icon: '💸', title: 'Funding Pulled!', tone: 'bg-red-300', message: 'Investor confidence stayed too low for too long, and your investors walked away.' }
   };
   $: summary = game?.gameOver ? debrief(game) : null;
+  $: valueGoalMet = game ? game.metrics.businessValue >= game.victoryConditions.businessValue : false;
+  $: healthGoalMet = game?.victoryConditions.codeHealth ? game.metrics.codeHealth >= game.victoryConditions.codeHealth : true;
   $: maxWeeklyPoints = summary ? Math.max(1, ...summary.weeklyCapacity.map(w => w.points)) : 1;
   $: endScreen = END_SCREENS[game?.endReason] ?? (game?.victory ? END_SCREENS.targetReached : END_SCREENS.timeUp);
 
@@ -190,11 +192,17 @@
           <p class="text-2xl font-black text-black mb-4">{endScreen.message}</p>
           <div class="bg-yellow-300 border-2 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <p class="text-xl font-black text-black">
-              Final Business Value: £{game.metrics.businessValue}K{#if !game.victory} (needed £{game.victoryConditions.businessValue}K){/if}
+              {valueGoalMet ? '✅' : '❌'} Business value: £{game.metrics.businessValue}K of £{game.victoryConditions.businessValue}K
             </p>
           </div>
           <div class="bg-blue-300 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
+            {#if game.victoryConditions.codeHealth}
+              <p class="text-xl font-black text-black">
+                {healthGoalMet ? '✅' : '❌'} Code health: {game.metrics.codeHealth} of {game.victoryConditions.codeHealth}
+              </p>
+            {:else}
+              <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
+            {/if}
           </div>
         </div>
 
@@ -225,9 +233,9 @@
               </p>
             {/if}
 
-            {#if summary.whatIfBusinessValue !== null && summary.pointsLostToDebt > 0}
+            {#if summary.whatIfBusinessValue !== null && summary.pointsLostToDebt > 0 && !valueGoalMet}
               <p class="text-sm font-black text-black bg-amber-200 border-2 border-black p-2">
-                At your week-1 efficiency you would have finished on about £{summary.whatIfBusinessValue}K{#if !game.victory} (target £{game.victoryConditions.businessValue}K){/if}.
+                At your week-1 efficiency you would have finished on about £{summary.whatIfBusinessValue}K (target £{game.victoryConditions.businessValue}K).
               </p>
             {/if}
           </section>
