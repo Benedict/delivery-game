@@ -10,6 +10,7 @@ import {
   updateBonusMaturity,
   calculateWeeklyBurn,
   calculateConfidenceDelta,
+  calculateMarketDelta,
   IMPROVEMENTS
 } from './BusinessRules.js';
 import { fixedRng } from './random.js';
@@ -439,5 +440,27 @@ describe('BusinessRules - hiring discount', () => {
   it('discounts hiring, and only hiring, by the hiring cost multiplier', () => {
     expect(calculateImprovementOutcome(IMPROVEMENTS.hireSenior, 100, 0.5).businessValueCost).toBe(25);
     expect(calculateImprovementOutcome({ ...IMPROVEMENTS.fixBugs, businessValueCost: 10 }, 100, 0.5).businessValueCost).toBe(10);
+  });
+});
+
+describe('BusinessRules - market position', () => {
+  const neutral = { satisfaction: 50 };
+  const clean = { type: 'feature', hasBugs: false };
+  const buggy = { type: 'feature', hasBugs: true };
+
+  it('rises with each bug-free feature and falls with buggy ones', () => {
+    expect(calculateMarketDelta(neutral, [clean])).toBe(3);
+    expect(calculateMarketDelta(neutral, [clean, clean])).toBe(6);
+    expect(calculateMarketDelta(neutral, [buggy])).toBe(-2);
+  });
+
+  it('slips in weeks when nothing ships', () => {
+    expect(calculateMarketDelta(neutral, [])).toBe(-1);
+    expect(calculateMarketDelta(neutral, [{ type: 'improvement' }])).toBe(-1);
+  });
+
+  it('follows customer satisfaction', () => {
+    expect(calculateMarketDelta({ satisfaction: 75 }, [clean])).toBe(5);
+    expect(calculateMarketDelta({ satisfaction: 25 }, [clean])).toBe(1);
   });
 });

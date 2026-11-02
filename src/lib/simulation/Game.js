@@ -20,6 +20,7 @@ import {
   calculateImprovementOutcome,
   applyImprovementOutcome,
   updateBonusMaturity,
+  calculateMarketDelta,
   calculateWeeklyBurn,
   calculateConfidenceDelta
 } from './BusinessRules.js';
@@ -358,6 +359,9 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     unlockedOpportunities.push(...opportunitiesFromEvent(event, newWeek));
   }
   metrics.flowEfficiency = calculateFlowEfficiency(metrics.codeHealth);
+
+  // Market position follows delivery and customer satisfaction
+  metrics = { ...metrics, marketPosition: clampScore(metrics.marketPosition + calculateMarketDelta(metrics, completions)) };
 
   // 3. Practice bonuses mature or erode under end-of-week stress
   activeBonuses = updateBonusMaturity(activeBonuses, metrics, allocatedItemCount);

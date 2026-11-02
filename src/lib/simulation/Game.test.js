@@ -264,3 +264,20 @@ describe('Game - invariants over seeded games', () => {
     }
   });
 });
+
+describe('Game - market position', () => {
+  it('can climb high enough to attract a big client through steady clean delivery', () => {
+    // Fixed roll 0.9: never buggy on healthy code; features ship each week.
+    const roll = fixedRng(0.9);
+    let game = gameWith({ metrics: { satisfaction: 80, codeHealth: 90 } });
+    let bigClient = false;
+    for (let week = 0; week < 10 && !game.gameOver; week++) {
+      if (!game.workInProgress.length && game.opportunities.length) game = startFeature(game, game.opportunities[0]);
+      game = allocateCapacity(game, Object.fromEntries(game.workInProgress.map(i => [i.id, 1000])));
+      const result = advanceWeek(game, { rng: roll });
+      game = result.state;
+      bigClient ||= result.report.events.some(e => e.event.id === 'bigClient');
+    }
+    expect(bigClient).toBe(true);
+  });
+});

@@ -284,3 +284,27 @@ export function calculateConfidenceDelta(metrics, completionEvents, triggeredEve
 
   return delta;
 }
+
+/** Market position change for each shipped feature, and in quiet weeks. */
+const MARKET_PER_CLEAN_FEATURE = 3;
+const MARKET_PER_BUGGY_FEATURE = -2;
+const MARKET_WHEN_NOTHING_SHIPS = -1;
+const MARKET_FROM_HAPPY_CUSTOMERS = 2; // satisfaction above 70
+const MARKET_FROM_UNHAPPY_CUSTOMERS = -2; // satisfaction below 30
+
+/**
+ * Weekly change in market position: the market rewards consistent, clean
+ * delivery and happy customers, and forgets you in weeks when nothing ships.
+ * @param {object} metrics - End-of-week metrics (satisfaction)
+ * @param {array} completions - This week's completions ({ type, hasBugs })
+ * @returns {number} Change in market position
+ */
+export function calculateMarketDelta(metrics, completions) {
+  const features = completions.filter(c => c.type === 'feature');
+  let delta = features.length
+    ? features.reduce((sum, f) => sum + (f.hasBugs ? MARKET_PER_BUGGY_FEATURE : MARKET_PER_CLEAN_FEATURE), 0)
+    : MARKET_WHEN_NOTHING_SHIPS;
+  if (metrics.satisfaction > 70) delta += MARKET_FROM_HAPPY_CUSTOMERS;
+  if (metrics.satisfaction < 30) delta += MARKET_FROM_UNHAPPY_CUSTOMERS;
+  return delta;
+}
