@@ -25,9 +25,9 @@ describe('ScenarioDefinitions', () => {
   });
 
   it('should have different initial metrics for each scenario', () => {
-    expect(SCENARIOS.startup.initialMetrics.capacity).toBe(120);
-    expect(SCENARIOS.enterprise.initialMetrics.capacity).toBe(80);
-    expect(SCENARIOS.greenfield.initialMetrics.capacity).toBe(100);
+    const starts = Object.values(SCENARIOS).map(s => JSON.stringify(s.initialMetrics));
+    expect(new Set(starts).size).toBe(starts.length);
+    expect(SCENARIOS.enterprise.initialMetrics.codeHealth).toBeLessThan(0); // the legacy system starts in debt
   });
 
   it('should get scenario by id', () => {
@@ -76,12 +76,10 @@ describe('ScenarioDefinitions - startup updates', () => {
     expect(scenario.victoryConditions.weeks).toBe(12);
   });
 
-  it('startup has mechanics block with burnRate and investorConfidence flags', () => {
+  it('startup has a burn rate and investor confidence', () => {
     const scenario = getScenario('startup');
-    expect(scenario.mechanics).toEqual({
-      burnRate: true,
-      investorConfidence: true
-    });
+    expect(scenario.mechanics.burnRate).toBeGreaterThan(0);
+    expect(scenario.mechanics.investorConfidence).toBe(true);
   });
 
   it('legacy and greenfield do not have mechanics flags set', () => {

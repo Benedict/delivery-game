@@ -5,6 +5,11 @@ import { defaultRng } from './random.js';
 /**
  * Event definitions
  */
+/** An acquisition offer also needs customer satisfaction above this. */
+export const ACQUISITION_MIN_SATISFACTION = 80;
+/** Weeks of high investor confidence before an acquisition offer. */
+export const ACQUISITION_HIGH_CONFIDENCE_WEEKS = 3;
+
 export const EVENTS = {
   customerChurn: {
     id: 'customerChurn',
@@ -47,7 +52,7 @@ export const EVENTS = {
              (history.weeksLowHealth || 0) >= 3;
     },
     outcome: {
-      capacityDelta: -30,
+      capacityMultiplier: 0.75, // A quarter of the team leaves
       codeHealthDelta: -10
     }
   },
@@ -132,7 +137,10 @@ export const EVENTS = {
     trigger: (metrics, history, week, state) => {
       if (state?.scenario !== 'startup') return false;
       if (state?.acquisitionOfferDeclined) return false;
-      return state?.consecutiveWeeksHighConfidence >= 3;
+      // Acquirers want sustained investor confidence AND happy customers,
+      // not just a run of shipped features.
+      return state?.consecutiveWeeksHighConfidence >= ACQUISITION_HIGH_CONFIDENCE_WEEKS &&
+             metrics.satisfaction > ACQUISITION_MIN_SATISFACTION;
     },
     outcome: {
       pendingDecision: 'acquisition'
@@ -144,13 +152,18 @@ export const EVENTS = {
 export const LOW_HEALTH_THRESHOLD = 10;
 
 /**
- * Update the count of consecutive weeks with low code health.
+ * Update the count of weeks with low code health that is not improving.
+ * Engineers leave when things are bad and getting no better: a week in
+ * which low code health improves pauses the streak; recovering above the
+ * threshold resets it.
  * @param {object} metrics - Metrics at the end of the week
  * @param {number} [previousStreak] - Streak before this week
+ * @param {number} [previousHealth] - Code health at the start of the week
  * @returns {number} New streak length
  */
-export function nextLowHealthStreak(metrics, previousStreak = 0) {
-  return metrics.codeHealth < LOW_HEALTH_THRESHOLD ? previousStreak + 1 : 0;
+export function nextLowHealthStreak(metrics, previousStreak = 0, previousHealth = Infinity) {
+  if (metrics.codeHealth >= LOW_HEALTH_THRESHOLD) return 0;
+  return metrics.codeHealth > previousHealth ? previousStreak : previousStreak + 1;
 }
 
 /**
@@ -213,7 +226,7 @@ export function applyEventOutcome(metrics, triggeredEvent) {
     businessValue: metrics.businessValue + (outcome.businessValueDelta || 0),
     satisfaction: clampScore(metrics.satisfaction + (outcome.satisfactionDelta || 0)),
     marketPosition: clampScore(metrics.marketPosition + (outcome.marketPositionDelta || 0)),
-    capacity: Math.max(0, metrics.capacity + (outcome.capacityDelta || 0)),
+    capacity: Math.max(0, Math.round(metrics.capacity * (outcome.capacityMultiplier ?? 1)) + (outcome.capacityDelta || 0)),
     codeHealth: clampScore(metrics.codeHealth + (outcome.codeHealthDelta || 0))
   };
 }

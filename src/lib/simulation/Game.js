@@ -340,7 +340,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     consecutiveWeeksHighConfidence: state.consecutiveWeeksHighConfidence,
     acquisitionOfferDeclined: state.acquisitionOfferDeclined
   };
-  const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth);
+  const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth, state.metrics.codeHealth);
   const history = { ...state.history, weeksLowHealth };
   const events = checkForEvents(metrics, history, newWeek, eventState, 'pre', rng);
   for (const event of events) {
@@ -360,7 +360,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
 
   // 4. Startup pressures: burn and investor confidence
   if (scenario.mechanics?.burnRate) {
-    metrics = { ...metrics, businessValue: metrics.businessValue - calculateWeeklyBurn(metrics.capacity) };
+    metrics = { ...metrics, businessValue: metrics.businessValue - calculateWeeklyBurn(metrics.capacity, scenario.mechanics.burnRate) };
   }
   let lowConfidenceWeeks = state.consecutiveWeeksLowConfidence;
   let highConfidenceWeeks = state.consecutiveWeeksHighConfidence;

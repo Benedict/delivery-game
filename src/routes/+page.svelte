@@ -263,7 +263,7 @@
           A larger company has been watching your trajectory. They want to acquire you. Investors love the offer.
         </p>
         <p class="text-sm font-bold text-gray-700 leading-relaxed">
-          Accept and the game ends in alternate victory regardless of your business value target. Decline and you continue toward the £500K primary victory, but investor confidence drops to 60 and you cannot receive another offer this game.
+          Accept and the game ends in alternate victory regardless of your business value target. Decline and you continue toward the £{game.victoryConditions.businessValue}K primary victory, but investor confidence drops to 60 and you cannot receive another offer this game.
         </p>
         <div class="flex gap-3 pt-4">
           <button

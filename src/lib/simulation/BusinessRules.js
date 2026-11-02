@@ -234,14 +234,18 @@ export function applyImprovementOutcome(metrics, outcome) {
   };
 }
 
+/** Business value (£K) burned per week per point of team capacity. */
+export const DEFAULT_BURN_RATE = 0.2;
+
 /**
  * Calculate weekly burn rate in pounds based on team capacity.
  * Burn scales at £0.20K per capacity point, so a team of 120 burns £24K per week.
  * @param {number} capacity - Current team capacity
+ * @param {number} [ratePerCapacityPoint] - Scenario burn rate
  * @returns {number} Weekly burn in pounds (always non-negative)
  */
-export function calculateWeeklyBurn(capacity) {
-  return Math.max(0, capacity * 0.20);
+export function calculateWeeklyBurn(capacity, ratePerCapacityPoint = DEFAULT_BURN_RATE) {
+  return Math.max(0, capacity * ratePerCapacityPoint);
 }
 
 /**

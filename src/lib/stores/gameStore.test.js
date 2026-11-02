@@ -11,6 +11,7 @@ import {
   acceptAcquisition,
   declineAcquisition
 } from './gameStore.js';
+import { SCENARIOS } from '../simulation/ScenarioDefinitions.js';
 
 describe('GameStore', () => {
   beforeEach(() => {
@@ -34,8 +35,8 @@ describe('GameStore', () => {
     const state = get(gameStore);
 
     expect(state.scenario).toBe('enterprise');
-    expect(state.metrics.capacity).toBe(80);
-    expect(state.metrics.codeHealth).toBe(-20);
+    expect(state.metrics.capacity).toBe(SCENARIOS.enterprise.initialMetrics.capacity);
+    expect(state.metrics.codeHealth).toBe(SCENARIOS.enterprise.initialMetrics.codeHealth);
   });
 
   it('should track game history', () => {
@@ -294,13 +295,14 @@ describe('gameStore - startup mechanics state', () => {
 });
 
 describe('gameStore - burn rate', () => {
-  it('subtracts capacity * 0.20 from BV at end of week in startup scenario', () => {
+  const { burnRate } = SCENARIOS.startup.mechanics;
+
+  it('subtracts capacity x burn rate from BV at end of week in startup scenario', () => {
     startNewGame('startup');
-    const before = get(gameStore).metrics.businessValue;
+    const { capacity, businessValue: before } = get(gameStore).metrics;
     endWeek();
     const after = get(gameStore).metrics.businessValue;
-    // Capacity 120 -> burn -24
-    expect(after - before).toBeCloseTo(-24, 1);
+    expect(after - before).toBeCloseTo(-capacity * burnRate, 1);
   });
 
   it('does not apply burn in non-startup scenarios', () => {
@@ -318,8 +320,7 @@ describe('gameStore - burn rate', () => {
     const before = get(gameStore).metrics.businessValue;
     endWeek();
     const after = get(gameStore).metrics.businessValue;
-    // Capacity 200 -> burn -40
-    expect(after - before).toBeCloseTo(-40, 1);
+    expect(after - before).toBeCloseTo(-200 * burnRate, 1);
   });
 });
 
@@ -405,7 +406,8 @@ describe('gameStore - acquisition offer flow', () => {
     gameStore.update(s => ({
       ...s,
       consecutiveWeeksHighConfidence: 2, // will become 3 after this week's increment
-      metrics: { ...s.metrics, investorConfidence: 75 }
+      // Acquirers also want happy customers
+      metrics: { ...s.metrics, investorConfidence: 75, satisfaction: 85 }
     }));
     endWeek();
     const state = get(gameStore);

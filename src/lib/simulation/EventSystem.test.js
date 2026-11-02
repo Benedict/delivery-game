@@ -142,10 +142,20 @@ describe('EventSystem - startup events', () => {
     expect(events.find(e => e.id === 'downRoundThreat')).toBeUndefined();
   });
 
-  it('acquisitionOffer fires when consecutiveWeeksHighConfidence reaches 3, post-phase', () => {
+  // Acquirers want sustained investor confidence AND happy customers.
+  const attractiveMetrics = { ...startupMetrics, satisfaction: 85 };
+
+  it('acquisitionOffer fires after 3 high-confidence weeks with happy customers, post-phase', () => {
     const stateWithThree = { ...startupState, consecutiveWeeksHighConfidence: 3 };
-    const events = checkForEvents(startupMetrics, startupHistory, 5, stateWithThree, 'post');
+    const events = checkForEvents(attractiveMetrics, startupHistory, 5, stateWithThree, 'post');
     expect(events.find(e => e.id === 'acquisitionOffer')).toBeDefined();
+  });
+
+  it('acquisitionOffer does not fire on investor confidence alone', () => {
+    const stateWithThree = { ...startupState, consecutiveWeeksHighConfidence: 3 };
+    const ids = metrics => checkForEvents(metrics, startupHistory, 5, stateWithThree, 'post').map(e => e.id);
+
+    expect(ids({ ...attractiveMetrics, satisfaction: 80 })).not.toContain('acquisitionOffer');
   });
 
   it('acquisitionOffer does not fire if previously declined', () => {
@@ -174,9 +184,23 @@ describe('EventSystem - startup events', () => {
 
 describe('EventSystem - low code health streak', () => {
   it('counts consecutive weeks of low code health and resets on recovery', () => {
-    expect(nextLowHealthStreak({ codeHealth: 9 }, 2)).toBe(3);
+    expect(nextLowHealthStreak({ codeHealth: 9 }, 2, 9)).toBe(3);
     expect(nextLowHealthStreak({ codeHealth: 9 })).toBe(1);
-    expect(nextLowHealthStreak({ codeHealth: 10 }, 2)).toBe(0);
+    expect(nextLowHealthStreak({ codeHealth: 10 }, 2, 0)).toBe(0);
+  });
+
+  it('pauses the streak in a week when low code health is improving', () => {
+    // Engineers stay while they can see things getting better.
+    expect(nextLowHealthStreak({ codeHealth: -10 }, 2, -20)).toBe(2);
+    expect(nextLowHealthStreak({ codeHealth: -20 }, 2, -10)).toBe(3);
+  });
+
+  it('makes engineering exodus cost a share of the team rather than a fixed number', () => {
+    const exodus = { outcome: EVENTS.engineeringExodus.outcome };
+    const base = { businessValue: 0, satisfaction: 0, marketPosition: 0, codeHealth: 0 };
+
+    expect(applyEventOutcome({ ...base, capacity: 80 }, exodus).capacity).toBe(60);
+    expect(applyEventOutcome({ ...base, capacity: 20 }, exodus).capacity).toBe(15);
   });
 
   it('triggers engineering exodus once the streak reaches three weeks', () => {

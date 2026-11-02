@@ -17,16 +17,16 @@ export const SCENARIOS = {
       investorConfidence: 50
     },
     victoryConditions: {
-      businessValue: 500,
+      businessValue: 650,
       weeks: 12,
-      description: 'Reach £500K in business value within 12 weeks'
+      description: 'Reach £650K in business value within 12 weeks'
     },
     story: {
       opening: 'You\'ve just raised a seed round for your startup. Investors are excited, but they want to see rapid growth. Your small team is talented but the codebase was built quickly. Can you balance speed with sustainability?',
       challenge: 'High pressure to ship features fast while maintaining code quality'
     },
     mechanics: {
-      burnRate: true,
+      burnRate: 0.3, // £K per capacity point per week
       investorConfidence: true
     }
   },
@@ -36,17 +36,17 @@ export const SCENARIOS = {
     name: 'The Legacy System',
     description: 'Inherit a critical enterprise system with years of technical debt. Modernise it without breaking production.',
     initialMetrics: {
-      capacity: 80,
+      capacity: 110,
       codeHealth: -20,
       satisfaction: 60,
       marketPosition: 40,
       businessValue: 0
     },
     victoryConditions: {
-      businessValue: 400,
+      businessValue: 300,
       codeHealth: 50,
       weeks: 20,
-      description: 'Deliver £400K in value AND improve code health to 50+ within 20 weeks'
+      description: 'Deliver £300K in value AND improve code health to 50+ within 20 weeks'
     },
     story: {
       opening: 'You\'re the new VP of Engineering at a large enterprise. The legacy system is critical but crumbling. Years of "quick fixes" have left the codebase in crisis. The business needs new features, but every change risks breaking production.',
@@ -66,10 +66,10 @@ export const SCENARIOS = {
       businessValue: 0
     },
     victoryConditions: {
-      businessValue: 600,
+      businessValue: 750,
       codeHealth: 70,
       weeks: 15,
-      description: 'Deliver £600K in value while maintaining 70+ code health'
+      description: 'Deliver £750K in value while maintaining 70+ code health'
     },
     story: {
       opening: 'You\'re building a brand new product from scratch. You have the rare opportunity to do things right from the start. But can you maintain quality as pressure mounts to ship faster?',
