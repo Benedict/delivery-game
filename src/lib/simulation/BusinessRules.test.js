@@ -8,22 +8,25 @@ import {
   applyImprovementOutcome,
   IMPROVEMENTS
 } from './BusinessRules.js';
+import { fixedRng } from './random.js';
 
 describe('BusinessRules - Feature Delivery', () => {
   it('should calculate feature delivery success based on capacity and health', () => {
     const feature = { value: 50, complexity: 'medium', deadline: 3 };
+    // Mid-range roll: no market variance, and below the bug threshold only when health is poor
+    const rng = fixedRng(0.5);
 
     // Good capacity and health: full value delivered
-    const result1 = calculateFeatureDelivery(feature, 100, 80);
+    const result1 = calculateFeatureDelivery(feature, 100, 80, rng);
     expect(result1.valueDelivered).toBe(50);
     expect(result1.weeksRequired).toBe(1);
 
     // Low capacity: reduced delivery or more time
-    const result2 = calculateFeatureDelivery(feature, 50, 80);
+    const result2 = calculateFeatureDelivery(feature, 50, 80, rng);
     expect(result2.valueDelivered).toBeLessThan(50);
 
     // Poor health: bugs likely, value reduced
-    const result3 = calculateFeatureDelivery(feature, 100, 10);
+    const result3 = calculateFeatureDelivery(feature, 100, 10, rng);
     expect(result3.hasBugs).toBe(true);
     expect(result3.valueDelivered).toBeLessThan(50);
   });

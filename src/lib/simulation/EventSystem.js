@@ -1,4 +1,5 @@
 // src/lib/simulation/EventSystem.js
+import { defaultRng } from './random.js';
 
 /**
  * Event definitions
@@ -65,9 +66,9 @@ export const EVENTS = {
     name: 'Competitor Launch',
     type: 'pressure',
     description: 'A competitor just launched a similar feature',
-    trigger: (metrics, history, week) => {
+    trigger: (metrics, history, week, rng) => {
       // Random event, 20% chance each week after week 3
-      return week > 3 && Math.random() < 0.2;
+      return week > 3 && rng() < 0.2;
     },
     outcome: {
       marketPositionDelta: -10,
@@ -96,9 +97,10 @@ export const EVENTS = {
  * @param {object} metrics - Current metrics
  * @param {object} history - Game history
  * @param {number} week - Current week
+ * @param {import('./random.js').Rng} [rng] - Random source
  * @returns {array} Triggered events
  */
-export function checkForEvents(metrics, history, week) {
+export function checkForEvents(metrics, history, week, rng = defaultRng) {
   const triggeredEvents = [];
 
   // Track low health streak
@@ -108,7 +110,7 @@ export function checkForEvents(metrics, history, week) {
 
   // Check each event's trigger condition
   for (const event of Object.values(EVENTS)) {
-    if (event.trigger(metrics, { ...history, weeksLowHealth }, week)) {
+    if (event.trigger(metrics, { ...history, weeksLowHealth }, week, rng)) {
       triggeredEvents.push({
         event,
         outcome: event.outcome,

@@ -1,13 +1,15 @@
 // src/lib/simulation/BusinessRules.js
+import { defaultRng } from './random.js';
 
 /**
  * Calculate the outcome of delivering a feature
  * @param {object} feature - Feature to deliver
  * @param {number} capacity - Team capacity
  * @param {number} codeHealth - Current code health
+ * @param {import('./random.js').Rng} [rng] - Random source
  * @returns {object} Delivery outcome
  */
-export function calculateFeatureDelivery(feature, capacity, codeHealth) {
+export function calculateFeatureDelivery(feature, capacity, codeHealth, rng = defaultRng) {
   const baseValue = feature.value;
   const complexityFactors = { low: 0.5, medium: 1.0, high: 1.5 };
   const complexityFactor = complexityFactors[feature.complexity] || 1.0;
@@ -22,10 +24,10 @@ export function calculateFeatureDelivery(feature, capacity, codeHealth) {
 
   // Market variability: features might not hit their target value
   // Random factor between 0.8 and 1.2 (±20% variability)
-  const marketVariability = 0.8 + (Math.random() * 0.4);
+  const marketVariability = 0.8 + (rng() * 0.4);
 
   const valueDelivered = Math.round(baseValue * effectiveCapacity * deliveryEfficiency * marketVariability);
-  const hasBugs = Math.random() < calculateBugProbability(codeHealth);
+  const hasBugs = rng() < calculateBugProbability(codeHealth);
   const weeksRequired = 1; // Simplified: all features take 1 week
 
   // Calculate satisfaction change

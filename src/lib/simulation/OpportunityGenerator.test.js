@@ -5,6 +5,7 @@ import {
   checkDeadlines,
   unlockStrategicOpportunity
 } from './OpportunityGenerator.js';
+import { fixedRng, seededRng } from './random.js';
 
 describe('OpportunityGenerator', () => {
   it('should generate opportunities based on scenario', () => {
@@ -30,20 +31,11 @@ describe('OpportunityGenerator', () => {
   });
 
   it('should increase opportunities as market position grows', () => {
-    // Run multiple times to account for randomness
-    let totalLow = 0;
-    let totalHigh = 0;
-    const iterations = 10;
+    // Same roll for both, so the only difference is market position
+    const lowMarket = generateOpportunities('startup', 3, { marketPosition: 30 }, [], [], fixedRng(0));
+    const highMarket = generateOpportunities('startup', 3, { marketPosition: 80 }, [], [], fixedRng(0));
 
-    for (let i = 0; i < iterations; i++) {
-      const lowMarket = generateOpportunities('startup', 3, { marketPosition: 30 });
-      const highMarket = generateOpportunities('startup', 3, { marketPosition: 80 });
-      totalLow += lowMarket.length;
-      totalHigh += highMarket.length;
-    }
-
-    // On average, high market should generate more opportunities
-    expect(totalHigh).toBeGreaterThan(totalLow);
+    expect(highMarket.length).toBe(lowMarket.length + 1);
   });
 
   it('should check deadlines and mark expired opportunities', () => {
@@ -72,6 +64,12 @@ describe('OpportunityGenerator', () => {
     expect(strategic).toBeDefined();
     expect(strategic.type).toBe('strategic');
     expect(strategic.value).toBeGreaterThan(100);
+  });
+
+  it('should generate the same opportunities from the same seed', () => {
+    const a = generateOpportunities('startup', 1, { marketPosition: 50 }, [], [], seededRng(7));
+    const b = generateOpportunities('startup', 1, { marketPosition: 50 }, [], [], seededRng(7));
+    expect(a).toEqual(b);
   });
 
   it('should not unlock strategic opportunities with low agility', () => {
