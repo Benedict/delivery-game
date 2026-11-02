@@ -83,3 +83,28 @@ describe('journey: features only, full capacity, until time runs out', () => {
     expect(Boolean(screen.queryByText(/week-1 efficiency/i))).toBe(moneyMissed);
   });
 });
+
+describe('journey: features only in the Startup, until time runs out', () => {
+  beforeEach(() => {
+    window.scrollTo = () => {};
+  });
+
+  it('explains where the money went, not only what debt cost', async () => {
+    await startGame('The Startup');
+
+    for (let week = 0; week < 20 && !get(gameStore).gameOver; week++) {
+      if (screen.queryByText('Decline, Keep Building')) await fireEvent.click(screen.getByText('Decline, Keep Building'));
+      const startButtons = screen.queryAllByText('Start Feature');
+      if (startButtons.length && get(gameStore).workInProgress.length === 0) await fireEvent.click(startButtons[0]);
+      await endWeek();
+    }
+
+    const debriefText = (await screen.findByRole('region', { name: 'Debrief' })).textContent;
+    expect(debriefText).toMatch(/Earned from \d+ features?/);
+    expect(debriefText).toMatch(/Team running costs/);
+    expect(debriefText).toMatch(/shipped nothing/);
+    expect(debriefText).toMatch(/Customer satisfaction/);
+    expect(debriefText).toMatch(/Investor confidence/);
+    expect(debriefText).toMatch(/features shipped with bugs/);
+  });
+});

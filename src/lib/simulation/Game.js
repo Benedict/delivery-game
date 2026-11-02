@@ -88,7 +88,8 @@ export function createGame(scenarioId = 'startup', { rng = defaultRng } = {}) {
       events: [],
       decisions: [],
       weeklyMetrics: [],
-      weeksLowHealth: 0
+      weeksLowHealth: 0,
+      ledger: [] // { week, kind: 'feature' | 'burn' | 'event' | 'hiring' | 'improvement', label, amount }
     },
     activeBonuses: [],
     consecutiveWeeksLowConfidence: 0,
@@ -331,9 +332,17 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const decisions = [];
   const completions = [];
   let hiringCostMultiplier = state.hiringCostMultiplier ?? 1;
+  // Every change to business value is recorded where it happens, so the
+  // ledger always adds up to the score.
+  const ledger = [];
+  const record = (kind, label, before, after) => {
+    if (after !== before) ledger.push({ week: state.week, kind, label, amount: after - before });
+  };
   for (const item of completed) {
     const result = deliver(item, metrics, state.activeBonuses, hiringCostMultiplier, newWeek, rng);
     if (item.isHire) hiringCostMultiplier = 1;
+    const kind = item.type === 'feature' ? 'feature' : item.isHire ? 'hiring' : 'improvement';
+    record(kind, item.name, metrics.businessValue, result.metrics.businessValue);
     metrics = result.metrics;
     decisions.push(result.decision);
     completions.push(result.completion);
@@ -353,7 +362,9 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const history = { ...state.history, weeksLowHealth };
   const events = checkForEvents(metrics, history, newWeek, eventState, 'pre', rng);
   for (const event of events) {
+    const before = metrics.businessValue;
     metrics = applyEventOutcome(metrics, event);
+    record('event', event.event.name, before, metrics.businessValue);
     if (event.outcome.forcedFix && !workInProgress.some(item => item.forced)) {
       workInProgress.push(forcedFixItem(newWeek));
     }
@@ -372,7 +383,9 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
 
   // 4. Startup pressures: burn and investor confidence
   if (scenario.mechanics?.burnRate) {
+    const before = metrics.businessValue;
     metrics = { ...metrics, businessValue: metrics.businessValue - calculateWeeklyBurn(metrics.capacity, scenario.mechanics.burnRate) };
+    record('burn', 'Team running costs', before, metrics.businessValue);
   }
   let lowConfidenceWeeks = state.consecutiveWeeksLowConfidence;
   let highConfidenceWeeks = state.consecutiveWeeksHighConfidence;
@@ -434,7 +447,8 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
       events: [...state.history.events, ...allEvents],
       decisions: allDecisions,
       weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics, allocatedPoints: totalAllocated(state.capacityAllocation) }],
-      weeksLowHealth
+      weeksLowHealth,
+      ledger: [...(state.history.ledger ?? []), ...ledger]
     },
     gameOver,
     victory: fundingPulled ? false : result.victory,

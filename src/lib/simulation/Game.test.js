@@ -292,3 +292,38 @@ describe('Game - weekly record', () => {
     expect(state.history.weeklyMetrics.at(-1)).toMatchObject({ week: 1, allocatedPoints: 70 });
   });
 });
+
+describe('Game - value ledger', () => {
+  it('records every change to business value, so the ledger adds up to the score', () => {
+    for (const scenario of ['startup', 'enterprise', 'greenfield']) {
+      for (let seed = 1; seed <= 15; seed++) {
+        const step = seededRng(seed * 7);
+        let game = createGame(scenario, { rng: seededRng(seed) });
+        const start = game.metrics.businessValue;
+        while (!game.gameOver) {
+          if (!game.workInProgress.length) {
+            game = seed % 3 === 0
+              ? startImprovement(game, 'hireSenior')
+              : game.opportunities.length ? startFeature(game, game.opportunities[0]) : game;
+          }
+          game = allocateCapacity(game, Object.fromEntries(game.workInProgress.map(i => [i.id, 200])));
+          game = advanceWeek(game, { rng: step }).state;
+        }
+        const total = game.history.ledger.reduce((sum, entry) => sum + entry.amount, 0);
+        expect(total).toBeCloseTo(game.metrics.businessValue - start, 6);
+      }
+    }
+  });
+
+  it('labels each entry with its kind and week', () => {
+    let game = startImprovement(gameWith(), 'hireSenior');
+    game = allocateCapacity(game, { hireSenior: 1000 });
+
+    const { state } = advanceWeek(game, { rng });
+
+    expect(state.history.ledger).toEqual(expect.arrayContaining([
+      expect.objectContaining({ week: 1, kind: 'hiring', amount: -50 }),
+      expect.objectContaining({ week: 1, kind: 'burn' })
+    ]));
+  });
+});

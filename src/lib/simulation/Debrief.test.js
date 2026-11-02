@@ -73,3 +73,53 @@ describe('debrief', () => {
     expect(result.codeHealth).toEqual({ start: 70, end: 1 });
   });
 });
+
+describe('debrief: where the money went', () => {
+  const shipped = (week, value, hasBugs = false) => ({ type: 'feature', week: week + 1, feature: { pointsNeeded: 50 }, outcome: { valueDelivered: value, hasBugs } });
+  const entry = (week, kind, label, amount) => ({ week, kind, label, amount });
+
+  function played({ ledger, decisions, start = {}, end = {} }) {
+    const weeks = [1, 2, 3, 4].map(n => week(n, 0.8, 80, { satisfaction: 50, investorConfidence: 50, ...(n === 1 ? start : {}) }));
+    return {
+      metrics: { businessValue: ledger.reduce((sum, e) => sum + e.amount, 0), codeHealth: 20, capacity: 100, flowEfficiency: 0.8, satisfaction: -35, investorConfidence: -20, ...end },
+      victoryConditions: { businessValue: 650 },
+      history: { weeklyMetrics: weeks, decisions, events: [], ledger }
+    };
+  }
+
+  const game = played({
+    ledger: [
+      entry(1, 'feature', 'Mobile App', 144), entry(1, 'burn', 'Team running costs', -36),
+      entry(2, 'burn', 'Team running costs', -36),
+      entry(3, 'feature', 'Webhooks', 72), entry(3, 'event', 'Customer Churn', -50), entry(3, 'burn', 'Team running costs', -36),
+      entry(4, 'event', 'Customer Churn', -50), entry(4, 'burn', 'Team running costs', -36)
+    ],
+    decisions: [shipped(1, 144, true), shipped(3, 72, true)]
+  });
+
+  it('adds up what was earned and what was spent, matching the score', () => {
+    const { money } = debrief(game);
+
+    expect(money.earned).toEqual({ amount: 216, features: 2 });
+    expect(money.runningCosts).toBe(-144);
+    expect(money.crises).toEqual([{ label: 'Customer Churn', count: 2, amount: -100 }]);
+    expect(money.earned.amount + money.runningCosts + money.crises[0].amount + money.otherCosts).toBe(game.metrics.businessValue);
+  });
+
+  it('counts the weeks that shipped nothing while the team still cost money', () => {
+    expect(debrief(game).quietWeeks).toEqual({ weeks: 2, runningCosts: -72 });
+  });
+
+  it('follows bugs through to customers and investors', () => {
+    const { bugs, satisfaction, investorConfidence } = debrief(game);
+
+    expect(bugs).toEqual({ buggy: 2, shipped: 2 });
+    expect(satisfaction).toEqual({ start: 50, end: -35 });
+    expect(investorConfidence).toEqual({ start: 50, end: -20 });
+  });
+
+  it('leaves out investor confidence in scenarios without investors', () => {
+    const noInvestors = { ...game, metrics: { ...game.metrics, investorConfidence: undefined } };
+    expect(debrief(noInvestors).investorConfidence).toBeNull();
+  });
+});

@@ -25,6 +25,7 @@
     fundingPulled: { icon: '💸', title: 'Funding Pulled!', tone: 'bg-red-300', message: 'Investor confidence stayed too low for too long, and your investors walked away.' }
   };
   $: summary = game?.gameOver ? debrief(game) : null;
+  const signed = amount => `${amount < 0 ? '−' : '+'}£${Math.abs(Math.round(amount))}K`;
   $: valueGoalMet = game ? game.metrics.businessValue >= game.victoryConditions.businessValue : false;
   $: healthGoalMet = game?.victoryConditions.codeHealth ? game.metrics.codeHealth >= game.victoryConditions.codeHealth : true;
   $: maxWeeklyPoints = summary ? Math.max(1, ...summary.weeklyCapacity.map(w => w.points)) : 1;
@@ -210,6 +211,52 @@
           <section class="text-left bg-violet-100 border-2 border-black p-4 mb-8" aria-label="Debrief">
             <h3 class="text-xl font-black text-black mb-3 uppercase">Debrief</h3>
 
+            <h4 class="text-sm font-black text-black uppercase mb-1">Where the money went</h4>
+            <table class="w-full text-sm font-bold text-black mb-4">
+              <tbody>
+                <tr>
+                  <td class="py-0.5">Earned from {summary.money.earned.features} {summary.money.earned.features === 1 ? 'feature' : 'features'}</td>
+                  <td class="text-right">{signed(summary.money.earned.amount)}</td>
+                </tr>
+                {#if summary.money.runningCosts}
+                  <tr>
+                    <td class="py-0.5">
+                      Team running costs
+                      {#if summary.quietWeeks.weeks}<span class="block text-xs text-gray-700">{signed(summary.quietWeeks.runningCosts)} of it in the {summary.quietWeeks.weeks} {summary.quietWeeks.weeks === 1 ? 'week that' : 'weeks that'} shipped nothing</span>{/if}
+                    </td>
+                    <td class="text-right align-top">{signed(summary.money.runningCosts)}</td>
+                  </tr>
+                {/if}
+                {#each summary.money.crises as crisis}
+                  <tr>
+                    <td class="py-0.5">{crisis.label}{crisis.count > 1 ? ` × ${crisis.count}` : ''}</td>
+                    <td class="text-right">{signed(crisis.amount)}</td>
+                  </tr>
+                {/each}
+                {#if summary.money.otherCosts}
+                  <tr>
+                    <td class="py-0.5">Hiring and other investment costs</td>
+                    <td class="text-right">{signed(summary.money.otherCosts)}</td>
+                  </tr>
+                {/if}
+                <tr class="border-t-2 border-black font-black">
+                  <td class="pt-1">Final business value (target £{game.victoryConditions.businessValue}K)</td>
+                  <td class="text-right pt-1">£{game.metrics.businessValue}K</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 class="text-sm font-black text-black uppercase mb-1">What else changed</h4>
+            <ul class="text-sm font-bold text-black mb-4 space-y-0.5">
+              <li>{summary.bugs.buggy} of {summary.bugs.shipped} features shipped with bugs.</li>
+              <li>Customer satisfaction: {summary.satisfaction.start} → {summary.satisfaction.end}.</li>
+              {#if summary.investorConfidence}
+                <li>Investor confidence: {summary.investorConfidence.start} → {summary.investorConfidence.end}.</li>
+              {/if}
+              <li>Code health: {summary.codeHealth.start} → {summary.codeHealth.end}.</li>
+            </ul>
+
+            <h4 class="text-sm font-black text-black uppercase mb-1">Capacity</h4>
             <p class="text-sm font-black text-black mb-2">
               Weekly capacity: {summary.weeklyCapacity[0].points} points in week {summary.weeklyCapacity[0].week},
               {summary.weeklyCapacity.at(-1).points} in week {summary.weeklyCapacity.at(-1).week}
@@ -220,8 +267,6 @@
                 <div class="flex-1 bg-violet-500" style="height: {Math.max(4, (w.points / maxWeeklyPoints) * 100)}%" title="Week {w.week}: {w.points} points"></div>
               {/each}
             </div>
-
-            <p class="text-sm font-bold text-black mb-2">Code health went from {summary.codeHealth.start} to {summary.codeHealth.end}.</p>
 
             {#if summary.pointsLostToDebt > 0}
               <p class="text-sm font-bold text-black mb-2">
@@ -235,8 +280,9 @@
 
             {#if summary.whatIfBusinessValue !== null && summary.pointsLostToDebt > 0 && !valueGoalMet}
               <p class="text-sm font-black text-black bg-amber-200 border-2 border-black p-2">
-                At your week-1 efficiency you would have finished on about £{summary.whatIfBusinessValue}K (target £{game.victoryConditions.businessValue}K).
+                At your week-1 efficiency you would have finished on about £{summary.whatIfBusinessValue}K (target £{game.victoryConditions.businessValue}K).{' '}{#if !summary.whatIfReachesTarget}That would still have been £{game.victoryConditions.businessValue - summary.whatIfBusinessValue}K short; the money list above shows where the rest went.{/if}
               </p>
+              <p class="text-xs font-bold text-gray-700 mt-1">This what-if overlaps with the list above, so the two can't simply be added together.</p>
             {/if}
           </section>
         {/if}

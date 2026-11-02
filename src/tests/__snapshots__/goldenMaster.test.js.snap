@@ -14,6 +14,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -78,6 +79,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -218,6 +220,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 3,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
         },
       ],
       "weeklyMetrics": [
@@ -435,6 +445,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
         },
       ],
       "weeklyMetrics": [
@@ -700,6 +718,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
         },
       ],
       "weeklyMetrics": [
@@ -1003,6 +1029,20 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
         },
       ],
       "weeklyMetrics": [
@@ -1338,6 +1378,20 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 7,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
         },
       ],
       "weeklyMetrics": [
@@ -1701,6 +1755,26 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -2136,6 +2210,32 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -2608,6 +2708,32 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 10,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -3098,6 +3224,32 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 10,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -3672,6 +3824,44 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -4305,6 +4495,44 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 13,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -4958,6 +5186,44 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "week": 13,
         },
       ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -5604,6 +5870,50 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 15,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
         },
       ],
       "weeklyMetrics": [
@@ -6345,6 +6655,56 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 16,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 15,
         },
       ],
       "weeklyMetrics": [
@@ -7104,6 +7464,56 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 16,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 15,
         },
       ],
       "weeklyMetrics": [
@@ -7900,6 +8310,62 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 18,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 15,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
         },
       ],
       "weeklyMetrics": [
@@ -8754,6 +9220,68 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 19,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 15,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 18,
         },
       ],
       "weeklyMetrics": [
@@ -9637,6 +10165,74 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "trigger": [Function],
           "type": "crisis",
           "week": 20,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 15,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 18,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 19,
         },
       ],
       "weeklyMetrics": [
@@ -10559,6 +11155,80 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
           "week": 21,
         },
       ],
+      "ledger": [
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 2,
+        },
+        {
+          "amount": 39,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 5,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 8,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 11,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 11,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 14,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 15,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 18,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 19,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 20,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -10892,6 +11562,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -11000,6 +11671,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "positive",
           "week": 2,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
         },
       ],
       "weeklyMetrics": [
@@ -11123,6 +11802,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "positive",
           "week": 2,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
         },
       ],
       "weeklyMetrics": [
@@ -11323,6 +12010,20 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -11530,6 +12231,20 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -11760,6 +12475,20 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -12087,6 +12816,32 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 7,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
         },
       ],
       "weeklyMetrics": [
@@ -12447,6 +13202,38 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -12833,6 +13620,38 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -13281,6 +14100,38 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "pressure",
           "week": 10,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -13821,6 +14672,50 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -14371,6 +15266,50 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -15010,6 +15949,50 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "pressure",
           "week": 13,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -15679,6 +16662,56 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 14,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
         },
       ],
       "weeklyMetrics": [
@@ -16394,6 +17427,62 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 15,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
         },
       ],
       "weeklyMetrics": [
@@ -17160,6 +18249,62 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 16,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
         },
       ],
       "weeklyMetrics": [
@@ -17982,6 +19127,68 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "pressure",
           "week": 17,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 16,
         },
       ],
       "weeklyMetrics": [
@@ -18830,6 +20037,68 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "pressure",
           "week": 17,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 16,
         },
       ],
       "weeklyMetrics": [
@@ -19744,6 +21013,74 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "trigger": [Function],
           "type": "crisis",
           "week": 19,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 18,
         },
       ],
       "weeklyMetrics": [
@@ -20724,6 +22061,80 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "week": 20,
         },
       ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 18,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 19,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -21728,6 +23139,80 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
           "week": 20,
         },
       ],
+      "ledger": [
+        {
+          "amount": 31,
+          "kind": "feature",
+          "label": "Onboarding Tour",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 3,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 6,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 6,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 7,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 10,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 10,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 13,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 14,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 18,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 19,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -22073,6 +23558,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -22121,6 +23607,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -22254,6 +23741,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -22391,6 +23879,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -22588,6 +24077,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "week": 5,
         },
       ],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -22827,6 +24317,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "week": 5,
         },
       ],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -23054,6 +24545,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "week": 5,
         },
       ],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -23329,6 +24821,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "week": 8,
         },
       ],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -23676,6 +25169,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -24032,6 +25533,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -24444,6 +25953,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -24878,6 +26395,20 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           },
           "trigger": [Function],
           "type": "crisis",
+          "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
           "week": 11,
         },
       ],
@@ -25340,6 +26871,20 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 13,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -25865,6 +27410,20 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 14,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -26408,6 +27967,20 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 14,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -26996,6 +28569,20 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 16,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -27673,6 +29260,32 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 17,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 16,
         },
       ],
       "weeklyMetrics": [
@@ -28399,6 +30012,38 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 18,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 16,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
         },
       ],
       "weeklyMetrics": [
@@ -29143,6 +30788,38 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 18,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 16,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
         },
       ],
       "weeklyMetrics": [
@@ -29914,6 +31591,38 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "trigger": [Function],
           "type": "crisis",
           "week": 20,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 16,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
         },
       ],
       "weeklyMetrics": [
@@ -30739,6 +32448,50 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
           "week": 21,
         },
       ],
+      "ledger": [
+        {
+          "amount": 75,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": 44,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 11,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 16,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 16,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 17,
+        },
+        {
+          "amount": -50,
+          "kind": "event",
+          "label": "Customer Churn",
+          "week": 20,
+        },
+        {
+          "amount": -100,
+          "kind": "event",
+          "label": "Security Incident",
+          "week": 20,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 44,
@@ -31048,6 +32801,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -31120,6 +32874,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -31254,6 +33009,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -31424,6 +33187,20 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -31669,6 +33446,20 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 5,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -31964,6 +33755,26 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           },
           "trigger": [Function],
           "type": "positive",
+          "week": 5,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
           "week": 5,
         },
       ],
@@ -32310,6 +34121,32 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 5,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
         },
       ],
       "weeklyMetrics": [
@@ -32680,6 +34517,38 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 5,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -33118,6 +34987,38 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -33596,6 +35497,44 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           },
           "trigger": [Function],
           "type": "positive",
+          "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
           "week": 9,
         },
       ],
@@ -34195,6 +36134,50 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 9,
+        },
+        {
+          "amount": 32,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -34857,6 +36840,56 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           },
           "trigger": [Function],
           "type": "pressure",
+          "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 9,
+        },
+        {
+          "amount": 32,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 10,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
           "week": 11,
         },
       ],
@@ -35549,6 +37582,56 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 13,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 9,
+        },
+        {
+          "amount": 32,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 10,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -36260,6 +38343,56 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 13,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 9,
+        },
+        {
+          "amount": 32,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 10,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -36983,6 +39116,62 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 13,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 9,
+        },
+        {
+          "amount": 32,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 10,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 11,
+        },
+        {
+          "amount": 118,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 14,
         },
       ],
       "weeklyMetrics": [
@@ -37715,6 +39904,62 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
           "week": 13,
         },
       ],
+      "ledger": [
+        {
+          "amount": 84,
+          "kind": "feature",
+          "label": "Payment Integration",
+          "week": 2,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "Search Functionality",
+          "week": 3,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 6,
+        },
+        {
+          "amount": 52,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 7,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 9,
+        },
+        {
+          "amount": 32,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 10,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 11,
+        },
+        {
+          "amount": 118,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 14,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -38042,6 +40287,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -38140,6 +40386,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -38283,6 +40530,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -38508,6 +40756,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -38774,6 +41023,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -39065,6 +41322,20 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -39384,6 +41655,20 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -39765,6 +42050,26 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -40171,6 +42476,26 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -40630,6 +42955,32 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "week": 10,
         },
       ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -41080,6 +43431,38 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           },
           "trigger": [Function],
           "type": "positive",
+          "week": 10,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Competitive Response",
           "week": 10,
         },
       ],
@@ -41602,6 +43985,44 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Competitive Response",
+          "week": 10,
+        },
+        {
+          "amount": 81,
+          "kind": "feature",
+          "label": "Billing Portal",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -42143,6 +44564,44 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Competitive Response",
+          "week": 10,
+        },
+        {
+          "amount": 81,
+          "kind": "feature",
+          "label": "Billing Portal",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -42743,6 +45202,50 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "trigger": [Function],
           "type": "positive",
           "week": 14,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Competitive Response",
+          "week": 10,
+        },
+        {
+          "amount": 81,
+          "kind": "feature",
+          "label": "Billing Portal",
+          "week": 11,
+        },
+        {
+          "amount": 124,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 13,
         },
       ],
       "weeklyMetrics": [
@@ -43414,6 +45917,56 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "trigger": [Function],
           "type": "pressure",
           "week": 15,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Competitive Response",
+          "week": 10,
+        },
+        {
+          "amount": 81,
+          "kind": "feature",
+          "label": "Billing Portal",
+          "week": 11,
+        },
+        {
+          "amount": 124,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 13,
+        },
+        {
+          "amount": 48,
+          "kind": "feature",
+          "label": "Social Login",
+          "week": 14,
         },
       ],
       "weeklyMetrics": [
@@ -44128,6 +46681,62 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
           "week": 15,
         },
       ],
+      "ledger": [
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 4,
+        },
+        {
+          "amount": 57,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 5,
+        },
+        {
+          "amount": 111,
+          "kind": "feature",
+          "label": "Offline Mode",
+          "week": 7,
+        },
+        {
+          "amount": 102,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 9,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Competitive Response",
+          "week": 10,
+        },
+        {
+          "amount": 81,
+          "kind": "feature",
+          "label": "Billing Portal",
+          "week": 11,
+        },
+        {
+          "amount": 124,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 13,
+        },
+        {
+          "amount": 48,
+          "kind": "feature",
+          "label": "Social Login",
+          "week": 14,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 15,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 90,
@@ -44434,6 +47043,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -44528,6 +47138,20 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -44681,6 +47305,32 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -44937,6 +47587,44 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -45272,6 +47960,50 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 4,
         },
       ],
@@ -45638,6 +48370,56 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
         },
       ],
       "weeklyMetrics": [
@@ -46091,6 +48873,68 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 7,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
         },
       ],
       "weeklyMetrics": [
@@ -46576,6 +49420,80 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -47090,6 +50008,86 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 8,
         },
       ],
@@ -47707,6 +50705,98 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 10,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 41,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
         },
       ],
       "weeklyMetrics": [
@@ -48356,6 +51446,110 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           },
           "trigger": [Function],
           "type": "pressure",
+          "week": 10,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 41,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 10,
         },
       ],
@@ -49060,6 +52254,122 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 41,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Social Login",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -49771,6 +53081,128 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
           "week": 12,
         },
       ],
+      "ledger": [
+        {
+          "amount": 86,
+          "kind": "feature",
+          "label": "User Dashboard",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 55,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": 92,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 62,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 41,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 54,
+          "kind": "feature",
+          "label": "Social Login",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 12,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -50075,6 +53507,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -50177,6 +53610,20 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -50346,6 +53793,32 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -50605,6 +54078,38 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -50976,6 +54481,50 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "week": 5,
         },
       ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -51342,6 +54891,56 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           },
           "trigger": [Function],
           "type": "positive",
+          "week": 5,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 5,
         },
       ],
@@ -51757,6 +55356,68 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 5,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
         },
       ],
       "weeklyMetrics": [
@@ -52233,6 +55894,74 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -52777,6 +56506,86 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "trigger": [Function],
           "type": "positive",
           "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 137,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
         },
       ],
       "weeklyMetrics": [
@@ -53341,6 +57150,98 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           },
           "trigger": [Function],
           "type": "positive",
+          "week": 9,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 137,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 9,
         },
       ],
@@ -53976,6 +57877,110 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "trigger": [Function],
           "type": "pressure",
           "week": 11,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 137,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 47,
+          "kind": "feature",
+          "label": "Export Features",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -54671,6 +58676,122 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 137,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 47,
+          "kind": "feature",
+          "label": "Export Features",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 91,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -55378,6 +59499,134 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
           "week": 12,
         },
       ],
+      "ledger": [
+        {
+          "amount": 74,
+          "kind": "feature",
+          "label": "Admin Panel",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Webhooks",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 154,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 99,
+          "kind": "feature",
+          "label": "Team Workspaces",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 137,
+          "kind": "feature",
+          "label": "Single Sign-On",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 40,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 47,
+          "kind": "feature",
+          "label": "Export Features",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 91,
+          "kind": "feature",
+          "label": "In-App Chat",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
+        },
+        {
+          "amount": 67,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 12,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 12,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -55698,6 +59947,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -55812,6 +60062,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -55972,6 +60230,20 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -56249,6 +60521,26 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -56561,6 +60853,38 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 4,
         },
       ],
@@ -56933,6 +61257,50 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
         },
       ],
       "weeklyMetrics": [
@@ -57354,6 +61722,62 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
         },
       ],
       "weeklyMetrics": [
@@ -57803,6 +62227,74 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Email Notifications",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -58293,6 +62785,86 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Email Notifications",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 8,
         },
       ],
@@ -58827,6 +63399,98 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Email Notifications",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Scheduled Reports",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
         },
       ],
       "weeklyMetrics": [
@@ -59394,6 +64058,110 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Email Notifications",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Scheduled Reports",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 90,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -60029,6 +64797,122 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Email Notifications",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Scheduled Reports",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 90,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 121,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -60716,6 +65600,134 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
           "week": 12,
         },
       ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 71,
+          "kind": "feature",
+          "label": "Accessibility Overhaul",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 56,
+          "kind": "feature",
+          "label": "CSV Import",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Email Notifications",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 169,
+          "kind": "feature",
+          "label": "Mobile App",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Scheduled Reports",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 90,
+          "kind": "feature",
+          "label": "API Integration",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 121,
+          "kind": "feature",
+          "label": "Recommendations Engine",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
+        },
+        {
+          "amount": 89,
+          "kind": "feature",
+          "label": "Analytics Dashboard",
+          "week": 12,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 12,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -61044,6 +66056,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "history": {
       "decisions": [],
       "events": [],
+      "ledger": [],
       "weeklyMetrics": [],
       "weeksLowHealth": 0,
     },
@@ -61142,6 +66155,14 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -61278,6 +66299,20 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
         },
       ],
       "events": [],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+      ],
       "weeklyMetrics": [
         {
           "allocatedPoints": 102,
@@ -61515,6 +66550,26 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
         },
       ],
       "weeklyMetrics": [
@@ -61803,6 +66858,38 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 4,
         },
       ],
@@ -62135,6 +67222,50 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
         },
       ],
       "weeklyMetrics": [
@@ -62508,6 +67639,62 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 4,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
         },
       ],
       "weeklyMetrics": [
@@ -62926,6 +68113,74 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Audit Log",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
         },
       ],
       "weeklyMetrics": [
@@ -63377,6 +68632,86 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Audit Log",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 8,
         },
       ],
@@ -63872,6 +69207,98 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Audit Log",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 42,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
         },
       ],
       "weeklyMetrics": [
@@ -64392,6 +69819,110 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 8,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Audit Log",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 42,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 68,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
         },
       ],
       "weeklyMetrics": [
@@ -64988,6 +70519,122 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "trigger": [Function],
           "type": "narrative",
           "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Audit Log",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 42,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 68,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 59,
+          "kind": "feature",
+          "label": "Social Login",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
         },
       ],
       "weeklyMetrics": [
@@ -65617,6 +71264,134 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
           "phase": "post",
           "trigger": [Function],
           "type": "narrative",
+          "week": 12,
+        },
+      ],
+      "ledger": [
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 1,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 2,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 3,
+        },
+        {
+          "amount": 72,
+          "kind": "feature",
+          "label": "Usage Reports",
+          "week": 4,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 4,
+        },
+        {
+          "amount": 64,
+          "kind": "feature",
+          "label": "Two-Factor Authentication",
+          "week": 5,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 5,
+        },
+        {
+          "amount": 107,
+          "kind": "feature",
+          "label": "Marketplace Integrations",
+          "week": 6,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 6,
+        },
+        {
+          "amount": 58,
+          "kind": "feature",
+          "label": "Audit Log",
+          "week": 7,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 7,
+        },
+        {
+          "amount": 65,
+          "kind": "feature",
+          "label": "Localisation",
+          "week": 8,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 8,
+        },
+        {
+          "amount": 42,
+          "kind": "feature",
+          "label": "Dark Mode",
+          "week": 9,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 9,
+        },
+        {
+          "amount": 68,
+          "kind": "feature",
+          "label": "Calendar Sync",
+          "week": 10,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 10,
+        },
+        {
+          "amount": 59,
+          "kind": "feature",
+          "label": "Social Login",
+          "week": 11,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
+          "week": 11,
+        },
+        {
+          "amount": 61,
+          "kind": "feature",
+          "label": "Role Permissions",
+          "week": 12,
+        },
+        {
+          "amount": -36,
+          "kind": "burn",
+          "label": "Team running costs",
           "week": 12,
         },
       ],
