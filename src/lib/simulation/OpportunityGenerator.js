@@ -1,4 +1,5 @@
 // src/lib/simulation/OpportunityGenerator.js
+import { defaultRng, randomInt, pick } from './random.js';
 
 const FEATURE_TEMPLATES = [
   { name: 'User Dashboard', value: 60, complexity: 'medium' },
@@ -50,7 +51,7 @@ const STRATEGIC_OPPORTUNITIES = [
  * @param {array} wipFeatureNames - Names of features currently in progress
  * @returns {array} Generated opportunities
  */
-export function generateOpportunities(scenario, week, metrics, completedFeatureNames = [], wipFeatureNames = []) {
+export function generateOpportunities(scenario, week, metrics, completedFeatureNames = [], wipFeatureNames = [], rng = defaultRng) {
   const scenarioConfig = {
     startup: { min: 3, max: 5, valueMultiplier: 1.2 },
     enterprise: { min: 1, max: 3, valueMultiplier: 0.8 },
@@ -72,7 +73,7 @@ export function generateOpportunities(scenario, week, metrics, completedFeatureN
 
   // Market position affects opportunity quantity
   const marketBonus = metrics.marketPosition > 70 ? 1 : 0;
-  const count = Math.floor(Math.random() * (config.max - config.min + 1)) + config.min + marketBonus;
+  const count = randomInt(rng, config.min, config.max) + marketBonus;
 
   const opportunities = [];
   const usedTemplates = new Set();
@@ -82,7 +83,7 @@ export function generateOpportunities(scenario, week, metrics, completedFeatureN
     let template;
     let attempts = 0;
     do {
-      template = availableTemplates[Math.floor(Math.random() * availableTemplates.length)];
+      template = pick(rng, availableTemplates);
       attempts++;
     } while (usedTemplates.has(template.name) && attempts < 20);
 
@@ -93,7 +94,7 @@ export function generateOpportunities(scenario, week, metrics, completedFeatureN
       name: template.name,
       value: Math.round(template.value * config.valueMultiplier),
       complexity: template.complexity,
-      deadline: Math.floor(Math.random() * 3) + 2, // 2-4 weeks
+      deadline: randomInt(rng, 2, 4), // 2-4 weeks
       createdWeek: week
     });
   }
@@ -129,7 +130,7 @@ export function checkDeadlines(opportunities, currentWeek) {
  * @param {number} week - Current week
  * @returns {object|null} Strategic opportunity or null
  */
-export function unlockStrategicOpportunity(metrics, week) {
+export function unlockStrategicOpportunity(metrics, week, rng = defaultRng) {
   // Require high agility: good capacity AND code health
   const hasAgility = metrics.capacity > 100 && metrics.codeHealth > 60;
   const hasMarket = metrics.marketPosition > 70;
@@ -144,7 +145,7 @@ export function unlockStrategicOpportunity(metrics, week) {
   }
 
   // Pick random strategic opportunity
-  const opp = STRATEGIC_OPPORTUNITIES[Math.floor(Math.random() * STRATEGIC_OPPORTUNITIES.length)];
+  const opp = pick(rng, STRATEGIC_OPPORTUNITIES);
 
   return {
     ...opp,

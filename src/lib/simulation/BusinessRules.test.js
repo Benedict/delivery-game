@@ -12,26 +12,29 @@ import {
   calculateConfidenceDelta,
   IMPROVEMENTS
 } from './BusinessRules.js';
+import { fixedRng } from './random.js';
 
 describe('BusinessRules - Feature Delivery', () => {
   it('should calculate feature delivery success based on capacity and health', () => {
     const feature = { value: 50, complexity: 'medium', deadline: 3 };
 
-    // Good capacity and health: value delivered within market variability range [0.8, 1.2]
-    // effectiveCapacity = 1.0, deliveryEfficiency = 1.0, so valueDelivered ∈ [40, 60]
-    const result1 = calculateFeatureDelivery(feature, 100, 80);
-    expect(result1.valueDelivered).toBeGreaterThanOrEqual(40);
-    expect(result1.valueDelivered).toBeLessThanOrEqual(60);
+    // A mid-range roll: no market variance (x1.0); bugs only when the bug chance exceeds 50%
+    const rng = fixedRng(0.5);
+
+    // Good capacity and health: full value delivered
+    const result1 = calculateFeatureDelivery(feature, 100, 80, [], rng);
+    expect(result1.valueDelivered).toBe(50);
+    expect(result1.hasBugs).toBe(false);
     expect(result1.weeksRequired).toBe(1);
 
     // Low capacity: reduced delivery — max possible = 50 * 0.5 * 1 * 1.2 = 30
-    const result2 = calculateFeatureDelivery(feature, 50, 80);
-    expect(result2.valueDelivered).toBeLessThan(50);
+    const result2 = calculateFeatureDelivery(feature, 50, 80, [], rng);
+    expect(result2.valueDelivered).toBe(25);
 
-    // Poor health: value reduced — max possible = 50 * 1 * 0.6 * 1.2 = 36
-    // hasBugs is stochastic (~62% at codeHealth 10); tested separately in bug probability suite
-    const result3 = calculateFeatureDelivery(feature, 100, 10);
+    // Poor health: value reduced and bugs likely (62% chance at code health 10)
+    const result3 = calculateFeatureDelivery(feature, 100, 10, [], rng);
     expect(result3.valueDelivered).toBeLessThan(50);
+    expect(result3.hasBugs).toBe(true);
   });
 
   it('should calculate bug probability based on code health', () => {

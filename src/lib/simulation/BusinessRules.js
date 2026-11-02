@@ -1,4 +1,5 @@
 // src/lib/simulation/BusinessRules.js
+import { defaultRng } from './random.js';
 
 /**
  * Calculate the outcome of delivering a feature.
@@ -6,9 +7,10 @@
  * @param {number} capacity - Team capacity
  * @param {number} codeHealth - Current code health
  * @param {Array<object>} [activeBonuses] - Active bonuses from game state
+ * @param {import('./random.js').Rng} [rng] - Random source
  * @returns {object} Delivery outcome
  */
-export function calculateFeatureDelivery(feature, capacity, codeHealth, activeBonuses = []) {
+export function calculateFeatureDelivery(feature, capacity, codeHealth, activeBonuses = [], rng = defaultRng) {
   const baseValue = feature.value;
   const complexityFactors = { low: 0.5, medium: 1.0, high: 1.5 };
   const complexityFactor = complexityFactors[feature.complexity] || 1.0;
@@ -19,10 +21,10 @@ export function calculateFeatureDelivery(feature, capacity, codeHealth, activeBo
   const healthPenalty = codeHealth < 50 ? (50 - codeHealth) * 0.01 : 0;
   const deliveryEfficiency = Math.max(0.5, 1 - healthPenalty);
 
-  const marketVariability = 0.8 + (Math.random() * 0.4);
+  const marketVariability = 0.8 + (rng() * 0.4);
 
   const valueDelivered = Math.round(baseValue * effectiveCapacity * deliveryEfficiency * marketVariability);
-  const hasBugs = Math.random() < calculateBugProbability(codeHealth, activeBonuses);
+  const hasBugs = rng() < calculateBugProbability(codeHealth, activeBonuses);
   const weeksRequired = 1;
 
   const satisfactionDelta = hasBugs ? 0 : Math.min(5, Math.round(baseValue / 10));
