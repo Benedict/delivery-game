@@ -5,6 +5,7 @@
 // adapter over these functions.
 
 import { defaultRng } from './random.js';
+import { clampScore } from './metrics.js';
 import { getScenario } from './ScenarioDefinitions.js';
 import {
   calculateFlowEfficiency,
@@ -248,7 +249,7 @@ function forcedFixItem(week) {
  */
 function updateInvestorConfidence(state, metrics, completions, events) {
   const delta = calculateConfidenceDelta(metrics, completions, events);
-  const investorConfidence = Math.max(-100, Math.min(100, metrics.investorConfidence + delta));
+  const investorConfidence = clampScore(metrics.investorConfidence + delta);
   return {
     metrics: { ...metrics, investorConfidence },
     lowWeeks: investorConfidence <= FUNDING_PULLED_CONFIDENCE ? state.consecutiveWeeksLowConfidence + 1 : 0,

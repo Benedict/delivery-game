@@ -1,4 +1,5 @@
 // src/lib/simulation/BusinessRules.js
+import { clampScore } from './metrics.js';
 import { defaultRng } from './random.js';
 
 /**
@@ -120,10 +121,8 @@ export function applyFeatureOutcome(metrics, outcome) {
   return {
     ...metrics,
     businessValue: metrics.businessValue + outcome.valueDelivered,
-    codeHealth: metrics.codeHealth + outcome.codeHealthDelta,
-    satisfaction: Math.max(-100, Math.min(100,
-      metrics.satisfaction + outcome.satisfactionDelta + bugPenalty
-    ))
+    codeHealth: clampScore(metrics.codeHealth + outcome.codeHealthDelta),
+    satisfaction: clampScore(metrics.satisfaction + outcome.satisfactionDelta + bugPenalty)
   };
 }
 
@@ -225,11 +224,9 @@ export function calculateImprovementOutcome(improvement, currentCapacity) {
 export function applyImprovementOutcome(metrics, outcome) {
   return {
     ...metrics,
-    codeHealth: Math.min(100, metrics.codeHealth + outcome.codeHealthDelta),
+    codeHealth: clampScore(metrics.codeHealth + outcome.codeHealthDelta),
     capacity: metrics.capacity + outcome.capacityDelta,
-    satisfaction: Math.max(-100, Math.min(100,
-      metrics.satisfaction + outcome.satisfactionDelta
-    )),
+    satisfaction: clampScore(metrics.satisfaction + outcome.satisfactionDelta),
     businessValue: metrics.businessValue - (outcome.businessValueCost || 0)
   };
 }
