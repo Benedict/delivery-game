@@ -50,3 +50,20 @@ describe('game page: endings', () => {
     expect(await screen.findByText('Funding Pulled!')).toBeInTheDocument();
   });
 });
+
+describe('game page: story', () => {
+  beforeEach(() => {
+    window.scrollTo = () => {};
+  });
+
+  it('shows story titles in bold rather than as raw ** markers', async () => {
+    await startStartupGame();
+    await fireEvent.click(screen.getAllByText('Start Improvement')[0]); // Fix Critical Bugs, one week
+    gameStore.update(state => ({ ...state, capacityAllocation: { fixBugs: 1000 } }));
+    await fireEvent.click(screen.getByText(/End Week/i));
+
+    const title = await screen.findByText('Fix Critical Bugs:');
+    expect(title.tagName).toBe('STRONG');
+    expect(document.body.textContent).not.toContain('**');
+  });
+});

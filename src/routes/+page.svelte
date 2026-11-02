@@ -2,6 +2,7 @@
   import { gameStore, startNewGame, startFeature, startImprovement, allocateCapacity, endWeek, acceptAcquisition, declineAcquisition } from '../lib/stores/gameStore.js';
   import { getScenario, SCENARIOS } from '../lib/simulation/ScenarioDefinitions.js';
   import { narrateWeek } from '../lib/simulation/StoryEngine.js';
+  import { parseEmphasis } from '../lib/text/emphasis.js';
   import GameHeader from '../lib/components/simulation/GameHeader.svelte';
   import DecisionPanel from '../lib/components/simulation/DecisionPanel.svelte';
   import HelpModal from '../lib/components/simulation/HelpModal.svelte';
@@ -230,7 +231,7 @@
         <div class="bg-gradient-to-br from-violet-300 to-purple-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 mb-8 max-w-5xl mx-auto">
           <h3 class="text-2xl font-black text-black mb-5 uppercase">📖 Story</h3>
           <div class="prose max-w-none text-black font-bold whitespace-pre-line bg-white border-2 border-black p-4">
-            {recentStory}
+            {#each parseEmphasis(recentStory) as segment}{#if segment.bold}<strong class="font-black bg-amber-200 px-1">{segment.text}</strong>{:else}{segment.text}{/if}{/each}
           </div>
         </div>
       {/if}
