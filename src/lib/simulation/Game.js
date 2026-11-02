@@ -22,7 +22,7 @@ import {
   calculateWeeklyBurn,
   calculateConfidenceDelta
 } from './BusinessRules.js';
-import { checkForEvents, applyEventOutcome } from './EventSystem.js';
+import { checkForEvents, applyEventOutcome, nextLowHealthStreak } from './EventSystem.js';
 import { generateOpportunities, checkDeadlines } from './OpportunityGenerator.js';
 
 /** Capacity points needed per week of improvement work. */
@@ -85,7 +85,8 @@ export function createGame(scenarioId = 'startup', { rng = defaultRng } = {}) {
     history: {
       events: [],
       decisions: [],
-      weeklyMetrics: []
+      weeklyMetrics: [],
+      weeksLowHealth: 0
     },
     activeBonuses: [],
     consecutiveWeeksLowConfidence: 0,
@@ -323,7 +324,9 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     consecutiveWeeksHighConfidence: state.consecutiveWeeksHighConfidence,
     acquisitionOfferDeclined: state.acquisitionOfferDeclined
   };
-  const events = checkForEvents(metrics, state.history, newWeek, eventState, 'pre', rng);
+  const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth);
+  const history = { ...state.history, weeksLowHealth };
+  const events = checkForEvents(metrics, history, newWeek, eventState, 'pre', rng);
   for (const event of events) {
     metrics = applyEventOutcome(metrics, event);
     if (event.outcome.forcedFix) {
@@ -366,7 +369,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   // 7. Post-phase events use the just-updated counters, and cannot offer a
   // decision in a week that ends the game.
   const postEventState = { ...eventState, consecutiveWeeksHighConfidence: highConfidenceWeeks };
-  const postEvents = checkForEvents(metrics, state.history, newWeek, postEventState, 'post', rng);
+  const postEvents = checkForEvents(metrics, history, newWeek, postEventState, 'post', rng);
   let pendingDecision = state.pendingDecision;
   if (!gameOver && postEvents.some(event => event.outcome?.pendingDecision === 'acquisition')) {
     pendingDecision = { type: 'acquisition', week: newWeek };
@@ -389,7 +392,8 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     history: {
       events: [...state.history.events, ...allEvents],
       decisions: allDecisions,
-      weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics }]
+      weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics }],
+      weeksLowHealth
     },
     gameOver,
     victory: fundingPulled ? false : result.victory,

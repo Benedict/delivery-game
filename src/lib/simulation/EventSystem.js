@@ -39,8 +39,8 @@ export const EVENTS = {
     type: 'crisis',
     description: 'Frustrated engineers are leaving the team',
     trigger: (metrics, history) => {
-      return metrics.codeHealth < 10 &&
-             history.weeksLowHealth >= 3;
+      return metrics.codeHealth < LOW_HEALTH_THRESHOLD &&
+             (history.weeksLowHealth || 0) >= 3;
     },
     outcome: {
       capacityDelta: -30,
@@ -133,10 +133,23 @@ export const EVENTS = {
   }
 };
 
+/** Code health below this counts towards the low-health streak. */
+export const LOW_HEALTH_THRESHOLD = 10;
+
+/**
+ * Update the count of consecutive weeks with low code health.
+ * @param {object} metrics - Metrics at the end of the week
+ * @param {number} [previousStreak] - Streak before this week
+ * @returns {number} New streak length
+ */
+export function nextLowHealthStreak(metrics, previousStreak = 0) {
+  return metrics.codeHealth < LOW_HEALTH_THRESHOLD ? previousStreak + 1 : 0;
+}
+
 /**
  * Check which events should trigger this week
  * @param {object} metrics - Current metrics
- * @param {object} history - Game history
+ * @param {object} history - Game history, with weeksLowHealth already updated for this week
  * @param {number} week - Current week
  * @param {object} state - Game state (scenario, counters, flags)
  * @param {string} phase - 'pre' or 'post' (default 'pre')
@@ -146,18 +159,11 @@ export const EVENTS = {
 export function checkForEvents(metrics, history, week, state = {}, phase = 'pre', rng = defaultRng) {
   const triggeredEvents = [];
 
-  // Track low health streak
-  const weeksLowHealth = metrics.codeHealth < 10
-    ? (history.weeksLowHealth || 0) + 1
-    : 0;
-
-  const enrichedHistory = { ...history, weeksLowHealth };
-
   // Check each event's trigger condition
   for (const event of Object.values(EVENTS)) {
     const eventPhase = event.phase ?? 'pre';
     if (eventPhase !== phase) continue;
-    if (event.trigger(metrics, enrichedHistory, week, state, rng)) {
+    if (event.trigger(metrics, history, week, state, rng)) {
       triggeredEvents.push({
         ...event,
         event,

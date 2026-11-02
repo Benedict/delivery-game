@@ -155,3 +155,29 @@ describe('Game - final week', () => {
     expect(advanceWeek(greenfieldAt(weeks - 1, 0), { rng }).state).toMatchObject({ gameOver: false });
   });
 });
+
+describe('Game - low code health streak', () => {
+  const eventIds = report => report.events.map(e => e.event.id);
+
+  it('triggers Engineering Exodus after three consecutive weeks of code health below 10', () => {
+    let game = gameWith({ metrics: { codeHealth: 0 } });
+    const reports = [];
+    for (let i = 0; i < 3; i++) {
+      const result = advanceWeek(game, { rng });
+      game = result.state;
+      reports.push(result.report);
+    }
+
+    expect(eventIds(reports[0])).not.toContain('engineeringExodus');
+    expect(eventIds(reports[1])).not.toContain('engineeringExodus');
+    expect(eventIds(reports[2])).toContain('engineeringExodus');
+    expect(game.history.weeksLowHealth).toBe(3);
+  });
+
+  it('resets the streak when code health recovers', () => {
+    let game = advanceWeek(gameWith({ metrics: { codeHealth: 0 } }), { rng }).state;
+    game = { ...game, metrics: { ...game.metrics, codeHealth: 40 } };
+
+    expect(advanceWeek(game, { rng }).state.history.weeksLowHealth).toBe(0);
+  });
+});
