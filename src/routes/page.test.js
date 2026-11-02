@@ -100,3 +100,14 @@ describe('game page: end screen explains which goal was missed', () => {
     expect(screen.queryByText(/week-1 efficiency/)).not.toBeInTheDocument();
   });
 });
+
+describe('game page: support link', () => {
+  it('links to Ko-fi from every screen, opening safely in a new tab', () => {
+    render(Page);
+
+    const link = screen.getByRole('link', { name: /support .* ko-fi/i });
+    expect(link).toHaveAttribute('href', 'https://ko-fi.com/benedictsteele');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+});

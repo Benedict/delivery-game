@@ -119,6 +119,10 @@ The simulation layer has no UI dependencies, and every random roll goes through 
 
 `src/tests/goldenMaster.test.js` snapshots complete seeded games. A refactor should leave those snapshots unchanged; a deliberate rule change updates them (`npx vitest run -u`), and the diff shows what the change did to play.
 
+## Support
+
+If the game is useful to you or your team, you can support its development on [Ko-fi](https://ko-fi.com/benedictsteele).
+
 ## Credits
 
 Inspired in part by Tom Grant's *Dice of Debt* (GameChange LLC, 2015), published by the Agile Alliance.

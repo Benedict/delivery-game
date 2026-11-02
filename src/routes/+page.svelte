@@ -295,6 +295,17 @@
         on:endWeek={handleEndWeek}
       />
     {/if}
+
+    <footer class="mt-10 text-center">
+      <a
+        href="https://ko-fi.com/benedictsteele"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block text-sm font-black text-black bg-white border-2 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-amber-200 transition-colors"
+      >
+        ☕ Enjoying the game? Support it on Ko-fi
+      </a>
+    </footer>
   </div>
 </div>
 
