@@ -378,12 +378,19 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   // 5. Opportunities
   const allDecisions = [...state.history.decisions, ...decisions];
   const completedFeatureNames = allDecisions.filter(d => d.type === 'feature').map(d => d.feature.name);
-  const wipFeatureNames = workInProgress.filter(item => item.type === 'feature').map(item => item.name);
   const { active } = checkDeadlines(state.opportunities, newWeek);
+  const offered = [...active];
+  const isOffered = name => offered.some(opp => opp.name === name);
+  for (const opp of unlockedOpportunities) {
+    if (!isOffered(opp.name)) offered.push(opp);
+  }
+  const unavailableNames = [
+    ...workInProgress.filter(item => item.type === 'feature').map(item => item.name),
+    ...offered.map(opp => opp.name)
+  ];
   const opportunities = [
-    ...active,
-    ...unlockedOpportunities,
-    ...generateOpportunities(state.scenario, newWeek, metrics, completedFeatureNames, wipFeatureNames, rng)
+    ...offered,
+    ...generateOpportunities(state.scenario, newWeek, metrics, completedFeatureNames, unavailableNames, rng)
   ];
 
   // 6. End of game

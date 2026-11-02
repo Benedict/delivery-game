@@ -254,6 +254,7 @@ describe('Game - invariants over seeded games', () => {
           game = advanceWeek(game, { rng: step }).state;
 
           expect(unique(game.opportunities.map(o => o.id))).toBe(true);
+          expect(unique(game.opportunities.map(o => o.name))).toBe(true);
           expect(unique(game.workInProgress.map(i => i.id))).toBe(true);
           for (const key of ['codeHealth', 'satisfaction', 'marketPosition']) {
             expect(Math.abs(game.metrics[key])).toBeLessThanOrEqual(100);

@@ -48,7 +48,7 @@ const STRATEGIC_OPPORTUNITIES = [
  * @param {number} week - Current week
  * @param {object} metrics - Current metrics
  * @param {array} completedFeatureNames - Names of features already delivered
- * @param {array} wipFeatureNames - Names of features currently in progress
+ * @param {array} wipFeatureNames - Names of features in progress or already on offer
  * @returns {array} Generated opportunities
  */
 export function generateOpportunities(scenario, week, metrics, completedFeatureNames = [], wipFeatureNames = [], rng = defaultRng) {
@@ -60,7 +60,7 @@ export function generateOpportunities(scenario, week, metrics, completedFeatureN
 
   const config = scenarioConfig[scenario] || scenarioConfig.greenfield;
 
-  // Filter out features that have already been completed or are in progress
+  // Filter out features that are delivered, in progress or already on offer
   const unavailableNames = [...completedFeatureNames, ...wipFeatureNames];
   const availableTemplates = FEATURE_TEMPLATES.filter(
     template => !unavailableNames.includes(template.name)
@@ -76,18 +76,11 @@ export function generateOpportunities(scenario, week, metrics, completedFeatureN
   const count = randomInt(rng, config.min, config.max) + marketBonus;
 
   const opportunities = [];
-  const usedTemplates = new Set();
+  const pool = [...availableTemplates];
 
-  for (let i = 0; i < count; i++) {
-    // Pick random template we haven't used this week
-    let template;
-    let attempts = 0;
-    do {
-      template = pick(rng, availableTemplates);
-      attempts++;
-    } while (usedTemplates.has(template.name) && attempts < 20);
-
-    usedTemplates.add(template.name);
+  // Draw without replacement, so a feature never appears twice in one batch.
+  for (let i = 0; i < count && pool.length > 0; i++) {
+    const template = pool.splice(Math.floor(rng() * pool.length), 1)[0];
 
     opportunities.push({
       id: `${scenario}-${week}-${i}`,

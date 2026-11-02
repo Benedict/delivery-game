@@ -83,4 +83,23 @@ describe('OpportunityGenerator', () => {
 
     expect(strategic).toBeNull();
   });
+
+  it('never offers a feature that is unavailable (delivered, in progress or already on offer)', () => {
+    const unavailable = ['User Dashboard', 'Search Functionality', 'Mobile App'];
+    for (let seed = 1; seed <= 50; seed++) {
+      const names = generateOpportunities('startup', 2, { marketPosition: 80 }, [], unavailable, seededRng(seed)).map(o => o.name);
+      unavailable.forEach(name => expect(names).not.toContain(name));
+    }
+  });
+
+  it('never repeats a feature within one batch, even when few are left', () => {
+    const allButTwo = ['User Dashboard', 'Payment Integration', 'Email Notifications', 'Search Functionality',
+      'Mobile App', 'Analytics Dashboard', 'Social Login', 'Export Features'];
+    for (let seed = 1; seed <= 50; seed++) {
+      const names = generateOpportunities('startup', 2, { marketPosition: 80 }, allButTwo, [], seededRng(seed)).map(o => o.name);
+      expect(new Set(names).size).toBe(names.length);
+      expect(names.length).toBeLessThanOrEqual(2);
+    }
+  });
 });
+
