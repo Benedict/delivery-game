@@ -8,6 +8,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -69,6 +70,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -159,6 +161,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -279,6 +282,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -422,6 +426,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -614,6 +619,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -822,6 +828,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -1075,6 +1082,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -1412,6 +1420,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -1788,6 +1797,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -2181,6 +2191,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -2574,6 +2585,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -2989,6 +3001,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -3431,6 +3444,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -3893,6 +3907,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -4375,6 +4390,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -4878,6 +4894,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -5446,6 +5463,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -6038,6 +6056,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -6690,6 +6709,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -7376,6 +7396,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "timeUp",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -8089,6 +8110,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -8148,6 +8170,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -8263,6 +8286,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -8420,6 +8444,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -8599,6 +8624,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -8793,6 +8819,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -9016,6 +9043,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -9261,6 +9289,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -9521,6 +9550,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -9835,6 +9865,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -10212,6 +10243,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -10615,6 +10647,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -11116,6 +11149,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -11672,6 +11706,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -12332,6 +12367,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -13079,6 +13115,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -13913,6 +13950,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -14867,6 +14905,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -15884,6 +15923,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -16988,6 +17028,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -18147,6 +18188,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "timeUp",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -19396,6 +19438,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -19441,6 +19484,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -19536,6 +19580,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -19653,6 +19698,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -19844,6 +19890,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -20052,6 +20099,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -20269,6 +20317,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -20507,6 +20556,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -20758,6 +20808,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -21059,6 +21110,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -21372,6 +21424,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -21714,6 +21767,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -22084,6 +22138,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -22489,6 +22544,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -22920,6 +22976,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -23414,6 +23471,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -23915,6 +23973,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -24397,6 +24456,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -24901,6 +24961,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -25420,6 +25481,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -25952,6 +26014,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "timeUp",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -26488,6 +26551,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -26555,6 +26619,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -26680,6 +26745,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -26863,6 +26929,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -27084,6 +27151,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -27339,6 +27407,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -27642,6 +27711,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -27966,6 +28036,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -28312,6 +28383,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -28692,6 +28764,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -29159,6 +29232,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -29637,6 +29711,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -30147,6 +30222,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -30685,6 +30761,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -31239,6 +31316,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "targetReached",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -31871,6 +31949,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -31937,6 +32016,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -32060,6 +32140,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -32236,6 +32317,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -32449,6 +32531,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -32694,6 +32777,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -32987,6 +33071,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -33314,6 +33399,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -33711,6 +33797,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -34157,6 +34244,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -34658,6 +34746,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -35208,6 +35297,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -35839,6 +35929,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -36548,6 +36639,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -37294,6 +37386,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -38109,6 +38202,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "timeUp",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -38969,6 +39063,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -39036,6 +39131,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -39162,6 +39258,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -39337,6 +39434,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -39630,6 +39728,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -39968,6 +40067,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -40363,6 +40463,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -40783,6 +40884,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -41271,6 +41373,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -41796,6 +41899,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -42370,6 +42474,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -42963,6 +43068,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -43605,6 +43711,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "timeUp",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -44348,6 +44455,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -44423,6 +44531,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -44549,6 +44658,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -44740,6 +44850,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -44992,6 +45103,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -45293,6 +45405,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -45629,6 +45742,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -46018,6 +46132,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -46456,6 +46571,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -46899,6 +47015,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -47346,6 +47463,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "targetReached",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -47823,6 +47941,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -47905,6 +48024,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -48061,6 +48181,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -48279,6 +48400,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -48547,6 +48669,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -48913,6 +49036,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -49320,6 +49444,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -49744,6 +49869,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -50225,6 +50351,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -50760,6 +50887,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 1,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -51390,6 +51518,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 2,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -52058,6 +52187,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 3,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -52833,6 +52963,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -53605,6 +53736,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "timeUp",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -54439,6 +54571,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [],
@@ -54505,6 +54638,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -54645,6 +54779,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     },
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -54839,6 +54974,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -55091,6 +55227,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -55376,6 +55513,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -55702,6 +55840,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -56077,6 +56216,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -56504,6 +56644,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -56956,6 +57097,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": null,
     "gameOver": false,
     "history": {
       "decisions": [
@@ -57433,6 +57575,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
+    "endReason": "targetReached",
     "gameOver": true,
     "history": {
       "decisions": [

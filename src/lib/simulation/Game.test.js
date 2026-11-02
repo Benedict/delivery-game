@@ -7,7 +7,8 @@ import {
   allocateCapacity,
   advanceWeek,
   isBlockedByForcedFix,
-  improvementPoints
+  improvementPoints,
+  acceptAcquisition
 } from './Game.js';
 import { IMPROVEMENTS } from './BusinessRules.js';
 import { fixedRng, seededRng } from './random.js';
@@ -99,5 +100,36 @@ describe('Game - advancing a week', () => {
     };
 
     expect(play()).toEqual(play());
+  });
+});
+
+describe('Game - why the game ended', () => {
+  it('records an acquisition when the player accepts an offer', () => {
+    const offered = gameWith({ pendingDecision: { type: 'acquisition', week: 6 } });
+
+    expect(acceptAcquisition(offered)).toMatchObject({ gameOver: true, victory: true, endReason: 'acquired' });
+  });
+
+  it('records funding pulled after two weeks of very low investor confidence', () => {
+    const doomed = gameWith({ consecutiveWeeksLowConfidence: 1, metrics: { investorConfidence: -80 } });
+
+    expect(advanceWeek(doomed, { rng }).state).toMatchObject({ gameOver: true, victory: false, endReason: 'fundingPulled' });
+  });
+
+  it('records reaching the target', () => {
+    const rich = gameWith({ week: 3, metrics: { businessValue: 10000 } });
+
+    expect(advanceWeek(rich, { rng }).state).toMatchObject({ gameOver: true, victory: true, endReason: 'targetReached' });
+  });
+
+  it('records running out of time', () => {
+    const late = gameWith({ week: 20, metrics: { businessValue: 0 } });
+
+    expect(advanceWeek(late, { rng }).state).toMatchObject({ gameOver: true, victory: false, endReason: 'timeUp' });
+  });
+
+  it('has no end reason while the game is running', () => {
+    expect(gameWith().endReason).toBeNull();
+    expect(advanceWeek(gameWith(), { rng }).state.endReason).toBeNull();
   });
 });

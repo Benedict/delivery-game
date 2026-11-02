@@ -93,6 +93,7 @@ export function createGame(scenarioId = 'startup', { rng = defaultRng } = {}) {
     acquisitionOfferDeclined: false,
     pendingDecision: null,
     victoryType: null,
+    endReason: null, // 'targetReached' | 'acquired' | 'timeUp' | 'fundingPulled'
     victoryConditions: scenario.victoryConditions,
     gameOver: false,
     victory: false
@@ -151,7 +152,7 @@ export function allocateCapacity(state, allocation) {
  */
 export function acceptAcquisition(state) {
   if (!state || state.pendingDecision?.type !== 'acquisition') return state;
-  return { ...state, gameOver: true, victory: true, victoryType: 'acquisition', pendingDecision: null };
+  return { ...state, gameOver: true, victory: true, victoryType: 'acquisition', endReason: 'acquired', pendingDecision: null };
 }
 
 /**
@@ -188,6 +189,12 @@ export function checkVictoryConditions(metrics, week, conditions) {
     return { victory: false, gameOver: true };
   }
   return { victory: false, gameOver: false };
+}
+
+function endReasonFor({ fundingPulled, gameOver, victory }) {
+  if (fundingPulled) return 'fundingPulled';
+  if (!gameOver) return null;
+  return victory ? 'targetReached' : 'timeUp';
 }
 
 function progressWork(workInProgress, capacityAllocation, efficiency) {
@@ -386,6 +393,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     },
     gameOver,
     victory: fundingPulled ? false : result.victory,
+    endReason: endReasonFor({ fundingPulled, ...result }),
     lastWeek: report
   };
 

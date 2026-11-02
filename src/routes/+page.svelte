@@ -12,6 +12,17 @@
   let showHelp = false;
 
   $: game = $gameStore;
+  // Any way the game can end (final week, funding pulled, accepting an
+  // acquisition) moves to the end screen.
+  $: if (game?.gameOver && gameState === 'playing') gameState = 'gameOver';
+
+  const END_SCREENS = {
+    targetReached: { icon: '🎉', title: 'Victory!', tone: 'bg-green-300', message: 'You achieved your goals!' },
+    acquired: { icon: '🤝', title: 'Acquired!', tone: 'bg-green-300', message: 'You accepted the acquisition offer. Your investors are delighted.' },
+    timeUp: { icon: '⏰', title: "Time's Up!", tone: 'bg-red-300', message: "You didn't meet the victory conditions in time." },
+    fundingPulled: { icon: '💸', title: 'Funding Pulled!', tone: 'bg-red-300', message: 'Investor confidence stayed too low for too long, and your investors walked away.' }
+  };
+  $: endScreen = END_SCREENS[game?.endReason] ?? (game?.victory ? END_SCREENS.targetReached : END_SCREENS.timeUp);
 
   function startGame() {
     gameState = 'scenarioSelect';
@@ -50,13 +61,6 @@
   function handleEndWeek() {
     endWeek();
     recentStory = narrateWeek($gameStore.lastWeek);
-    checkGameOver();
-  }
-
-  function checkGameOver() {
-    if ($gameStore && $gameStore.gameOver) {
-      gameState = 'gameOver';
-    }
   }
 
   function restartGame() {
@@ -176,31 +180,19 @@
 
     {:else if gameState === 'gameOver' && game}
       <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-12 max-w-2xl mx-auto text-center">
-        {#if game.victory}
-          <div class="mb-8">
-            <div class="text-8xl mb-6">🎉</div>
-            <h2 class="text-6xl font-black text-black mb-6 uppercase bg-green-300 border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">Victory!</h2>
-            <p class="text-2xl font-black text-black mb-4">You achieved your goals!</p>
-            <div class="bg-yellow-300 border-2 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <p class="text-xl font-black text-black">Final Business Value: £{game.metrics.businessValue}K</p>
-            </div>
-            <div class="bg-blue-300 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
-            </div>
+        <div class="mb-8">
+          <div class="text-8xl mb-6">{endScreen.icon}</div>
+          <h2 class="text-6xl font-black text-black mb-6 uppercase {endScreen.tone} border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">{endScreen.title}</h2>
+          <p class="text-2xl font-black text-black mb-4">{endScreen.message}</p>
+          <div class="bg-yellow-300 border-2 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="text-xl font-black text-black">
+              Final Business Value: £{game.metrics.businessValue}K{#if !game.victory} (needed £{game.victoryConditions.businessValue}K){/if}
+            </p>
           </div>
-        {:else}
-          <div class="mb-8">
-            <div class="text-8xl mb-6">⏰</div>
-            <h2 class="text-6xl font-black text-black mb-6 uppercase bg-red-300 border-4 border-black inline-block px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">Time's Up!</h2>
-            <p class="text-2xl font-black text-black mb-4">You didn't meet the victory conditions in time.</p>
-            <div class="bg-yellow-300 border-2 border-black p-4 mb-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <p class="text-lg font-black text-black">Final Business Value: £{game.metrics.businessValue}K (needed £{game.victoryConditions.businessValue}K)</p>
-            </div>
-            <div class="bg-blue-300 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <p class="text-lg font-black text-black">Code Health: {game.metrics.codeHealth}</p>
-            </div>
+          <div class="bg-blue-300 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
           </div>
-        {/if}
+        </div>
 
         <button
           class="px-8 py-4 bg-gradient-to-r from-violet-500 to-purple-500 text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:from-violet-600 hover:to-purple-600 transition-colors font-black text-2xl uppercase"
