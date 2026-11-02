@@ -4,7 +4,7 @@ A business simulation that teaches systems thinking about software delivery.
 
 ## What it is
 
-You manage a software team for fifteen to twenty weeks, depending on the scenario. Each week you choose what work to start, allocate your team's capacity, and balance shipping features against improving the codebase. The game scores you against the scenario's victory conditions.
+You manage a software team for twelve to twenty weeks, depending on the scenario. Each week you choose what work to start, allocate your team's capacity, and balance shipping features against improving the codebase. The game scores you against the scenario's victory conditions.
 
 Three scenarios — startup, legacy, and greenfield — set distinct starting conditions and victory criteria.
 
@@ -25,15 +25,17 @@ The complexity is the lesson. Players learn to read a system, not to find an opt
 
 The simulation models seven interacting factors:
 
-- **Code health** drives flow efficiency. At healthy code the team runs at 90% efficiency. At crisis quality it drops to 40% — a 2.25× capacity gap.
+- **Code health** drives flow efficiency: 50% at code health 0, rising half a percentage point per point of health to 100% at 100, and falling to a floor of 25% at -50 or below — a 4× capacity gap between perfect and crisis code.
 - **Capacity** is base team output, scaled by flow efficiency.
 - **Customer satisfaction** moves with feature quality and bug rates. Low satisfaction triggers churn.
 - **Market position** moves with consistent delivery and high satisfaction. Strong position unlocks enterprise opportunities.
 - **Business value** accumulates in pounds and forms the score.
-- **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 95%, 3: 85%, 4+: 70%).
+- **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 85%, 3: 70%, 4+: 50%).
 - **Opportunity deadlines** force urgency. Late features lose their value entirely.
 
-Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces a two-week emergency fix that blocks all other work.
+Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces an emergency fix, sized at two weeks of work, that takes all capacity and blocks all other work until it is done.
+
+Events have cooldowns, so the same event cannot hit every week. Engineering Exodus triggers after three weeks of code health below 10 that is not improving (weeks where low health improves don't count), and costs a quarter of the team. Big Client and Competitor Launch add new opportunities; Talent Attraction halves the cost of the next hire.
 
 ## Ongoing practices
 
@@ -48,9 +50,19 @@ The lesson: practices have contextual fit, and the team must hold them to keep t
 
 ## Scenarios
 
-- **The Startup** — Capacity 120, code health 70. Fifteen weeks to deliver £500K in business value. High delivery pressure throughout.
-- **The Legacy System** — Capacity 80, code health -20. Twenty weeks to deliver £400K and recover code health to 50. Modernisation under load.
-- **The Greenfield Project** — Capacity 100, code health 80. Fifteen weeks to deliver £600K while keeping code health above 70. Sustainable growth from day one.
+- **The Startup** — Capacity 120, code health 70. Twelve weeks to deliver £650K in business value while the team burns £0.3K per capacity point every week. Investor confidence rises with clean deliveries and falls with bugs, crises and improvement work; two weeks at -50 or below and investors pull funding. Three weeks at 70+ with customer satisfaction above 80 brings an acquisition offer — accept it to win outright.
+- **The Legacy System** — Capacity 110, code health -20. Twenty weeks to deliver £300K and recover code health to 50. Modernisation under load.
+- **The Greenfield Project** — Capacity 100, code health 80. Fifteen weeks to deliver £750K while keeping code health above 70. Sustainable growth from day one.
+
+### Balance target: fail a few times, then master
+
+`src/tests/balance.test.js` plays 200 seeded games per scenario with bot strategies and checks that:
+
+- naive play (features only, first offered, random) wins at most 25% of games;
+- an adaptive strategy that reads the scenario wins at least 70%, and not before the last quarter of the game;
+- no fixed recipe ("pair programming first", "both practices first", "keep health above 60") succeeds in every scenario.
+
+`npm run balance` prints the current table, including how games end. Bots are a proxy for players, not a substitute for playtesting with people.
 
 ## Getting started
 
@@ -99,7 +111,9 @@ src/
     └── +page.svelte             # Main game page
 ```
 
-The simulation layer has no UI dependencies. You can drive it from tests or scripts to validate balance changes without rendering anything.
+The simulation layer has no UI dependencies, and every random roll goes through an injectable `rng`. `src/lib/simulation/Game.js` holds the game loop as pure functions; `gameStore.js` is a thin Svelte adapter over it. You can drive the simulation from tests or scripts with a seed to validate balance changes reproducibly.
+
+`src/tests/goldenMaster.test.js` snapshots complete seeded games. A refactor should leave those snapshots unchanged; a deliberate rule change updates them (`npx vitest run -u`), and the diff shows what the change did to play.
 
 ## Credits
 

@@ -38,18 +38,17 @@
             Flow efficiency determines how much work your team can accomplish each week. It's calculated from your code health:
           </p>
           <div class="bg-white border-2 border-black p-3 space-y-1 text-xs font-black">
-            <div class="flex justify-between"><span>Code Health ≥ 80:</span> <span class="text-green-700">90% efficient ✨</span></div>
-            <div class="flex justify-between"><span>Code Health 50-79:</span> <span class="text-green-600">80% efficient</span></div>
-            <div class="flex justify-between"><span>Code Health 20-49:</span> <span class="text-yellow-600">70% efficient</span></div>
-            <div class="flex justify-between"><span>Code Health 0-19:</span> <span class="text-orange-600">60% efficient</span></div>
-            <div class="flex justify-between"><span>Code Health -20 to -1:</span> <span class="text-red-600">50% efficient</span></div>
-            <div class="flex justify-between"><span>Code Health &lt; -20:</span> <span class="text-red-700">40% efficient 💀</span></div>
+            <div class="flex justify-between"><span>Code Health 100:</span> <span class="text-green-700">100% efficient ✨</span></div>
+            <div class="flex justify-between"><span>Code Health 50:</span> <span class="text-green-600">75% efficient</span></div>
+            <div class="flex justify-between"><span>Code Health 0:</span> <span class="text-orange-600">50% efficient</span></div>
+            <div class="flex justify-between"><span>Code Health -50 or below:</span> <span class="text-red-700">25% efficient 💀</span></div>
+            <div class="text-gray-600 pt-1">Each point of code health adds or removes half a percentage point.</div>
           </div>
           <p class="text-sm font-black text-gray-700 mt-3 bg-amber-100 border-2 border-black p-2">
             📊 Weekly Capacity = Base Capacity × Flow Efficiency
           </p>
           <p class="text-xs font-bold text-gray-600 mt-2 leading-relaxed">
-            Example: 100 capacity with healthy code (90%) = 90 points/week. With poor code (40%) = only 40 points/week. That's a 2.25x difference!
+            Example: 100 capacity with perfect code (100%) = 100 points/week. In a crisis (25%) = only 25 points/week. That's a 4x difference!
           </p>
         </section>
 
@@ -97,9 +96,9 @@
           </p>
           <div class="bg-white border-2 border-black p-3 space-y-1 text-xs font-black">
             <div class="flex justify-between"><span>1 item:</span> <span class="text-green-700">100% efficiency</span></div>
-            <div class="flex justify-between"><span>2 items:</span> <span class="text-green-600">95% efficiency</span></div>
-            <div class="flex justify-between"><span>3 items:</span> <span class="text-yellow-600">85% efficiency</span></div>
-            <div class="flex justify-between"><span>4+ items:</span> <span class="text-orange-600">70% efficiency</span></div>
+            <div class="flex justify-between"><span>2 items:</span> <span class="text-green-600">85% efficiency</span></div>
+            <div class="flex justify-between"><span>3 items:</span> <span class="text-yellow-600">70% efficiency</span></div>
+            <div class="flex justify-between"><span>4+ items:</span> <span class="text-orange-600">50% efficiency</span></div>
           </div>
           <p class="text-xs font-bold text-gray-600 mt-2 leading-relaxed">
             Focus your team's effort on fewer items to maximize progress!
@@ -110,17 +109,17 @@
         <section>
           <h3 class="text-xl font-black text-black mb-3 uppercase">⚡ Events</h3>
           <p class="text-sm font-bold text-gray-700 mb-2 leading-relaxed">
-            Your decisions trigger events that can help or hurt:
+            Your decisions trigger events that can help or hurt. After an event fires it cools down for a few weeks before it can fire again:
           </p>
           <ul class="text-xs font-bold text-gray-700 space-y-2 leading-relaxed">
             <li class="bg-red-100 border-2 border-black p-2">
-              <strong>🚨 Security Incident (Code Health &lt; -50):</strong> Forces 2-week emergency fix, blocks all other work
+              <strong>🚨 Security Incident (Code Health &lt; -50):</strong> Forces an emergency fix (2 weeks of work) that takes all capacity and blocks other work until done
             </li>
             <li class="bg-red-100 border-2 border-black p-2">
               <strong>💔 Customer Churn (Satisfaction &lt; 20):</strong> Lose business value and market position
             </li>
             <li class="bg-red-100 border-2 border-black p-2">
-              <strong>🏃 Engineering Exodus (Code Health &lt; 10 for 3+ weeks):</strong> Engineers quit, lose capacity
+              <strong>🏃 Engineering Exodus (Code Health &lt; 10 and not improving for 3 weeks):</strong> A quarter of your engineers quit
             </li>
             <li class="bg-green-100 border-2 border-black p-2">
               <strong>✨ Big Client (Market Position &gt; 70):</strong> Unlock high-value enterprise deal
