@@ -187,3 +187,22 @@ describe('EventSystem - low code health streak', () => {
     expect(ids({ weeksLowHealth: 3 })).toContain('engineeringExodus');
   });
 });
+
+describe('EventSystem - cooldowns', () => {
+  const ORIGINAL_EVENTS = ['customerChurn', 'bigClient', 'engineeringExodus', 'securityIncident', 'competitorLaunch', 'talentAttraction'];
+  const lowSatisfaction = { satisfaction: 15, codeHealth: 50, marketPosition: 50, capacity: 100 };
+  const churnAt = week => ({ events: [{ event: EVENTS.customerChurn, outcome: EVENTS.customerChurn.outcome, week }] });
+  const firesChurn = (history, week) => checkForEvents(lowSatisfaction, history, week).some(e => e.event.id === 'customerChurn');
+
+  it('gives each repeating event a cooldown of at least one week', () => {
+    ORIGINAL_EVENTS.forEach(id => expect(EVENTS[id].cooldown).toBeGreaterThanOrEqual(1));
+  });
+
+  it('does not repeat an event during its cooldown', () => {
+    expect(firesChurn(churnAt(5), 5 + EVENTS.customerChurn.cooldown - 1)).toBe(false);
+  });
+
+  it('can repeat an event once its cooldown has passed', () => {
+    expect(firesChurn(churnAt(5), 5 + EVENTS.customerChurn.cooldown)).toBe(true);
+  });
+});

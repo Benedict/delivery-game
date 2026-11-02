@@ -7,6 +7,7 @@ import { defaultRng } from './random.js';
 export const EVENTS = {
   customerChurn: {
     id: 'customerChurn',
+    cooldown: 3, // weeks before it can trigger again
     name: 'Customer Churn',
     type: 'crisis',
     description: 'Frustrated customers are leaving for competitors',
@@ -19,6 +20,7 @@ export const EVENTS = {
   },
   bigClient: {
     id: 'bigClient',
+    cooldown: 4, // weeks before it can trigger again
     name: 'Big Client Interest',
     type: 'positive',
     description: 'A major client is interested in your product',
@@ -35,6 +37,7 @@ export const EVENTS = {
   },
   engineeringExodus: {
     id: 'engineeringExodus',
+    cooldown: 3, // weeks before it can trigger again
     name: 'Engineering Exodus',
     type: 'crisis',
     description: 'Frustrated engineers are leaving the team',
@@ -49,6 +52,7 @@ export const EVENTS = {
   },
   securityIncident: {
     id: 'securityIncident',
+    cooldown: 4, // weeks before it can trigger again
     name: 'Security Incident',
     type: 'crisis',
     description: 'Critical security vulnerability discovered in production',
@@ -63,6 +67,7 @@ export const EVENTS = {
   },
   competitorLaunch: {
     id: 'competitorLaunch',
+    cooldown: 3, // weeks before it can trigger again
     name: 'Competitor Launch',
     type: 'pressure',
     description: 'A competitor just launched a similar feature',
@@ -82,6 +87,7 @@ export const EVENTS = {
   },
   talentAttraction: {
     id: 'talentAttraction',
+    cooldown: 4, // weeks before it can trigger again
     name: 'Talent Attraction',
     type: 'positive',
     description: 'Your good reputation attracts talented engineers',
@@ -147,6 +153,21 @@ export function nextLowHealthStreak(metrics, previousStreak = 0) {
 }
 
 /**
+ * Has this event fired too recently to fire again? Events without a
+ * cooldown manage their own timing in their trigger.
+ * @param {object} event - Event definition
+ * @param {object} history - Game history
+ * @param {number} week - Current week
+ */
+export function isCoolingDown(event, history, week) {
+  if (!event.cooldown) return false;
+  const lastFired = (history.events || [])
+    .filter(past => past.event?.id === event.id)
+    .reduce((latest, past) => Math.max(latest, past.week), -Infinity);
+  return week - lastFired < event.cooldown;
+}
+
+/**
  * Check which events should trigger this week
  * @param {object} metrics - Current metrics
  * @param {object} history - Game history, with weeksLowHealth already updated for this week
@@ -163,6 +184,7 @@ export function checkForEvents(metrics, history, week, state = {}, phase = 'pre'
   for (const event of Object.values(EVENTS)) {
     const eventPhase = event.phase ?? 'pre';
     if (eventPhase !== phase) continue;
+    if (isCoolingDown(event, history, week)) continue;
     if (event.trigger(metrics, history, week, state, rng)) {
       triggeredEvents.push({
         ...event,
