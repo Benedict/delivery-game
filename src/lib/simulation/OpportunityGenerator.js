@@ -1,7 +1,7 @@
 // src/lib/simulation/OpportunityGenerator.js
 import { defaultRng, randomInt, pick } from './random.js';
 
-const FEATURE_TEMPLATES = [
+export const FEATURE_TEMPLATES = [
   { name: 'User Dashboard', value: 60, complexity: 'medium' },
   { name: 'Payment Integration', value: 90, complexity: 'high' },
   { name: 'Email Notifications', value: 45, complexity: 'low' },
@@ -11,7 +11,27 @@ const FEATURE_TEMPLATES = [
   { name: 'Social Login', value: 50, complexity: 'low' },
   { name: 'Export Features', value: 40, complexity: 'low' },
   { name: 'API Integration', value: 75, complexity: 'medium' },
-  { name: 'Admin Panel', value: 70, complexity: 'medium' }
+  { name: 'Admin Panel', value: 70, complexity: 'medium' },
+  { name: 'Team Workspaces', value: 85, complexity: 'high' },
+  { name: 'Audit Log', value: 45, complexity: 'low' },
+  { name: 'Two-Factor Authentication', value: 55, complexity: 'medium' },
+  { name: 'Billing Portal', value: 80, complexity: 'medium' },
+  { name: 'Offline Mode', value: 95, complexity: 'high' },
+  { name: 'Dark Mode', value: 35, complexity: 'low' },
+  { name: 'Webhooks', value: 60, complexity: 'medium' },
+  { name: 'Single Sign-On', value: 100, complexity: 'high' },
+  { name: 'In-App Chat', value: 75, complexity: 'medium' },
+  { name: 'Recommendations Engine', value: 110, complexity: 'high' },
+  { name: 'CSV Import', value: 40, complexity: 'low' },
+  { name: 'Usage Reports', value: 55, complexity: 'medium' },
+  { name: 'Localisation', value: 65, complexity: 'medium' },
+  { name: 'Onboarding Tour', value: 40, complexity: 'low' },
+  { name: 'Public API', value: 90, complexity: 'high' },
+  { name: 'Role Permissions', value: 60, complexity: 'medium' },
+  { name: 'Scheduled Reports', value: 50, complexity: 'low' },
+  { name: 'Calendar Sync', value: 55, complexity: 'medium' },
+  { name: 'Marketplace Integrations', value: 105, complexity: 'high' },
+  { name: 'Accessibility Overhaul', value: 50, complexity: 'medium' }
 ];
 
 const STRATEGIC_OPPORTUNITIES = [

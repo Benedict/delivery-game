@@ -3,7 +3,8 @@ import { describe, it, expect } from 'vitest';
 import {
   generateOpportunities,
   checkDeadlines,
-  unlockStrategicOpportunity
+  unlockStrategicOpportunity,
+  FEATURE_TEMPLATES
 } from './OpportunityGenerator.js';
 import { fixedRng, seededRng } from './random.js';
 
@@ -93,8 +94,7 @@ describe('OpportunityGenerator', () => {
   });
 
   it('never repeats a feature within one batch, even when few are left', () => {
-    const allButTwo = ['User Dashboard', 'Payment Integration', 'Email Notifications', 'Search Functionality',
-      'Mobile App', 'Analytics Dashboard', 'Social Login', 'Export Features'];
+    const allButTwo = FEATURE_TEMPLATES.slice(2).map(template => template.name);
     for (let seed = 1; seed <= 50; seed++) {
       const names = generateOpportunities('startup', 2, { marketPosition: 80 }, allButTwo, [], seededRng(seed)).map(o => o.name);
       expect(new Set(names).size).toBe(names.length);
