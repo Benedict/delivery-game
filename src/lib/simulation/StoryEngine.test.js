@@ -4,7 +4,8 @@ import {
   generateFeatureStory,
   generateImprovementStory,
   generateEventStory,
-  generateWeekSummary
+  generateWeekSummary,
+  narrateWeek
 } from './StoryEngine.js';
 
 describe('StoryEngine', () => {
@@ -85,5 +86,35 @@ describe('StoryEngine', () => {
 
     expect(summary).toBeDefined();
     expect(summary).toContain('Week 5');
+  });
+});
+
+describe('StoryEngine - narrateWeek', () => {
+  const feature = { name: 'Search Functionality', value: 70 };
+  const goodOutcome = { valueDelivered: 70, hasBugs: false };
+  const churn = { event: { id: 'customerChurn', name: 'Customer Churn', description: 'Customers leave' }, week: 4 };
+
+  it('puts events before deliveries', () => {
+    const story = narrateWeek({
+      week: 3,
+      events: [churn],
+      decisions: [{ type: 'feature', feature, outcome: goodOutcome }]
+    });
+
+    expect(story.indexOf('Customer Churn')).toBeLessThan(story.indexOf('Search Functionality'));
+  });
+
+  it('narrates improvements', () => {
+    const story = narrateWeek({
+      week: 3,
+      events: [],
+      decisions: [{ type: 'improvement', improvement: { name: 'Fix Critical Bugs' }, outcome: {} }]
+    });
+
+    expect(story).toContain('Fix Critical Bugs');
+  });
+
+  it('says the week is complete when nothing shipped', () => {
+    expect(narrateWeek({ week: 3, events: [], decisions: [] })).toBe('Week 3 complete. Your team made progress on their work.');
   });
 });
