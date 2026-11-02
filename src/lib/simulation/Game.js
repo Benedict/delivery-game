@@ -130,18 +130,18 @@ export function allocateCapacity(state, allocation) {
 /**
  * Has the player won or lost?
  * @param {object} metrics
- * @param {number} week - The week about to start
+ * @param {number} weeksCompleted - Weeks played so far, including the one just finished
  * @param {object} conditions - Scenario victory conditions
  */
-export function checkVictoryConditions(metrics, week, conditions) {
+export function checkVictoryConditions(metrics, weeksCompleted, conditions) {
   const hasBusinessValue = metrics.businessValue >= conditions.businessValue;
   const hasCodeHealth = !conditions.codeHealth || metrics.codeHealth >= conditions.codeHealth;
-  const withinTimeLimit = week <= conditions.weeks;
+  const withinTimeLimit = weeksCompleted <= conditions.weeks;
 
   if (hasBusinessValue && hasCodeHealth && withinTimeLimit) {
     return { victory: true, gameOver: true };
   }
-  if (week > conditions.weeks) {
+  if (weeksCompleted >= conditions.weeks) {
     return { victory: false, gameOver: true };
   }
   return { victory: false, gameOver: false };
@@ -256,7 +256,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     ...generateOpportunities(state.scenario, newWeek, metrics, completedFeatureNames, wipFeatureNames, rng)
   ];
 
-  const { victory, gameOver } = checkVictoryConditions(metrics, newWeek, state.victoryConditions);
+  const { victory, gameOver } = checkVictoryConditions(metrics, state.week, state.victoryConditions);
   const report = { week: state.week, completed, decisions, events, efficiency };
 
   const nextState = {

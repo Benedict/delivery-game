@@ -101,3 +101,32 @@ describe('Game - advancing a week', () => {
     expect(play()).toEqual(play());
   });
 });
+
+describe('Game - end of game', () => {
+  // Startup: £500K within 15 weeks
+  it('wins when the target is reached during the final week', () => {
+    const game = gameWith({ week: 15, metrics: { businessValue: 500 } });
+
+    const { state } = advanceWeek(game, { rng });
+
+    expect(state).toMatchObject({ gameOver: true, victory: true });
+  });
+
+  it('loses when the final week ends short of the target', () => {
+    const game = gameWith({ week: 15, metrics: { businessValue: 499 } });
+
+    expect(advanceWeek(game, { rng }).state).toMatchObject({ gameOver: true, victory: false });
+  });
+
+  it('wins early as soon as the target is reached', () => {
+    const game = gameWith({ week: 6, metrics: { businessValue: 500 } });
+
+    expect(advanceWeek(game, { rng }).state).toMatchObject({ gameOver: true, victory: true });
+  });
+
+  it('keeps playing before the deadline while short of the target', () => {
+    const game = gameWith({ week: 14, metrics: { businessValue: 100 } });
+
+    expect(advanceWeek(game, { rng }).state).toMatchObject({ gameOver: false, victory: false });
+  });
+});
