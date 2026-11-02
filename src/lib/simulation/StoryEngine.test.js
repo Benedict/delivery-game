@@ -114,8 +114,25 @@ describe('StoryEngine - narrateWeek', () => {
     expect(story).toContain('Fix Critical Bugs');
   });
 
-  it('says the week is complete when nothing shipped', () => {
-    expect(narrateWeek({ week: 3, events: [], decisions: [] })).toBe('Week 3 complete. Your team made progress on their work.');
+  it('says when there was nothing to work on', () => {
+    expect(narrateWeek({ week: 3, events: [], decisions: [], progress: [] }))
+      .toBe('Week 3 complete. Your team had nothing to work on: start a feature or an improvement.');
+  });
+
+  it('reports real progress on unfinished work', () => {
+    const story = narrateWeek({
+      week: 3, events: [], decisions: [], completed: [],
+      progress: [{ id: 'f1', name: 'Mobile App', pointsAdded: 40, pointsCompleted: 40, pointsNeeded: 100 }]
+    });
+    expect(story).toBe('Mobile App: 40 of 100 points done (+40 this week).');
+  });
+
+  it('says plainly when work got no capacity', () => {
+    const story = narrateWeek({
+      week: 3, events: [], decisions: [], completed: [],
+      progress: [{ id: 'f1', name: 'Mobile App', pointsAdded: 0, pointsCompleted: 0, pointsNeeded: 100 }]
+    });
+    expect(story).toBe('Mobile App made no progress: no capacity was allocated to it.');
   });
 });
 

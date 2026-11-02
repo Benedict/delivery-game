@@ -38,6 +38,23 @@
   }
 
   $: weeklyCapacity = calculateWeeklyCapacity(capacity, flowEfficiency);
+
+  // Newly started work gets the capacity it needs from whatever is still
+  // unallocated, so a player who never touches a slider still makes progress.
+  // An explicit allocation (including 0) is never overridden.
+  $: {
+    const unallocated = workInProgress.filter(item => !(item.id in allocation));
+    if (unallocated.length) {
+      let free = weeklyCapacity - Object.values(allocation).reduce((sum, points) => sum + points, 0);
+      const next = { ...allocation };
+      for (const item of unallocated) {
+        const share = Math.max(0, Math.min(free, item.pointsNeeded - item.pointsCompleted));
+        next[item.id] = share;
+        free -= share;
+      }
+      allocation = next;
+    }
+  }
   $: allocatedPoints = Object.values(allocation).reduce((sum, points) => sum + points, 0);
   $: availablePoints = weeklyCapacity - allocatedPoints;
 
@@ -158,6 +175,11 @@
       <span class="font-black text-sm uppercase">Weekly Capacity:</span>
       <span class="font-black">{Math.round((allocatedPoints / weeklyCapacity) * 100)}% allocated</span>
     </div>
+    {#if availablePoints > 0 && !hasForcedFix}
+      <p class="mt-2 bg-red-200 border-2 border-black p-2 text-xs font-black" role="status">
+        ⚠️ {availablePoints} of {weeklyCapacity} points are unallocated this week. Unallocated capacity does nothing.
+      </p>
+    {/if}
   </div>
 {/if}
 

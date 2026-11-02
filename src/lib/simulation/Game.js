@@ -203,10 +203,13 @@ function endReasonFor({ fundingPulled, gameOver, victory }) {
 function progressWork(workInProgress, capacityAllocation, efficiency) {
   const completed = [];
   const remaining = [];
+  const progress = [];
 
   for (const item of workInProgress) {
     const allocated = capacityAllocation[item.id] || 0;
-    const pointsCompleted = item.pointsCompleted + Math.round(allocated * efficiency);
+    const pointsAdded = Math.round(allocated * efficiency);
+    const pointsCompleted = item.pointsCompleted + pointsAdded;
+    progress.push({ id: item.id, name: item.name, pointsAdded, pointsCompleted: Math.min(pointsCompleted, item.pointsNeeded), pointsNeeded: item.pointsNeeded });
     if (pointsCompleted >= item.pointsNeeded) {
       completed.push(item);
     } else {
@@ -214,7 +217,7 @@ function progressWork(workInProgress, capacityAllocation, efficiency) {
     }
   }
 
-  return { completed, remaining };
+  return { completed, remaining, progress };
 }
 
 function deliver(item, metrics, activeBonuses, hiringCostMultiplier, week, rng) {
@@ -277,7 +280,7 @@ function carryOverAllocation(workInProgress, previousAllocation, metrics) {
     if (item.forced) {
       // A forced fix takes the whole week's capacity.
       allocation[item.id] = calculateWeeklyCapacity(metrics.capacity, metrics.flowEfficiency);
-    } else if (!blocked && previousAllocation[item.id]) {
+    } else if (!blocked && item.id in previousAllocation) {
       allocation[item.id] = previousAllocation[item.id];
     }
   }
@@ -293,6 +296,7 @@ function carryOverAllocation(workInProgress, previousAllocation, metrics) {
  * @property {object[]} decisions - Delivery outcomes for those items, in the same order
  * @property {object[]} events - Events triggered this week (pre- and post-phase)
  * @property {number} efficiency - Context-switching multiplier applied this week
+ * @property {object[]} progress - Points each work item gained this week ({ id, name, pointsAdded, pointsCompleted, pointsNeeded })
  */
 
 /**
@@ -307,14 +311,14 @@ function carryOverAllocation(workInProgress, previousAllocation, metrics) {
  */
 export function advanceWeek(state, { rng = defaultRng } = {}) {
   if (!canAct(state)) {
-    return { state, report: { week: state?.week, completed: [], decisions: [], events: [], efficiency: 1 } };
+    return { state, report: { week: state?.week, completed: [], decisions: [], events: [], efficiency: 1, progress: [] } };
   }
 
   const newWeek = state.week + 1;
   const scenario = getScenario(state.scenario);
   const allocatedItemCount = Object.keys(state.capacityAllocation).length;
   const efficiency = calculateContextSwitchingPenalty(allocatedItemCount);
-  const { completed, remaining } = progressWork(state.workInProgress, state.capacityAllocation, efficiency);
+  const { completed, remaining, progress } = progressWork(state.workInProgress, state.capacityAllocation, efficiency);
 
   // 1. Deliver completed work
   let metrics = { ...state.metrics };
@@ -397,7 +401,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   }
 
   const allEvents = [...events, ...postEvents];
-  const report = { week: state.week, completed, decisions, events: allEvents, efficiency };
+  const report = { week: state.week, completed, decisions, events: allEvents, efficiency, progress };
 
   const nextState = {
     ...state,

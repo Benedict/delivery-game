@@ -102,9 +102,15 @@ export function narrateWeek(report) {
       : generateImprovementStory(decision.improvement, decision.outcome)
   );
 
-  if (deliveryStories.length === 0) {
-    deliveryStories.push(`Week ${report.week} complete. Your team made progress on their work.`);
+  const finished = new Set(report.completed?.map(item => item.id) ?? []);
+  const unfinished = (report.progress ?? []).filter(item => !finished.has(item.id));
+  const progressStories = unfinished.map(item => item.pointsAdded > 0
+    ? `${item.name}: ${item.pointsCompleted} of ${item.pointsNeeded} points done (+${item.pointsAdded} this week).`
+    : `${item.name} made no progress: no capacity was allocated to it.`);
+
+  if (deliveryStories.length === 0 && progressStories.length === 0) {
+    progressStories.push(`Week ${report.week} complete. Your team had nothing to work on: start a feature or an improvement.`);
   }
 
-  return [...eventStories, ...deliveryStories].join('\n\n');
+  return [...eventStories, ...deliveryStories, ...progressStories].join('\n\n');
 }
