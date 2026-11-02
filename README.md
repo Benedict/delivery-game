@@ -25,15 +25,17 @@ The complexity is the lesson. Players learn to read a system, not to find an opt
 
 The simulation models seven interacting factors:
 
-- **Code health** drives flow efficiency. At healthy code the team runs at 90% efficiency. At crisis quality it drops to 40% — a 2.25× capacity gap.
+- **Code health** drives flow efficiency: 50% at code health 0, rising 0.5 percentage points per point of health to 100% at 100, and falling to a floor of 25% at -50 or below — a 4× capacity gap between perfect and crisis code.
 - **Capacity** is base team output, scaled by flow efficiency.
 - **Customer satisfaction** moves with feature quality and bug rates. Low satisfaction triggers churn.
 - **Market position** moves with consistent delivery and high satisfaction. Strong position unlocks enterprise opportunities.
 - **Business value** accumulates in pounds and forms the score.
-- **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 95%, 3: 85%, 4+: 70%).
+- **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 85%, 3: 70%, 4+: 50%).
 - **Opportunity deadlines** force urgency. Late features lose their value entirely.
 
-Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces a two-week emergency fix that blocks all other work.
+Improvements include fixing critical bugs, pair programming (which halves the code health damage of every later feature), refactoring, and hiring. A security incident forces an emergency fix, sized at two weeks of work, that takes all capacity and blocks all other work until it is done.
+
+Events have cooldowns, so the same event cannot hit every week. Engineering Exodus triggers after three consecutive weeks of code health below 10. Big Client and Competitor Launch add new opportunities; Talent Attraction halves the cost of the next hire.
 
 ## Scenarios
 
@@ -62,7 +64,10 @@ npm run preview
 ```bash
 npm test           # run once
 npm run test:watch # watch mode
+npm run demo -- enterprise 42   # play seeded games and compare strategies
 ```
+
+`src/tests/goldenMaster.test.js` snapshots complete seeded games. A refactor should leave those snapshots unchanged; a deliberate rule change updates them (`npx vitest run -u`), and the diff shows what the change did to play.
 
 ## How it is built
 
@@ -75,20 +80,23 @@ npm run test:watch # watch mode
 src/
 ├── lib/
 │   ├── simulation/              # Core game model, pure JS
+│   │   ├── Game.js              # The game loop: createGame, startFeature, advanceWeek…
 │   │   ├── GameEngine.js        # Capacity, flow efficiency, complexity
 │   │   ├── BusinessRules.js     # Feature delivery and improvements
 │   │   ├── EventSystem.js       # Crisis and opportunity events
 │   │   ├── OpportunityGenerator.js
 │   │   ├── ScenarioDefinitions.js
-│   │   └── StoryEngine.js       # Narrative text generation
+│   │   ├── StoryEngine.js       # Narrative text generation
+│   │   ├── metrics.js           # Score bounds
+│   │   └── random.js            # Injectable and seeded randomness
 │   ├── stores/
-│   │   └── gameStore.js         # Svelte store, single source of truth
+│   │   └── gameStore.js         # Thin Svelte adapter over Game.js
 │   └── components/simulation/   # UI components
 └── routes/
     └── +page.svelte             # Main game page
 ```
 
-The simulation layer has no UI dependencies. You can drive it from tests or scripts to validate balance changes without rendering anything.
+The simulation layer has no UI dependencies, and every random roll goes through an injectable `rng`. You can drive it from tests or scripts with a seed to validate balance changes reproducibly, without rendering anything.
 
 ## Credits
 
