@@ -119,7 +119,7 @@
               <strong>💔 Customer Churn (Satisfaction &lt; 20):</strong> Lose business value and market position
             </li>
             <li class="bg-red-100 border-2 border-black p-2">
-              <strong>🏃 Engineering Exodus (Code Health &lt; 10 for 3+ weeks):</strong> Engineers quit, lose capacity
+              <strong>🏃 Engineering Exodus (Code Health &lt; 10 and not improving for 3 weeks):</strong> A quarter of your engineers quit
             </li>
             <li class="bg-yellow-100 border-2 border-black p-2">
               <strong>⚡ Competitor Launch (random, after week 3):</strong> Lose market position; a Competitive Response opportunity appears

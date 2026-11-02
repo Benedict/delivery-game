@@ -10,6 +10,7 @@ import {
   improvementPoints
 } from './Game.js';
 import { IMPROVEMENTS } from './BusinessRules.js';
+import { SCENARIOS } from './ScenarioDefinitions.js';
 import { fixedRng, seededRng } from './random.js';
 
 const rng = fixedRng(0.5);
@@ -103,9 +104,10 @@ describe('Game - advancing a week', () => {
 });
 
 describe('Game - end of game', () => {
-  // Startup: £500K within 15 weeks
+  // Startup scenario target and time limit
+  const target = SCENARIOS.startup.victoryConditions.businessValue;
   it('wins when the target is reached during the final week', () => {
-    const game = gameWith({ week: 15, metrics: { businessValue: 500 } });
+    const game = gameWith({ week: 15, metrics: { businessValue: target } });
 
     const { state } = advanceWeek(game, { rng });
 
@@ -113,13 +115,13 @@ describe('Game - end of game', () => {
   });
 
   it('loses when the final week ends short of the target', () => {
-    const game = gameWith({ week: 15, metrics: { businessValue: 499 } });
+    const game = gameWith({ week: 15, metrics: { businessValue: target - 1 } });
 
     expect(advanceWeek(game, { rng }).state).toMatchObject({ gameOver: true, victory: false });
   });
 
   it('wins early as soon as the target is reached', () => {
-    const game = gameWith({ week: 6, metrics: { businessValue: 500 } });
+    const game = gameWith({ week: 6, metrics: { businessValue: target } });
 
     expect(advanceWeek(game, { rng }).state).toMatchObject({ gameOver: true, victory: true });
   });

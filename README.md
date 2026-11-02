@@ -35,13 +35,23 @@ The simulation models seven interacting factors:
 
 Improvements include fixing critical bugs, pair programming (which halves the code health damage of every later feature), refactoring, and hiring. A security incident forces an emergency fix, sized at two weeks of work, that takes all capacity and blocks all other work until it is done.
 
-Events have cooldowns, so the same event cannot hit every week. Engineering Exodus triggers after three consecutive weeks of code health below 10. Big Client and Competitor Launch add new opportunities; Talent Attraction halves the cost of the next hire.
+Events have cooldowns, so the same event cannot hit every week. Engineering Exodus triggers after three weeks of code health below 10 that is not improving (weeks where low health improves don't count), and costs a quarter of the team. Big Client and Competitor Launch add new opportunities; Talent Attraction halves the cost of the next hire.
 
 ## Scenarios
 
-- **The Startup** — Capacity 120, code health 70. Fifteen weeks to deliver £500K in business value. High delivery pressure throughout.
-- **The Legacy System** — Capacity 80, code health -20. Twenty weeks to deliver £400K and recover code health to 50. Modernisation under load.
-- **The Greenfield Project** — Capacity 100, code health 80. Fifteen weeks to deliver £600K while keeping code health above 70. Sustainable growth from day one.
+- **The Startup** — Capacity 120, code health 70. Fifteen weeks to deliver £1,150K in business value. High delivery pressure throughout.
+- **The Legacy System** — Capacity 110, code health -20. Twenty weeks to deliver £250K and recover code health to 50. Modernisation under load.
+- **The Greenfield Project** — Capacity 100, code health 80. Fifteen weeks to deliver £900K while keeping code health above 70. Sustainable growth from day one.
+
+### Balance target: fail a few times, then master
+
+`src/tests/balance.test.js` plays 200 seeded games per scenario with bot strategies and checks that:
+
+- naive play (features only, first offered, random) wins at most 25% of games;
+- an adaptive strategy that reads the scenario wins at least 70%, and not before the last quarter of the game;
+- no fixed recipe ("pair programming first", "keep health above 60") succeeds in every scenario.
+
+`npm run balance` prints the current table. Bots are a proxy for players, not a substitute for playtesting with people.
 
 ## Getting started
 

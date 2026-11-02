@@ -83,9 +83,23 @@ describe('EventSystem', () => {
   });
 
   it('counts consecutive weeks of low code health and resets on recovery', () => {
-    expect(nextLowHealthStreak({ codeHealth: 9 }, 2)).toBe(3);
+    expect(nextLowHealthStreak({ codeHealth: 9 }, 2, 9)).toBe(3);
     expect(nextLowHealthStreak({ codeHealth: 9 })).toBe(1);
-    expect(nextLowHealthStreak({ codeHealth: 10 }, 2)).toBe(0);
+    expect(nextLowHealthStreak({ codeHealth: 10 }, 2, 0)).toBe(0);
+  });
+
+  it('pauses the streak in a week when low code health is improving', () => {
+    // Engineers stay while they can see things getting better.
+    expect(nextLowHealthStreak({ codeHealth: -10 }, 2, -20)).toBe(2);
+    expect(nextLowHealthStreak({ codeHealth: -20 }, 2, -10)).toBe(3);
+  });
+
+  it('makes engineering exodus cost a share of the team rather than a fixed number', () => {
+    const exodus = { outcome: EVENTS.engineeringExodus.outcome };
+    const base = { businessValue: 0, satisfaction: 0, marketPosition: 0, codeHealth: 0 };
+
+    expect(applyEventOutcome({ ...base, capacity: 80 }, exodus).capacity).toBe(60);
+    expect(applyEventOutcome({ ...base, capacity: 20 }, exodus).capacity).toBe(15);
   });
 
   it('triggers engineering exodus once the low-health streak reaches three weeks', () => {

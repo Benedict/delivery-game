@@ -268,7 +268,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const workInProgress = [...remaining];
   const unlockedOpportunities = [];
   let { hiringCostMultiplier } = game;
-  const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth);
+  const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth, state.metrics.codeHealth);
   const events = checkForEvents(metrics, { ...state.history, weeksLowHealth }, newWeek, rng);
   for (const event of events) {
     metrics = applyEventOutcome(metrics, event);

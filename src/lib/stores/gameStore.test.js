@@ -9,6 +9,7 @@ import {
   allocateCapacity,
   endWeek
 } from './gameStore.js';
+import { SCENARIOS } from '../simulation/ScenarioDefinitions.js';
 
 describe('GameStore', () => {
   beforeEach(() => {
@@ -32,8 +33,8 @@ describe('GameStore', () => {
     const state = get(gameStore);
 
     expect(state.scenario).toBe('enterprise');
-    expect(state.metrics.capacity).toBe(80);
-    expect(state.metrics.codeHealth).toBe(-20);
+    expect(state.metrics.capacity).toBe(SCENARIOS.enterprise.initialMetrics.capacity);
+    expect(state.metrics.codeHealth).toBe(SCENARIOS.enterprise.initialMetrics.codeHealth);
   });
 
   it('should track game history', () => {
@@ -103,32 +104,15 @@ describe('GameStore', () => {
     expect(state.gameOver).toBe(false);
   });
 
-  it('should detect game over when victory achieved', () => {
+  it('should end the game at the time limit and ignore further weeks', () => {
     startNewGame('startup');
+    const { weeks } = get(gameStore).victoryConditions;
 
-    // Get current state
-    let state = get(gameStore);
+    for (let i = 0; i < weeks; i++) endWeek();
+    const finished = get(gameStore);
+    endWeek();
 
-    // Start and complete multiple features to build up business value
-    for (let i = 0; i < 10; i++) {
-      state = get(gameStore);
-      if (state.opportunities.length > 0 && state.metrics.businessValue < 500) {
-        const feature = state.opportunities[0];
-        startFeature(feature);
-
-        state = get(gameStore);
-        const pointsNeeded = state.workInProgress[0].pointsNeeded;
-        allocateCapacity({ [state.workInProgress[0].id]: pointsNeeded });
-        endWeek();
-      }
-    }
-
-    const finalState = get(gameStore);
-
-    // Check if we achieved victory
-    if (finalState.metrics.businessValue >= 500 && finalState.week <= 15) {
-      expect(finalState.victory).toBe(true);
-      expect(finalState.gameOver).toBe(true);
-    }
+    expect(finished.gameOver).toBe(true);
+    expect(get(gameStore)).toBe(finished);
   });
 });
