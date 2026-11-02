@@ -45,29 +45,6 @@ export function calculateFlowEfficiency(codeHealth) {
 }
 
 /**
- * Calculate impact of delivering a feature on code health
- * Poor code health = features create more technical debt
- * @param {number} currentHealth - Current code health
- * @param {object} feature - Feature being delivered
- * @returns {number} Code health delta (negative number)
- */
-export function calculateFeatureImpact(currentHealth, feature) {
-  const complexityMultipliers = {
-    low: 0.5,
-    medium: 1.0,
-    high: 2.0
-  };
-
-  const baseImpact = -5;
-  const complexityFactor = complexityMultipliers[feature.complexity] || 1.0;
-
-  // Poor code health amplifies impact
-  const healthFactor = currentHealth < 50 ? (50 - currentHealth) / 15 : 0;
-
-  return Math.round(baseImpact * complexityFactor * (1 + healthFactor));
-}
-
-/**
  * Get complexity points required to complete a feature
  * @param {string} complexity - 'low' | 'medium' | 'high'
  * @returns {number} Points needed to complete

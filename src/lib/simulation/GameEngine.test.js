@@ -3,7 +3,6 @@ import { describe, it, expect } from 'vitest';
 import {
   calculateCapacity,
   calculateFlowEfficiency,
-  calculateFeatureImpact,
   createInitialMetrics
 } from './GameEngine.js';
 
@@ -34,19 +33,5 @@ describe('GameEngine - Metrics', () => {
     expect(calculateFlowEfficiency(50)).toBe(0.75);   // Medium: 75% to new work
     expect(calculateFlowEfficiency(0)).toBe(0.5);     // Poor: 50% to new work
     expect(calculateFlowEfficiency(-50)).toBe(0.25);  // Crisis: 25% to new work
-  });
-
-  it('should calculate feature delivery impact on code health', () => {
-    const feature = { complexity: 'medium', value: 50 };
-
-    // Good code health: small impact
-    expect(calculateFeatureImpact(80, feature)).toBe(-5);
-
-    // Poor code health: large impact
-    expect(calculateFeatureImpact(20, feature)).toBe(-15);
-
-    // High complexity feature: more impact
-    const complexFeature = { complexity: 'high', value: 100 };
-    expect(calculateFeatureImpact(80, complexFeature)).toBe(-10);
   });
 });
