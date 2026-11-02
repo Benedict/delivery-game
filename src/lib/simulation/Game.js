@@ -195,6 +195,10 @@ export function checkVictoryConditions(metrics, weeksCompleted, conditions) {
   return { victory: false, gameOver: false };
 }
 
+function totalAllocated(allocation) {
+  return Object.values(allocation).reduce((sum, points) => sum + points, 0);
+}
+
 function endReasonFor({ fundingPulled, gameOver, victory }) {
   if (fundingPulled) return 'fundingPulled';
   if (!gameOver) return null;
@@ -429,7 +433,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     history: {
       events: [...state.history.events, ...allEvents],
       decisions: allDecisions,
-      weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics }],
+      weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics, allocatedPoints: totalAllocated(state.capacityAllocation) }],
       weeksLowHealth
     },
     gameOver,

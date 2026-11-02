@@ -3,6 +3,7 @@
   import { getScenario, SCENARIOS } from '../lib/simulation/ScenarioDefinitions.js';
   import { narrateWeek } from '../lib/simulation/StoryEngine.js';
   import { parseEmphasis } from '../lib/text/emphasis.js';
+  import { debrief } from '../lib/simulation/Debrief.js';
   import GameHeader from '../lib/components/simulation/GameHeader.svelte';
   import DecisionPanel from '../lib/components/simulation/DecisionPanel.svelte';
   import HelpModal from '../lib/components/simulation/HelpModal.svelte';
@@ -23,6 +24,8 @@
     timeUp: { icon: '⏰', title: "Time's Up!", tone: 'bg-red-300', message: "You didn't meet the victory conditions in time." },
     fundingPulled: { icon: '💸', title: 'Funding Pulled!', tone: 'bg-red-300', message: 'Investor confidence stayed too low for too long, and your investors walked away.' }
   };
+  $: summary = game?.gameOver ? debrief(game) : null;
+  $: maxWeeklyPoints = summary ? Math.max(1, ...summary.weeklyCapacity.map(w => w.points)) : 1;
   $: endScreen = END_SCREENS[game?.endReason] ?? (game?.victory ? END_SCREENS.targetReached : END_SCREENS.timeUp);
 
   function startGame() {
@@ -194,6 +197,41 @@
             <p class="text-xl font-black text-black">Code Health: {game.metrics.codeHealth}</p>
           </div>
         </div>
+
+        {#if summary && summary.weeklyCapacity.length > 1}
+          <section class="text-left bg-violet-100 border-2 border-black p-4 mb-8" aria-label="Debrief">
+            <h3 class="text-xl font-black text-black mb-3 uppercase">Debrief</h3>
+
+            <p class="text-sm font-black text-black mb-2">
+              Weekly capacity: {summary.weeklyCapacity[0].points} points in week {summary.weeklyCapacity[0].week},
+              {summary.weeklyCapacity.at(-1).points} in week {summary.weeklyCapacity.at(-1).week}
+            </p>
+            <div class="flex items-end gap-1 h-16 mb-3 border-b-2 border-black" role="img"
+                 aria-label="Weekly capacity by week: {summary.weeklyCapacity.map(w => w.points).join(', ')} points">
+              {#each summary.weeklyCapacity as w}
+                <div class="flex-1 bg-violet-500" style="height: {Math.max(4, (w.points / maxWeeklyPoints) * 100)}%" title="Week {w.week}: {w.points} points"></div>
+              {/each}
+            </div>
+
+            <p class="text-sm font-bold text-black mb-2">Code health went from {summary.codeHealth.start} to {summary.codeHealth.end}.</p>
+
+            {#if summary.pointsLostToDebt > 0}
+              <p class="text-sm font-bold text-black mb-2">
+                As code health changed, your team lost about {summary.pointsLostToDebt} points of capacity you would otherwise have used{#if summary.valueLostToDebt !== null}: roughly £{summary.valueLostToDebt}K at your average £{summary.valuePerPoint.toFixed(1)}K per point of feature work{/if}.
+              </p>
+            {:else if summary.pointsLostToDebt < 0}
+              <p class="text-sm font-bold text-black mb-2">
+                Your team ended faster than it started: healthier code gave you about {-summary.pointsLostToDebt} extra points of capacity.
+              </p>
+            {/if}
+
+            {#if summary.whatIfBusinessValue !== null && summary.pointsLostToDebt > 0}
+              <p class="text-sm font-black text-black bg-amber-200 border-2 border-black p-2">
+                At your week-1 efficiency you would have finished on about £{summary.whatIfBusinessValue}K{#if !game.victory} (target £{game.victoryConditions.businessValue}K){/if}.
+              </p>
+            {/if}
+          </section>
+        {/if}
 
         <button
           class="px-8 py-4 bg-gradient-to-r from-violet-500 to-purple-500 text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:from-violet-600 hover:to-purple-600 transition-colors font-black text-2xl uppercase"

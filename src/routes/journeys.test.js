@@ -57,3 +57,23 @@ describe('journey: first-time player who never touches a slider', () => {
     expect(screen.getByText(/unallocated/i)).toBeInTheDocument();
   });
 });
+
+describe('journey: features only, full capacity, until time runs out', () => {
+  beforeEach(() => {
+    window.scrollTo = () => {};
+  });
+
+  it('ends with a debrief showing what falling capacity cost', async () => {
+    await startGame('The Greenfield Project');
+
+    for (let week = 0; week < 20 && !get(gameStore).gameOver; week++) {
+      const startButtons = screen.queryAllByText('Start Feature');
+      if (startButtons.length && get(gameStore).workInProgress.length === 0) await fireEvent.click(startButtons[0]);
+      await endWeek();
+    }
+
+    expect(get(gameStore).gameOver).toBe(true);
+    expect(await screen.findByText(/Weekly capacity/i)).toBeInTheDocument();
+    expect(screen.getByText(/week-1 efficiency/i)).toBeInTheDocument();
+  });
+});

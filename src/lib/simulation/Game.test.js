@@ -281,3 +281,14 @@ describe('Game - market position', () => {
     expect(bigClient).toBe(true);
   });
 });
+
+describe('Game - weekly record', () => {
+  it('records how many points the player allocated each week', () => {
+    let game = startImprovement(gameWith(), 'refactorPayment');
+    game = allocateCapacity(game, { refactorPayment: 70 });
+
+    const { state } = advanceWeek(game, { rng });
+
+    expect(state.history.weeklyMetrics.at(-1)).toMatchObject({ week: 1, allocatedPoints: 70 });
+  });
+});
