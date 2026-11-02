@@ -57,7 +57,7 @@
           <h3 class="text-xl font-black text-black mb-3 uppercase">🔄 Each Week</h3>
           <ol class="space-y-2 text-sm font-bold text-gray-700 leading-relaxed list-decimal list-inside">
             <li><strong>Start features or improvements</strong> - Choose what to work on</li>
-            <li><strong>Allocate capacity</strong> - Use sliders to assign team effort</li>
+            <li><strong>Allocate capacity</strong> - New work takes the capacity it needs from what's free; use the sliders to rebalance. Unallocated capacity does nothing.</li>
             <li><strong>End week</strong> - See results and new opportunities</li>
             <li><strong>Repeat</strong> - Balance speed with quality!</li>
           </ol>
@@ -122,7 +122,7 @@
               <strong>🏃 Engineering Exodus (Code Health &lt; 10 and not improving for 3 weeks):</strong> A quarter of your engineers quit
             </li>
             <li class="bg-green-100 border-2 border-black p-2">
-              <strong>✨ Big Client (Market Position &gt; 70):</strong> Unlock high-value enterprise deal
+              <strong>✨ Big Client (Market Position &gt; 70):</strong> Unlock high-value enterprise deal. Market position rises with every bug-free feature and happy customers, and slips when nothing ships.
             </li>
           </ul>
         </section>

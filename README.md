@@ -26,16 +26,20 @@ The complexity is the lesson. Players learn to read a system, not to find an opt
 The simulation models seven interacting factors:
 
 - **Code health** drives flow efficiency: 50% at code health 0, rising half a percentage point per point of health to 100% at 100, and falling to a floor of 25% at -50 or below — a 4× capacity gap between perfect and crisis code.
-- **Capacity** is base team output, scaled by flow efficiency.
-- **Customer satisfaction** moves with feature quality and bug rates. Low satisfaction triggers churn.
-- **Market position** moves with consistent delivery and high satisfaction. Strong position unlocks enterprise opportunities.
-- **Business value** accumulates in pounds and forms the score.
+- **Capacity** is base team output, scaled by flow efficiency. Work completes in whole weeks, and capacity left unallocated does nothing.
+- **Customer satisfaction** moves with feature quality and bug rates. Low satisfaction triggers churn. Poor code makes bugs more likely.
+- **Market position** moves with consistent delivery and high satisfaction: +3 for each bug-free feature, -2 for each buggy one, -1 in a week when nothing ships, +2 a week while satisfaction is above 70 and -2 while it is below 30. Above 70 it attracts a big client and more opportunities.
+- **Business value** accumulates in pounds and forms the score. A delivered feature is worth the value on its card, ±20% for the market; team size and code health change how fast and how cleanly you deliver, not what a feature is worth. Poor code also makes each new feature do more damage: debt compounds.
 - **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 85%, 3: 70%, 4+: 50%).
 - **Opportunity deadlines** force urgency. Late features lose their value entirely.
 
 Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces an emergency fix, sized at two weeks of work, that takes all capacity and blocks all other work until it is done.
 
 Events have cooldowns, so the same event cannot hit every week. Engineering Exodus triggers after three weeks of code health below 10 that is not improving (weeks where low health improves don't count), and costs a quarter of the team. Big Client and Competitor Launch add new opportunities; Talent Attraction halves the cost of the next hire.
+
+## The debrief
+
+The score rewards pounds, and the system quietly erodes the capacity that produces them. The end screen shows what that cost, as data rather than a verdict: weekly capacity from first week to last, code health at the start and end, the capacity lost as flow efficiency fell below its week-1 level (counting only capacity you were using), priced at your own average return per point, and what you would have finished on at week-1 efficiency.
 
 ## Ongoing practices
 
@@ -62,7 +66,7 @@ The lesson: practices have contextual fit, and the team must hold them to keep t
 - an adaptive strategy that reads the scenario wins at least 70%, and not before the last quarter of the game;
 - no fixed recipe ("pair programming first", "both practices first", "keep health above 60") succeeds in every scenario.
 
-`npm run balance` prints the current table, including how games end. Bots are a proxy for players, not a substitute for playtesting with people.
+`npm run balance` prints the current table, including how games end. Bots are a proxy for players, not a substitute for playtesting with people: they allocate capacity for themselves, so `src/routes/journeys.test.js` also plays through the real page the way first-time players do.
 
 ## Getting started
 
