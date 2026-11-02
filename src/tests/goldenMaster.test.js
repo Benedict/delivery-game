@@ -8,12 +8,17 @@ import { gameStore, startNewGame, startFeature, startImprovement, allocateCapaci
 import { calculateWeeklyCapacity } from '../lib/simulation/GameEngine.js';
 import { seededRng } from '../lib/simulation/random.js';
 
+// Keep only game-rule state; per-week UI reports are covered by unit tests.
+function rulesState({ lastWeek, lastWeekCompleted, lastWeekEfficiency, ...state }) {
+  return state;
+}
+
 function playScriptedGame(scenarioId, seed, { reckless = false } = {}) {
   const rng = seededRng(seed);
   vi.spyOn(Math, 'random').mockImplementation(rng);
 
   startNewGame(scenarioId);
-  const weeks = [get(gameStore)];
+  const weeks = [rulesState(get(gameStore))];
 
   while (!get(gameStore).gameOver && weeks.length < 30) {
     let state = get(gameStore);
@@ -31,7 +36,7 @@ function playScriptedGame(scenarioId, seed, { reckless = false } = {}) {
     const allocation = Object.fromEntries(state.workInProgress.map(i => [i.id, share]));
     allocateCapacity(allocation);
     endWeek();
-    weeks.push(get(gameStore));
+    weeks.push(rulesState(get(gameStore)));
   }
   return weeks;
 }

@@ -87,3 +87,23 @@ export function generateWeekSummary(week, metrics, decisions) {
 
   return summary;
 }
+
+/**
+ * Narrate a finished week: events first (they are the news), then deliveries.
+ * @param {import('./Game.js').WeekReport} report
+ * @returns {string} Story text
+ */
+export function narrateWeek(report) {
+  const eventStories = report.events.map(generateEventStory);
+  const deliveryStories = report.decisions.map(decision =>
+    decision.type === 'feature'
+      ? generateFeatureStory(decision.feature, decision.outcome)
+      : generateImprovementStory(decision.improvement, decision.outcome)
+  );
+
+  if (deliveryStories.length === 0) {
+    deliveryStories.push(`Week ${report.week} complete. Your team made progress on their work.`);
+  }
+
+  return [...eventStories, ...deliveryStories].join('\n\n');
+}

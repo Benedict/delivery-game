@@ -1,7 +1,7 @@
 <script>
   import { gameStore, startNewGame, startFeature, startImprovement, allocateCapacity, endWeek } from '../lib/stores/gameStore.js';
   import { getScenario, SCENARIOS } from '../lib/simulation/ScenarioDefinitions.js';
-  import { generateFeatureStory, generateImprovementStory, generateEventStory } from '../lib/simulation/StoryEngine.js';
+  import { narrateWeek } from '../lib/simulation/StoryEngine.js';
   import GameHeader from '../lib/components/simulation/GameHeader.svelte';
   import DecisionPanel from '../lib/components/simulation/DecisionPanel.svelte';
   import HelpModal from '../lib/components/simulation/HelpModal.svelte';
@@ -9,7 +9,6 @@
   let gameState = 'intro'; // intro, scenarioSelect, scenarioStory, playing, gameOver
   let selectedScenario = null;
   let recentStory = '';
-  let recentEvents = [];
   let showHelp = false;
 
   $: game = $gameStore;
@@ -27,7 +26,6 @@
     startNewGame(selectedScenario);
     const scenario = getScenario(selectedScenario);
     recentStory = `Week 1 begins. ${scenario.story.challenge}`;
-    recentEvents = [];
     gameState = 'playing';
   }
 
@@ -51,40 +49,8 @@
 
   function handleEndWeek() {
     endWeek();
-
-    // Generate stories for completed items
-    if ($gameStore.lastWeekCompleted && $gameStore.lastWeekCompleted.length > 0) {
-      const stories = $gameStore.lastWeekCompleted.map(item => {
-        const decision = $gameStore.history.decisions.find(d =>
-          (d.type === 'feature' && d.feature.id === item.id) ||
-          (d.type === 'improvement' && d.improvement.id === item.id)
-        );
-
-        if (item.type === 'feature') {
-          return generateFeatureStory(item, decision.outcome);
-        } else {
-          return generateImprovementStory(item, decision.outcome);
-        }
-      });
-      recentStory = stories.join('\n\n');
-    } else {
-      recentStory = `Week ${$gameStore.week - 1} complete. Your team made progress on their work.`;
-    }
-
-    checkForNewEvents();
+    recentStory = narrateWeek($gameStore.lastWeek);
     checkGameOver();
-  }
-
-  function checkForNewEvents() {
-    if ($gameStore.history.events.length > recentEvents.length) {
-      const newEvents = $gameStore.history.events.slice(recentEvents.length);
-      recentEvents = [...$gameStore.history.events];
-
-      if (newEvents.length > 0) {
-        const eventStories = newEvents.map(e => generateEventStory(e)).join('\n\n');
-        recentStory = eventStories + '\n\n' + recentStory;
-      }
-    }
   }
 
   function checkGameOver() {
@@ -97,7 +63,6 @@
     gameState = 'intro';
     selectedScenario = null;
     recentStory = '';
-    recentEvents = [];
   }
 </script>
 
