@@ -23,7 +23,7 @@ The complexity is the lesson. Players learn to read a system, not to find an opt
 
 ## Mechanics in tension
 
-The simulation models seven interacting factors:
+The simulation models these interacting factors:
 
 - **Code health** drives flow efficiency: 50% at code health 0, rising half a percentage point per point of health to 100% at 100, and falling to a floor of 25% at -50 or below — a 4× capacity gap between perfect and crisis code.
 - **Capacity** is base team output, scaled by flow efficiency. Work completes in whole weeks, and capacity left unallocated does nothing.
@@ -32,6 +32,7 @@ The simulation models seven interacting factors:
 - **Business value** accumulates in pounds and forms the score. A delivered feature is worth the value on its card, ±20% for the market; team size and code health change how fast and how cleanly you deliver, not what a feature is worth. Poor code also makes each new feature do more damage: debt compounds.
 - **Work-in-progress** penalises efficiency above one active item (1: 100%, 2: 85%, 3: 70%, 4+: 50%).
 - **Opportunity deadlines** force urgency. Late features lose their value entirely.
+- **Running costs and investor confidence** (Startup only): the team burns £0.3K of business value per capacity point every week, shipping or not. Investor confidence rises with clean deliveries, happy customers and a strong market, and falls with bugs, crises, code health below 0 and improvement work; it decides whether investors pull funding or an acquirer makes an offer.
 
 Improvements include fixing critical bugs, pair programming, refactoring, hiring, and adopting TDD. A security incident forces an emergency fix, sized at two weeks of work, that takes all capacity and blocks all other work until it is done.
 
@@ -39,7 +40,13 @@ Events have cooldowns, so the same event cannot hit every week. Engineering Exod
 
 ## The debrief
 
-The score rewards pounds, and the system quietly erodes the capacity that produces them. The end screen shows what that cost, as data rather than a verdict: weekly capacity from first week to last, code health at the start and end, the capacity lost as flow efficiency fell below its week-1 level (counting only capacity you were using), priced at your own average return per point, and what you would have finished on at week-1 efficiency.
+The score rewards pounds, and the system quietly erodes what produces them. The end screen lays out what happened as data rather than a verdict:
+
+- **Where the money went**: what features earned, what the team cost to run (and how much of that was spent in weeks that shipped nothing), what each crisis cost, and hiring and other investment costs. It adds up exactly to the final score, because the game records every change to business value as it happens.
+- **What else changed**: how many features shipped with bugs, and customer satisfaction, investor confidence and code health from the first week to the last.
+- **Capacity**: weekly capacity as a chart, the capacity lost as flow efficiency fell below its week-1 level (counting only capacity you were using) priced at your own return per point, and what you would have finished on at week-1 efficiency — and, if that still falls short, by how much.
+
+Causes are listed in a fixed order and never ranked. They interact (poor code makes bugs likelier; bugs upset customers and investors), so no single number can say which mattered most. Weighing them is left to the player, or to a facilitator's discussion.
 
 ## Ongoing practices
 
