@@ -12,7 +12,8 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-		"demo": "node demo.js"
+		"demo": "node demo.js",
+		"balance": "node src/lib/simulation/balance/report.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^7.0.0",
