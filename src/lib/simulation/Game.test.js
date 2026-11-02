@@ -192,3 +192,74 @@ describe('Game - security incident', () => {
     expect(game.history.events.filter(e => e.event.id === 'securityIncident')).toHaveLength(1);
   });
 });
+
+describe('Game - event effects', () => {
+  const finish = (game, id, points = 1000) => advanceWeek(allocateCapacity(game, { [id]: points }), { rng });
+
+  it('adds the enterprise deal as an opportunity when a big client is interested', () => {
+    const { state } = advanceWeek(gameWith({ metrics: { marketPosition: 75 } }), { rng });
+
+    expect(state.opportunities).toContainEqual(expect.objectContaining({
+      name: 'Enterprise Deal', value: 150, complexity: 'high', deadline: 3, createdWeek: 2
+    }));
+  });
+
+  it('adds an urgent competitive response when a competitor launches', () => {
+    // A low roll triggers the 20% competitor launch (after week 3).
+    const { state, report } = advanceWeek(gameWith({ week: 4 }), { rng: fixedRng(0.1) });
+
+    expect(report.events.map(e => e.event.id)).toContain('competitorLaunch');
+    expect(state.opportunities).toContainEqual(expect.objectContaining({
+      name: 'Competitive Response', value: 60, deadline: 2, createdWeek: 5
+    }));
+  });
+
+  it('gives unlocked opportunities ids that are unique across weeks', () => {
+    let game = gameWith({ metrics: { marketPosition: 75 } });
+    for (let i = 0; i < 6; i++) game = advanceWeek(game, { rng }).state;
+
+    const deals = game.opportunities.filter(o => o.name === 'Enterprise Deal');
+    expect(new Set(deals.map(d => d.id)).size).toBe(deals.length);
+  });
+
+  it('halves the next hiring cost after talent attraction', () => {
+    // Satisfaction above 60 attracts talent at the end of the week.
+    const attracted = advanceWeek(gameWith({ metrics: { satisfaction: 70, businessValue: 100 } }), { rng }).state;
+    expect(attracted.hiringCostMultiplier).toBe(0.5);
+
+    const hired = finish(startImprovement(attracted, 'hireSenior'), 'hireSenior');
+
+    expect(hired.report.decisions[0].outcome.businessValueCost).toBe(25);
+    expect(hired.state.hiringCostMultiplier).toBe(1);
+  });
+
+  it('charges the full hiring cost without talent attraction', () => {
+    const { report } = finish(startImprovement(gameWith(), 'hireSenior'), 'hireSenior');
+
+    expect(report.decisions[0].outcome.businessValueCost).toBe(50);
+  });
+});
+
+describe('Game - invariants over seeded games', () => {
+  const unique = ids => new Set(ids).size === ids.length;
+
+  it('keeps opportunity and work ids unique, and scores within bounds, every week', () => {
+    for (const scenario of ['startup', 'enterprise', 'greenfield']) {
+      for (let seed = 1; seed <= 20; seed++) {
+        const step = seededRng(seed * 31);
+        let game = createGame(scenario, { rng: seededRng(seed) });
+        while (!game.gameOver) {
+          if (game.opportunities.length && game.workInProgress.length < 2) game = startFeature(game, game.opportunities[0]);
+          game = allocateCapacity(game, Object.fromEntries(game.workInProgress.map(i => [i.id, 50])));
+          game = advanceWeek(game, { rng: step }).state;
+
+          expect(unique(game.opportunities.map(o => o.id))).toBe(true);
+          expect(unique(game.workInProgress.map(i => i.id))).toBe(true);
+          for (const key of ['codeHealth', 'satisfaction', 'marketPosition']) {
+            expect(Math.abs(game.metrics[key])).toBeLessThanOrEqual(100);
+          }
+        }
+      }
+    }
+  });
+});

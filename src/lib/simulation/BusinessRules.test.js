@@ -430,3 +430,10 @@ describe('BusinessRules - score bounds', () => {
     expect(next.codeHealth).toBe(100);
   });
 });
+
+describe('BusinessRules - hiring discount', () => {
+  it('discounts hiring, and only hiring, by the hiring cost multiplier', () => {
+    expect(calculateImprovementOutcome(IMPROVEMENTS.hireSenior, 100, 0.5).businessValueCost).toBe(25);
+    expect(calculateImprovementOutcome({ ...IMPROVEMENTS.fixBugs, businessValueCost: 10 }, 100, 0.5).businessValueCost).toBe(10);
+  });
+});

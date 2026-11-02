@@ -10,6 +10,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -73,6 +74,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -165,6 +167,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -287,6 +290,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -458,6 +462,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -622,6 +627,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 5,
         "deadline": 4,
         "id": "enterprise-5-0",
         "name": "User Dashboard",
@@ -679,6 +692,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -844,6 +858,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 5,
         "deadline": 4,
         "id": "enterprise-5-0",
         "name": "User Dashboard",
@@ -917,6 +939,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -1100,6 +1123,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 5,
         "deadline": 4,
         "id": "enterprise-5-0",
         "name": "User Dashboard",
@@ -1189,6 +1220,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -1456,6 +1488,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 4,
         "id": "enterprise-8-0",
         "name": "User Dashboard",
@@ -1529,6 +1569,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -1805,6 +1846,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 4,
         "id": "enterprise-8-0",
         "name": "User Dashboard",
@@ -1902,6 +1951,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -2196,6 +2246,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 4,
         "id": "enterprise-8-0",
         "name": "User Dashboard",
@@ -2316,6 +2374,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -2770,6 +2829,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -3276,6 +3336,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -3824,6 +3885,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -4341,6 +4403,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -4925,6 +4988,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -5490,6 +5554,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 4,
         "id": "enterprise-16-0",
         "name": "User Dashboard",
@@ -5578,6 +5650,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -6136,6 +6209,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 4,
         "id": "enterprise-16-0",
         "name": "User Dashboard",
@@ -6240,6 +6321,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -6818,6 +6900,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 4,
         "id": "enterprise-16-0",
         "name": "User Dashboard",
@@ -6938,6 +7028,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -7701,6 +7792,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -8426,6 +8518,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
         "value": 96,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 20,
+        "deadline": 2,
+        "id": "competitorLaunch-w20",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 20,
         "deadline": 2,
@@ -8516,6 +8616,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "timeUp",
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -9261,6 +9362,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 steady 1`] = `
         "value": 96,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 20,
+        "deadline": 2,
+        "id": "competitorLaunch-w20",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 20,
         "deadline": 2,
@@ -9378,6 +9487,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -9439,6 +9549,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -9558,6 +9669,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -9719,6 +9831,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -9927,6 +10040,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -10150,6 +10264,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -10402,6 +10517,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -10701,6 +10817,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -11064,6 +11181,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -11479,6 +11597,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -11944,6 +12063,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -12388,6 +12508,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -12461,6 +12589,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -12948,6 +13077,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -13029,6 +13166,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -13518,6 +13656,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -13623,6 +13769,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -14202,6 +14349,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -14800,6 +14948,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 4,
@@ -14860,6 +15016,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -15507,6 +15664,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 4,
@@ -15583,6 +15748,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -16223,6 +16389,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 4,
@@ -16307,6 +16481,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -17044,6 +17219,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
       {
         "complexity": "medium",
         "createdWeek": 18,
+        "deadline": 2,
+        "id": "competitorLaunch-w18",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 18,
         "deadline": 3,
         "id": "enterprise-18-0",
         "name": "Admin Panel",
@@ -17118,6 +17301,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -17873,6 +18057,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
       {
         "complexity": "medium",
         "createdWeek": 18,
+        "deadline": 2,
+        "id": "competitorLaunch-w18",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 18,
         "deadline": 3,
         "id": "enterprise-18-0",
         "name": "Admin Panel",
@@ -17963,6 +18155,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -18750,6 +18943,14 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
       {
         "complexity": "medium",
         "createdWeek": 18,
+        "deadline": 2,
+        "id": "competitorLaunch-w18",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 18,
         "deadline": 3,
         "id": "enterprise-18-0",
         "name": "Admin Panel",
@@ -18864,6 +19065,7 @@ exports[`golden master: scripted seeded games > enterprise seed 5 reckless 1`] =
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "timeUp",
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -19804,6 +20006,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -19851,6 +20054,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -19948,6 +20152,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -20067,6 +20272,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -20241,6 +20447,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         "value": 32,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 4,
         "deadline": 3,
@@ -20287,6 +20501,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -20454,6 +20669,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         "value": 32,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 4,
         "deadline": 3,
@@ -20540,6 +20763,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -20700,6 +20924,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         "value": 32,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 4,
         "deadline": 3,
@@ -20810,6 +21042,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -21089,6 +21322,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 7,
         "deadline": 3,
         "id": "enterprise-7-0",
         "name": "Search Functionality",
@@ -21141,6 +21382,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -21405,6 +21647,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 7,
         "deadline": 3,
         "id": "enterprise-7-0",
         "name": "Search Functionality",
@@ -21465,6 +21715,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -21730,6 +21981,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 7,
         "deadline": 3,
         "id": "enterprise-7-0",
         "name": "Search Functionality",
@@ -21806,6 +22065,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -22179,6 +22439,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -22531,6 +22792,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -22596,6 +22865,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -22957,6 +23227,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -23046,6 +23324,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -23417,6 +23696,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -23522,6 +23809,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -24007,6 +24295,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -24509,6 +24798,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -25047,6 +25337,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -25584,6 +25875,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 17,
+        "deadline": 2,
+        "id": "competitorLaunch-w17",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 17,
         "deadline": 4,
         "id": "enterprise-17-0",
         "name": "Admin Panel",
@@ -25652,6 +25951,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -26182,6 +26482,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 17,
+        "deadline": 2,
+        "id": "competitorLaunch-w17",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 17,
         "deadline": 4,
         "id": "enterprise-17-0",
         "name": "Admin Panel",
@@ -26266,6 +26574,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -26822,6 +27131,14 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 17,
+        "deadline": 2,
+        "id": "competitorLaunch-w17",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 17,
         "deadline": 4,
         "id": "enterprise-17-0",
         "name": "Admin Panel",
@@ -26930,6 +27247,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -27595,6 +27913,7 @@ exports[`golden master: scripted seeded games > enterprise seed 7 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "timeUp",
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -28320,6 +28639,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -28389,6 +28709,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -28516,6 +28837,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -28701,6 +29023,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -28924,6 +29247,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -29181,6 +29505,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -29486,6 +29811,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -29812,6 +30138,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -30160,6 +30487,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -30542,6 +30870,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -30960,6 +31289,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         "complexity": "medium",
         "createdWeek": 10,
         "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
         "id": "greenfield-10-0",
         "name": "Search Functionality",
         "value": 70,
@@ -31015,6 +31352,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -31441,6 +31779,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         "complexity": "medium",
         "createdWeek": 10,
         "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
         "id": "greenfield-10-0",
         "name": "Search Functionality",
         "value": 70,
@@ -31515,6 +31861,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -31949,6 +32296,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         "complexity": "medium",
         "createdWeek": 10,
         "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
         "id": "greenfield-10-0",
         "name": "Search Functionality",
         "value": 70,
@@ -32039,6 +32394,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -32583,6 +32939,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -33166,6 +33523,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -33771,6 +34129,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         "value": 70,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 2,
@@ -33816,6 +34182,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "timeUp",
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -34437,6 +34804,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 steady 1`] = `
         "value": 70,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 2,
@@ -34511,6 +34886,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -34579,6 +34955,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -34704,6 +35081,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -34882,6 +35260,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -35097,6 +35476,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -35344,6 +35724,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -35639,6 +36020,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -35968,6 +36350,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -36293,6 +36676,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 8,
         "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
+        "deadline": 2,
         "id": "greenfield-8-0",
         "name": "Analytics Dashboard",
         "value": 65,
@@ -36369,6 +36760,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -36709,6 +37101,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 8,
         "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
+        "deadline": 2,
         "id": "greenfield-8-0",
         "name": "Analytics Dashboard",
         "value": 65,
@@ -36788,6 +37188,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -37128,6 +37529,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 8,
         "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
+        "deadline": 2,
         "id": "greenfield-8-0",
         "name": "Analytics Dashboard",
         "value": 65,
@@ -37233,6 +37642,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -37664,6 +38074,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 11,
+        "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
         "deadline": 4,
         "id": "greenfield-11-0",
         "name": "Search Functionality",
@@ -37733,6 +38151,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -38180,6 +38599,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 11,
+        "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
         "deadline": 4,
         "id": "greenfield-11-0",
         "name": "Search Functionality",
@@ -38260,6 +38687,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -38738,6 +39166,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
       {
         "complexity": "medium",
         "createdWeek": 11,
+        "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
         "deadline": 4,
         "id": "greenfield-11-0",
         "name": "Search Functionality",
@@ -38834,6 +39270,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -39450,6 +39887,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -40045,6 +40483,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 15,
         "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
         "id": "greenfield-15-0",
         "name": "Search Functionality",
         "value": 70,
@@ -40113,6 +40559,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "targetReached",
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -40716,6 +41163,14 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
         "complexity": "medium",
         "createdWeek": 15,
         "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
         "id": "greenfield-15-0",
         "name": "Search Functionality",
         "value": 70,
@@ -40787,6 +41242,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -40856,6 +41312,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -40984,6 +41441,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -41161,6 +41619,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -41400,6 +41859,14 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 4,
         "deadline": 4,
         "id": "startup-4-0",
         "name": "Analytics Dashboard",
@@ -41458,6 +41925,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -41710,6 +42178,14 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 4,
         "deadline": 4,
         "id": "startup-4-0",
         "name": "Analytics Dashboard",
@@ -41808,6 +42284,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -42077,6 +42554,14 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 4,
         "deadline": 4,
         "id": "startup-4-0",
         "name": "Analytics Dashboard",
@@ -42215,6 +42700,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -42622,6 +43108,14 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
         "value": 60,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 7,
         "deadline": 3,
@@ -42682,6 +43176,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -43124,6 +43619,14 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
         "value": 60,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 7,
         "deadline": 3,
@@ -43208,6 +43711,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -43663,6 +44167,14 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
         "value": 78,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 7,
         "deadline": 3,
@@ -43781,6 +44293,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -44375,6 +44888,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "targetReached",
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -44986,6 +45500,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -45063,6 +45578,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -45191,6 +45707,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -45384,6 +45901,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -45638,6 +46156,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -45941,6 +46460,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -46279,6 +46799,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -46670,6 +47191,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -47110,6 +47632,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -47555,6 +48078,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -48004,6 +48528,7 @@ exports[`golden master: scripted seeded games > startup seed 2 reckless 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "targetReached",
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -48483,6 +49008,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -48567,6 +49093,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -48725,6 +49252,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -48945,6 +49473,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -49215,6 +49744,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -49512,6 +50042,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 5,
         "deadline": 4,
@@ -49585,6 +50123,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -49891,6 +50430,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 5,
         "deadline": 4,
@@ -50004,6 +50551,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -50303,6 +50851,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 5,
         "deadline": 4,
@@ -50448,6 +51004,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -50916,6 +51473,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         "complexity": "medium",
         "createdWeek": 8,
         "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
+        "deadline": 2,
         "id": "startup-8-0",
         "name": "User Dashboard",
         "value": 72,
@@ -50970,6 +51535,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -51447,6 +52013,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         "complexity": "medium",
         "createdWeek": 8,
         "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
+        "deadline": 2,
         "id": "startup-8-0",
         "name": "User Dashboard",
         "value": 72,
@@ -51533,6 +52107,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -52027,6 +52602,14 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
         "complexity": "medium",
         "createdWeek": 8,
         "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
+        "deadline": 2,
         "id": "startup-8-0",
         "name": "User Dashboard",
         "value": 72,
@@ -52153,6 +52736,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -52774,6 +53358,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "targetReached",
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -53509,6 +54094,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -53577,6 +54163,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -53719,6 +54306,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -53915,6 +54503,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -54169,6 +54758,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -54456,6 +55046,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -54784,6 +55375,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -55161,6 +55753,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -55590,6 +56183,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -56044,6 +56638,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": null,
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -56523,6 +57118,7 @@ exports[`golden master: scripted seeded games > startup seed 8 practiced 1`] = `
     "consecutiveWeeksLowConfidence": 0,
     "endReason": "targetReached",
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {

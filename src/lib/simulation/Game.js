@@ -96,6 +96,7 @@ export function createGame(scenarioId = 'startup', { rng = defaultRng } = {}) {
     pendingDecision: null,
     victoryType: null,
     endReason: null, // 'targetReached' | 'acquired' | 'timeUp' | 'fundingPulled'
+    hiringCostMultiplier: 1, // Discount on the next hire (talent attraction)
     victoryConditions: scenario.victoryConditions,
     gameOver: false,
     victory: false
@@ -216,7 +217,7 @@ function progressWork(workInProgress, capacityAllocation, efficiency) {
   return { completed, remaining };
 }
 
-function deliver(item, metrics, activeBonuses, week, rng) {
+function deliver(item, metrics, activeBonuses, hiringCostMultiplier, week, rng) {
   if (item.type === 'feature') {
     const outcome = calculateFeatureDelivery(item, metrics.capacity, metrics.codeHealth, activeBonuses, rng);
     return {
@@ -227,7 +228,7 @@ function deliver(item, metrics, activeBonuses, week, rng) {
     };
   }
 
-  const outcome = calculateImprovementOutcome(item, metrics.capacity);
+  const outcome = calculateImprovementOutcome(item, metrics.capacity, hiringCostMultiplier);
   return {
     metrics: applyImprovementOutcome(metrics, outcome),
     decision: { type: 'improvement', week, improvement: item, outcome },
@@ -236,6 +237,17 @@ function deliver(item, metrics, activeBonuses, week, rng) {
       ? { type: item.ongoingBonus, sourceImprovement: item.id, maturity: INITIAL_BONUS_MATURITY, completedWeek: week }
       : null
   };
+}
+
+/**
+ * Opportunities an event makes available, with ids unique to the week.
+ * @param {object} triggeredEvent
+ * @param {number} week
+ */
+function opportunitiesFromEvent({ event, outcome }, week) {
+  return [outcome.opportunityUnlocked, outcome.urgentFeature]
+    .filter(Boolean)
+    .map(opp => ({ ...opp, id: `${opp.id || event.id}-w${week}`, createdWeek: week }));
 }
 
 function forcedFixItem(week) {
@@ -309,8 +321,10 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   let activeBonuses = [...state.activeBonuses];
   const decisions = [];
   const completions = [];
+  let hiringCostMultiplier = state.hiringCostMultiplier ?? 1;
   for (const item of completed) {
-    const result = deliver(item, metrics, state.activeBonuses, newWeek, rng);
+    const result = deliver(item, metrics, state.activeBonuses, hiringCostMultiplier, newWeek, rng);
+    if (item.isHire) hiringCostMultiplier = 1;
     metrics = result.metrics;
     decisions.push(result.decision);
     completions.push(result.completion);
@@ -320,6 +334,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
 
   // 2. Events
   const workInProgress = [...remaining];
+  const unlockedOpportunities = [];
   const eventState = {
     scenario: state.scenario,
     consecutiveWeeksHighConfidence: state.consecutiveWeeksHighConfidence,
@@ -333,6 +348,10 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     if (event.outcome.forcedFix && !workInProgress.some(item => item.forced)) {
       workInProgress.push(forcedFixItem(newWeek));
     }
+    if (event.outcome.hiringCostReduction) {
+      hiringCostMultiplier = 1 - event.outcome.hiringCostReduction;
+    }
+    unlockedOpportunities.push(...opportunitiesFromEvent(event, newWeek));
   }
   metrics.flowEfficiency = calculateFlowEfficiency(metrics.codeHealth);
 
@@ -359,6 +378,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const { active } = checkDeadlines(state.opportunities, newWeek);
   const opportunities = [
     ...active,
+    ...unlockedOpportunities,
     ...generateOpportunities(state.scenario, newWeek, metrics, completedFeatureNames, wipFeatureNames, rng)
   ];
 
@@ -387,6 +407,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     capacityAllocation: carryOverAllocation(workInProgress, state.capacityAllocation, metrics),
     opportunities,
     activeBonuses,
+    hiringCostMultiplier,
     consecutiveWeeksLowConfidence: lowConfidenceWeeks,
     consecutiveWeeksHighConfidence: highConfidenceWeeks,
     pendingDecision,

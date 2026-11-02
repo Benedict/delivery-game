@@ -170,7 +170,8 @@ export const IMPROVEMENTS = {
     satisfactionDelta: 0,
     capacityDelta: 20, // Permanent capacity increase
     capacityPenalty: -10, // Onboarding time
-    businessValueCost: 50 // Hiring costs
+    businessValueCost: 50, // Hiring costs
+    isHire: true // Cost is reduced by talent attraction
   },
   adoptTDD: {
     id: 'adoptTDD',
@@ -201,16 +202,18 @@ export const IMPROVEMENTS = {
  * Calculate the outcome of an improvement investment
  * @param {object} improvement - Improvement to invest in
  * @param {number} currentCapacity - Current team capacity
+ * @param {number} [hiringCostMultiplier] - Discount on hiring costs (1 = full price)
  * @returns {object} Improvement outcome
  */
-export function calculateImprovementOutcome(improvement, currentCapacity) {
+export function calculateImprovementOutcome(improvement, currentCapacity, hiringCostMultiplier = 1) {
+  const baseCost = improvement.businessValueCost || 0;
   return {
     weeksRequired: improvement.weeks,
     codeHealthDelta: improvement.codeHealthDelta,
     capacityDelta: improvement.capacityDelta || 0,
     capacityPenalty: improvement.capacityPenalty || 0,
     satisfactionDelta: improvement.satisfactionDelta || 0,
-    businessValueCost: improvement.businessValueCost || 0,
+    businessValueCost: improvement.isHire ? Math.round(baseCost * hiringCostMultiplier) : baseCost,
     ongoingBonus: improvement.ongoingBonus || null
   };
 }
