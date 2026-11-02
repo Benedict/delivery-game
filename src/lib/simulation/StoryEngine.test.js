@@ -118,3 +118,26 @@ describe('StoryEngine - narrateWeek', () => {
     expect(narrateWeek({ week: 3, events: [], decisions: [] })).toBe('Week 3 complete. Your team made progress on their work.');
   });
 });
+
+describe('StoryEngine - improvement stories', () => {
+  const GENERIC = 'The team invested in this improvement';
+  const improvements = {
+    fixBugs: 'Fix Critical Bugs',
+    codeReviews: 'Implement Pair Programming',
+    refactorPayment: 'Refactor Payment Module',
+    hireSenior: 'Hire Senior Engineer',
+    adoptTDD: 'Adopt Test-Driven Development'
+  };
+
+  for (const [id, name] of Object.entries(improvements)) {
+    it(`tells a specific story for ${name}`, () => {
+      const story = generateImprovementStory({ id, name }, {});
+      expect(story).toContain(name);
+      expect(story).not.toContain(GENERIC);
+    });
+  }
+
+  it('talks about pairing, not code reviews, for pair programming', () => {
+    expect(generateImprovementStory({ id: 'codeReviews', name: 'Implement Pair Programming' }, {})).toMatch(/pair/i);
+  });
+});
