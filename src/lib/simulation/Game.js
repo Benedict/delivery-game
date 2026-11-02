@@ -174,18 +174,18 @@ export function declineAcquisition(state) {
 /**
  * Has the player won or lost on business value, health and time?
  * @param {object} metrics
- * @param {number} week - The week about to start
+ * @param {number} weeksCompleted - Weeks played so far, including the one just finished
  * @param {object} conditions - Scenario victory conditions
  */
-export function checkVictoryConditions(metrics, week, conditions) {
+export function checkVictoryConditions(metrics, weeksCompleted, conditions) {
   const hasBusinessValue = metrics.businessValue >= conditions.businessValue;
   const hasCodeHealth = !conditions.codeHealth || metrics.codeHealth >= conditions.codeHealth;
-  const withinTimeLimit = week <= conditions.weeks;
+  const withinTimeLimit = weeksCompleted <= conditions.weeks;
 
   if (hasBusinessValue && hasCodeHealth && withinTimeLimit) {
     return { victory: true, gameOver: true };
   }
-  if (week > conditions.weeks) {
+  if (weeksCompleted >= conditions.weeks) {
     return { victory: false, gameOver: true };
   }
   return { victory: false, gameOver: false };
@@ -360,7 +360,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
 
   // 6. End of game
   const fundingPulled = Boolean(scenario.mechanics?.investorConfidence) && lowConfidenceWeeks >= FUNDING_PULLED_AFTER_WEEKS;
-  const result = checkVictoryConditions(metrics, newWeek, state.victoryConditions);
+  const result = checkVictoryConditions(metrics, state.week, state.victoryConditions);
   const gameOver = fundingPulled || result.gameOver;
 
   // 7. Post-phase events use the just-updated counters, and cannot offer a

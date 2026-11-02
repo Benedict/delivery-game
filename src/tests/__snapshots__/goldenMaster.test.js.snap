@@ -38202,7 +38202,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
-    "endReason": "timeUp",
+    "endReason": "targetReached",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -39041,7 +39041,7 @@ exports[`golden master: scripted seeded games > greenfield seed 6 practiced 1`] 
     ],
     "pendingDecision": null,
     "scenario": "greenfield",
-    "victory": false,
+    "victory": true,
     "victoryConditions": {
       "businessValue": 600,
       "codeHealth": 70,
@@ -43711,7 +43711,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
-    "endReason": "timeUp",
+    "endReason": "targetReached",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -44434,7 +44434,7 @@ exports[`golden master: scripted seeded games > startup seed 1 steady 1`] = `
     ],
     "pendingDecision": null,
     "scenario": "startup",
-    "victory": false,
+    "victory": true,
     "victoryConditions": {
       "businessValue": 500,
       "description": "Reach £500K in business value within 12 weeks",
@@ -53736,7 +53736,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     "capacityAllocation": {},
     "consecutiveWeeksHighConfidence": 0,
     "consecutiveWeeksLowConfidence": 0,
-    "endReason": "timeUp",
+    "endReason": "targetReached",
     "gameOver": true,
     "history": {
       "decisions": [
@@ -54550,7 +54550,7 @@ exports[`golden master: scripted seeded games > startup seed 4 practiced 1`] = `
     ],
     "pendingDecision": null,
     "scenario": "startup",
-    "victory": false,
+    "victory": true,
     "victoryConditions": {
       "businessValue": 500,
       "description": "Reach £500K in business value within 12 weeks",

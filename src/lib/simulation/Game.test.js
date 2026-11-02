@@ -11,6 +11,7 @@ import {
   acceptAcquisition
 } from './Game.js';
 import { IMPROVEMENTS } from './BusinessRules.js';
+import { SCENARIOS } from './ScenarioDefinitions.js';
 import { fixedRng, seededRng } from './random.js';
 
 const rng = fixedRng(0.5);
@@ -131,5 +132,26 @@ describe('Game - why the game ended', () => {
   it('has no end reason while the game is running', () => {
     expect(gameWith().endReason).toBeNull();
     expect(advanceWeek(gameWith(), { rng }).state.endReason).toBeNull();
+  });
+});
+
+describe('Game - final week', () => {
+  // Greenfield has no burn, so business value at the end of the week is what we set.
+  const { businessValue: target, weeks } = SCENARIOS.greenfield.victoryConditions;
+  const greenfieldAt = (week, businessValue) => {
+    const base = createGame('greenfield', { rng });
+    return { ...base, week, metrics: { ...base.metrics, businessValue } };
+  };
+
+  it('wins when the target is reached during the final week', () => {
+    expect(advanceWeek(greenfieldAt(weeks, target), { rng }).state).toMatchObject({ gameOver: true, victory: true });
+  });
+
+  it('loses when the final week ends short of the target', () => {
+    expect(advanceWeek(greenfieldAt(weeks, target - 1), { rng }).state).toMatchObject({ gameOver: true, victory: false });
+  });
+
+  it('keeps playing before the final week while short of the target', () => {
+    expect(advanceWeek(greenfieldAt(weeks - 1, 0), { rng }).state).toMatchObject({ gameOver: false });
   });
 });
