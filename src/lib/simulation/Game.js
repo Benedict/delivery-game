@@ -243,7 +243,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const events = checkForEvents(metrics, { ...state.history, weeksLowHealth }, newWeek, rng);
   for (const event of events) {
     metrics = applyEventOutcome(metrics, event);
-    if (event.outcome.forcedFix) {
+    if (event.outcome.forcedFix && !workInProgress.some(item => item.forced)) {
       workInProgress.push(forcedFixItem(newWeek));
     }
   }

@@ -95,4 +95,26 @@ describe('EventSystem', () => {
     expect(ids({ weeksLowHealth: 2 })).not.toContain('engineeringExodus');
     expect(ids({ weeksLowHealth: 3 })).toContain('engineeringExodus');
   });
+
+  describe('cooldowns', () => {
+    const lowSatisfaction = { satisfaction: 15, codeHealth: 50, marketPosition: 50, capacity: 100 };
+    const churnAt = week => ({ events: [{ event: EVENTS.customerChurn, outcome: EVENTS.customerChurn.outcome, week }] });
+    const firesChurn = (history, week) => checkForEvents(lowSatisfaction, history, week).some(e => e.event.id === 'customerChurn');
+
+    it('gives every event a cooldown of at least one week', () => {
+      Object.values(EVENTS).forEach(event => expect(event.cooldown).toBeGreaterThanOrEqual(1));
+    });
+
+    it('does not repeat an event during its cooldown', () => {
+      const { cooldown } = EVENTS.customerChurn;
+
+      expect(firesChurn(churnAt(5), 5 + cooldown - 1)).toBe(false);
+    });
+
+    it('can repeat an event once its cooldown has passed', () => {
+      const { cooldown } = EVENTS.customerChurn;
+
+      expect(firesChurn(churnAt(5), 5 + cooldown)).toBe(true);
+    });
+  });
 });

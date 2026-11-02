@@ -156,3 +156,14 @@ describe('Game - low code health streak', () => {
     expect(advanceWeek(game, { rng }).state.history.weeksLowHealth).toBe(0);
   });
 });
+
+describe('Game - security incident', () => {
+  it('adds a single forced fix even if the incident condition persists', () => {
+    let game = gameWith({ metrics: { codeHealth: -80 } });
+    game = advanceWeek(game, { rng }).state;
+    game = advanceWeek(game, { rng }).state;
+
+    expect(game.workInProgress.filter(item => item.forced)).toHaveLength(1);
+    expect(game.history.events.filter(e => e.event.id === 'securityIncident')).toHaveLength(1);
+  });
+});
