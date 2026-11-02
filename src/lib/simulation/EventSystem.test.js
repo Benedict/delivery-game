@@ -3,7 +3,8 @@ import { describe, it, expect } from 'vitest';
 import {
   checkForEvents,
   EVENTS,
-  applyEventOutcome
+  applyEventOutcome,
+  nextLowHealthStreak
 } from './EventSystem.js';
 
 describe('EventSystem', () => {
@@ -79,5 +80,19 @@ describe('EventSystem', () => {
 
     expect(newMetrics.businessValue).toBe(150);
     expect(newMetrics.satisfaction).toBe(50);
+  });
+
+  it('counts consecutive weeks of low code health and resets on recovery', () => {
+    expect(nextLowHealthStreak({ codeHealth: 9 }, 2)).toBe(3);
+    expect(nextLowHealthStreak({ codeHealth: 9 })).toBe(1);
+    expect(nextLowHealthStreak({ codeHealth: 10 }, 2)).toBe(0);
+  });
+
+  it('triggers engineering exodus once the low-health streak reaches three weeks', () => {
+    const metrics = { satisfaction: 50, codeHealth: 0, marketPosition: 50, capacity: 100 };
+    const ids = (history) => checkForEvents(metrics, history, 2).map(e => e.event.id);
+
+    expect(ids({ weeksLowHealth: 2 })).not.toContain('engineeringExodus');
+    expect(ids({ weeksLowHealth: 3 })).toContain('engineeringExodus');
   });
 });

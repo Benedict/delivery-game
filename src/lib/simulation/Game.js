@@ -19,7 +19,7 @@ import {
   calculateImprovementOutcome,
   applyImprovementOutcome
 } from './BusinessRules.js';
-import { checkForEvents, applyEventOutcome } from './EventSystem.js';
+import { checkForEvents, applyEventOutcome, nextLowHealthStreak } from './EventSystem.js';
 import { generateOpportunities, checkDeadlines } from './OpportunityGenerator.js';
 
 /** Capacity points needed per week of improvement work. */
@@ -73,7 +73,8 @@ export function createGame(scenarioId = 'startup', { rng = defaultRng } = {}) {
     history: {
       events: [],
       decisions: [],
-      weeklyMetrics: []
+      weeklyMetrics: [],
+      weeksLowHealth: 0
     },
     victoryConditions: scenario.victoryConditions,
     gameOver: false,
@@ -238,7 +239,8 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   metrics.flowEfficiency = calculateFlowEfficiency(metrics.codeHealth);
 
   const workInProgress = [...remaining];
-  const events = checkForEvents(metrics, state.history, newWeek, rng);
+  const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth);
+  const events = checkForEvents(metrics, { ...state.history, weeksLowHealth }, newWeek, rng);
   for (const event of events) {
     metrics = applyEventOutcome(metrics, event);
     if (event.outcome.forcedFix) {
@@ -269,7 +271,8 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     history: {
       events: [...state.history.events, ...events],
       decisions: allDecisions,
-      weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics }]
+      weeklyMetrics: [...state.history.weeklyMetrics, { week: state.week, ...state.metrics }],
+      weeksLowHealth
     },
     gameOver,
     victory,
