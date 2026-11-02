@@ -5,7 +5,7 @@ import { defaultRng } from './random.js';
 /**
  * Calculate the outcome of delivering a feature.
  * @param {object} feature - Feature to deliver
- * @param {number} capacity - Team capacity
+ * @param {number} capacity - Team capacity (no longer affects value; kept for call compatibility)
  * @param {number} codeHealth - Current code health
  * @param {Array<object>} [activeBonuses] - Active bonuses from game state
  * @param {import('./random.js').Rng} [rng] - Random source
@@ -16,15 +16,14 @@ export function calculateFeatureDelivery(feature, capacity, codeHealth, activeBo
   const complexityFactors = { low: 0.5, medium: 1.0, high: 1.5 };
   const complexityFactor = complexityFactors[feature.complexity] || 1.0;
 
-  const capacityRatio = capacity / 100;
-  const effectiveCapacity = Math.max(0.3, capacityRatio);
-
+  // Poor code makes each new feature do more damage: debt compounds.
   const healthPenalty = codeHealth < 50 ? (50 - codeHealth) * 0.01 : 0;
-  const deliveryEfficiency = Math.max(0.5, 1 - healthPenalty);
 
+  // A delivered feature is worth what it said on the card, give or take the
+  // market (±20%). Team size and code health act on speed (flow efficiency)
+  // and quality (bugs), not on value, so the score stays legible.
   const marketVariability = 0.8 + (rng() * 0.4);
-
-  const valueDelivered = Math.round(baseValue * effectiveCapacity * deliveryEfficiency * marketVariability);
+  const valueDelivered = Math.round(baseValue * marketVariability);
   const hasBugs = rng() < calculateBugProbability(codeHealth, activeBonuses);
   const weeksRequired = 1;
 

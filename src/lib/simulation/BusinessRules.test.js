@@ -15,26 +15,30 @@ import {
 import { fixedRng } from './random.js';
 
 describe('BusinessRules - Feature Delivery', () => {
-  it('should calculate feature delivery success based on capacity and health', () => {
+  it('delivers the value shown on the feature, varied only by the market', () => {
     const feature = { value: 50, complexity: 'medium', deadline: 3 };
 
-    // A mid-range roll: no market variance (x1.0); bugs only when the bug chance exceeds 50%
+    // A mid-range roll means no market variance (x1.0)
     const rng = fixedRng(0.5);
 
-    // Good capacity and health: full value delivered
-    const result1 = calculateFeatureDelivery(feature, 100, 80, [], rng);
-    expect(result1.valueDelivered).toBe(50);
-    expect(result1.hasBugs).toBe(false);
-    expect(result1.weeksRequired).toBe(1);
+    // Team size and code health change how fast work gets done and how
+    // buggy it is, not what a delivered feature is worth.
+    expect(calculateFeatureDelivery(feature, 100, 80, [], rng).valueDelivered).toBe(50);
+    expect(calculateFeatureDelivery(feature, 50, 80, [], rng).valueDelivered).toBe(50);
+    expect(calculateFeatureDelivery(feature, 160, 80, [], rng).valueDelivered).toBe(50);
+    expect(calculateFeatureDelivery(feature, 100, -60, [], rng).valueDelivered).toBe(50);
 
-    // Low capacity: reduced delivery — max possible = 50 * 0.5 * 1 * 1.2 = 30
-    const result2 = calculateFeatureDelivery(feature, 50, 80, [], rng);
-    expect(result2.valueDelivered).toBe(25);
+    // Market variance is ±20%
+    expect(calculateFeatureDelivery(feature, 100, 80, [], fixedRng(0)).valueDelivered).toBe(40);
+    expect(calculateFeatureDelivery(feature, 100, 80, [], fixedRng(0.999)).valueDelivered).toBe(60);
+  });
 
-    // Poor health: value reduced and bugs likely (62% chance at code health 10)
-    const result3 = calculateFeatureDelivery(feature, 100, 10, [], rng);
-    expect(result3.valueDelivered).toBeLessThan(50);
-    expect(result3.hasBugs).toBe(true);
+  it('makes bugs more likely on poor code', () => {
+    const feature = { value: 50, complexity: 'medium', deadline: 3 };
+    const rng = fixedRng(0.5);
+
+    expect(calculateFeatureDelivery(feature, 100, 80, [], rng).hasBugs).toBe(false);
+    expect(calculateFeatureDelivery(feature, 100, 10, [], rng).hasBugs).toBe(true); // 62% chance at health 10
   });
 
   it('should calculate bug probability based on code health', () => {
