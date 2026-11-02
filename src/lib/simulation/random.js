@@ -8,7 +8,7 @@
  */
 
 /** @type {Rng} */
-export const defaultRng = Math.random;
+export const defaultRng = () => Math.random();
 
 /**
  * Seeded pseudo-random generator (mulberry32). Same seed, same sequence.
