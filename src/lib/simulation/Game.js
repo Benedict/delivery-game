@@ -17,7 +17,8 @@ import {
   applyFeatureOutcome,
   IMPROVEMENTS,
   calculateImprovementOutcome,
-  applyImprovementOutcome
+  applyImprovementOutcome,
+  applyPractices
 } from './BusinessRules.js';
 import { checkForEvents, applyEventOutcome, nextLowHealthStreak } from './EventSystem.js';
 import { generateOpportunities, checkDeadlines } from './OpportunityGenerator.js';
@@ -77,6 +78,8 @@ export function createGame(scenarioId = 'startup', { rng = defaultRng } = {}) {
       weeksLowHealth: 0
     },
     victoryConditions: scenario.victoryConditions,
+    practices: [], // Ongoing bonuses from completed improvements
+    hiringCostMultiplier: 1, // Discount on the next hire
     gameOver: false,
     victory: false
   };
@@ -165,20 +168,39 @@ function progressWork(workInProgress, capacityAllocation, efficiency) {
   return { completed, remaining };
 }
 
-function deliver(item, metrics, week, rng) {
+function deliver(item, game, week, rng) {
+  const { metrics, practices, hiringCostMultiplier } = game;
+
   if (item.type === 'feature') {
-    const outcome = calculateFeatureDelivery(item, metrics.capacity, metrics.codeHealth, rng);
+    const outcome = applyPractices(calculateFeatureDelivery(item, metrics.capacity, metrics.codeHealth, rng), practices);
     return {
-      metrics: applyFeatureOutcome(metrics, outcome),
+      game: { ...game, metrics: applyFeatureOutcome(metrics, outcome) },
       decision: { type: 'feature', week, feature: item, outcome }
     };
   }
 
-  const outcome = calculateImprovementOutcome(item, metrics.capacity);
+  const outcome = calculateImprovementOutcome(item, hiringCostMultiplier);
   return {
-    metrics: applyImprovementOutcome(metrics, outcome),
+    game: {
+      metrics: applyImprovementOutcome(metrics, outcome),
+      practices: outcome.ongoingBonus && !practices.includes(outcome.ongoingBonus)
+        ? [...practices, outcome.ongoingBonus]
+        : practices,
+      hiringCostMultiplier: item.isHire ? 1 : hiringCostMultiplier
+    },
     decision: { type: 'improvement', week, improvement: item, outcome }
   };
+}
+
+/**
+ * Opportunities an event makes available, with ids unique to the week.
+ * @param {object} triggeredEvent
+ * @param {number} week
+ */
+function opportunitiesFromEvent({ event, outcome }, week) {
+  return [outcome.opportunityUnlocked, outcome.urgentFeature]
+    .filter(Boolean)
+    .map(opp => ({ ...opp, id: `${opp.id || event.id}-w${week}`, createdWeek: week }));
 }
 
 function forcedFixItem(week) {
@@ -229,16 +251,23 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const efficiency = calculateContextSwitchingPenalty(Object.keys(state.capacityAllocation).length);
   const { completed, remaining } = progressWork(state.workInProgress, state.capacityAllocation, efficiency);
 
-  let metrics = { ...state.metrics };
+  let game = {
+    metrics: { ...state.metrics },
+    practices: state.practices || [],
+    hiringCostMultiplier: state.hiringCostMultiplier ?? 1
+  };
   const decisions = [];
   for (const item of completed) {
-    const result = deliver(item, metrics, newWeek, rng);
-    metrics = result.metrics;
+    const result = deliver(item, game, newWeek, rng);
+    game = result.game;
     decisions.push(result.decision);
   }
+  let { metrics } = game;
   metrics.flowEfficiency = calculateFlowEfficiency(metrics.codeHealth);
 
   const workInProgress = [...remaining];
+  const unlockedOpportunities = [];
+  let { hiringCostMultiplier } = game;
   const weeksLowHealth = nextLowHealthStreak(metrics, state.history.weeksLowHealth);
   const events = checkForEvents(metrics, { ...state.history, weeksLowHealth }, newWeek, rng);
   for (const event of events) {
@@ -246,6 +275,10 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     if (event.outcome.forcedFix && !workInProgress.some(item => item.forced)) {
       workInProgress.push(forcedFixItem(newWeek));
     }
+    if (event.outcome.hiringCostReduction) {
+      hiringCostMultiplier = 1 - event.outcome.hiringCostReduction;
+    }
+    unlockedOpportunities.push(...opportunitiesFromEvent(event, newWeek));
   }
   metrics.flowEfficiency = calculateFlowEfficiency(metrics.codeHealth);
 
@@ -255,6 +288,7 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
   const { active } = checkDeadlines(state.opportunities, newWeek);
   const opportunities = [
     ...active,
+    ...unlockedOpportunities,
     ...generateOpportunities(state.scenario, newWeek, metrics, completedFeatureNames, wipFeatureNames, rng)
   ];
 
@@ -265,6 +299,8 @@ export function advanceWeek(state, { rng = defaultRng } = {}) {
     ...state,
     week: newWeek,
     metrics,
+    practices: game.practices,
+    hiringCostMultiplier,
     workInProgress,
     capacityAllocation: carryOverAllocation(workInProgress, state.capacityAllocation, metrics),
     opportunities,

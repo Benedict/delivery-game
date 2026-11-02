@@ -6,6 +6,7 @@ import {
   applyFeatureOutcome,
   calculateImprovementOutcome,
   applyImprovementOutcome,
+  applyPractices,
   IMPROVEMENTS
 } from './BusinessRules.js';
 import { fixedRng } from './random.js';
@@ -95,12 +96,11 @@ describe('BusinessRules - Improvements', () => {
 
   it('should calculate improvement outcome', () => {
     const improvement = IMPROVEMENTS.refactorPayment;
-    const result = calculateImprovementOutcome(improvement, 100);
+    const result = calculateImprovementOutcome(improvement);
 
     expect(result.weeksRequired).toBe(3);
     expect(result.codeHealthDelta).toBe(30);
     expect(result.capacityDelta).toBe(0); // No permanent capacity change
-    expect(result.capacityPenalty).toBe(-15); // But reduced during work
   });
 
   it('should apply improvement outcome to metrics', () => {
@@ -127,10 +127,22 @@ describe('BusinessRules - Improvements', () => {
 
   it('should handle hiring which increases permanent capacity', () => {
     const improvement = IMPROVEMENTS.hireSenior;
-    const result = calculateImprovementOutcome(improvement, 100);
+    const result = calculateImprovementOutcome(improvement);
 
     expect(result.capacityDelta).toBe(20); // Permanent +20 capacity
-    expect(result.businessValueCost).toBeGreaterThan(0); // Costs business value
+    expect(result.businessValueCost).toBe(50); // Costs business value
+  });
+
+  it('discounts hiring, and only hiring, by the hiring cost multiplier', () => {
+    expect(calculateImprovementOutcome(IMPROVEMENTS.hireSenior, 0.5).businessValueCost).toBe(25);
+    expect(calculateImprovementOutcome({ ...IMPROVEMENTS.fixBugs, businessValueCost: 10 }, 0.5).businessValueCost).toBe(10);
+  });
+
+  it('halves feature code health damage with pair programming', () => {
+    const outcome = { codeHealthDelta: -9, valueDelivered: 50 };
+
+    expect(applyPractices(outcome, ['reduceFeatureImpact']).codeHealthDelta).toBe(-4);
+    expect(applyPractices(outcome, [])).toBe(outcome);
   });
 });
 

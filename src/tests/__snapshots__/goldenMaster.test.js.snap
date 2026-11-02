@@ -5,6 +5,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -45,6 +46,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 40,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -61,6 +63,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "enterprise-1-0": 32,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -119,6 +122,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -146,6 +150,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -245,6 +250,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -261,6 +267,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "enterprise-1-1": 29,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -389,6 +396,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -419,6 +427,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "fixBugs": 8,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -571,12 +580,21 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 5,
         "deadline": 4,
         "id": "enterprise-5-0",
         "name": "User Dashboard",
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -601,7 +619,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -621,6 +638,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "fixBugs": 8,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -774,6 +792,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 5,
         "deadline": 4,
         "id": "enterprise-5-0",
         "name": "User Dashboard",
@@ -796,6 +822,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -820,7 +847,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -840,6 +866,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "fixBugs": 8,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -1005,6 +1032,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 5,
+        "deadline": 2,
+        "id": "competitorLaunch-w5",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 5,
         "deadline": 4,
         "id": "enterprise-5-0",
         "name": "User Dashboard",
@@ -1043,6 +1078,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -1067,7 +1103,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -1087,6 +1122,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "fixBugs": 2,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -1330,6 +1366,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 4,
         "id": "enterprise-8-0",
         "name": "User Dashboard",
@@ -1352,6 +1396,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -1376,7 +1421,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -1396,6 +1440,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "fixBugs": 2,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -1648,6 +1693,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 4,
         "id": "enterprise-8-0",
         "name": "User Dashboard",
@@ -1694,6 +1747,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -1718,7 +1772,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -1738,6 +1791,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "fixBugs": 2,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -2002,6 +2056,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 4,
         "id": "enterprise-8-0",
         "name": "User Dashboard",
@@ -2072,6 +2134,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -2096,7 +2159,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -2115,6 +2177,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -2467,6 +2530,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -2491,7 +2555,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -2505,12 +2568,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -2526,6 +2587,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -2924,6 +2986,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -2948,7 +3011,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -2962,12 +3024,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -2983,6 +3043,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -3417,6 +3478,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -3441,7 +3503,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -3455,12 +3516,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -3476,6 +3535,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -3879,6 +3939,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -3903,7 +3964,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -3917,12 +3977,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -3938,6 +3996,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -4396,6 +4455,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -4420,7 +4480,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -4434,12 +4493,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -4455,6 +4512,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -4948,6 +5006,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 4,
         "id": "enterprise-16-0",
         "name": "User Dashboard",
@@ -4970,6 +5036,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -4994,7 +5061,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -5008,12 +5074,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -5029,6 +5093,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -5515,6 +5580,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 4,
         "id": "enterprise-16-0",
         "name": "User Dashboard",
@@ -5553,6 +5626,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -5577,7 +5651,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -5591,12 +5664,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -5612,6 +5683,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -6112,6 +6184,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 4,
         "id": "enterprise-16-0",
         "name": "User Dashboard",
@@ -6166,6 +6246,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -6190,7 +6271,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -6204,12 +6284,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -6225,6 +6303,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -6832,6 +6911,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -6856,7 +6936,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -6870,12 +6949,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -6891,6 +6968,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -7520,6 +7598,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 96,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 20,
+        "deadline": 2,
+        "id": "competitorLaunch-w20",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 20,
         "deadline": 2,
@@ -7544,6 +7630,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -7568,7 +7655,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -7582,12 +7668,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -7603,6 +7687,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       "securityFix": 0,
     },
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -8246,6 +8331,14 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 96,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 20,
+        "deadline": 2,
+        "id": "competitorLaunch-w20",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 20,
         "deadline": 2,
@@ -8294,6 +8387,7 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -8318,7 +8412,6 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -8332,12 +8425,10 @@ exports[`golden master: scripted seeded games > enterprise seed 2 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -8356,6 +8447,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -8380,6 +8472,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -8396,6 +8489,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "enterprise-1-0": 32,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -8446,6 +8540,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 40,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -8473,6 +8568,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -8580,6 +8676,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -8596,6 +8693,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "enterprise-2-0": 29,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -8740,6 +8838,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -8770,6 +8869,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "fixBugs": 8,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -8931,6 +9031,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 40,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -8955,7 +9056,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -8975,6 +9075,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "fixBugs": 8,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -9145,6 +9246,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -9169,7 +9271,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -9189,6 +9290,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "fixBugs": 8,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -9403,6 +9505,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -9427,7 +9530,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -9447,6 +9549,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "fixBugs": 2,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -9669,6 +9772,14 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 3,
         "id": "enterprise-8-0",
         "name": "Admin Panel",
@@ -9683,6 +9794,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -9707,7 +9819,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -9727,6 +9838,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "fixBugs": 2,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -9942,6 +10054,14 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 3,
         "id": "enterprise-8-0",
         "name": "Admin Panel",
@@ -9980,6 +10100,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 52,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -10004,7 +10125,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -10024,6 +10144,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "fixBugs": 2,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -10243,6 +10364,14 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 8,
+        "deadline": 2,
+        "id": "competitorLaunch-w8",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 8,
         "deadline": 3,
         "id": "enterprise-8-0",
         "name": "Admin Panel",
@@ -10289,6 +10418,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 40,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -10313,7 +10443,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -10332,6 +10461,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -10647,6 +10777,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -10671,7 +10802,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -10685,12 +10815,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -10706,6 +10834,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -11043,6 +11172,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 52,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -11067,7 +11197,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -11081,12 +11210,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -11102,6 +11229,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -11459,6 +11587,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -11483,7 +11612,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -11497,12 +11625,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -11518,6 +11644,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -11881,6 +12008,14 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 56,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 14,
+        "deadline": 2,
+        "id": "competitorLaunch-w14",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 14,
         "deadline": 4,
@@ -11897,6 +12032,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -11921,7 +12057,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -11935,12 +12070,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -11956,6 +12089,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -12366,6 +12500,14 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 56,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 14,
+        "deadline": 2,
+        "id": "competitorLaunch-w14",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 14,
         "deadline": 4,
@@ -12398,6 +12540,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -12422,7 +12565,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -12436,12 +12578,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -12457,6 +12597,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -12887,6 +13028,14 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 56,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 14,
+        "deadline": 2,
+        "id": "competitorLaunch-w14",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "low",
         "createdWeek": 14,
         "deadline": 4,
@@ -12935,6 +13084,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -12959,7 +13109,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -12973,12 +13122,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -12994,6 +13141,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -13497,6 +13645,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -13521,7 +13670,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -13535,12 +13683,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -13556,6 +13702,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -14105,6 +14252,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 52,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -14129,7 +14277,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -14143,12 +14290,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -14164,6 +14309,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -14742,6 +14888,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -14766,7 +14913,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -14780,12 +14926,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -14801,6 +14945,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -15380,6 +15525,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 52,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -15404,7 +15550,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -15418,12 +15563,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -15439,6 +15582,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       "securityFix": 0,
     },
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -16056,6 +16200,7 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -16080,7 +16225,6 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -16094,12 +16238,10 @@ exports[`golden master: scripted seeded games > enterprise seed 99 1`] = `
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -16118,6 +16260,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -16166,6 +16309,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 45,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -16180,6 +16324,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -16286,6 +16431,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 90,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -16300,6 +16446,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -16462,6 +16609,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 90,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -16478,6 +16626,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
       "greenfield-1-2": 87,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -16665,6 +16814,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 65,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -16694,6 +16844,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
       "fixBugs": 43,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -16913,6 +17064,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 65,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -16925,7 +17077,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
     "workInProgress": [
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -16944,6 +17095,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
       "greenfield-2-0": 41,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -17018,7 +17170,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -17033,7 +17184,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -17215,6 +17365,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -17242,6 +17393,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -17316,7 +17468,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -17331,7 +17482,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -17545,6 +17695,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 50,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -17561,6 +17712,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
       "greenfield-3-0": 86,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -17635,7 +17787,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -17650,7 +17801,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -17873,6 +18023,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 75,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -17902,6 +18053,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
       "fixBugs": 43,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -17976,7 +18128,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -17991,7 +18142,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -18246,6 +18396,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -18258,7 +18409,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
     "workInProgress": [
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 10,
         "description": "Stabilise the codebase by fixing high-priority bugs",
         "id": "fixBugs",
@@ -18277,6 +18427,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
       "greenfield-5-0": 41,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -18351,7 +18502,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -18366,7 +18516,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -18424,7 +18573,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -18439,7 +18587,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -18683,6 +18830,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "complexity": "medium",
         "createdWeek": 10,
         "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
         "id": "greenfield-10-0",
         "name": "Search Functionality",
         "value": 70,
@@ -18704,6 +18859,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 90,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -18731,6 +18887,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -18805,7 +18962,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -18820,7 +18976,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -18878,7 +19033,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -18893,7 +19047,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -19145,6 +19298,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "complexity": "medium",
         "createdWeek": 10,
         "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
         "id": "greenfield-10-0",
         "name": "Search Functionality",
         "value": 70,
@@ -19198,6 +19359,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -19212,6 +19374,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -19286,7 +19449,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -19301,7 +19463,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -19359,7 +19520,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -19374,7 +19534,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -19634,6 +19793,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "complexity": "medium",
         "createdWeek": 10,
         "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
         "id": "greenfield-10-0",
         "name": "Search Functionality",
         "value": 70,
@@ -19703,6 +19870,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 45,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -19717,6 +19885,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -19791,7 +19960,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -19806,7 +19974,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -19864,7 +20031,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -19879,7 +20045,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -19937,7 +20102,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -19952,7 +20116,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -20228,6 +20391,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -20242,6 +20406,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -20316,7 +20481,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -20331,7 +20495,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -20389,7 +20552,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -20404,7 +20566,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -20462,7 +20623,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -20477,7 +20637,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -20786,6 +20945,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -20800,6 +20960,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -20874,7 +21035,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -20889,7 +21049,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -20947,7 +21106,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -20962,7 +21120,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -21020,7 +21177,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -21035,7 +21191,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -21381,6 +21536,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 2,
@@ -21405,6 +21568,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 45,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -21419,6 +21583,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -21493,7 +21658,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -21508,7 +21672,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -21566,7 +21729,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -21581,7 +21743,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -21639,7 +21800,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -21654,7 +21814,6 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -22016,6 +22175,14 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 70,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 2,
@@ -22064,6 +22231,7 @@ exports[`golden master: scripted seeded games > greenfield seed 3 1`] = `
         "value": 90,
       },
     ],
+    "practices": [],
     "scenario": "greenfield",
     "victory": false,
     "victoryConditions": {
@@ -22083,6 +22251,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -22123,6 +22292,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 52,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -22137,6 +22307,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -22229,6 +22400,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -22243,6 +22415,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -22375,6 +22548,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -22391,6 +22565,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-1-2": 29,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -22551,6 +22726,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -22580,6 +22756,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-1-2": 16,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -22757,6 +22934,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -22784,6 +22962,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -23001,6 +23180,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -23017,6 +23197,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-2-0": 13,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -23262,6 +23443,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -23291,6 +23473,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 5,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -23578,6 +23761,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -23602,12 +23786,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -23623,6 +23805,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 5,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -23956,6 +24139,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -23980,12 +24164,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 2,
         "pointsNeeded": 80,
@@ -24001,6 +24183,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -24378,6 +24561,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -24402,12 +24586,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -24423,6 +24605,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -24825,6 +25008,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -24846,6 +25037,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -24870,12 +25062,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -24891,6 +25081,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -25324,6 +25515,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -25353,6 +25552,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -25377,12 +25577,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -25398,6 +25596,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -25827,6 +26026,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "complexity": "medium",
         "createdWeek": 11,
         "deadline": 2,
+        "id": "competitorLaunch-w11",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 11,
+        "deadline": 2,
         "id": "enterprise-11-0",
         "name": "Search Functionality",
         "value": 56,
@@ -25880,6 +26087,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -25904,12 +26112,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -25925,6 +26131,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -26392,6 +26599,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -26416,12 +26624,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -26437,6 +26643,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -26963,6 +27170,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 4,
@@ -26971,6 +27186,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -26995,12 +27211,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -27016,6 +27230,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -27579,6 +27794,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 4,
@@ -27603,6 +27826,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -27627,12 +27851,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -27648,6 +27870,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -28204,6 +28427,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 15,
+        "deadline": 2,
+        "id": "competitorLaunch-w15",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 15,
         "deadline": 4,
@@ -28236,6 +28467,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -28260,12 +28492,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -28281,6 +28511,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -28922,6 +29153,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 18,
+        "deadline": 2,
+        "id": "competitorLaunch-w18",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 18,
         "deadline": 3,
         "id": "enterprise-18-0",
         "name": "Admin Panel",
@@ -28944,6 +29183,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 36,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -28968,12 +29208,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -28989,6 +29227,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -29642,6 +29881,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 18,
+        "deadline": 2,
+        "id": "competitorLaunch-w18",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 18,
         "deadline": 3,
         "id": "enterprise-18-0",
         "name": "Admin Panel",
@@ -29680,6 +29927,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -29704,12 +29952,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -29725,6 +29971,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -30404,6 +30651,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 18,
+        "deadline": 2,
+        "id": "competitorLaunch-w18",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 18,
         "deadline": 3,
         "id": "enterprise-18-0",
         "name": "Admin Panel",
@@ -30466,6 +30721,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -30490,12 +30746,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -30511,6 +30765,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": true,
+    "hiringCostMultiplier": 0.5,
     "history": {
       "decisions": [
         {
@@ -31282,6 +31537,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -31306,12 +31562,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -31330,6 +31584,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -31354,6 +31609,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -31370,6 +31626,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-1-0": 32,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -31420,6 +31677,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -31447,6 +31705,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -31546,6 +31805,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -31562,6 +31822,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-2-0": 29,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -31706,6 +31967,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -31735,6 +31997,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-2-0": 16,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -31896,6 +32159,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -31923,6 +32187,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -32139,12 +32404,21 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 6,
+        "deadline": 2,
+        "id": "competitorLaunch-w6",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 6,
         "deadline": 3,
         "id": "enterprise-6-0",
         "name": "Search Functionality",
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -32161,6 +32435,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "enterprise-3-0": 13,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -32381,6 +32656,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 6,
+        "deadline": 2,
+        "id": "competitorLaunch-w6",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 6,
         "deadline": 3,
         "id": "enterprise-6-0",
         "name": "Search Functionality",
@@ -32395,6 +32678,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -32424,6 +32708,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 5,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -32670,6 +32955,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 6,
+        "deadline": 2,
+        "id": "competitorLaunch-w6",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 6,
         "deadline": 3,
         "id": "enterprise-6-0",
         "name": "Search Functionality",
@@ -32700,6 +32993,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -32724,12 +33018,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 0,
         "pointsNeeded": 80,
@@ -32745,6 +33037,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 5,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -33043,6 +33336,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -33067,12 +33361,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 2,
         "pointsNeeded": 80,
@@ -33088,6 +33380,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -33427,6 +33720,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 10,
         "deadline": 2,
@@ -33451,6 +33752,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -33475,12 +33777,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -33496,6 +33796,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -33844,6 +34145,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 10,
         "deadline": 2,
@@ -33892,6 +34201,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 72,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -33916,12 +34226,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -33937,6 +34245,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -34316,6 +34625,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 10,
+        "deadline": 2,
+        "id": "competitorLaunch-w10",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 10,
         "deadline": 2,
@@ -34380,6 +34697,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -34404,12 +34722,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -34425,6 +34741,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -34904,6 +35221,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 96,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -34928,12 +35246,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -34949,6 +35265,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -35453,6 +35770,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -35477,12 +35795,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -35498,6 +35814,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -36024,6 +36341,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 56,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -36048,12 +36366,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -36069,6 +36385,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -36655,6 +36972,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 3,
         "id": "enterprise-16-0",
         "name": "API Integration",
@@ -36677,6 +37002,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -36701,12 +37027,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -36722,6 +37046,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -37301,6 +37626,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 3,
         "id": "enterprise-16-0",
         "name": "API Integration",
@@ -37347,6 +37680,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -37371,12 +37705,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -37392,6 +37724,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -37961,6 +38294,14 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       {
         "complexity": "medium",
         "createdWeek": 16,
+        "deadline": 2,
+        "id": "competitorLaunch-w16",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 16,
         "deadline": 3,
         "id": "enterprise-16-0",
         "name": "API Integration",
@@ -38031,6 +38372,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -38055,12 +38397,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -38076,6 +38416,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -38751,6 +39092,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -38775,12 +39117,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -38796,6 +39136,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -39489,6 +39830,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 32,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -39513,12 +39855,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -39534,6 +39874,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       "securityFix": 0,
     },
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -40257,6 +40598,7 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
         "value": 40,
       },
     ],
+    "practices": [],
     "scenario": "enterprise",
     "victory": false,
     "victoryConditions": {
@@ -40281,12 +40623,10 @@ exports[`golden master: scripted seeded games > reckless feature-only enterprise
       },
       {
         "capacityDelta": 0,
-        "capacityPenalty": 0,
         "codeHealthDelta": 30,
         "description": "All hands on deck to fix critical security vulnerability",
         "forced": true,
         "id": "securityFix",
-        "minAllocation": 1,
         "name": "Emergency Security Fix",
         "pointsCompleted": 4,
         "pointsNeeded": 80,
@@ -40305,6 +40645,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [],
       "events": [],
@@ -40353,6 +40694,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 48,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": false,
     "victoryConditions": {
@@ -40366,6 +40708,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -40472,6 +40815,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 144,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": false,
     "victoryConditions": {
@@ -40485,6 +40829,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -40639,6 +40984,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 54,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": false,
     "victoryConditions": {
@@ -40652,6 +40998,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -40862,6 +41209,14 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 4,
         "deadline": 4,
         "id": "startup-4-0",
         "name": "Analytics Dashboard",
@@ -40900,6 +41255,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 84,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": false,
     "victoryConditions": {
@@ -40913,6 +41269,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -40987,7 +41344,6 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -41002,7 +41358,6 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -41135,6 +41490,14 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 4,
         "deadline": 4,
         "id": "startup-4-0",
         "name": "Analytics Dashboard",
@@ -41213,6 +41576,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 144,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": false,
     "victoryConditions": {
@@ -41226,6 +41590,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": false,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -41300,7 +41665,6 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -41315,7 +41679,6 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -41464,6 +41827,14 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
       {
         "complexity": "medium",
         "createdWeek": 4,
+        "deadline": 2,
+        "id": "competitorLaunch-w4",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
+        "complexity": "medium",
+        "createdWeek": 4,
         "deadline": 4,
         "id": "startup-4-0",
         "name": "Analytics Dashboard",
@@ -41582,6 +41953,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 60,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": false,
     "victoryConditions": {
@@ -41595,6 +41967,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
   {
     "capacityAllocation": {},
     "gameOver": true,
+    "hiringCostMultiplier": 1,
     "history": {
       "decisions": [
         {
@@ -41669,7 +42042,6 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         {
           "improvement": {
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "description": "Stabilise the codebase by fixing high-priority bugs",
             "id": "fixBugs",
@@ -41684,7 +42056,6 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
           "outcome": {
             "businessValueCost": 0,
             "capacityDelta": 0,
-            "capacityPenalty": 0,
             "codeHealthDelta": 10,
             "ongoingBonus": null,
             "satisfactionDelta": 5,
@@ -41964,6 +42335,14 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 60,
       },
       {
+        "complexity": "medium",
+        "createdWeek": 7,
+        "deadline": 2,
+        "id": "competitorLaunch-w7",
+        "name": "Competitive Response",
+        "value": 60,
+      },
+      {
         "complexity": "high",
         "createdWeek": 7,
         "deadline": 3,
@@ -42004,6 +42383,7 @@ exports[`golden master: scripted seeded games > startup seed 1 1`] = `
         "value": 84,
       },
     ],
+    "practices": [],
     "scenario": "startup",
     "victory": true,
     "victoryConditions": {

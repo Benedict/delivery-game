@@ -84,19 +84,17 @@ export const IMPROVEMENTS = {
     weeks: 1,
     codeHealthDelta: 10,
     satisfactionDelta: 5,
-    capacityDelta: 0,
-    capacityPenalty: 0
+    capacityDelta: 0
   },
   codeReviews: {
     id: 'codeReviews',
     name: 'Implement Pair Programming',
-    description: 'Establish pair programming practice to improve quality',
+    description: 'Establish pair programming; from then on, features damage code health half as much',
     weeks: 2,
     codeHealthDelta: 15,
     satisfactionDelta: 0,
     capacityDelta: 0,
-    capacityPenalty: -10,
-    ongoingBonus: 'reduceFeatureImpact' // Features degrade health less
+    ongoingBonus: 'reduceFeatureImpact' // Features degrade health half as much from then on
   },
   refactorPayment: {
     id: 'refactorPayment',
@@ -105,8 +103,7 @@ export const IMPROVEMENTS = {
     weeks: 3,
     codeHealthDelta: 30,
     satisfactionDelta: 0,
-    capacityDelta: 0,
-    capacityPenalty: -15
+    capacityDelta: 0
   },
   hireSenior: {
     id: 'hireSenior',
@@ -116,8 +113,8 @@ export const IMPROVEMENTS = {
     codeHealthDelta: 5,
     satisfactionDelta: 0,
     capacityDelta: 20, // Permanent capacity increase
-    capacityPenalty: -10, // Onboarding time
-    businessValueCost: 50 // Hiring costs
+    businessValueCost: 50, // Hiring costs
+    isHire: true // Cost is reduced by talent attraction
   },
   securityFix: {
     id: 'securityFix',
@@ -127,26 +124,38 @@ export const IMPROVEMENTS = {
     codeHealthDelta: 30,
     satisfactionDelta: 10, // Restores some trust
     capacityDelta: 0,
-    capacityPenalty: 0,
-    forced: true, // This is a forced improvement
-    minAllocation: 1.0 // Must allocate 100% of capacity
+    forced: true // Takes all capacity and blocks other work until done
   }
 };
+
+/** How much of a feature's code health damage remains with pair programming. */
+export const PAIRING_IMPACT_FACTOR = 0.5;
+
+/**
+ * Adjust a feature delivery outcome for practices the team has adopted.
+ * @param {object} outcome - Feature delivery outcome
+ * @param {string[]} practices - Ongoing bonuses in effect
+ * @returns {object} Adjusted outcome
+ */
+export function applyPractices(outcome, practices = []) {
+  if (!practices.includes('reduceFeatureImpact')) return outcome;
+  return { ...outcome, codeHealthDelta: Math.round(outcome.codeHealthDelta * PAIRING_IMPACT_FACTOR) };
+}
 
 /**
  * Calculate the outcome of an improvement investment
  * @param {object} improvement - Improvement to invest in
- * @param {number} currentCapacity - Current team capacity
+ * @param {number} [hiringCostMultiplier] - Discount on hiring costs (1 = full price)
  * @returns {object} Improvement outcome
  */
-export function calculateImprovementOutcome(improvement, currentCapacity) {
+export function calculateImprovementOutcome(improvement, hiringCostMultiplier = 1) {
+  const baseCost = improvement.businessValueCost || 0;
   return {
     weeksRequired: improvement.weeks,
     codeHealthDelta: improvement.codeHealthDelta,
     capacityDelta: improvement.capacityDelta || 0,
-    capacityPenalty: improvement.capacityPenalty || 0,
     satisfactionDelta: improvement.satisfactionDelta || 0,
-    businessValueCost: improvement.businessValueCost || 0,
+    businessValueCost: improvement.isHire ? Math.round(baseCost * hiringCostMultiplier) : baseCost,
     ongoingBonus: improvement.ongoingBonus || null
   };
 }

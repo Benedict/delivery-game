@@ -26,13 +26,13 @@ export function generateFeatureStory(feature, outcome) {
  */
 export function generateImprovementStory(improvement, outcome) {
   const stories = {
-    'Fix Critical Bugs': `**${improvement.name}:** The team spent time addressing critical bugs and stabilising the codebase. While no new features shipped, the system is more reliable and the team feels better about the code quality.`,
-    'Implement Code Reviews': `**${improvement.name}:** You established a code review process. The team initially grumbled about the overhead, but they're starting to catch issues earlier and share knowledge more effectively.`,
-    'Refactor Payment Module': `**${improvement.name}:** The team undertook a major refactoring of the payment system. It was painful to pause feature development, but the cleaner architecture will pay dividends in future velocity.`,
-    'Hire Senior Engineer': `**${improvement.name}:** You brought on an experienced senior engineer. There's some onboarding overhead, but their expertise is already helping the team tackle complex problems more effectively.`
+    fixBugs: `**${improvement.name}:** The team spent time addressing critical bugs and stabilising the codebase. While no new features shipped, the system is more reliable and the team feels better about the code quality.`,
+    codeReviews: `**${improvement.name}:** You established pair programming. The team initially grumbled about the overhead, but they're catching issues earlier and sharing knowledge, so new features will do less damage to the codebase.`,
+    refactorPayment: `**${improvement.name}:** The team undertook a major refactoring of the payment system. It was painful to pause feature development, but the cleaner architecture will pay dividends in future velocity.`,
+    hireSenior: `**${improvement.name}:** You brought on an experienced senior engineer. There's some onboarding overhead, but their expertise is already helping the team tackle complex problems more effectively.`
   };
 
-  return stories[improvement.name] || `**${improvement.name}:** The team invested in this improvement, strengthening the foundation for future work.`;
+  return stories[improvement.id] || `**${improvement.name}:** The team invested in this improvement, strengthening the foundation for future work.`;
 }
 
 /**
