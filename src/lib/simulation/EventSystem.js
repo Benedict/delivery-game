@@ -1,4 +1,5 @@
 // src/lib/simulation/EventSystem.js
+import { clampScore } from './metrics.js';
 import { defaultRng } from './random.js';
 
 /**
@@ -162,13 +163,9 @@ export function applyEventOutcome(metrics, triggeredEvent) {
   return {
     ...metrics,
     businessValue: metrics.businessValue + (outcome.businessValueDelta || 0),
-    satisfaction: Math.max(-100, Math.min(100,
-      metrics.satisfaction + (outcome.satisfactionDelta || 0)
-    )),
-    marketPosition: Math.max(-100, Math.min(100,
-      metrics.marketPosition + (outcome.marketPositionDelta || 0)
-    )),
+    satisfaction: clampScore(metrics.satisfaction + (outcome.satisfactionDelta || 0)),
+    marketPosition: clampScore(metrics.marketPosition + (outcome.marketPositionDelta || 0)),
     capacity: Math.max(0, metrics.capacity + (outcome.capacityDelta || 0)),
-    codeHealth: metrics.codeHealth + (outcome.codeHealthDelta || 0)
+    codeHealth: clampScore(metrics.codeHealth + (outcome.codeHealthDelta || 0))
   };
 }

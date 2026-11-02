@@ -117,4 +117,13 @@ describe('EventSystem', () => {
       expect(firesChurn(churnAt(5), 5 + cooldown)).toBe(true);
     });
   });
+
+  it('keeps code health at or above -100 after an event', () => {
+    const metrics = { businessValue: 0, satisfaction: 0, marketPosition: 0, capacity: 50, codeHealth: -95 };
+
+    const next = applyEventOutcome(metrics, { outcome: { codeHealthDelta: -10, capacityDelta: -80 } });
+
+    expect(next.codeHealth).toBe(-100);
+    expect(next.capacity).toBe(0);
+  });
 });

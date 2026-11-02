@@ -133,3 +133,20 @@ describe('BusinessRules - Improvements', () => {
     expect(result.businessValueCost).toBeGreaterThan(0); // Costs business value
   });
 });
+
+describe('BusinessRules - score bounds', () => {
+  const metrics = { capacity: 100, codeHealth: -95, satisfaction: 98, marketPosition: 0, businessValue: 0 };
+
+  it('keeps code health at or above -100 after a damaging feature', () => {
+    const next = applyFeatureOutcome(metrics, { valueDelivered: 10, hasBugs: false, codeHealthDelta: -20, satisfactionDelta: 5 });
+
+    expect(next.codeHealth).toBe(-100);
+    expect(next.satisfaction).toBe(100);
+  });
+
+  it('keeps code health at or below 100 after an improvement', () => {
+    const next = applyImprovementOutcome({ ...metrics, codeHealth: 95 }, { codeHealthDelta: 30, capacityDelta: 0, satisfactionDelta: 0 });
+
+    expect(next.codeHealth).toBe(100);
+  });
+});
